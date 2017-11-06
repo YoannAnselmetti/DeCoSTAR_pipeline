@@ -1,0 +1,27 @@
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	add_geneFamilyID
+	1	all
+	2
+
+rule add_geneFamilyID:
+    input: 18Anopheles_dataset/data/GFF_to_GENE_files/with_filter/ALL_species_GENE_file, 18Anopheles_dataset/data/INPUT_DATA/unrooted_raw_trees.nwk
+    output: 18Anopheles_dataset/data/GFF_to_GENE_files/with_filter/ALL_species_GENE_file_with_GF
+    log: 18Anopheles_dataset/logs/GFF_to_GENE_files/add_geneFamilyID.log
+    jobid: 3
+
+Error in rule add_geneFamilyID:
+    jobid: 3
+    output: 18Anopheles_dataset/data/GFF_to_GENE_files/with_filter/ALL_species_GENE_file_with_GF
+    log: 18Anopheles_dataset/logs/GFF_to_GENE_files/add_geneFamilyID.log
+
+RuleException:
+CalledProcessError in line 85 of /home/yanselmetti/Bureau/DeCoSTAR_pipeline/preprocessing.snakefile:
+Command ' set -euo pipefail;  bin/scripts/pipeline_input_decostar/add_geneFamilyID.py 18Anopheles_dataset/data/GFF_to_GENE_files/with_filter/ALL_species_GENE_file 18Anopheles_dataset/data/INPUT_DATA/unrooted_raw_trees.nwk 18Anopheles_dataset/data/GFF_to_GENE_files/with_filter/ALL_species_GENE_file_with_GF ' returned non-zero exit status 1.
+  File "/home/yanselmetti/Bureau/DeCoSTAR_pipeline/preprocessing.snakefile", line 85, in __rule_add_geneFamilyID
+  File "/usr/local/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Will exit after finishing currently running jobs.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2017-10-18T144501.531168.snakemake.log

@@ -1,0 +1,63 @@
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	detect_includedGenes
+	1	filter_GENE_with_families
+	1	from_GFF_to_GENE
+	1	sort_GENE
+	1	sort_GFF
+	6
+
+rule sort_GFF:
+    input: 18Anopheles_dataset/data/INPUT_DATA/GFF
+    output: 18Anopheles_dataset/data/GFF_to_GENE_files/sorted_GFF
+    log: 18Anopheles_dataset/logs/GFF_to_GENE_files/sort_GFF.log
+    jobid: 3
+
+Finished job 3.
+1 of 6 steps (17%) done
+
+rule from_GFF_to_GENE:
+    input: 18Anopheles_dataset/data/GFF_to_GENE_files/sorted_GFF
+    output: 18Anopheles_dataset/data/GFF_to_GENE_files/GENE, 18Anopheles_dataset/data/GFF_to_GENE_files/GRAPH_GFF
+    log: 18Anopheles_dataset/logs/GFF_to_GENE_files/from_GFF_to_GENE.log
+    jobid: 4
+
+Finished job 4.
+2 of 6 steps (33%) done
+
+rule sort_GENE:
+    input: 18Anopheles_dataset/data/GFF_to_GENE_files/GENE
+    output: 18Anopheles_dataset/data/GFF_to_GENE_files/sorted_GENE
+    log: 18Anopheles_dataset/logs/GFF_to_GENE_files/sort_GENE.log
+    jobid: 2
+
+Finished job 2.
+3 of 6 steps (50%) done
+
+rule filter_GENE_with_families:
+    input: 18Anopheles_dataset/data/INPUT_DATA/unrooted_raw_trees.nwk, 18Anopheles_dataset/data/INPUT_DATA/name_geneID_18Anopheles, 18Anopheles_dataset/data/GFF_to_GENE_files/sorted_GENE
+    output: 18Anopheles_dataset/data/GFF_to_GENE_files/filtered_GENE
+    log: 18Anopheles_dataset/logs/GFF_to_GENE_files/filter_GENE_with_families.log
+    jobid: 5
+
+Finished job 5.
+4 of 6 steps (67%) done
+
+rule detect_includedGenes:
+    input: 18Anopheles_dataset/data/GFF_to_GENE_files/filtered_GENE
+    output: 18Anopheles_dataset/data/GFF_to_GENE_files/with_filter
+    log: 18Anopheles_dataset/logs/GFF_to_GENE_files/detect_includedGenes.log
+    jobid: 1
+
+Finished job 1.
+5 of 6 steps (83%) done
+
+localrule all:
+    input: 18Anopheles_dataset/data/GFF_to_GENE_files/sorted_GFF, 18Anopheles_dataset/data/GFF_to_GENE_files/GENE, 18Anopheles_dataset/data/GFF_to_GENE_files/sorted_GENE, 18Anopheles_dataset/data/GFF_to_GENE_files/filtered_GENE, 18Anopheles_dataset/data/GFF_to_GENE_files/with_filter
+    jobid: 0
+
+Finished job 0.
+6 of 6 steps (100%) done

@@ -1,0 +1,3 @@
+MissingInputException in line 76 of /home/yanselmetti/Bureau/DeCoSTAR_pipeline/preprocessing.snakefile:
+Missing input files for rule add_geneFamilyID:
+18Anopheles_datasetdata/INPUT_DATA/unrooted_raw_trees.nwk

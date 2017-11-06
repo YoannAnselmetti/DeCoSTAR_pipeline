@@ -1,0 +1,31 @@
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	filter_geneTrees_with_includedGenes
+	2
+
+rule filter_geneTrees_with_includedGenes:
+    input: 18Anopheles_dataset/data/INPUT_DATA/unrooted_raw_trees.nwk, 18Anopheles_dataset/data/GFF_to_GENE_files/with_filter/ALL_species_Inclusion_file
+    output: 18Anopheles_dataset/data/GENE_TREES/unrooted_trees_filtered.nwk
+    log: 18Anopheles_dataset/logs/GFF_to_GENE_files/add_geneFamilyID.log
+    jobid: 1
+
+Error in rule filter_geneTrees_with_includedGenes:
+    jobid: 1
+    output: 18Anopheles_dataset/data/GENE_TREES/unrooted_trees_filtered.nwk
+    log: 18Anopheles_dataset/logs/GFF_to_GENE_files/add_geneFamilyID.log
+
+RuleException:
+AttributeError in line 100 of /home/yanselmetti/Bureau/DeCoSTAR_pipeline/preprocessing.snakefile:
+'OutputFiles' object has no attribute 'trees'
+  File "/home/yanselmetti/Bureau/DeCoSTAR_pipeline/preprocessing.snakefile", line 100, in __rule_filter_geneTrees_with_includedGenes
+  File "/usr/local/lib/python3.6/string.py", line 186, in format
+  File "/usr/local/lib/python3.6/string.py", line 190, in vformat
+  File "/usr/local/lib/python3.6/string.py", line 230, in _vformat
+  File "/usr/local/lib/python3.6/string.py", line 301, in get_field
+  File "/usr/local/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Will exit after finishing currently running jobs.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2017-10-18T145804.641364.snakemake.log

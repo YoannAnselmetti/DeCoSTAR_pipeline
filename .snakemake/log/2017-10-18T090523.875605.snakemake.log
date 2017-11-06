@@ -1,0 +1,3 @@
+NameError in line 38 of /home/yanselmetti/Bureau/DeCoSTAR_pipeline/preprocessing.snakefile:
+name 'gene' is not defined
+  File "/home/yanselmetti/Bureau/DeCoSTAR_pipeline/preprocessing.snakefile", line 38, in <module>
