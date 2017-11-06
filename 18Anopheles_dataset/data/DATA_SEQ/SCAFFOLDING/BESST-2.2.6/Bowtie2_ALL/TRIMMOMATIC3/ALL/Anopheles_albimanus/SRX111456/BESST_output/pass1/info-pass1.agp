@@ -1,0 +1,38 @@
+#APG file
+#lw-scaffolder output
+scaffold_1	0	17535	1	W	KB672428	1	17536	+
+scaffold_1	17536	17536	2	N	1	fragment	yes	
+scaffold_1	17537	20697	3	W	KB672291	1	3161	-
+scaffold_1	20698	20698	4	N	106	fragment	yes	
+scaffold_1	20699	23924	5	W	KB672290	1	3226	-
+scaffold_1	23925	24030	6	N	1	fragment	yes	
+scaffold_1	24031	25063	7	W	KB672394	1	1033	-
+scaffold_1	25064	25064	8	N	1	fragment	yes	
+scaffold_1	25065	32046	9	W	KB672458	1	6982	-
+scaffold_1	32047	32047	10	N	1	fragment	yes	
+scaffold_1	32048	35331	11	W	KB672289	1	3284	+
+scaffold_1	35332	35332	12	N	1	fragment	yes	
+scaffold_1	35333	37285	13	W	KB672333	1	1953	+
+scaffold_1	37286	37286	14	N	1	fragment	yes	
+scaffold_1	37287	38805	15	W	KB672350	1	1519	+
+scaffold_2	0	8610253	1	W	KB672457	1	8610254	+
+scaffold_2	8610254	8610254	2	N	1538	fragment	yes	
+scaffold_2	8610255	8611266	3	W	KB672393	1	1012	+
+scaffold_3	0	12170	1	W	KB672437	1	12171	+
+scaffold_3	12171	12171	2	N	1	fragment	yes	
+scaffold_3	12172	19223	3	W	KB672455	1	7052	+
+scaffold_3	19224	19224	4	N	1	fragment	yes	
+scaffold_3	19225	15402835	5	W	KB672435	1	15383611	-
+scaffold_3	15402836	15402836	6	N	79	fragment	yes	
+scaffold_3	15402837	15404152	7	W	KB672368	1	1316	+
+scaffold_4	0	778591	1	W	KB672406	1	778592	+
+scaffold_4	778592	778592	2	N	1	fragment	yes	
+scaffold_4	778593	822972	3	W	KB672422	1	44380	-
+scaffold_4	822973	822973	4	N	1	fragment	yes	
+scaffold_4	822974	824121	5	W	KB672390	1	1148	+
+scaffold_5	0	143872	1	W	KB672423	1	143873	+
+scaffold_6	0	9158	1	W	KB672301	1	9159	+
+scaffold_7	0	22197	1	W	KB672475	1	22198	+
+scaffold_7	22198	22198	2	N	1	fragment	yes	
+scaffold_7	22199	49810	3	W	KB672425	1	27612	+
+scaffold_8	0	1286343	1	W	KB672386	1	1286344	-

@@ -1,0 +1,35 @@
+############################
+###   SCAFFOLDING step   ###
+###      (CLUSTER)       ###
+############################
+
+1/ INDEX reference genome with "Bowtie2-build" (À la main):
+
+	ALL:
+		/home/yanselmetti/Software/MAPPING/bowtie2-2.2.9/bowtie2-build -o 5 /share/nas-isem_f/phylogenie_et_evolution_moleculaire/yoann/VALIDATION_by_COVERAGE/minia/Anopheles_arabiensis/ALL/minia_k72_m3_Aara_ALL.contigs.fa /share/nas-isem_f/phylogenie_et_evolution_moleculaire/yoann/VALIDATION_by_COVERAGE/INDEX/Anopheles_arabiensis/ALL/Anopheles_arabiensis_ALL
+
+	50%:
+		/home/yanselmetti/Software/MAPPING/bowtie2-2.2.9/bowtie2-build -o 5 /share/nas-isem_f/phylogenie_et_evolution_moleculaire/yoann/VALIDATION_by_COVERAGE/minia/Anopheles_arabiensis/50pourc/minia_k59_m3_Aara_50pourc.contigs.fa /share/nas-isem_f/phylogenie_et_evolution_moleculaire/yoann/VALIDATION_by_COVERAGE/INDEX/Anopheles_arabiensis/50pourc/Anopheles_arabiensis_50pourc
+
+
+2/ Mapping of reads on genome assembly:
+
+	ALL:
+		$HOME/Anopheles_project/script/cluster/cluster_ISEM/run_MAPPING.sh Bowtie2 /share/nas-isem_f/phylogenie_et_evolution_moleculaire/yoann/VALIDATION_by_COVERAGE/FASTQ/ALL/Anopheles_arabiensis Bowtie2_X_50 /share/nas-isem_f/phylogenie_et_evolution_moleculaire/yoann/VALIDATION_by_COVERAGE/INDEX/Anopheles_arabiensis/ALL/Anopheles_arabiensis_ALL_k72 ALL
+
+	50%:
+		$HOME/Anopheles_project/script/cluster/cluster_ISEM/run_MAPPING.sh Bowtie2 /share/nas-isem_f/phylogenie_et_evolution_moleculaire/yoann/VALIDATION_by_COVERAGE/FASTQ/50pourc/Anopheles_arabiensis Bowtie2_X_50 /share/nas-isem_f/phylogenie_et_evolution_moleculaire/yoann/VALIDATION_by_COVERAGE/INDEX/Anopheles_arabiensis/50pourc/Anopheles_arabiensis_50pourc 50pourc
+
+	
+3/ Merge BAM before to scaffold reads:
+
+	$HOME/Anopheles_project/script/cluster/cluster_ISEM/merge_BAM.sh /share/nas-isem_f/phylogenie_et_evolution_moleculaire/yoann/VALIDATION_by_COVERAGE/MAPPING/Bowtie2_X_50/50pourc/Anopheles_arabiensis 50pourc
+
+	$HOME/Anopheles_project/script/cluster/cluster_ISEM/merge_BAM.sh /share/nas-isem_f/phylogenie_et_evolution_moleculaire/yoann/VALIDATION_by_COVERAGE/MAPPING/Bowtie2_X_50/ALL/Anopheles_arabiensis ALL
+
+
+4/ Scaffolding of reads on MINIA genome assembly:
+
+	$HOME/Anopheles_project/script/cluster/cluster_ISEM/run_SCAFFOLDING.sh /share/nas-isem_f/phylogenie_et_evolution_moleculaire/yoann/VALIDATION_by_COVERAGE/MAPPING/Bowtie2_X_50/50pourc/Anopheles_arabiensis BESST BESST-2.2.5 /share/nas-isem_f/phylogenie_et_evolution_moleculaire/yoann/VALIDATION_by_COVERAGE/minia/Anopheles_arabiensis/50pourc/minia_k59_m3_Aara_50pourc.contigs.fa 50pourc $HOME/Anopheles_project/orientation_libraries
+
+	$HOME/Anopheles_project/script/cluster/cluster_ISEM/run_SCAFFOLDING.sh /share/nas-isem_f/phylogenie_et_evolution_moleculaire/yoann/VALIDATION_by_COVERAGE/MAPPING/Bowtie2_X_50/ALL/Anopheles_arabiensis BESST BESST-2.2.5 /share/nas-isem_f/phylogenie_et_evolution_moleculaire/yoann/VALIDATION_by_COVERAGE/minia/Anopheles_arabiensis/ALL/minia_k72_m3_Aara_ALL.contigs.fa ALL $HOME/Anopheles_project/orientation_libraries

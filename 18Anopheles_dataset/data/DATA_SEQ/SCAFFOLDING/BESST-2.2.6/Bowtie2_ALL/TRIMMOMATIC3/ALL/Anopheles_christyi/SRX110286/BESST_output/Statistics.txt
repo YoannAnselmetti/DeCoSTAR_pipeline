@@ -1,0 +1,1577 @@
+Initial number of contigs: 30369. 
+Time elapsed for reading in contig sequences:113.220336914
+
+
+PASS 1
+
+
+Mean before filtering : 1744.09847756
+Std_est  before filtering:  958.116404956
+Mean converged: 1741.60251847
+Std_est converged:  946.303084076
+Skewness of distribution:  1.63214178825
+mode for chunk size  1  :  987.5
+mode for chunk size  6  :  1089.0
+mode for chunk size  11  :  1094.5
+mode for chunk size  16  :  1096.0
+mode for chunk size  21  :  1081.5
+mode for chunk size  26  :  1079.0
+mode for chunk size  31  :  1100.5
+mode for chunk size  36  :  1098.0
+mode for chunk size  41  :  1086.5
+mode for chunk size  46  :  1081.0
+mode for chunk size  51  :  1096.5
+mode for chunk size  56  :  1092.0
+mode for chunk size  61  :  1067.5
+mode for chunk size  66  :  1089.0
+mode for chunk size  71  :  1100.5
+mode for chunk size  76  :  1102.0
+mode for chunk size  81  :  1093.5
+mode for chunk size  86  :  1075.0
+mode for chunk size  91  :  1046.5
+mode for chunk size  96  :  1104.0
+mode for chunk size  101  :  1060.5
+Mean of getdistr adjusted distribution:  1772.19730673
+Sigma of getdistr adjusted distribution:  971.885924642
+Skewness of getdistr adjusted distribution:  1.61892560557
+Median of getdistr adjusted distribution:  1512
+Mode of getdistr adjusted distribution:  1089
+Using mean and stddev of getdistr adjusted distribution from here:  1772.19730673 971.885924642
+Mode on getdistr adjusted:  1089
+Median on getdistr adjusted: 1512
+Lognormal mean getdistr adjusted:  7.32118855674
+Lognormal stddev getdistr adjusted 0.572864236802
+Contamine mean before filtering : 292.500381971
+Contamine stddev before filtering:  107.543605018
+Contamine mean converged: 292.500381971
+Contamine std_est converged:  107.543605018
+
+LIBRARY STATISTICS
+Mean of library set to: 1772.19730673
+Standard deviation of library set to:  971.885924642
+MP library PE contamination:
+Contamine rate (rev comp oriented) estimated to:  0.125558530834
+lib contamine mean (avg fragmentation size):  292.500381971
+lib contamine stddev:  107.543605018
+Number of contamined reads used for this calculation:  54978.0
+-T (library insert size threshold) set to:  7603.51285459
+-k set to (Scaffolding with contigs larger than):  5659.7410053
+Number of links required to create an edge:  None
+Maximum identical contig-end overlap-length to merge of contigs that are adjacent in a scaffold:  200
+Read length set to:  75.0
+
+Time elapsed for getting libmetrics, iteration 0: 676.681540012
+
+Parsing BAM file...
+L50:  5047 N50:  9057 Initial contig assembly length:  172658580
+Time initializing BESST objects:  0.320809841156
+Total time elapsed for initializing Graph:  0.612236022949
+Reading bam file and creating scaffold graph...
+ELAPSED reading file: 110.94733119
+NR OF FISHY READ LINKS:  0
+Number of USEFUL READS (reads mapping to different contigs uniquly):  1901424
+Number of non unique reads (at least one read non-unique in read pair) that maps to different contigs (filtered out from scaffolding):  307887
+Reads with too large insert size from "USEFUL READS" (filtered out):  150288
+Initial number of edges in G (the graph with large contigs):  19877
+Initial number of edges in G_prime (the full graph of all contigs before removal of repats):  114219
+Number of duplicated reads indicated and removed:  1505756
+Mean coverage before filtering out extreme observations =  6.88545757172
+Std dev of coverage before filtering out extreme observations=  21.8960726938
+Mean coverage after filtering =  4.50327118455
+Std coverage after filtering =  1.8818447581
+Length of longest contig in calc of coverage:  169926
+Length of shortest contig in calc of coverage:  5660
+Detecting repeats..
+Removed a total of:  0  repeats. With coverage larger than  10000
+Number of edges in G (after repeat removal):  19877
+Number of edges in G_prime (after repeat removal):  114219
+Number of BWA buggy edges removed:  0
+Number of edges in G (after filtering for buggy flag stats reporting):  19877
+Number of edges in G_prime  (after filtering for buggy flag stats reporting):  114219
+Nodes: 30369.	 Total edges with over 110 links:1. 	Average density: 3.29283150581e-05
+Nodes: 30369.	 Total edges with over 107 links:2. 	Average density: 6.58566301162e-05
+Nodes: 30369.	 Total edges with over 84 links:4. 	Average density: 0.000131713260232
+Nodes: 30369.	 Total edges with over 81 links:9. 	Average density: 0.000296354835523
+Nodes: 30369.	 Total edges with over 80 links:10. 	Average density: 0.000329283150581
+Nodes: 30369.	 Total edges with over 78 links:11. 	Average density: 0.000362211465639
+Nodes: 30369.	 Total edges with over 73 links:12. 	Average density: 0.000395139780697
+Nodes: 30369.	 Total edges with over 72 links:13. 	Average density: 0.000428068095756
+Nodes: 30369.	 Total edges with over 71 links:14. 	Average density: 0.000460996410814
+Nodes: 30369.	 Total edges with over 70 links:16. 	Average density: 0.00052685304093
+Nodes: 30369.	 Total edges with over 67 links:17. 	Average density: 0.000559781355988
+Nodes: 30369.	 Total edges with over 66 links:18. 	Average density: 0.000592709671046
+Nodes: 30369.	 Total edges with over 65 links:19. 	Average density: 0.000625637986104
+Nodes: 30369.	 Total edges with over 63 links:21. 	Average density: 0.00069149461622
+Nodes: 30369.	 Total edges with over 62 links:24. 	Average density: 0.000790279561395
+Nodes: 30369.	 Total edges with over 61 links:25. 	Average density: 0.000823207876453
+Nodes: 30369.	 Total edges with over 60 links:27. 	Average density: 0.000889064506569
+Nodes: 30369.	 Total edges with over 59 links:28. 	Average density: 0.000921992821627
+Nodes: 30369.	 Total edges with over 58 links:32. 	Average density: 0.00105370608186
+Nodes: 30369.	 Total edges with over 57 links:35. 	Average density: 0.00115249102703
+Nodes: 30369.	 Total edges with over 56 links:38. 	Average density: 0.00125127597221
+Nodes: 30369.	 Total edges with over 55 links:42. 	Average density: 0.00138298923244
+Nodes: 30369.	 Total edges with over 54 links:48. 	Average density: 0.00158055912279
+Nodes: 30369.	 Total edges with over 53 links:51. 	Average density: 0.00167934406796
+Nodes: 30369.	 Total edges with over 52 links:53. 	Average density: 0.00174520069808
+Nodes: 30369.	 Total edges with over 51 links:54. 	Average density: 0.00177812901314
+Nodes: 30369.	 Total edges with over 50 links:56. 	Average density: 0.00184398564325
+Nodes: 30369.	 Total edges with over 49 links:60. 	Average density: 0.00197569890349
+Nodes: 30369.	 Total edges with over 48 links:66. 	Average density: 0.00217326879384
+Nodes: 30369.	 Total edges with over 47 links:67. 	Average density: 0.00220619710889
+Nodes: 30369.	 Total edges with over 46 links:69. 	Average density: 0.00227205373901
+Nodes: 30369.	 Total edges with over 45 links:72. 	Average density: 0.00237083868418
+Nodes: 30369.	 Total edges with over 44 links:76. 	Average density: 0.00250255194442
+Nodes: 30369.	 Total edges with over 43 links:80. 	Average density: 0.00263426520465
+Nodes: 30369.	 Total edges with over 42 links:83. 	Average density: 0.00273305014982
+Nodes: 30369.	 Total edges with over 41 links:87. 	Average density: 0.00286476341006
+Nodes: 30369.	 Total edges with over 40 links:97. 	Average density: 0.00319404656064
+Nodes: 30369.	 Total edges with over 39 links:105. 	Average density: 0.0034574730811
+Nodes: 30369.	 Total edges with over 38 links:110. 	Average density: 0.00362211465639
+Nodes: 30369.	 Total edges with over 37 links:117. 	Average density: 0.0038526128618
+Nodes: 30369.	 Total edges with over 36 links:122. 	Average density: 0.00401725443709
+Nodes: 30369.	 Total edges with over 35 links:137. 	Average density: 0.00451117916296
+Nodes: 30369.	 Total edges with over 34 links:146. 	Average density: 0.00480753399849
+Nodes: 30369.	 Total edges with over 33 links:157. 	Average density: 0.00516974546412
+Nodes: 30369.	 Total edges with over 32 links:171. 	Average density: 0.00563074187494
+Nodes: 30369.	 Total edges with over 31 links:232. 	Average density: 0.00763936909348
+Nodes: 30369.	 Total edges with over 30 links:260. 	Average density: 0.00856136191511
+Nodes: 30369.	 Total edges with over 29 links:419. 	Average density: 0.0137969640094
+Nodes: 30369.	 Total edges with over 28 links:584. 	Average density: 0.0192301359939
+Nodes: 30369.	 Total edges with over 27 links:627. 	Average density: 0.0206460535414
+Nodes: 30369.	 Total edges with over 26 links:665. 	Average density: 0.0218973295136
+Nodes: 30369.	 Total edges with over 25 links:703. 	Average density: 0.0231486054859
+Nodes: 30369.	 Total edges with over 24 links:749. 	Average density: 0.0246633079785
+Nodes: 30369.	 Total edges with over 23 links:773. 	Average density: 0.0254535875399
+Nodes: 30369.	 Total edges with over 22 links:812. 	Average density: 0.0267377918272
+Nodes: 30369.	 Total edges with over 21 links:883. 	Average density: 0.0290757021963
+Nodes: 30369.	 Total edges with over 20 links:1055. 	Average density: 0.0347393723863
+Nodes: 30369.	 Total edges with over 19 links:1149. 	Average density: 0.0378346340018
+Nodes: 30369.	 Total edges with over 18 links:1294. 	Average density: 0.0426092396852
+Nodes: 30369.	 Total edges with over 17 links:1435. 	Average density: 0.0472521321084
+Nodes: 30369.	 Total edges with over 16 links:1556. 	Average density: 0.0512364582304
+Nodes: 30369.	 Total edges with over 15 links:1717. 	Average density: 0.0565379169548
+Nodes: 30369.	 Total edges with over 14 links:2013. 	Average density: 0.066284698212
+Nodes: 30369.	 Total edges with over 13 links:2229. 	Average density: 0.0733972142645
+Nodes: 30369.	 Total edges with over 12 links:2452. 	Average density: 0.0807402285225
+Nodes: 30369.	 Total edges with over 11 links:2891. 	Average density: 0.095195758833
+Nodes: 30369.	 Total edges with over 10 links:3303. 	Average density: 0.108762224637
+Nodes: 30369.	 Total edges with over 9 links:3951. 	Average density: 0.130099772795
+Nodes: 30369.	 Total edges with over 8 links:4905. 	Average density: 0.16151338536
+Nodes: 30369.	 Total edges with over 7 links:5778. 	Average density: 0.190259804406
+Nodes: 30369.	 Total edges with over 6 links:7548. 	Average density: 0.248542922059
+Nodes: 30369.	 Total edges with over 5 links:10615. 	Average density: 0.349534064342
+Nodes: 30369.	 Total edges with over 4 links:13975. 	Average density: 0.460173202937
+Nodes: 30369.	 Total edges with over 3 links:19870. 	Average density: 0.654285620205
+Nodes: 30369.	 Total edges with over 2 links:33383. 	Average density: 1.09924594159
+Nodes: 30369.	 Total edges with over 1 links:83850. 	Average density: 2.76103921762
+Letting filtering threshold in high complexity regions be 3 for this library.
+Letting -e be 3 for this library.
+Removed 7746 edges from graph G of border contigs.
+Remove edges in high complexity areas.
+Removed total of 46859 edges in high density areas.
+Removed an additional of 17121 edges with low support from full graph G_prime of all contigs.
+Number of significantly spurious edges: 0
+Number of edges in G_prime  (after removing edges under -e threshold (if not specified, default is -e 3):  50239
+
+ -------------------------------------------------------------
+
+Nr of contigs/scaffolds included in this pass: 30369
+Out of which 9271 acts as border contigs.
+Total time for CreateGraph-module, iteration 0: 155.204334021
+
+2860 link edges created.
+Perform inference on scaffold graph...
+Remove isolated nodes.
+7344 isolated contigs removed from graph.
+
+
+
+ Searching for paths BETWEEN scaffolds
+
+
+
+Entering ELS.BetweenScaffolds single core
+iterating until maximum of 6232 extensions.
+Number of nodes:60738, Number of edges: 50239
+Hit path_threshold of 100000 iterations! consider increase --iter <int> parameter to over 100000 if speed of BESST is not a problem. Standard increase is, e.g., 2-10x of current value
+Elapsed time single core pathfinder:  19609.0294831
+631 paths detected are with score greater or equal to 1.5 
+Path: path length: 1.0, nr bad links: 0, score: 34 
+Path taken! path length: 1.0, nr bad links: 0, score: 34 
+Path: path length: 0.0, nr bad links: 0, score: 33 
+Path taken! path length: 0.0, nr bad links: 0, score: 33 
+Path: path length: 0.0, nr bad links: 0, score: 30 
+Path taken! path length: 0.0, nr bad links: 0, score: 30 
+Path: path length: 0.0, nr bad links: 0, score: 29 
+Path taken! path length: 0.0, nr bad links: 0, score: 29 
+Path: path length: 0.0, nr bad links: 0, score: 17 
+Path taken! path length: 0.0, nr bad links: 0, score: 17 
+Path: path length: 0.0, nr bad links: 0, score: 16 
+Path taken! path length: 0.0, nr bad links: 0, score: 16 
+Path: path length: 1.0, nr bad links: 0, score: 16 
+Path taken! path length: 1.0, nr bad links: 0, score: 16 
+Path: path length: 0.0, nr bad links: 0, score: 16 
+Path taken! path length: 0.0, nr bad links: 0, score: 16 
+Path: path length: 0.0, nr bad links: 0, score: 16 
+Path taken! path length: 0.0, nr bad links: 0, score: 16 
+Path: path length: 0.0, nr bad links: 0, score: 14 
+Path taken! path length: 0.0, nr bad links: 0, score: 14 
+Path: path length: 1.0, nr bad links: 0, score: 13 
+Path taken! path length: 1.0, nr bad links: 0, score: 13 
+Path: path length: 0.0, nr bad links: 0, score: 12 
+Path taken! path length: 0.0, nr bad links: 0, score: 12 
+Path: path length: 1.0, nr bad links: 0, score: 12 
+Path taken! path length: 1.0, nr bad links: 0, score: 12 
+Path: path length: 2.0, nr bad links: 0, score: 11 
+Path taken! path length: 2.0, nr bad links: 0, score: 11 
+Path: path length: 2.0, nr bad links: 0, score: 11 
+Path taken! path length: 2.0, nr bad links: 0, score: 11 
+Path: path length: 1.0, nr bad links: 0, score: 11 
+Path taken! path length: 1.0, nr bad links: 0, score: 11 
+Path: path length: 1.0, nr bad links: 0, score: 10 
+Path taken! path length: 1.0, nr bad links: 0, score: 10 
+Path: path length: 1.0, nr bad links: 0, score: 10 
+Path taken! path length: 1.0, nr bad links: 0, score: 10 
+Path: path length: 0.0, nr bad links: 0, score: 10 
+Path taken! path length: 0.0, nr bad links: 0, score: 10 
+Path: path length: 0.0, nr bad links: 0, score: 10 
+Path taken! path length: 0.0, nr bad links: 0, score: 10 
+Path: path length: 0.0, nr bad links: 0, score: 10 
+Path taken! path length: 0.0, nr bad links: 0, score: 10 
+Path: path length: 1.0, nr bad links: 0, score: 9 
+Path taken! path length: 1.0, nr bad links: 0, score: 9 
+Path: path length: 0.0, nr bad links: 0, score: 9 
+Path taken! path length: 0.0, nr bad links: 0, score: 9 
+Path: path length: 0.0, nr bad links: 0, score: 9 
+Path taken! path length: 0.0, nr bad links: 0, score: 9 
+Path: path length: 0.0, nr bad links: 0, score: 9 
+Path taken! path length: 0.0, nr bad links: 0, score: 9 
+Path: path length: 1.0, nr bad links: 0, score: 9 
+Path taken! path length: 1.0, nr bad links: 0, score: 9 
+Path: path length: 0.0, nr bad links: 0, score: 9 
+Path taken! path length: 0.0, nr bad links: 0, score: 9 
+Path: path length: 0.0, nr bad links: 0, score: 9 
+Path taken! path length: 0.0, nr bad links: 0, score: 9 
+Path: path length: 0.0, nr bad links: 0, score: 9 
+Path taken! path length: 0.0, nr bad links: 0, score: 9 
+Path: path length: 0.0, nr bad links: 0, score: 9 
+Path taken! path length: 0.0, nr bad links: 0, score: 9 
+Path: path length: 0.0, nr bad links: 0, score: 8 
+Path taken! path length: 0.0, nr bad links: 0, score: 8 
+Path: path length: 1.0, nr bad links: 0, score: 8 
+Path taken! path length: 1.0, nr bad links: 0, score: 8 
+Path: path length: 0.0, nr bad links: 0, score: 8 
+Path taken! path length: 0.0, nr bad links: 0, score: 8 
+Path: path length: 0.0, nr bad links: 0, score: 8 
+Path taken! path length: 0.0, nr bad links: 0, score: 8 
+Path: path length: 0.0, nr bad links: 0, score: 8 
+Path taken! path length: 0.0, nr bad links: 0, score: 8 
+Path: path length: 0.0, nr bad links: 0, score: 8 
+Path taken! path length: 0.0, nr bad links: 0, score: 8 
+Path: path length: 1.0, nr bad links: 0, score: 8 
+Path taken! path length: 1.0, nr bad links: 0, score: 8 
+Path: path length: 1.0, nr bad links: 0, score: 8 
+Path taken! path length: 1.0, nr bad links: 0, score: 8 
+Path: path length: 0.0, nr bad links: 0, score: 7 
+Path taken! path length: 0.0, nr bad links: 0, score: 7 
+Path: path length: 0.0, nr bad links: 0, score: 7 
+Path taken! path length: 0.0, nr bad links: 0, score: 7 
+Path: path length: 0.0, nr bad links: 0, score: 7 
+Path taken! path length: 0.0, nr bad links: 0, score: 7 
+Path: path length: 0.0, nr bad links: 0, score: 7 
+Path taken! path length: 0.0, nr bad links: 0, score: 7 
+Path: path length: 0.0, nr bad links: 0, score: 7 
+Path taken! path length: 0.0, nr bad links: 0, score: 7 
+Path: path length: 0.0, nr bad links: 0, score: 7 
+Path taken! path length: 0.0, nr bad links: 0, score: 7 
+Path: path length: 1.0, nr bad links: 0, score: 7 
+Path taken! path length: 1.0, nr bad links: 0, score: 7 
+Path: path length: 0.0, nr bad links: 0, score: 7 
+Path taken! path length: 0.0, nr bad links: 0, score: 7 
+Path: path length: 0.0, nr bad links: 0, score: 7 
+Path taken! path length: 0.0, nr bad links: 0, score: 7 
+Path: path length: 0.0, nr bad links: 0, score: 7 
+Path taken! path length: 0.0, nr bad links: 0, score: 7 
+Path: path length: 0.0, nr bad links: 0, score: 7 
+Path taken! path length: 0.0, nr bad links: 0, score: 7 
+Path: path length: 0.0, nr bad links: 0, score: 7 
+Path taken! path length: 0.0, nr bad links: 0, score: 7 
+Path: path length: 1.0, nr bad links: 0, score: 7 
+Path taken! path length: 1.0, nr bad links: 0, score: 7 
+Path: path length: 0.0, nr bad links: 0, score: 7 
+Path taken! path length: 0.0, nr bad links: 0, score: 7 
+Path: path length: 1.0, nr bad links: 0, score: 7 
+Path taken! path length: 1.0, nr bad links: 0, score: 7 
+Path: path length: 1.0, nr bad links: 0, score: 7 
+Path taken! path length: 1.0, nr bad links: 0, score: 7 
+Path: path length: 0.0, nr bad links: 0, score: 7 
+Path taken! path length: 0.0, nr bad links: 0, score: 7 
+Path: path length: 0.0, nr bad links: 0, score: 7 
+Path taken! path length: 0.0, nr bad links: 0, score: 7 
+Path: path length: 0.0, nr bad links: 0, score: 7 
+Path taken! path length: 0.0, nr bad links: 0, score: 7 
+Path: path length: 0.0, nr bad links: 0, score: 7 
+Path taken! path length: 0.0, nr bad links: 0, score: 7 
+Path: path length: 1.0, nr bad links: 0, score: 7 
+Path taken! path length: 1.0, nr bad links: 0, score: 7 
+Path: path length: 0.0, nr bad links: 0, score: 7 
+Path taken! path length: 0.0, nr bad links: 0, score: 7 
+Path: path length: 0.0, nr bad links: 0, score: 7 
+Path taken! path length: 0.0, nr bad links: 0, score: 7 
+Path: path length: 0.0, nr bad links: 0, score: 7 
+Path taken! path length: 0.0, nr bad links: 0, score: 7 
+Path: path length: 0.0, nr bad links: 0, score: 6 
+Path taken! path length: 0.0, nr bad links: 0, score: 6 
+Path: path length: 0.0, nr bad links: 0, score: 6 
+Path taken! path length: 0.0, nr bad links: 0, score: 6 
+Path: path length: 0.0, nr bad links: 0, score: 6 
+Path taken! path length: 0.0, nr bad links: 0, score: 6 
+Path: path length: 0.0, nr bad links: 0, score: 6 
+Path taken! path length: 0.0, nr bad links: 0, score: 6 
+Path: path length: 0.0, nr bad links: 0, score: 6 
+Path taken! path length: 0.0, nr bad links: 0, score: 6 
+Path: path length: 0.0, nr bad links: 0, score: 6 
+Path taken! path length: 0.0, nr bad links: 0, score: 6 
+Path: path length: 1.0, nr bad links: 0, score: 6 
+Path taken! path length: 1.0, nr bad links: 0, score: 6 
+Path: path length: 0.0, nr bad links: 0, score: 6 
+Path taken! path length: 0.0, nr bad links: 0, score: 6 
+Path: path length: 0.0, nr bad links: 0, score: 6 
+Path taken! path length: 0.0, nr bad links: 0, score: 6 
+Path: path length: 1.0, nr bad links: 0, score: 6 
+Path taken! path length: 1.0, nr bad links: 0, score: 6 
+Path: path length: 0.0, nr bad links: 0, score: 6 
+Path taken! path length: 0.0, nr bad links: 0, score: 6 
+Path: path length: 0.0, nr bad links: 0, score: 6 
+Path taken! path length: 0.0, nr bad links: 0, score: 6 
+Path: path length: 1.0, nr bad links: 0, score: 6 
+Path taken! path length: 1.0, nr bad links: 0, score: 6 
+Path: path length: 0.0, nr bad links: 0, score: 6 
+Path taken! path length: 0.0, nr bad links: 0, score: 6 
+Path: path length: 0.0, nr bad links: 0, score: 6 
+Path taken! path length: 0.0, nr bad links: 0, score: 6 
+Path: path length: 0.0, nr bad links: 0, score: 6 
+Path taken! path length: 0.0, nr bad links: 0, score: 6 
+Path: path length: 0.0, nr bad links: 0, score: 6 
+Path taken! path length: 0.0, nr bad links: 0, score: 6 
+Path: path length: 0.0, nr bad links: 0, score: 6 
+Path taken! path length: 0.0, nr bad links: 0, score: 6 
+Path: path length: 1.0, nr bad links: 0, score: 6 
+Path taken! path length: 1.0, nr bad links: 0, score: 6 
+Path: path length: 1.0, nr bad links: 0, score: 6 
+Path taken! path length: 1.0, nr bad links: 0, score: 6 
+Path: path length: 0.0, nr bad links: 0, score: 6 
+Path taken! path length: 0.0, nr bad links: 0, score: 6 
+Path: path length: 0.0, nr bad links: 0, score: 6 
+Path taken! path length: 0.0, nr bad links: 0, score: 6 
+Path: path length: 1.0, nr bad links: 0, score: 6 
+Path taken! path length: 1.0, nr bad links: 0, score: 6 
+Path: path length: 0.0, nr bad links: 0, score: 6 
+Path taken! path length: 0.0, nr bad links: 0, score: 6 
+Path: path length: 1.0, nr bad links: 3, score: 6.0 
+Path taken! path length: 1.0, nr bad links: 3, score: 6.0 
+Path: path length: 0.0, nr bad links: 0, score: 6 
+Path taken! path length: 0.0, nr bad links: 0, score: 6 
+Path: path length: 0.0, nr bad links: 0, score: 6 
+Path taken! path length: 0.0, nr bad links: 0, score: 6 
+Path: path length: 0.0, nr bad links: 0, score: 6 
+Path taken! path length: 0.0, nr bad links: 0, score: 6 
+Path: path length: 0.0, nr bad links: 0, score: 6 
+Path taken! path length: 0.0, nr bad links: 0, score: 6 
+Path: path length: 0.0, nr bad links: 0, score: 6 
+Path taken! path length: 0.0, nr bad links: 0, score: 6 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 5 
+Path taken! path length: 0.0, nr bad links: 0, score: 5 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 4 
+Path taken! path length: 0.0, nr bad links: 0, score: 4 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 0.0, nr bad links: 0, score: 3 
+Path taken! path length: 0.0, nr bad links: 0, score: 3 
+Path: path length: 1.0, nr bad links: 5, score: 2.4 
+Path taken! path length: 1.0, nr bad links: 5, score: 2.4 
+Path: path length: 0.0, nr bad links: 6, score: 1.83333333333 
+Path taken! path length: 0.0, nr bad links: 6, score: 1.83333333333 
+Nr of contigs left:  29709.0 Nr of linking edges left: 19202.0
+Number of gaps estimated by GapEst-LP module order_contigs in this step is: 660
+Time elapsed for making scaffolds, iteration 0: 19611.2050619
+
+(super)Contigs after scaffolding: 29709
+
+merging 155 bp here
+merging 113 bp here
+merging 139 bp here
+merging 147 bp here
+merging 172 bp here
+merging 117 bp here
+merging 193 bp here
+merging 138 bp here
+merging 190 bp here
+merging 184 bp here
+merging 183 bp here
+merging 133 bp here
+merging 183 bp here
+merging 191 bp here
+merging 153 bp here
+merging 119 bp here
+merging 194 bp here
+merging 184 bp here
+merging 193 bp here
+merging 186 bp here
+merging 189 bp here
+merging 197 bp here
+merging 21 bp here
+merging 36 bp here
+merging 117 bp here
+merging 26 bp here
+merging 193 bp here
+merging 77 bp here
+merging 157 bp here
+merging 200 bp here
+merging 191 bp here
+merging 134 bp here
+merging 95 bp here
+merging 42 bp here
+merging 190 bp here
+merging 89 bp here
+merging 135 bp here
+merging 198 bp here
+merging 193 bp here
+merging 143 bp here
+merging 21 bp here
+merging 146 bp here
+merging 163 bp here
+merging 189 bp here
+merging 200 bp here
+merging 125 bp here
+merging 105 bp here
+merging 195 bp here
+merging 161 bp here
+merging 45 bp here
+merging 156 bp here
+merging 199 bp here
+merging 20 bp here
+merging 129 bp here
+merging 103 bp here
+merging 191 bp here
+merging 95 bp here
+param	value
+detect_haplotype	False
+hit_path_threshold	True
+lognormal	True
+orientation	rf
+hapl_threshold	3
+gff_file	None
+lower_cov_cutoff	0
+path_gaps_estimated	660
+skewness	1.63214178825
+skew_adj	1.61892560557
+expected_links_over_mean_plus_stddev	3
+read_len	75.0
+pass_number	1
+path_threshold	100000
+std_dev_coverage	1.8818447581
+mean_coverage	4.50327118455
+detect_duplicate	True
+FASTER_ILP	False
+development	False
+std_dev_ins_size	971.885924642
+NO_ILP	False
+current_N50	9057
+print_scores	True
+mean_ins_size	1772.19730673
+multiprocess	False
+scaffold_indexer	31001
+lognormal_mean	7.32118855674
+hapl_ratio	1.3
+lognormal_sigma	0.572864236802
+no_score	True
+first_lib	True
+current_L50	5047
+plots	False
+contigfile	None
+cov_cutoff	10000
+contamination_ratio	0.125558530834
+ins_size_threshold	7603.51285459
+edgesupport	3
+extend_paths	True
+tot_assembly_length	172658580
+max_extensions	None
+score_cutoff	1.5
+min_mapq	0
+information_file	<open file '/share/nas-isem_i/yanselmetti/DATA_SEQ/SCAFFOLDING/BESST-2.2.5/Bowtie2_ALL/TRIMMOMATIC3/ALL/Anopheles_christyi//SRX110286/BESST_output/Statistics.txt', mode 'w' at 0x2aded4aa2660>
+contamination_mean	292.500381971
+max_contig_overlap	200
+contig_threshold	6941
+contamination_stddev	107.543605018
+dfs_traversal	True
+
+L50:  4502 N50:  9602 Initial contig assembly length:  172658580
+Total time for scaffolding: 20636.4207139
+

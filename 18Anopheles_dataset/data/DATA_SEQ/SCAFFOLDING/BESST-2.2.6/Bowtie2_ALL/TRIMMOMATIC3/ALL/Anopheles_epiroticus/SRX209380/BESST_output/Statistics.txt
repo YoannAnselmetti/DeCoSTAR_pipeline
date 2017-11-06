@@ -1,0 +1,221 @@
+Initial number of contigs: 2673. 
+Time elapsed for reading in contig sequences:6.69262599945
+
+
+PASS 1
+
+
+Mean before filtering : 1282.120328
+Std_est  before filtering:  2726.7380197
+Mean converged: 1257.16232313
+Std_est converged:  975.935582909
+Skewness of distribution:  2.432165521
+mode for chunk size  1  :  239.5
+mode for chunk size  6  :  231.0
+mode for chunk size  11  :  236.5
+mode for chunk size  16  :  232.0
+mode for chunk size  21  :  241.5
+mode for chunk size  26  :  247.0
+mode for chunk size  31  :  232.5
+mode for chunk size  36  :  234.0
+mode for chunk size  41  :  225.5
+mode for chunk size  46  :  253.0
+mode for chunk size  51  :  229.5
+mode for chunk size  56  :  252.0
+mode for chunk size  61  :  213.5
+mode for chunk size  66  :  231.0
+mode for chunk size  71  :  248.5
+mode for chunk size  76  :  266.0
+mode for chunk size  81  :  688.5
+mode for chunk size  86  :  731.0
+mode for chunk size  91  :  682.5
+mode for chunk size  96  :  720.0
+mode for chunk size  101  :  252.5
+Mean of getdistr adjusted distribution:  1261.75323028
+Sigma of getdistr adjusted distribution:  981.549085367
+Skewness of getdistr adjusted distribution:  2.4340288509
+Median of getdistr adjusted distribution:  977
+Mode of getdistr adjusted distribution:  241
+Using mean and stddev of getdistr adjusted distribution from here:  1261.75323028 981.549085367
+Mode on getdistr adjusted:  241
+Median on getdistr adjusted: 977
+Lognormal mean getdistr adjusted:  6.88448665204
+Lognormal stddev getdistr adjusted 1.18308483151
+Contamine mean before filtering : 167.926203237
+Contamine stddev before filtering:  1497.32858122
+Contamine mean converged: 162.192176942
+Contamine std_est converged:  100.955686282
+
+LIBRARY STATISTICS
+Mean of library set to: 1261.75323028
+Standard deviation of library set to:  981.549085367
+MP library PE contamination:
+Contamine rate (rev comp oriented) estimated to:  0.392462496703
+lib contamine mean (avg fragmentation size):  162.192176942
+lib contamine stddev:  100.955686282
+Number of contamined reads used for this calculation:  191204.0
+-T (library insert size threshold) set to:  7151.04774249
+-k set to (Scaffolding with contigs larger than):  5187.94957175
+Number of links required to create an edge:  None
+Maximum identical contig-end overlap-length to merge of contigs that are adjacent in a scaffold:  200
+Read length set to:  75.0
+
+Time elapsed for getting libmetrics, iteration 0: 231.164870977
+
+Parsing BAM file...
+L50:  157 N50:  366526 Initial contig assembly length:  223486714
+Time initializing BESST objects:  0.0218479633331
+Total time elapsed for initializing Graph:  0.0415771007538
+Reading bam file and creating scaffold graph...
+ELAPSED reading file: 480.497834921
+NR OF FISHY READ LINKS:  0
+Number of USEFUL READS (reads mapping to different contigs uniquly):  10372065
+Number of non unique reads (at least one read non-unique in read pair) that maps to different contigs (filtered out from scaffolding):  714055
+Reads with too large insert size from "USEFUL READS" (filtered out):  9760521
+Initial number of edges in G (the graph with large contigs):  67587
+Initial number of edges in G_prime (the full graph of all contigs before removal of repats):  170517
+Number of duplicated reads indicated and removed:  162216
+Mean coverage before filtering out extreme observations =  47.4782599997
+Std dev of coverage before filtering out extreme observations=  689.101834442
+Mean coverage after filtering =  7.26690544149
+Std coverage after filtering =  3.27018176463
+Length of longest contig in calc of coverage:  2664051
+Length of shortest contig in calc of coverage:  5199
+Detecting repeats..
+Removed a total of:  6  repeats. With coverage larger than  10000
+Number of edges in G (after repeat removal):  67540
+Number of edges in G_prime (after repeat removal):  168004
+Number of BWA buggy edges removed:  0
+Number of edges in G (after filtering for buggy flag stats reporting):  67540
+Number of edges in G_prime  (after filtering for buggy flag stats reporting):  168004
+Nodes: 2667.	 Total edges with over 1782 links:1. 	Average density: 0.000374953130859
+Nodes: 2667.	 Total edges with over 1337 links:2. 	Average density: 0.000749906261717
+Nodes: 2667.	 Total edges with over 531 links:3. 	Average density: 0.00112485939258
+Nodes: 2667.	 Total edges with over 490 links:4. 	Average density: 0.00149981252343
+Nodes: 2667.	 Total edges with over 434 links:5. 	Average density: 0.00187476565429
+Nodes: 2667.	 Total edges with over 309 links:6. 	Average density: 0.00224971878515
+Nodes: 2667.	 Total edges with over 283 links:7. 	Average density: 0.00262467191601
+Nodes: 2667.	 Total edges with over 270 links:8. 	Average density: 0.00299962504687
+Nodes: 2667.	 Total edges with over 266 links:9. 	Average density: 0.00337457817773
+Nodes: 2667.	 Total edges with over 258 links:10. 	Average density: 0.00374953130859
+Nodes: 2667.	 Total edges with over 248 links:11. 	Average density: 0.00412448443945
+Nodes: 2667.	 Total edges with over 237 links:12. 	Average density: 0.0044994375703
+Nodes: 2667.	 Total edges with over 234 links:14. 	Average density: 0.00524934383202
+Nodes: 2667.	 Total edges with over 211 links:15. 	Average density: 0.00562429696288
+Nodes: 2667.	 Total edges with over 194 links:16. 	Average density: 0.00599925009374
+Nodes: 2667.	 Total edges with over 190 links:17. 	Average density: 0.0063742032246
+Nodes: 2667.	 Total edges with over 183 links:18. 	Average density: 0.00674915635546
+Nodes: 2667.	 Total edges with over 178 links:19. 	Average density: 0.00712410948631
+Nodes: 2667.	 Total edges with over 169 links:20. 	Average density: 0.00749906261717
+Nodes: 2667.	 Total edges with over 140 links:21. 	Average density: 0.00787401574803
+Nodes: 2667.	 Total edges with over 134 links:22. 	Average density: 0.00824896887889
+Nodes: 2667.	 Total edges with over 132 links:23. 	Average density: 0.00862392200975
+Nodes: 2667.	 Total edges with over 128 links:24. 	Average density: 0.00899887514061
+Nodes: 2667.	 Total edges with over 127 links:25. 	Average density: 0.00937382827147
+Nodes: 2667.	 Total edges with over 126 links:27. 	Average density: 0.0101237345332
+Nodes: 2667.	 Total edges with over 125 links:28. 	Average density: 0.010498687664
+Nodes: 2667.	 Total edges with over 120 links:30. 	Average density: 0.0112485939258
+Nodes: 2667.	 Total edges with over 118 links:31. 	Average density: 0.0116235470566
+Nodes: 2667.	 Total edges with over 116 links:32. 	Average density: 0.0119985001875
+Nodes: 2667.	 Total edges with over 114 links:33. 	Average density: 0.0123734533183
+Nodes: 2667.	 Total edges with over 113 links:34. 	Average density: 0.0127484064492
+Nodes: 2667.	 Total edges with over 112 links:35. 	Average density: 0.0131233595801
+Nodes: 2667.	 Total edges with over 107 links:36. 	Average density: 0.0134983127109
+Nodes: 2667.	 Total edges with over 105 links:37. 	Average density: 0.0138732658418
+Nodes: 2667.	 Total edges with over 102 links:38. 	Average density: 0.0142482189726
+Nodes: 2667.	 Total edges with over 98 links:39. 	Average density: 0.0146231721035
+Nodes: 2667.	 Total edges with over 97 links:42. 	Average density: 0.0157480314961
+Nodes: 2667.	 Total edges with over 95 links:45. 	Average density: 0.0168728908886
+Nodes: 2667.	 Total edges with over 94 links:46. 	Average density: 0.0172478440195
+Nodes: 2667.	 Total edges with over 93 links:47. 	Average density: 0.0176227971504
+Nodes: 2667.	 Total edges with over 92 links:48. 	Average density: 0.0179977502812
+Nodes: 2667.	 Total edges with over 89 links:49. 	Average density: 0.0183727034121
+Nodes: 2667.	 Total edges with over 88 links:50. 	Average density: 0.0187476565429
+Nodes: 2667.	 Total edges with over 87 links:51. 	Average density: 0.0191226096738
+Nodes: 2667.	 Total edges with over 86 links:52. 	Average density: 0.0194975628046
+Nodes: 2667.	 Total edges with over 85 links:53. 	Average density: 0.0198725159355
+Nodes: 2667.	 Total edges with over 84 links:54. 	Average density: 0.0202474690664
+Nodes: 2667.	 Total edges with over 83 links:55. 	Average density: 0.0206224221972
+Nodes: 2667.	 Total edges with over 82 links:56. 	Average density: 0.0209973753281
+Nodes: 2667.	 Total edges with over 81 links:58. 	Average density: 0.0217472815898
+Nodes: 2667.	 Total edges with over 80 links:61. 	Average density: 0.0228721409824
+Nodes: 2667.	 Total edges with over 79 links:63. 	Average density: 0.0236220472441
+Nodes: 2667.	 Total edges with over 78 links:64. 	Average density: 0.023997000375
+Nodes: 2667.	 Total edges with over 77 links:66. 	Average density: 0.0247469066367
+Nodes: 2667.	 Total edges with over 75 links:68. 	Average density: 0.0254968128984
+Nodes: 2667.	 Total edges with over 74 links:69. 	Average density: 0.0258717660292
+Nodes: 2667.	 Total edges with over 71 links:70. 	Average density: 0.0262467191601
+Nodes: 2667.	 Total edges with over 70 links:71. 	Average density: 0.026621672291
+Nodes: 2667.	 Total edges with over 69 links:72. 	Average density: 0.0269966254218
+Nodes: 2667.	 Total edges with over 68 links:74. 	Average density: 0.0277465316835
+Nodes: 2667.	 Total edges with over 66 links:76. 	Average density: 0.0284964379453
+Nodes: 2667.	 Total edges with over 65 links:78. 	Average density: 0.029246344207
+Nodes: 2667.	 Total edges with over 64 links:80. 	Average density: 0.0299962504687
+Nodes: 2667.	 Total edges with over 63 links:83. 	Average density: 0.0311211098613
+Nodes: 2667.	 Total edges with over 62 links:85. 	Average density: 0.031871016123
+Nodes: 2667.	 Total edges with over 61 links:87. 	Average density: 0.0326209223847
+Nodes: 2667.	 Total edges with over 60 links:88. 	Average density: 0.0329958755156
+Nodes: 2667.	 Total edges with over 58 links:93. 	Average density: 0.0348706411699
+Nodes: 2667.	 Total edges with over 57 links:96. 	Average density: 0.0359955005624
+Nodes: 2667.	 Total edges with over 56 links:98. 	Average density: 0.0367454068241
+Nodes: 2667.	 Total edges with over 55 links:104. 	Average density: 0.0389951256093
+Nodes: 2667.	 Total edges with over 54 links:109. 	Average density: 0.0408698912636
+Nodes: 2667.	 Total edges with over 53 links:110. 	Average density: 0.0412448443945
+Nodes: 2667.	 Total edges with over 52 links:113. 	Average density: 0.042369703787
+Nodes: 2667.	 Total edges with over 51 links:120. 	Average density: 0.044994375703
+Nodes: 2667.	 Total edges with over 50 links:129. 	Average density: 0.0483689538808
+Nodes: 2667.	 Total edges with over 49 links:133. 	Average density: 0.0498687664042
+Nodes: 2667.	 Total edges with over 48 links:136. 	Average density: 0.0509936257968
+Nodes: 2667.	 Total edges with over 47 links:144. 	Average density: 0.0539932508436
+Nodes: 2667.	 Total edges with over 46 links:150. 	Average density: 0.0562429696288
+Nodes: 2667.	 Total edges with over 45 links:157. 	Average density: 0.0588676415448
+Nodes: 2667.	 Total edges with over 44 links:163. 	Average density: 0.06111736033
+Nodes: 2667.	 Total edges with over 43 links:167. 	Average density: 0.0626171728534
+Nodes: 2667.	 Total edges with over 42 links:174. 	Average density: 0.0652418447694
+Nodes: 2667.	 Total edges with over 41 links:185. 	Average density: 0.0693663292088
+Nodes: 2667.	 Total edges with over 40 links:193. 	Average density: 0.0723659542557
+Nodes: 2667.	 Total edges with over 39 links:208. 	Average density: 0.0779902512186
+Nodes: 2667.	 Total edges with over 38 links:220. 	Average density: 0.0824896887889
+Nodes: 2667.	 Total edges with over 37 links:234. 	Average density: 0.0877390326209
+Nodes: 2667.	 Total edges with over 36 links:250. 	Average density: 0.0937382827147
+Nodes: 2667.	 Total edges with over 35 links:266. 	Average density: 0.0997375328084
+Nodes: 2667.	 Total edges with over 34 links:286. 	Average density: 0.107236595426
+Nodes: 2667.	 Total edges with over 33 links:304. 	Average density: 0.113985751781
+Nodes: 2667.	 Total edges with over 32 links:323. 	Average density: 0.121109861267
+Nodes: 2667.	 Total edges with over 31 links:352. 	Average density: 0.131983502062
+Nodes: 2667.	 Total edges with over 30 links:376. 	Average density: 0.140982377203
+Nodes: 2667.	 Total edges with over 29 links:406. 	Average density: 0.152230971129
+Nodes: 2667.	 Total edges with over 28 links:438. 	Average density: 0.164229471316
+Nodes: 2667.	 Total edges with over 27 links:473. 	Average density: 0.177352830896
+Nodes: 2667.	 Total edges with over 26 links:511. 	Average density: 0.191601049869
+Nodes: 2667.	 Total edges with over 25 links:548. 	Average density: 0.205474315711
+Nodes: 2667.	 Total edges with over 24 links:594. 	Average density: 0.22272215973
+Nodes: 2667.	 Total edges with over 23 links:650. 	Average density: 0.243719535058
+Nodes: 2667.	 Total edges with over 22 links:715. 	Average density: 0.268091488564
+Nodes: 2667.	 Total edges with over 21 links:785. 	Average density: 0.294338207724
+Nodes: 2667.	 Total edges with over 20 links:866. 	Average density: 0.324709411324
+Nodes: 2667.	 Total edges with over 19 links:964. 	Average density: 0.361454818148
+Nodes: 2667.	 Total edges with over 18 links:1078. 	Average density: 0.404199475066
+Nodes: 2667.	 Total edges with over 17 links:1213. 	Average density: 0.454818147732
+Nodes: 2667.	 Total edges with over 16 links:1351. 	Average density: 0.50656167979
+Nodes: 2667.	 Total edges with over 15 links:1524. 	Average density: 0.571428571429
+Nodes: 2667.	 Total edges with over 14 links:1714. 	Average density: 0.642669666292
+Nodes: 2667.	 Total edges with over 13 links:1960. 	Average density: 0.734908136483
+Nodes: 2667.	 Total edges with over 12 links:2241. 	Average density: 0.840269966254
+Nodes: 2667.	 Total edges with over 11 links:2577. 	Average density: 0.966254218223
+Nodes: 2667.	 Total edges with over 10 links:2954. 	Average density: 1.10761154856
+Nodes: 2667.	 Total edges with over 9 links:3451. 	Average density: 1.29396325459
+Nodes: 2667.	 Total edges with over 8 links:4112. 	Average density: 1.54180727409
+Nodes: 2667.	 Total edges with over 7 links:5060. 	Average density: 1.89726284214
+Nodes: 2667.	 Total edges with over 6 links:6479. 	Average density: 2.42932133483
+Nodes: 2667.	 Total edges with over 5 links:8649. 	Average density: 3.2429696288
+Nodes: 2667.	 Total edges with over 4 links:12839. 	Average density: 4.81402324709
+Nodes: 2667.	 Total edges with over 3 links:21879. 	Average density: 8.20359955006
+Nodes: 2667.	 Total edges with over 2 links:49070. 	Average density: 18.3989501312
+Nodes: 2667.	 Total edges with over 1 links:165337. 	Average density: 61.9936257968
+Letting filtering threshold in high complexity regions be 3 for this library.
+Letting -e be 3 for this library.
+Removed 56669 edges from graph G of border contigs.
+Remove edges in high complexity areas.
+Removed total of 139825 edges in high density areas.
+Removed an additional of 3633 edges with low support from full graph G_prime of all contigs.

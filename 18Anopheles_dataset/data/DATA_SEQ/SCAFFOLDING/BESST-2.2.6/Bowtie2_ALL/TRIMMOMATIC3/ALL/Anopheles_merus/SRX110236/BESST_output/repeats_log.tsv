@@ -1,0 +1,6 @@
+contig_accession	length	coverage	cov/mean_cov(exp number of placements)	lib_mean	placable
+AXCQ01012002	1129	58959.7	573.0	1852.0	Yes
+AXCQ01011917	1328	19925.6	194.0	1852.0	Yes
+AXCQ01012019	1081	17032.7	166.0	1852.0	Yes
+KI440108	36829	14196.2	138.0	1852.0	No
+AXCQ01011877	1403	10469.6	102.0	1852.0	Yes
