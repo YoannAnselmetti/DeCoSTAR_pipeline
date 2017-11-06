@@ -1,0 +1,6 @@
+outputdir: 18Anopheles_dataset
+species_tree: data/INPUT_DATA/Anopheles_species_tree_X_topology.nwk
+families: data/INPUT_DATA/unrooted_raw_trees.nwk
+chromosome_file: data/INPUT_DATA/18Anopheles_species
+GFF_dir: data/INPUT_DATA/GFF
+speNameID: data/INPUT_DATA/name_geneID_18Anopheles
