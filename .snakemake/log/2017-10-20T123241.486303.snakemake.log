@@ -1,3 +1,0 @@
-MissingInputException in line 22 of /home/yanselmetti/Bureau/DeCoSTAR_pipeline/preprocessing.snakefile:
-Missing input files for rule sort_GFF:
-18Anopheles_dataset/data/INPUT_DATA/GFF

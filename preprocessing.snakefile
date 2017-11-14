@@ -1,4 +1,4 @@
-configfile: "config_input_18Anopheles.yaml"
+configfile: "config_files/config_input_18Anopheles.yaml"
 
 
 snakemake.utils.makedirs(config["outputdir"]+"/logs/GFF_to_GENE_files")

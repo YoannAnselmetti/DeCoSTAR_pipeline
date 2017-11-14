@@ -1,4 +1,0 @@
-MissingInputException in line 47 of /home/yanselmetti/Bureau/DeCoSTAR_pipeline/preprocessing.snakefile:
-Missing input files for rule filter_GENE_with_families:
-data/INPUT_DATA/GFF
-data/INPUT_DATA/unrooted_raw_trees.nwk

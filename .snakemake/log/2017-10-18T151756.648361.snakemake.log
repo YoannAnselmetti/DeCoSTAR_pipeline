@@ -1,3 +1,0 @@
-MissingInputException in line 80 of /home/yanselmetti/Bureau/DeCoSTAR_pipeline/preprocessing.snakefile:
-Missing input files for rule add_geneFamilyID:
-18Anopheles_dataset/data/GFF_to_GENE_files/with_filter/ALL_species_GENE_file
