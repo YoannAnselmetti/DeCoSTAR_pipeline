@@ -1,3 +1,4 @@
+
 Snakemake pipeline to generate input data of the DeCoSTAR software
 =====
 
@@ -28,8 +29,9 @@ snakemake --snakefile input_decostar.snakefile -j <N>
 ```
 
 After execution of the snakemake pipeline for the 2 configurations files:
-	- "config_files/config_input_18Anopheles_WGtopo.yaml"
-	- "config_files/config_input_18Anopheles_Xtopo.yaml"
+* "config_files/config_input_18Anopheles_WGtopo.yaml"
+* "config_files/config_input_18Anopheles_Xtopo.yaml"
+
 In the directory "data/data_DeCoSTAR", DeCoSTAR configuration files have to be handwritten and content of the directory has to be manually reorganised to correspond at the architecture of "data/data_DeCoSTAR" directory in the GitHub repository [ADseq-Anopheles-APBC2018
 ](https://github.com/YoannAnselmetti/ADseq-Anopheles-APBC2018) (repository of [2]).
 
@@ -47,12 +49,13 @@ The pipeline to produce input data for DeCoSTAR is divided in 2 steps:
 * File with species name and expected chromosome number file (format: "species_name\t#chromosome")
 * Gene trees file in newick or NHX format
 * File linking species name and gene ID prefix (see file: "data/INPUT_DATA/name_geneID_18Anopheles")
-* GFF file containing exons positions on reference genome assemblies (see [GFF file format](https://www.ensembl.org/info/website/upload/gff.html))
-	=> Column 9 ('attribute' in GFF file format) corresponds to gene ID (must match with gene ID present in gene trees)
+* GFF file containing exons positions on reference genome assemblies (see [GFF file format](https://www.ensembl.org/info/website/upload/gff.html))  
+=> Column 9 ('attribute' in GFF file format) corresponds to gene ID (must match with gene ID present in gene trees)
 * Reference genome assemblies of extant genomes in FASTA file format
 
 
 
 # References
 [1] Duchemin, W., Anselmetti, Y., Patterson, M., Ponty, Y., Bérard, S., Chauve, C., Scornavacca, C., Daubin, V., Tannier, E. (2017). DeCoSTAR: Reconstructing the Ancestral Organization of Genes or Genomes Using Reconciled Phylogenies. Genome Biology and Evolution, 9(5), 1312–1319.
+
 [2] Anselmetti, Y., Duchemin, W., Tannier, E., Chauve, C., Bérard S. (2018). Phylogenetic signal from rearrangements in 18 Anopheles species by joint scaffolding extant and ancestral genomes. The Sixteenth Asia Pacific Bioinformatics Conference (APBC 2018), Yokohama, Japan, 15-17 January 2018 (to appear in BMC Genomics).
