@@ -39,7 +39,8 @@ def mkdir_p(dir_path):
    except OSError as exc: # Python >2.5
       if exc.errno == errno.EEXIST and path.isdir(dir_path):
          pass
-      else: raise
+      else:
+         raise
 
 
 def store_ADJ(BESST_dir,species,dict_spe_edge_scaff):
@@ -106,19 +107,17 @@ if __name__ == '__main__':
 
    start_time = datetime.now()
 
-   BESST_dir="data/DATA_SEQ/SCAFFOLDING/BESST-2.2.6/Bowtie2_ALL/TRIMMOMATIC3/ALL"
-   gap_max=1000000000000
-   links_min=3
-   OUTPUT_file="data/data_DeCoSTAR/scaff_BESST_ALL_3_TRIMMOMATIC3"
+   BESST_dir=argv[1]
+   gap_max=int(argv[2])
+   links_min=int(argv[3])
+   OUTPUT_file=argv[4]
 
    OUTPUT_DIR=path.dirname(OUTPUT_file)
 
    # To be sure than directory have no "/" to the end of the path
    OUTPUT_DIR=path.normpath(OUTPUT_DIR)
-
    # Create OUTPUT_DIR if not existing
-   if not path.exists(OUTPUT_DIR):
-      mkdir_p(OUTPUT_DIR)
+   mkdir_p(OUTPUT_DIR)
 
 
    # STRUCTURE for gene edge and adjacency (EDGE==ADJ)

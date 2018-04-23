@@ -3,7 +3,10 @@ species_tree: data/INPUT_DATA/Anopheles_species_tree_X_topology.nwk
 families: data/INPUT_DATA/unrooted_raw_trees.nwk
 chromosome_file: data/INPUT_DATA/18Anopheles_species
 GFF_dir: data/INPUT_DATA/GFF
-SCAFF_dir: data/INPUT_DATA/FASTA/SCAFF
+ASSEMBLY_dir: data/INPUT_DATA/FASTA/SCAFF
 speNameID: data/INPUT_DATA/name_geneID_18Anopheles
 gene_trees: data/GENE_TREES/trees_DeCoSTAR_Xtopo.nwk
-separator: "@"
+BESST_dir: data/DATA_SEQ/SCAFFOLDING/BESST-2.2.6/Bowtie2_ALL/TRIMMOMATIC3/ALL/
+speNameID: data/INPUT_DATA/name_geneID_18Anopheles
+decostar_gene_trees: DeCoSTAR_Anopheles_Xtopo_gene_trees
+SEP: '@'

@@ -6,22 +6,22 @@
 ###                                                                       
 ###   INPUT:                                                              
 ###      1- Gene TREES/FAMILIES file                                   
-###         (data/INPUT_DATA/unrooted_raw_trees.nwk)
-###      2- gene_TAG-species_name association file                        
-###         (data/INPUT_DATA/name_geneID_18anopheles)     
-###      3- INPUT directory containing sorted GENE files                  
+###         (data/INPUT_DATA/unrooted_raw_trees.nwk)    
+###      2- INPUT directory containing sorted GENE files                  
 ###         (data/GFF_to_GENE_files/sorted_GENE) 
-###      4- OUTPUT directory path where results will be stored            
+###      3- OUTPUT directory path where results will be stored            
 ###         (data/GFF_to_GENE_files/filtered_GENE)
+###      4- OPTIONNAL: gene_TAG-species_name association file                        
+###         (data/INPUT_DATA/name_geneID_18anopheles) 
 ###   OUTPUT:                                                             
 ###      - OUTPUT directory containing sorted and filtered genes file for each species                                               
 ###                                                                       
 ###   Name: filter_GENE_with_families.py     Author: Yoann Anselmetti
-###   Creation date: 2016/09/09              Last modification: 2017/10/18
+###   Creation date: 2016/09/09              Last modification: 2018/04/09
 ###                                                                       
 
 
-from sys import argv, exit
+from sys import argv, exit, stdout
 from re import search, match
 from os import close, path, makedirs, listdir, mkdir
 from datetime import datetime
@@ -41,7 +41,8 @@ def mkdir_p(dir_path):
    except OSError as exc: # Python >2.5
       if exc.errno == errno.EEXIST and path.isdir(dir_path):
          pass
-      else: raise
+      else:
+         raise
 
 def mean(table):
     return sum(table, 0.0) / len(table)
@@ -54,7 +55,7 @@ def SD(table):
    return variance(table)**0.5
 
 
-def get_list_genes_in_GF(dict_species_geneList,input_file):
+def get_list_genes_in_GF(dict_species_geneList,input_file,species_name_in_trees):
    list_genes=list()
    bool_file=""
    for line in input_file:
@@ -89,7 +90,6 @@ def get_list_genes_in_GF(dict_species_geneList,input_file):
                      gene_present=True
                      species=dict_geneID_speciesName[geneID]
                      break
-
                if gene_present:
                   if not species in dict_species_geneList:
                      dict_species_geneList[species]=list()
@@ -104,12 +104,16 @@ def get_list_genes_in_GF(dict_species_geneList,input_file):
 
          for gene in tree.get_leaf_names():
             gene_present=False
-            for geneID in dict_geneID_speciesName:
-               if geneID in gene:
-                  gene_present=True
-                  species=dict_geneID_speciesName[geneID]
-                  break
-
+            if species_name_in_trees:
+               species=gene.split('@')[0]
+               gene_ID=gene.split('@')[1]
+               gene_present=True
+            else:
+               for geneID in dict_geneID_speciesName:
+                  if geneID in gene:
+                     gene_present=True
+                     species=dict_geneID_speciesName[geneID]
+                     break
             if gene_present:
                if not species in dict_species_geneList:
                   dict_species_geneList[species]=list()
@@ -120,42 +124,57 @@ if __name__ == '__main__':
 
    start_time = datetime.now()
 
-   # Recovery of input parameters
-   GF_file=argv[1]
-   speciesName_geneID_file=open(argv[2],"r")
-   INPUT_dir=argv[3]
-   OUTPUT_dir=argv[4]
-
-
-   # To be sure than directory have no "/" to the end of the path
-   OUTPUT_dir=path.normpath(OUTPUT_dir)
-
-   # To be sure than directory have no "/" to the end of the path
-   INPUT_dir=path.normpath(INPUT_dir)
+   GF_file=""
+   speciesName_geneID_file=""
+   INPUT_dir=""
+   OUTPUT_dir=""
+   species_name_in_trees=False
+   if (len(argv)==5 or len(argv)==4):
+      if (len(argv)==5):
+         # Recovery of input parameters
+         GF_file=argv[1]
+         INPUT_dir=argv[2]
+         OUTPUT_dir=argv[3]
+         speciesName_geneID_file=open(argv[4],"r")
+         species_name_in_trees=False
+      else:
+         GF_file=argv[1]
+         INPUT_dir=argv[2]
+         OUTPUT_dir=argv[3]
+         species_name_in_trees=True
+   else:
+      exit("ERROR, script required 3 or 4")
 
    # Create OUTPUT_dir if not existing
-   if not path.exists(OUTPUT_dir):
-      mkdir(OUTPUT_dir)
+   mkdir(OUTPUT_dir)
 
-
-   # Store association Gene-Species in "dict_gene_species"
    dict_geneID_speciesName={}
-   for gene in speciesName_geneID_file:
-      r=search("^([^\t ]*)[\t ]*([^\t ]*)\n$",gene)
-      if r:
-         speciesName=r.group(1)
-         geneID=r.group(2)
-         dict_geneID_speciesName[geneID]=speciesName
-   speciesName_geneID_file.close()
+   if not species_name_in_trees:
+      # Store association Gene-Species in "dict_gene_species"
+      for gene in speciesName_geneID_file:
+         r=search("^([^\t ]*)[\t ]*([^\t ]*)\n$",gene)
+         if r:
+            speciesName=r.group(1)
+            geneID=r.group(2)
+            dict_geneID_speciesName[geneID]=speciesName
+      speciesName_geneID_file.close()
 
 
 #################################################################
 ### STORE GENES PRESENT IN GENE TREES/FAMILIES / SPECIES NAME ###
 #################################################################
+   print "1/ STORE gene present in gene families/trees:"
    dict_species_geneList=dict()
    input_file=open(GF_file,"r")
-   get_list_genes_in_GF(dict_species_geneList,input_file)
+   get_list_genes_in_GF(dict_species_geneList,input_file,species_name_in_trees)
    input_file.close()
+
+
+   # for species in dict_species_geneList:
+   #    print species
+   #    for gene in dict_species_geneList[species]:
+   #       print "\t",gene
+
 
 
 #########################################################
@@ -165,8 +184,9 @@ if __name__ == '__main__':
 
 
 #####################################################################################
-### FILTER GENES PRESENT IN GENE FILE TAHT ARE NOT PRESENT IN GENE TREES/FAMILIES ###
+### FILTER GENES PRESENT IN GENE FILE THAT ARE NOT PRESENT IN GENE TREES/FAMILIES ###
 #####################################################################################
+   print "2/ Filter gene that are present not present in gene families/trees considered:" 
    dict_species_geneFiltered=dict()
    # Browse GENE files contained in INPUT directory
    for gene_file in sorted(list_files):
@@ -174,7 +194,7 @@ if __name__ == '__main__':
       r_spe=search('^(.*)_sorted.txt$', gene_file)
       if r_spe:
          name_spe=r_spe.group(1)
-         print name_spe
+         print "\t"+name_spe
 
          output_file=open(OUTPUT_dir+"/"+name_spe+"_filtered.txt","w")
          input_file=open(INPUT_dir+"/"+gene_file)
@@ -193,7 +213,11 @@ if __name__ == '__main__':
                nb_exon=r.group(7)
                exon_pos=r.group(8)
 
+               if species_name_in_trees:
+                  gene=species+"@"+gene
+
                if species!="#species":
+                  # print species,gene
                   if gene in dict_species_geneList[species]:
                      output_file.write(line)
                      dict_species_geneList[species].remove(gene)

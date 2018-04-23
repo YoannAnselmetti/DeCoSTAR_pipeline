@@ -71,9 +71,9 @@ if __name__ == '__main__':
    start_time = datetime.now()
 
    # Recovery of input parameters
-   preSCAFF_file="data/data_DeCoSTAR/scaff_BESST_ALL_3_TRIMMOMATIC3"
-   contigEXT_file="data/data_DeCoSTAR/CTG_file"
-   OUTPUT_scaff_file="data/data_DeCoSTAR/scaff_BESST_DeCoSTAR"
+   preSCAFF_file=argv[1]
+   contigEXT_file=argv[2]
+   OUTPUT_scaff_file=argv[3]
 
    # STRUCTURE for gene edge and adjacency (EDGE==ADJ)
    ADJ=namedtuple("ADJ",["spe","g1","g2"])
@@ -216,7 +216,7 @@ if __name__ == '__main__':
 
                   else:
                      for adj in dict_spe_edge_scaff[species]:
-                        # If the gene adajcences is ever present, then keep the adj with the besst vscore
+                        # If the gene adjacency is ever present, then keep the adj with the besst vscore
                         if (gene1==adj.g1 and gene2==adj.g2) or (gene1==adj.g2 and gene2==adj.g1):
                            bool_adj=True
                            if dict_spe_edge_scaff[species][adj].vscore<score1:

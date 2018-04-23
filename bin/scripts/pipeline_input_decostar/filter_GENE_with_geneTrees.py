@@ -31,6 +31,7 @@ from os import close, path, makedirs
 from collections import namedtuple   #New in version 2.6
 import subprocess
 from datetime import datetime
+import errno
 
 from ete3 import Tree
 
@@ -40,7 +41,8 @@ def mkdir_p(dir_path):
    except OSError as exc: # Python >2.5
       if exc.errno == errno.EEXIST and path.isdir(dir_path):
          pass
-      else: raise
+      else:
+         raise
 
 
 ################
@@ -51,11 +53,11 @@ if __name__ == '__main__':
    start_time = datetime.now()
 
    # Recovery of input parameters
-   GENE_file="data/GFF_to_GENE_files/with_filter/ALL_species_GENE_file_with_GF"
-   GT_file="data/GENE_TREES/trees_DeCoSTAR_Xtopo.nwk"
-   OUTPUT_annot_file="data/data_DeCoSTAR/GENE_file"
-   sep="@"
-   bool_gene="no"
+   GENE_file=argv[1]
+   GT_file=argv[2]
+   OUTPUT_annot_file=argv[3]
+   sep=argv[4]
+   bool_gene=argv[5]
 
 
    bool_GENE=False
@@ -68,8 +70,7 @@ if __name__ == '__main__':
 
    OUTPUT_DIR=path.dirname(path.realpath(OUTPUT_annot_file))
    # Create OUTPUT_DIR if not existing
-   if not path.exists(OUTPUT_DIR):
-      mkdir_p(OUTPUT_DIR)
+   mkdir_p(OUTPUT_DIR)
 
    # STRUCTURE for gene edge and adjacency (EDGE==ADJ)
    GENE=namedtuple("GENE",["spe","ctg","gf","id","ori","start","end","exon_nb","exon_pos"])
@@ -79,7 +80,7 @@ if __name__ == '__main__':
 ### INDEXATION OF GENES INFOS BY GENE ID ###
 ############################################
    print "INDEX of gene info by gene ID ...",
-   dict_ID_gene={}
+   dict_ID_gene=dict()
    with open(GENE_file,'r') as ortho_file:
       for line in ortho_file:
          # If INPUT file: INPUT_DATA/ALL_species_GENE_file
@@ -122,7 +123,7 @@ if __name__ == '__main__':
       tree=Tree(tree_str)
       # Get list of extant genes in current gene tree
       for spe_gene in tree.get_leaf_names():
-         gene=spe_gene.split("@")[1]
+         gene=spe_gene.split(sep)[1]
          if gene in list_genes:
             exit("\n!!! ERROR: Gene "+gene+" is present in several trees in gene trees file: "+GT_file+" !!!")
          else:

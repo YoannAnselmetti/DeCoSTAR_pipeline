@@ -16,11 +16,9 @@
 ###         (data/distrib_RAW_Anopheles_gene_trees.txt)
 ###      6- Character separator between species name and gene ID
 ###         (@)
-###      7- prefix/postfix boolean
-###         (prefix or postfix)
 ###
-###   OUTPUT:	(RUN in ~)
-###      - OUTPUT FASTA file containing gene sequences of selected species
+###   OUTPUT:	(RUN in less than 1 minute)
+###      - Gene trees files used as INPUT by DeCoST
 ###
 ###   Name: write_1tree_per_file.py    Author: Yoann Anselmetti
 ###   Creation date: 2016/09/02        Last modification: 2017/11/07
@@ -32,6 +30,7 @@ from os import close, path, makedirs, listdir
 from re import search
 from datetime import datetime
 from ete3 import Tree
+import errno
 
 def mkdir_p(dir_path):
    try:
@@ -39,7 +38,8 @@ def mkdir_p(dir_path):
    except OSError as exc: # Python >2.5
       if exc.errno == errno.EEXIST and path.isdir(dir_path):
          pass
-      else: raise
+      else:
+         raise
 
 
 if __name__ == '__main__':
@@ -47,25 +47,22 @@ if __name__ == '__main__':
    start_time = datetime.now()
 
    input_file=open(argv[1],"r")
-   GT_dir=argv[2]
+   GENE_file=argv[2]
    output_dir=argv[3]
    path_written=argv[4]
    output_trees_file=argv[5]
    separator=argv[6]
-   order_bool=argv[7]
 
    OUTPUT_DIR=path.dirname(output_trees_file)
    # To be sure than directory have no "/" to the end of the path
    OUTPUT_DIR=path.normpath(OUTPUT_DIR)
    # Create OUTPUT_DIR if not existing
-   if not path.exists(OUTPUT_DIR):
-      mkdir_p(OUTPUT_DIR)
+   mkdir_p(OUTPUT_DIR)
 
    # To be sure than directory have no "/" to the end of the path
    output_dir=path.normpath(output_dir)
    # Create output_dir if not existing
-   if not path.exists(output_dir):
-      mkdir_p(output_dir)
+   mkdir_p(output_dir)
 
 
    # Store association gene ID with gene family ID in "dict_geneID_gfID"
@@ -99,12 +96,7 @@ if __name__ == '__main__':
          # print leaf
          gene=""
          if separator in leaf:
-            if order_bool=="prefix":
-               gene=leaf.split(separator)[1]
-            elif order_bool=="postfix":
-               gene=leaf.split(separator)[0]
-            else:
-               exit("ERROR, parameter 7 should be equal to \"postfix\" or \"prefix\" !!!")
+            gene=leaf.split(separator)[1]
          else:
             gene=leaf
          

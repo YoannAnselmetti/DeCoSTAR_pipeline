@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 ###                                                                         
 ###   Goal:                                                                 
-###      Create contigs file with gene located to the extremities of contigs
+###      Create scaffs file with gene located to the extremities of scaffs
 ###                                                                         
 ###   INPUT:                                                                
 ###      1- Annotation gene file                                            
@@ -10,12 +10,12 @@
 ###      2- Genome Assembly FASTA files directory                           
 ###         (data/INPUT_DATA/FASTA/SCAFF)                 
 ###      3- Contigs OUTPUT file giving info on genes to extremities         
-###         (data/data_DeCoSTAR/CTG_file)                         
+###         (data/data_DeCoSTAR/SCAFF_file)                         
 ###                                                                         
 ###   OUTPUT:                                                               
 ###      - Contig file with genes located to extremities                    
 ###                                                                         
-###   Name: create_CTG_file.py              Author: Yoann Anselmetti     
+###   Name: create_SCAFF_file.py              Author: Yoann Anselmetti     
 ###   Creation date: 2016/02/15             Last modification: 2017/11/07
 ###                                                                         
 
@@ -23,7 +23,8 @@ from sys import argv
 from re import search
 from os import close, path, mkdir, listdir
 from datetime import datetime
-from collections import namedtuple   #New in version 2.6
+from Bio import SeqIO
+import errno
 
 
 def mkdir_p(dir_path):
@@ -32,7 +33,8 @@ def mkdir_p(dir_path):
    except OSError as exc: # Python >2.5
       if exc.errno == errno.EEXIST and path.isdir(dir_path):
          pass
-      else: raise
+      else:
+         raise
 
 
 ################
@@ -43,26 +45,24 @@ if __name__ == '__main__':
    start_time = datetime.now()
 
    # Recovery of input parameters
-   annotG_file="data/data_DeCoSTAR/GENE_file"
-   SCAFF_dir="data/INPUT_DATA/FASTA/SCAFF"
-   CTG_file="data/data_DeCoSTAR/CTG_file"
+   annotG_file=argv[1]
+   SCAFF_dir=argv[2]
+   SCAFF_file=argv[3]
 
-   OUTPUT_DIR=path.dirname(path.realpath(CTG_file))
+   OUTPUT_DIR=path.dirname(path.realpath(SCAFF_file))
    # Create OUTPUT_DIR if not existing
-   if not path.exists(OUTPUT_DIR):
-      mkdir_p(OUTPUT_DIR)
+   mkdir_p(OUTPUT_DIR)
 
    # To be sure than directory have no "/" to the end of the path
    SCAFF_dir=path.normpath(SCAFF_dir)
 
-   CTG=namedtuple("CTG",["spe","size"])
 
 #################################################################
-### Store list of contig size/species in dict_spe_listCTGsize ###
+### Store list of scaff size/species in dict_spe_listSCAFFsize ###
 #################################################################
-   dict_CTG=dict()
+   dict_spe_SCAFF=dict()
    FASTA_list=listdir(SCAFF_dir)
-   print "Storing CTG size of species:"
+   print "Storing SCAFF size of species:"
    # Browse list of Genome assemblies to FASTA file format
    for FASTA in sorted(FASTA_list):
       i=0
@@ -72,40 +72,35 @@ if __name__ == '__main__':
          genus=r.group(1)
          spe=r.group(2)
          species=genus+"_"+spe
+         dict_spe_SCAFF[species]=dict()
       else:
          exit("!!! ERROR, FASTA file name: "+FASTA+" is incorrectly written !!!")
 
-      print species,
-#      print ":",
-      print
-      # Browse current FASTA file to get list of contigs with its size 
+      print species
+
+      # Browse FASTA file of current species to get list of scaffolds 
       fasta_file=open(SCAFF_dir+"/"+FASTA)
-      for line in fasta_file:
-         r_line=search("^>([^ ]*) .*:([0-9]*):[^:\n]*\n$",line)
-         if r_line:
-            contig=r_line.group(1)
-            size=r_line.group(2)
+      for sequence in SeqIO.parse(fasta_file,"fasta"):
+         scaff=sequence.id
+         size=len(sequence.seq)
 
-#            print "\t"+contig+" - "+size+" bp"
+         if scaff in dict_spe_SCAFF[species]:
+               exit("!!! ERROR, there are two scaffolds that have the same ID ("+scaff+") !!!")
 
-            if contig in dict_CTG:
-               exit("!!! ERROR, there are two contigs that have the same ID ("+contig+") !!!")
-
-            ctg=CTG(species,size)
-            dict_CTG[contig]=ctg
-            i+=1
+         dict_spe_SCAFF[species][scaff]=size
+         i+=1
+            
 
       fasta_file.close()
       if i==0:
-         exit("ERROR, there is no contig for this species "+species+"!!! => Check if the genome assemblies are uncompressed.")
+         exit("ERROR, there is no scaff for this species "+species+"!!! => Check if the genome assemblies are uncompressed.")
 
 
 ####################################################################
-### BROWSE ANNOTATION GENE FILE TO WRITE GENE TO CTG EXTREMITIES ###
+### BROWSE ANNOTATION GENE FILE TO WRITE GENE TO SCAFF EXTREMITIES ###
 ####################################################################
-   dict_spe_newAdj={}
    input_file=open(annotG_file,'r')
-   output_file=open(CTG_file,'w')
+   output_file=open(SCAFF_file,'w')
    output_file.write("#species\tctg\tctg_size\tctg_gene_nb\t5'_gene_family\t5'_gene\torientation_5'_gene\tstart_5'_gene\t3'_gene_family\t3'_gene\torientation_3'_gene\tend_3'_gene\n")
    gf1=""
    gene1=""
@@ -141,9 +136,9 @@ if __name__ == '__main__':
 
             else:
                if (str_spe!=cur_spe) or (str_ctg!=cur_ctg):
-                  if str_ctg in dict_CTG:
-                     output_file.write(str_spe+"\t"+str_ctg+"\t"+dict_CTG[str_ctg].size+"\t"+str(gene_nb)+"\t"+gf1+"\t"+gene1+"\t"+ori1+"\t"+start1+"\t"+str_gf+"\t"+str_gene+"\t"+str_ori+"\t"+str_stop+"\n")
-                  # For contig that are not present in SCAFF directory (Genome assemblies)
+                  if str_ctg in dict_spe_SCAFF[str_spe]:
+                     output_file.write(str_spe+"\t"+str_ctg+"\t"+str(dict_spe_SCAFF[str_spe][str_ctg])+"\t"+str(gene_nb)+"\t"+gf1+"\t"+gene1+"\t"+ori1+"\t"+start1+"\t"+str_gf+"\t"+str_gene+"\t"+str_ori+"\t"+str_stop+"\n")
+                  # For scaff that are not present in SCAFF directory (Genome assemblies)
                   else:
                      output_file.write(str_spe+"\t"+str_ctg+"\t?\t"+str(gene_nb)+"\t"+gf1+"\t"+gene1+"\t"+ori1+"\t"+start1+"\t"+str_gf+"\t"+str_gene+"\t"+str_ori+"\t"+str_stop+"\n")
 
@@ -163,10 +158,10 @@ if __name__ == '__main__':
 
    input_file.close()
 
-   # Write last contig in CTG_file
-   if str_ctg in dict_CTG:
-      output_file.write(str_spe+"\t"+str_ctg+"\t"+dict_CTG[str_ctg].size+"\t"+str(gene_nb)+"\t"+gf1+"\t"+gene1+"\t"+ori1+"\t"+start1+"\t"+str_gf+"\t"+str_gene+"\t"+str_ori+"\t"+str_stop+"\n")
-   # For contig that are not present in SCAFF directory (Genome assemblies)
+   # Write last scaff in SCAFF_file
+   if str_ctg in dict_spe_SCAFF[str_spe]:
+      output_file.write(str_spe+"\t"+str_ctg+"\t"+str(dict_spe_SCAFF[str_spe][str_ctg])+"\t"+str(gene_nb)+"\t"+gf1+"\t"+gene1+"\t"+ori1+"\t"+start1+"\t"+str_gf+"\t"+str_gene+"\t"+str_ori+"\t"+str_stop+"\n")
+   # For scaff that are not present in SCAFF directory (Genome assemblies)
    else:
       output_file.write(str_spe+"\t"+str_ctg+"\t?\t"+str(gene_nb)+"\t"+gf1+"\t"+gene1+"\t"+ori1+"\t"+start1+"\t"+str_gf+"\t"+str_gene+"\t"+str_ori+"\t"+str_stop+"\n")
    output_file.close()

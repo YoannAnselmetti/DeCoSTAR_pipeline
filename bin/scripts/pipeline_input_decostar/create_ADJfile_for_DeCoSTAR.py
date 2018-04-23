@@ -11,9 +11,9 @@
 ###      2- INPUT scaffolding adjacencies file                                           
 ###         (data/data_DeCoSTAR/scaff_BESST_DeCoSTAR)   
 ###      3- OUTPUT file path for Adjacency file                                
-###         (data/data_DeCoSTAR/decostar/adjacencies_anopheles)
+###         (data/data_DeCoSTAR/decostar/adjacencies.txt)
 ###      4- OUTPUT file path for Adjacency file without scaffolding                               
-###         (data/data_DeCoSTAR/decostar/adjacencies_anopheles-scaff)
+###         (data/data_DeCoSTAR/decostar/adjacencies-scaff.txt)
 ###      5- Character separator between species name and gene ID               
 ###         (@)                                                                
 ###                                                                            
@@ -28,6 +28,7 @@ from sys import argv, stdout
 from datetime import datetime
 from re import search
 from os import close, path, makedirs
+import errno
 
 
 def mkdir_p(dir_path):
@@ -36,7 +37,8 @@ def mkdir_p(dir_path):
    except OSError as exc: # Python >2.5
       if exc.errno == errno.EEXIST and path.isdir(dir_path):
          pass
-      else: raise
+      else:
+         raise
 
 
 if __name__ == '__main__':
@@ -44,16 +46,16 @@ if __name__ == '__main__':
    start_time = datetime.now()
 
    # Recovery of input parameters
-   GENE_file="data/data_DeCoSTAR/GENE_file"
-   SCAFF_file="data/data_DeCoSTAR/scaff_BESST_DeCoSTAR"
-   OUTPUT_Adj="data/data_DeCoSTAR/decostar/adjacencies_anopheles"
-   OUTPUT_Adj_no_scaff="data/data_DeCoSTAR/decostar/adjacencies_anopheles-scaff"
-   separator="@"
+   GENE_file=argv[1]
+   SCAFF_file=argv[2]
+   OUTPUT_Adj=argv[3]
+   OUTPUT_Adj_no_scaff=argv[4]
+   separator=argv[5]
 
-   OUTPUT_DIR=path.dirname(path.realpath(OUTPUT_Adj))
+   
    # Create OUTPUT_DIR if not existing
-   if not path.exists(OUTPUT_DIR):
-      mkdir_p(OUTPUT_DIR)
+   OUTPUT_DIR=path.dirname(path.realpath(OUTPUT_Adj))
+   mkdir_p(OUTPUT_DIR)
 
    gene_file=open(GENE_file,'r')
    scaff_file=open(SCAFF_file,'r')

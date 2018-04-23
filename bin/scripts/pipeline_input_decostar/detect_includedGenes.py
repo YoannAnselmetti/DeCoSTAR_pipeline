@@ -862,8 +862,6 @@ if __name__ == '__main__':
 #               print exon_pos
 
                if species!="#species":
-
-
 #################################
 ### Get infos on CURRENT GENE ###
 #################################
