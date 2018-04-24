@@ -16,7 +16,7 @@
 ###      - Contig file with genes located to extremities                    
 ###                                                                         
 ###   Name: create_SCAFF_file.py              Author: Yoann Anselmetti     
-###   Creation date: 2016/02/15             Last modification: 2017/11/07
+###   Creation date: 2016/02/15             Last modification: 2018/04/24
 ###                                                                         
 
 from sys import argv
@@ -67,11 +67,9 @@ if __name__ == '__main__':
    for FASTA in sorted(FASTA_list):
       i=0
       species=""
-      r=search("^([^-]*)-([^-]*)-.*$",FASTA)
+      r=search("^([^\.]*)\..*$",FASTA)
       if r:
-         genus=r.group(1)
-         spe=r.group(2)
-         species=genus+"_"+spe
+         species=r.group(1)
          dict_spe_SCAFF[species]=dict()
       else:
          exit("!!! ERROR, FASTA file name: "+FASTA+" is incorrectly written !!!")

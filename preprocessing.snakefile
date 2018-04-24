@@ -1,9 +1,7 @@
-# configfile: "config_files/config_input_18Anopheles_Xtopo.yaml"
-configfile: "config_files/config_input_18Anopheles_WGtopo.yaml"
+configfile: "config_files/config_input_18Anopheles_Xtopo.yaml"
 
 
 # Create output directories
-# snakemake.utils.makedirs(config["outputdir"]+"/logs/GFF_to_GENE_files")
 snakemake.utils.makedirs(config["outputdir"]+"/data/GENE_TREES")
 
 
@@ -59,29 +57,16 @@ rule sort_GENE:
 
 
 
-if config["speNameID"]:
-	rule filter_GENE_with_families:
-		input: 
-			families=config["outputdir"]+"/"+config["families"],
-			speciesNameID=config["outputdir"]+"/"+config["speNameID"],
-			sorted_gene=config["outputdir"]+"/data/GFF_to_GENE_files/sorted_GENE"
-		output:
-			filtered_gene=config["outputdir"]+"/data/GFF_to_GENE_files/filtered_GENE"
-		# log:
-		# 	config["outputdir"]+"/logs/GFF_to_GENE_files/filter_GENE_with_families.log"
-		shell:
-			"bin/scripts/pipeline_input_decostar/filter_GENE_with_families.py {input.families} {input.sorted_gene} {output.filtered_gene} {input.speciesNameID}"
-else:
-	rule filter_GENE_with_families:
-		input:
-			families=config["outputdir"]+"/"+config["families"],
-			sorted_gene=config["outputdir"]+"/data/GFF_to_GENE_files/sorted_GENE"
-		output:
-			filtered_gene=config["outputdir"]+"/data/GFF_to_GENE_files/filtered_GENE"
-		# log:
-		# 	config["outputdir"]+"/logs/GFF_to_GENE_files/filter_GENE_with_families.log"
-		shell:
-			"bin/scripts/pipeline_input_decostar/filter_GENE_with_families.py {input.families} {input.sorted_gene} {output.filtered_gene}"
+rule filter_GENE_with_families:
+	input:
+		families=config["outputdir"]+"/"+config["families"],
+		sorted_gene=config["outputdir"]+"/data/GFF_to_GENE_files/sorted_GENE"
+	output:
+		filtered_gene=config["outputdir"]+"/data/GFF_to_GENE_files/filtered_GENE"
+	# log:
+	# 	config["outputdir"]+"/logs/GFF_to_GENE_files/filter_GENE_with_families.log"
+	shell:
+		"bin/scripts/pipeline_input_decostar/filter_GENE_with_families.py {input.families} {input.sorted_gene} {output.filtered_gene} "+config["SEP"]
 
 
 

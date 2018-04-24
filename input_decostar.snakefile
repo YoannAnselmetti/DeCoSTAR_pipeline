@@ -1,5 +1,4 @@
-# configfile: "config_files/config_input_18Anopheles_Xtopo.yaml"
-configfile: "config_files/config_input_18Anopheles_WGtopo.yaml"
+configfile: "config_files/config_input_18Anopheles_Xtopo.yaml"
 
 
 # Create output directory
@@ -74,12 +73,23 @@ rule create_ADJfile_for_DeCoSTAR:
 
 
 
-rule write_1_tree_per_file:
-	input:
-		gene_trees=config["outputdir"]+"/"+config["gene_trees"],
-		GENE=config["outputdir"]+"/data/data_DeCoSTAR/GENE_file"
-	output:
-		gene_trees_dir=config["outputdir"]+"/data/data_DeCoSTAR/decostar/"+config["decostar_gene_trees"],
-		distrib_gene_trees=config["outputdir"]+"/data/data_DeCoSTAR/decostar/distrib_"+config["decostar_gene_trees"]+".txt"
-	shell:
-		"bin/scripts/pipeline_input_decostar/write_1tree_per_file.py {input.gene_trees} {input.GENE} {output.gene_trees_dir} {output.gene_trees_dir} {output.distrib_gene_trees} "+config["SEP"]
+if config["gene_trees"]:
+	rule write_1_tree_per_file:
+		input:
+			gene_trees=config["outputdir"]+"/"+config["gene_trees"],
+			GENE=config["outputdir"]+"/data/data_DeCoSTAR/GENE_file"
+		output:
+			gene_trees_dir=config["outputdir"]+"/data/data_DeCoSTAR/decostar/"+config["decostar_gene_trees"],
+			distrib_gene_trees=config["outputdir"]+"/data/data_DeCoSTAR/decostar/distrib_"+config["decostar_gene_trees"]+".txt"
+		shell:
+			"bin/scripts/pipeline_input_decostar/write_1tree_per_file.py {input.gene_trees} {input.GENE} {output.gene_trees_dir} {output.gene_trees_dir} {output.distrib_gene_trees} "+config["SEP"]
+else:
+	rule write_1_tree_per_file:
+		input:
+			gene_trees=config["outputdir"]+"/data/GENE_TREES/unrooted_trees_filtered.nwk",
+			GENE=config["outputdir"]+"/data/data_DeCoSTAR/GENE_file"
+		output:
+			gene_trees_dir=config["outputdir"]+"/data/data_DeCoSTAR/decostar/"+config["decostar_gene_trees"],
+			distrib_gene_trees=config["outputdir"]+"/data/data_DeCoSTAR/decostar/distrib_"+config["decostar_gene_trees"]+".txt"
+		shell:
+			"bin/scripts/pipeline_input_decostar/write_1tree_per_file.py {input.gene_trees} {input.GENE} {output.gene_trees_dir} {output.gene_trees_dir} {output.distrib_gene_trees} "+config["SEP"]
