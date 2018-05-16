@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 ###                                                                       
 ###   Goal:                                                               
@@ -11,12 +11,14 @@
 ###         (data/INPUT_DATA/OG_CDS_newtrees)           
 ###      3- OUTPUT gene file with gene families ID                                        
 ###         (data/GFF_to_GENE_files/with_filter/ALL_species_GENE_file_with_GF)
+###      4- Separator between species name and gene ID
+###         (@)
 ###                                                                       
 ###   OUTPUT:                                                             
 ###      - GENE file with gene family ID               
 ###                                                                       
 ###   Name: add_geneFamilyID.py           Author: Yoann Anselmetti    
-###   Creation date: 2016/09/09           Last modification: 2017/10/18
+###   Creation date: 2016/09/09           Last modification: 2018/05/16
 ###                                                                       
 
 from sys import argv
@@ -66,6 +68,7 @@ if __name__ == '__main__':
    INPUT_gene_file=open(argv[1],"r")
    GT=argv[2]
    OUTPUT_gene_file=argv[3]
+   sep=argv[4]
 
    # To be sure than directory have no "/" to the end of the path
    OUTPUT_dir=path.dirname(OUTPUT_gene_file)
@@ -150,10 +153,12 @@ if __name__ == '__main__':
          nb_exon_new=r.group(11)
          exon_pos_new=r.group(12)
 
+         geneID=species+sep+gene
+
          if species!="#species":
             gfID=""
-            if gene in dict_geneID_gfID:
-               gfID=dict_geneID_gfID[gene]
+            if geneID in dict_geneID_gfID:
+               gfID=dict_geneID_gfID[geneID]
             else:
                print "WARNING: gene "+gene+" is not present in gene families/trees!!!"
                gfID="NA"

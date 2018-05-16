@@ -1,4 +1,4 @@
-configfile: "config_files/config_input_18Anopheles_Xtopo.yaml"
+configfile: "config_files/config_18Anopheles_Xtopo+scaff.yaml"
 
 
 # Create output directory

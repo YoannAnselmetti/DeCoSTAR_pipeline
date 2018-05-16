@@ -1,4 +1,4 @@
-configfile: "config_input_18Anopheles_Xtopo.yaml"
+configfile: "config_files/config_18Anopheles_Xtopo+scaff.yaml"
 
 
 snakemake.utils.makedirs(config["outputdir"]+"/data/GENE_TREES")

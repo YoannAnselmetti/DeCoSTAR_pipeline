@@ -1,4 +1,4 @@
-configfile: "config_files/config_input_18Anopheles_Xtopo.yaml"
+configfile: "config_files/config_18Anopheles_Xtopo+scaff.yaml"
 
 
 # Create output directories
@@ -93,7 +93,7 @@ rule add_geneFamilyID:
 	# log:
 	# 	config["outputdir"]+"/logs/GFF_to_GENE_files/add_geneFamilyID.log"
 	shell:
-		"bin/scripts/pipeline_input_decostar/add_geneFamilyID.py {input.gene} {input.families} {output.geneWithGF}"
+		"bin/scripts/pipeline_input_decostar/add_geneFamilyID.py {input.gene} {input.families} {output.geneWithGF} "+config["SEP"]
 
 
 

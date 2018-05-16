@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 ###                                                                       
 ###   Goal:                                                               
@@ -45,13 +45,14 @@ def get_list_genes_in_GF(dict_species_geneList,input_file,sep):
    bool_file=""
    for line in input_file:
       if not bool_file:
+         bool_file="OK"
          r=search("^\(",line)
          if r:
             bool_GT=True
-            print "File containing gene cluster is a gene TREES file"
+            print "\t=> File containing gene cluster is a gene TREES file"
          else:
             bool_GT=False
-            print "File containing gene cluster is a gene FAMILIES file"
+            print "\t=> File containing gene cluster is a gene FAMILIES file"
 
       # If file is a newick, NHX or tree file 
       if bool_GT:
@@ -60,7 +61,8 @@ def get_list_genes_in_GF(dict_species_geneList,input_file,sep):
          tree=Tree(tree_str)
 
          # For each leaf in current tree: extract species name and Gene_ID
-         for gene in tree.get_leaf_names():            
+         for gene in tree.get_leaf_names(): 
+            # print gene           
             species=gene.split(sep)[0]
             gene_ID=gene.split(sep)[1]
 
@@ -107,7 +109,7 @@ if __name__ == '__main__':
    print "1/ STORE gene present in gene families/trees:"
    dict_species_geneList=dict()
    input_file=open(GF_file,"r")
-   get_list_genes_in_GF(dict_species_geneList,input_file,species_name_in_trees,sep)
+   get_list_genes_in_GF(dict_species_geneList,input_file,sep)
    input_file.close()
 
 

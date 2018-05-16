@@ -29,7 +29,7 @@ Pipeline to produce input data for DeCoSTAR software [1] to apply ARt-DeCo, ADse
 	* [MUSCLE](https://www.drive5.com/muscle/)
 	* [GBlocks](http://molevol.cmima.csic.es/castresana/Gblocks.html)
 	* [RAxML](https://sco.h-its.org/exelixis/web/software/raxml/index.html) ([GitHub repository](https://github.com/stamatak/standard-RAxML))
-	* [Treerecs](https://gitlab.inria.fr/Phylophile/Treerecs) (C++ reimplementation of [profileNJ](https://github.com/maclandrol/profileNJ)with Bio++ library)
+	* [Treerecs](https://gitlab.inria.fr/Phylophile/Treerecs) (C++ reimplementation of [profileNJ](https://github.com/maclandrol/profileNJ) with Bio++ library)
 * [DeCoSTAR](http://pbil.univ-lyon1.fr/software/DeCoSTAR/index.html) ([GitHub repository](https://github.com/WandrilleD/DeCoSTAR))
 
 
@@ -112,7 +112,7 @@ FASTQ/RAW/Anopheles_albimanus/
     └── SRR606148
 ```
 
-It is important that in gene trees/families and gene sequences FASTA file the gene ID is present in the format $(species_name)$separator$(gene_ID). By default we use the '@' as the separator character between the species name and the gene ID. The choice of the separator character used is given in the Snakemake configuration file (line: **separator: '@'**).
+It is important that in gene trees/families and gene sequences FASTA file the gene is present in the format: $(species_name)$separator$(gene_ID). By default we use '@' as separator character between the species name and the gene ID. The choice of the separator character used is given in the Snakemake configuration file (line: **separator: '@'**).
 Species name should not contain space and is commonly represented with the format: $genus_$species.
 
 

@@ -189,6 +189,7 @@ rm Gblocks_Linux64_0.91b.tar
 ### MAPPING
 # mrsFAST-Ultra (required all reads have the same size) / mrFAST => different tools!!!
 # BWA-MEM
+# RazerS3
 
 ### SCAFFOLDING
 # OPERA-LG

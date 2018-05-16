@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python2
 # -*- coding: utf-8 -*-
 ###                                                                         
 ###   Goal:                                                                 
@@ -21,7 +21,7 @@
 
 from sys import argv
 from re import search
-from os import close, path, mkdir, listdir
+from os import close, path, listdir, makedirs
 from datetime import datetime
 from Bio import SeqIO
 import errno
@@ -83,7 +83,7 @@ if __name__ == '__main__':
          size=len(sequence.seq)
 
          if scaff in dict_spe_SCAFF[species]:
-               exit("!!! ERROR, there are two scaffolds that have the same ID ("+scaff+") !!!")
+               exit("!!! ERROR, there are two scaffolds that have the same ID ("+scaff+") !!! => Did you uncompress scaffolds assemblies in the directory: \""+SCAFF_dir+"\"?")
 
          dict_spe_SCAFF[species][scaff]=size
          i+=1
