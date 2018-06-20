@@ -1,71 +1,71 @@
-species	SRX_ID	orientation	insert_size_expected	median_insert_size	median_absolute_deviation
-Anopheles_albimanus	SRX200219	fr	38000	35557	2700
-Anopheles_albimanus	SRX111456	rf	1500	2408	847
-Anopheles_albimanus	SRX084279	fr	180	194	6
-Anopheles_arabiensis	SRX200218	fr	38000	36444	3222
-Anopheles_arabiensis	SRX111457	rf	1500	2051	752
-Anopheles_arabiensis	SRX084275	fr	180	195	7
-Anopheles_atroparvus	SRX209222	fr	38000	36897	3690
-Anopheles_atroparvus	SRX209384	rf	1500	2408	812
-Anopheles_atroparvus	SRX209606	rf	1500	2382	813
-Anopheles_atroparvus	SRX209612	fr	180	191	8
-Anopheles_atroparvus	SRX209390	fr	180	191	8
-Anopheles_christyi	SRX110286	rf	1500	1242	437
-Anopheles_christyi	SRX119723	rf	1500	1229	436
-Anopheles_christyi	SRX084278	fr	180	195	7
-Anopheles_culicifacies	SRX334058	rf	1500	1156	540
-Anopheles_culicifacies	SRX272317	fr	180	196	7
-Anopheles_culicifacies	SRX175835	rf	1500	546	331
-Anopheles_culicifacies	SRX158118	fr	180	181	15
-Anopheles_culicifacies	SRX182921	fr	180	182	14
-Anopheles_culicifacies	SRX189771	fr	180	183	13
-Anopheles_dirus	SRX209221	fr	38000	36451	2939
-Anopheles_dirus	SRX209379	rf	1500	2378	793
-Anopheles_dirus	SRX209603	rf	1500	2354	794
-Anopheles_dirus	SRX209381	fr	180	191	7
-Anopheles_dirus	SRX209604	fr	180	191	7
-Anopheles_epiroticus	SRX209380	rf	1500	854	377
-Anopheles_epiroticus	SRX209614	rf	1500	822	379
-Anopheles_epiroticus	SRX209391	fr	180	191	8
-Anopheles_epiroticus	SRX209605	fr	180	191	8
-Anopheles_farauti	SRX349764	fr	38000	404	48
-Anopheles_farauti	SRX084280	fr	180	175	6
-Anopheles_farauti	SRX111458	rf	1500	1976	859
-Anopheles_farauti	SRX357088	fr	38000	405	48
-Anopheles_farauti	SRX357089	fr	38000	405	48
-Anopheles_funestus	SRX209224	fr	38000	36450	4408
-Anopheles_funestus	SRX209389	rf	1500	2010	829
-Anopheles_funestus	SRX209610	rf	1500	1979	831
-Anopheles_funestus	SRX209387	fr	180	192	8
-Anopheles_funestus	SRX209628	fr	180	192	8
-Anopheles_maculatus	SRX209385	rf	1500	709	242
-Anopheles_maculatus	SRX209609	rf	1500	682	243
-Anopheles_maculatus	SRX209386	fr	180	191	7
-Anopheles_maculatus	SRX209629	fr	180	191	7
-Anopheles_melas	SRX175836	rf	1500	651	420
-Anopheles_melas	SRX158119	fr	180	176	20
-Anopheles_melas	SRX184877	fr	180	177	19
-Anopheles_melas	SRX189770	fr	180	179	18
-Anopheles_merus	SRX349762	fr	38000	37890	3956
-Anopheles_merus	SRX357090	fr	38000	37880	3971
-Anopheles_merus	SRX357091	fr	38000	37882	3959
-Anopheles_merus	SRX110236	rf	1500	1383	594
-Anopheles_merus	SRX084276	fr	180	195	7
-Anopheles_minimus	SRX209223	fr	38000	36838	3140
-Anopheles_minimus	SRX209388	rf	1500	2296	809
-Anopheles_minimus	SRX209608	rf	1500	2272	810
-Anopheles_minimus	SRX209383	fr	180	192	7
-Anopheles_minimus	SRX209627	fr	180	192	7
-Anopheles_quadriannulatus	SRX200216	fr	38000	37429	4168
-Anopheles_quadriannulatus	SRX111455	rf	1500	2137	937
-Anopheles_quadriannulatus	SRX084277	fr	180	175	7
-Anopheles_sinensis	SRX349763	fr	38000	38486	5109
-Anopheles_sinensis	SRX357092	fr	38000	38445	5106
-Anopheles_sinensis	SRX357093	fr	38000	38452	5110
-Anopheles_sinensis	SRX334057	rf	1500	2373	832
-Anopheles_sinensis	SRX334056	fr	180	187	7
-Anopheles_stephensi	SRX200217	fr	38000	34405	6165
-Anopheles_stephensi	SRX209611	rf	1500	2278	759
-Anopheles_stephensi	SRX209378	rf	1500	2244	756
-Anopheles_stephensi	SRX209607	fr	180	171	7
-Anopheles_stephensi	SRX209382	fr	180	171	8
+#species	SRX_ID	orientation	mean_insert_size	SD_insert_size
+Anopheles_albimanus	SRX084279	fr	174.678977	93.538073
+Anopheles_albimanus	SRX111456	rf	2617.875927	1488.793015
+Anopheles_albimanus	SRX200219	fr	33588.415835	10012.97996
+Anopheles_arabiensis	SRX084275	fr	175.897243	110.705843
+Anopheles_arabiensis	SRX111457	rf	2263.663298	1490.707839
+Anopheles_arabiensis	SRX200218	fr	33671.632079	11624.686483
+Anopheles_atroparvus	SRX209222	fr	34133.184563	11586.742919
+Anopheles_atroparvus	SRX209384	rf	2716.390668	1891.660504
+Anopheles_atroparvus	SRX209390	fr	177.167559	352.519955
+Anopheles_atroparvus	SRX209606	rf	2743.284291	1891.722234
+Anopheles_atroparvus	SRX209612	fr	177.520137	354.335866
+Anopheles_christyi	SRX084278	fr	175.034807	19.737989
+Anopheles_christyi	SRX110286	rf	1497.490224	904.677084
+Anopheles_christyi	SRX119723	rf	1496.490895	902.692904
+Anopheles_culicifacies	SRX158118	fr	149.826617	53.696347
+Anopheles_culicifacies	SRX175835	rf	898.091904	934.447718
+Anopheles_culicifacies	SRX182921	fr	150.814393	51.065747
+Anopheles_culicifacies	SRX189771	fr	153.931222	52.946986
+Anopheles_culicifacies	SRX272317	fr	175.742541	47.078793
+Anopheles_culicifacies	SRX334058	rf	1446.458426	1055.926158
+Anopheles_dirus	SRX209221	fr	35379.054213	8538.654474
+Anopheles_dirus	SRX209379	rf	2572.574807	1418.496076
+Anopheles_dirus	SRX209381	fr	167.877462	117.319631
+Anopheles_dirus	SRX209603	rf	2598.5736	1422.946544
+Anopheles_dirus	SRX209604	fr	168.006717	114.878562
+Anopheles_epiroticus	SRX209380	rf	1142.775311	1068.126056
+Anopheles_epiroticus	SRX209391	fr	166.347492	89.601507
+Anopheles_epiroticus	SRX209605	fr	166.746435	88.077169
+Anopheles_epiroticus	SRX209614	rf	1163.680042	1098.926236
+Anopheles_farauti	SRX084280	fr	175.095149	47.405414
+Anopheles_farauti	SRX111458	rf	2241.8961	1388.723869
+Anopheles_farauti	SRX349764	fr	3476.827497	10404.650627
+Anopheles_farauti	SRX357088	fr	3479.465361	10407.437257
+Anopheles_farauti	SRX357089	fr	3459.387711	10379.001792
+Anopheles_funestus	SRX209224	fr	30531.431868	15067.03772
+Anopheles_funestus	SRX209387	fr	169.49315	168.082595
+Anopheles_funestus	SRX209389	rf	2314.65235	2125.286409
+Anopheles_funestus	SRX209610	rf	2341.702414	2150.811078
+Anopheles_funestus	SRX209628	fr	169.675769	169.040423
+Anopheles_maculatus	SRX209385	rf	849.440285	597.227806
+Anopheles_maculatus	SRX209386	fr	168.229295	51.467877
+Anopheles_maculatus	SRX209609	rf	857.157113	602.544871
+Anopheles_maculatus	SRX209629	fr	168.392631	50.81306
+Anopheles_melas	SRX158119	rf	86.926428	102.839093
+Anopheles_melas	SRX175836	rf	1033.874844	1011.117327
+Anopheles_melas	SRX184877	fr	145.419957	52.07969
+Anopheles_melas	SRX189770	fr	149.347044	53.452845
+Anopheles_merus	SRX084276	fr	175.695409	91.921123
+Anopheles_merus	SRX110236	rf	1736.761773	1340.915742
+Anopheles_merus	SRX349762	fr	33607.038381	13698.294368
+Anopheles_merus	SRX357090	fr	33520.973739	13796.814635
+Anopheles_merus	SRX357091	fr	33603.542109	13702.551773
+Anopheles_minimus	SRX209223	fr	35716.058294	8635.512552
+Anopheles_minimus	SRX209383	fr	169.925722	109.200696
+Anopheles_minimus	SRX209388	rf	2503.471652	1467.593757
+Anopheles_minimus	SRX209608	rf	2535.943537	1482.758413
+Anopheles_minimus	SRX209627	fr	170.116195	108.618471
+Anopheles_quadriannulatus	SRX084277	fr	177.378281	184.913303
+Anopheles_quadriannulatus	SRX111455	rf	2599.597006	2470.286648
+Anopheles_quadriannulatus	SRX200216	fr	33992.041754	12051.954768
+Anopheles_sinensis	SRX334056	fr	169.608283	140.954515
+Anopheles_sinensis	SRX334057	rf	2770.86464	2064.924617
+Anopheles_sinensis	SRX349763	fr	31104.593843	16394.730483
+Anopheles_sinensis	SRX357092	fr	31060.517255	16411.129208
+Anopheles_sinensis	SRX357093	fr	30972.065978	16475.357122
+Anopheles_stephensi	SRX200217	fr	25370.081405	17269.572187
+Anopheles_stephensi	SRX209378	rf	2564.366173	2050.488201
+Anopheles_stephensi	SRX209382	fr	168.105765	141.09617
+Anopheles_stephensi	SRX209607	fr	168.361783	139.66097
+Anopheles_stephensi	SRX209611	rf	2607.590971	2089.730148

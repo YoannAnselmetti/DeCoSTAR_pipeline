@@ -9,15 +9,7 @@
 # $4: Linearization threshold value
 
 longPREF=$1/$2
-PREF=$2_Linear_$3
+PREF=$2_Linear_$4
 scriptLINEAR=bin/scripts/post_decostar/code/linearize_assign_scj.sh
 
-$scriptLINEAR ${longPREF}.reconciliations.newick \
-            ${longPREF}.speciesTree.newick \
-            ${longPREF}.adjacencies.txt \
-            $4 \
-            $3 \
-            $DIR/ \
-            $PREF \
-            M1 \
-            python
+$scriptLINEAR ${longPREF}.reconciliations.newick ${longPREF}.speciesTree.newick ${longPREF}.adjacencies.txt $3 $4 $1 $PREF M1 python2

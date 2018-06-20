@@ -1,23 +1,21 @@
 #!/bin/bash
 ###
 ###   Goal:
-###       Run "BAM_stats.py" script for all species for a choosen library orientation
+###       Run "BAM_stats.py" script for all libraries ([ES]RX) of 1 species (Must be executed for all species)
 ###
 ###   INPUT:
 ###      1- Directory containing BAM files
-###         (/share/nas-isem_i/yanselmetti/DATA_SEQ/MAPPING/Bowtie2_ALL/RAW/ALL/Anopheles_albimanus)
-###         (/share/nas-isem_i/yanselmetti/DATA_SEQ/MAPPING/Bowtie2_k100/RAW/ALL/Anopheles_albimanus)
+###         (/share/nas-isem_i/yanselmetti/ANOPHELES_PROJECT/DATA/DATA_SEQ/MAPPING/Bowtie2_ALL/TRIMMOMATIC3/ALL/Anopheles_albimanus)
 ###      2- TAG to allow severa experiments without interfering with jobs of others experiments
 ###         (Aalb_Bowtie2_ALL_RAW_ALL)
-###         (Aalb_Bowtie2_k100_RAW_ALL)
-###      3- Multiple alignment used for MAPPING (If not given then all alignments were considered)
-###         (50)
+###      3- Multiple alignment used for MAPPING (If not given then the 50 "best" alignments are considered)
+###         (a)
 ###
 ###   OUTPUT:
 ###      - stats file on contigs pairs links from "BAM_stats.py" script
 ###
 ###   Name: 05-BAM_stats_loop.sh              Author: Yoann Anselmetti
-###   Creation date: 2015/10/21               Last modification: 2017/07/18
+###   Creation date: 2015/10/21               Last modification: 2018/06/01
 ###
 
 TAG=$2

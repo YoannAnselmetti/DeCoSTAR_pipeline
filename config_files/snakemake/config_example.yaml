@@ -1,0 +1,12 @@
+outputdir: 18Anopheles_dataset # root directory where all files produced by the pipeline will be stored 
+species_tree: data/INPUT_DATA/Anopheles_species_tree_X_topology.nwk # species tree file (Newick or NHX format) 
+families: data/INPUT_DATA/unrooted_raw_trees.nwk # gene trees file (Newick or NHX format) or gene families file (3 columns format) 
+chromosome_file: data/INPUT_DATA/18Anopheles_species # chromosome file giving the expected #chromosomes for the species (2 columns format)
+GFF_dir: data/INPUT_DATA/GFF # input directory containing 1 GFF file / species
+ASSEMBLY_dir: data/INPUT_DATA/FASTA/SCAFF # directory containing genome assemblies of the dataset species 
+gene_trees: data/GENE_TREES/trees_DeCoSTAR_Xtopo.nwk # gene trees file after gene trees inference => Remove this line if you don't want to use gene trees inference
+BESST_dir: data/DATA_SEQ/SCAFFOLDING/BESST-2.2.6/Bowtie2_ALL/TRIMMOMATIC3/ALL/ # directory containing scaffolding adjacencies predicted by BESST scaffolding tool
+decostar_gene_trees: DeCoSTAR_Anopheles_Xtopo_gene_trees # prefix of the gene tree files used as input DeCoSTAR (1 gene tree/file)
+SEP: '@' # character used to separate species name from gene ID in gene trees leaves
+config_decostar: config_files/decostar/DeCoSTAR_18Anopheles_Xtopo.param.txt # configuration file used to parameterized DeCoSTAR
+linearization_threshold: 0.1 # threshold value of adjacency support for genome linearization (need to use Boltzmann distribution option with DeCoSTAR) 

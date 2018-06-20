@@ -1,4 +1,6 @@
-configfile: "config_files/config_18Anopheles_Xtopo+scaff.yaml"
+# configfile: "config_files/snakemake/config_18Anopheles_Xtopo+scaff.yaml"
+configfile: "config_files/snakemake/config_27avian.yaml"
+# configfile: "config_files/snakemake/config_9passeriformes.yaml"
 
 
 # Create output directories
@@ -70,6 +72,7 @@ rule filter_GENE_with_families:
 
 
 
+# Script to improve to allow several conditions of gene inclusion
 rule detect_includedGenes:
 	input: 
 		gene=config["outputdir"]+"/data/GFF_to_GENE_files/filtered_GENE"

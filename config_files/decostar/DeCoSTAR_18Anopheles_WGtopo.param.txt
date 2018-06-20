@@ -1,0 +1,55 @@
+# required input files
+species.file=18Anopheles_dataset/data/INPUT_DATA/Anopheles_species_tree_WG_topology.nwk
+gene.distribution.file=18Anopheles_dataset/data/data_DeCoSTAR/decostar/distrib_DeCoSTAR_Anopheles_WGtopo_gene_trees.txt
+adjacencies.file=18Anopheles_dataset/data/data_DeCoSTAR/decostar/adjacencies.txt
+
+# general parameters
+char.sep=@
+verbose=2
+
+# ecceTERA/DeCoLT parameters
+with.transfer=0
+dated.species.tree=0
+ale=0
+already.reconciled=0
+dupli.cost=2
+HGT.cost=3
+loss.cost=1
+try.all.amalgamation=0
+rooted=0
+Topology.weight=1
+
+# DeCo parameters
+AGain.cost=3
+ABreak.cost=1
+all.pair.equivalence.class=0
+C1.Advantage=0.5
+always.AGain=1
+Reconciliation.weight=1
+Adjacency.weight=1
+substract.reco.to.adj=0
+bounded.TS=0
+Loss.aware=0
+Loss.iteration=2
+
+# ARt-DeCo/ADseq parameters
+scaffolding.mode=1
+chromosome.file=18Anopheles_dataset/data/INPUT_DATA/18Anopheles_species.txt
+adjacency.score.log.base=10000
+scaffolding.propagation.index=20
+scaffold.includes.scored.adjs=false
+absence.penalty=-1
+
+# DeClone parameters
+use.boltzmann=1
+boltzmann.temperature=0.1
+nb.sample=100
+
+# output parameters
+write.adjacencies=1
+write.genes=1
+write.adjacency.trees=1
+write.newick=1
+hide.losses.newick=0
+output.dir=18Anopheles_dataset/results/decostar/ADseq+scaff_Boltz_kT0.1/WGtopo
+output.prefix=DeCoSTAR_18Anopheles_WGtopo_ADseq+scaff_Boltz_kT0.1

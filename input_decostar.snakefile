@@ -1,4 +1,6 @@
-configfile: "config_files/config_18Anopheles_Xtopo+scaff.yaml"
+# configfile: "config_files/snakemake/config_18Anopheles_Xtopo.yaml"
+configfile: "config_files/snakemake/config_27avian.yaml"
+# configfile: "config_files/snakemake/config_9passeriformes.yaml"
 
 
 # Create output directory
@@ -7,13 +9,7 @@ snakemake.utils.makedirs(config["outputdir"]+"/data/data_DeCoSTAR/decostar")
 
 rule all:
 	input:
-		config["outputdir"]+"/data/data_DeCoSTAR/GENE_file",
-		config["outputdir"]+"/data/data_DeCoSTAR/CTG_file",
-		config["outputdir"]+"/data/data_DeCoSTAR/scaff_BESST_ALL_3_TRIMMOMATIC3",
-		config["outputdir"]+"/data/data_DeCoSTAR/scaff_BESST_DeCoSTAR",
 		config["outputdir"]+"/data/data_DeCoSTAR/decostar/adjacencies.txt",
-		config["outputdir"]+"/data/data_DeCoSTAR/decostar/adjacencies-scaff.txt",
-		config["outputdir"]+"/data/data_DeCoSTAR/decostar/"+config["decostar_gene_trees"],
 		config["outputdir"]+"/data/data_DeCoSTAR/decostar/distrib_"+config["decostar_gene_trees"]+".txt"
 
 
@@ -40,24 +36,15 @@ rule create_CTG_file:
 
 
 
-rule create_scaff_adj_prefile:
+# CONFIGURED FOR THE SCAFFOLDING TOOL: "BESST"
+rule create_scaff_adj_file:
 	input:
-		BESST_dir=config["outputdir"]+"/"+config["BESST_dir"]
-	output:
-		prescaff_file=config["outputdir"]+"/data/data_DeCoSTAR/scaff_BESST_ALL_3_TRIMMOMATIC3"
-	shell:
-		"bin/scripts/pipeline_input_decostar/create_scaff_adj_prefile.py {input.BESST_dir} 1000000000 3 {output.prescaff_file}"
-
-
-
-rule create_scaff_adj_file_final:
-	input:
-		prescaff_file=config["outputdir"]+"/data/data_DeCoSTAR/scaff_BESST_ALL_3_TRIMMOMATIC3",
+		BESST_dir=config["outputdir"]+"/"+config["BESST_dir"],
 		CTG=config["outputdir"]+"/data/data_DeCoSTAR/CTG_file"
 	output:
 		scaff_file=config["outputdir"]+"/data/data_DeCoSTAR/scaff_BESST_DeCoSTAR"
 	shell:
-		"bin/scripts/pipeline_input_decostar/create_scaff_adj_file_final.py {input.prescaff_file} {input.CTG} {output.scaff_file}"
+		"bin/scripts/pipeline_input_decostar/create_scaff_adj_file.py {input.BESST_dir} {input.CTG} 1000000000 4 {output.scaff_file}"
 
 
 

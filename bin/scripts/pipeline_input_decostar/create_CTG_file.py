@@ -49,6 +49,8 @@ if __name__ == '__main__':
    SCAFF_dir=argv[2]
    SCAFF_file=argv[3]
 
+   verbose=True
+
    OUTPUT_DIR=path.dirname(path.realpath(SCAFF_file))
    # Create OUTPUT_DIR if not existing
    mkdir_p(OUTPUT_DIR)
@@ -62,7 +64,7 @@ if __name__ == '__main__':
 #################################################################
    dict_spe_SCAFF=dict()
    FASTA_list=listdir(SCAFF_dir)
-   print "Storing SCAFF size of species:"
+   print "1/ Storing SCAFF size of species:"
    # Browse list of Genome assemblies to FASTA file format
    for FASTA in sorted(FASTA_list):
       i=0
@@ -74,7 +76,7 @@ if __name__ == '__main__':
       else:
          exit("!!! ERROR, FASTA file name: "+FASTA+" is incorrectly written !!!")
 
-      print species
+      print "\t"+species
 
       # Browse FASTA file of current species to get list of scaffolds 
       fasta_file=open(SCAFF_dir+"/"+FASTA)
@@ -87,13 +89,13 @@ if __name__ == '__main__':
 
          dict_spe_SCAFF[species][scaff]=size
          i+=1
-            
 
       fasta_file.close()
       if i==0:
          exit("ERROR, there is no scaff for this species "+species+"!!! => Check if the genome assemblies are uncompressed.")
 
 
+   print "\n2/ Write CTG file \""+SCAFF_file+"\":"
 ####################################################################
 ### BROWSE ANNOTATION GENE FILE TO WRITE GENE TO SCAFF EXTREMITIES ###
 ####################################################################
@@ -126,7 +128,7 @@ if __name__ == '__main__':
 
          if cur_spe!="#species":
             if str_spe=="":
-#               print cur_spe
+               # print cur_spe
                gf1=cur_gf
                gene1=cur_gene
                ori1=cur_ori
@@ -138,6 +140,8 @@ if __name__ == '__main__':
                      output_file.write(str_spe+"\t"+str_ctg+"\t"+str(dict_spe_SCAFF[str_spe][str_ctg])+"\t"+str(gene_nb)+"\t"+gf1+"\t"+gene1+"\t"+ori1+"\t"+start1+"\t"+str_gf+"\t"+str_gene+"\t"+str_ori+"\t"+str_stop+"\n")
                   # For scaff that are not present in SCAFF directory (Genome assemblies)
                   else:
+                     if verbose:
+                        print "\tContig "+str_ctg+" is not present in FASTA file assembly of species "+str_spe
                      output_file.write(str_spe+"\t"+str_ctg+"\t?\t"+str(gene_nb)+"\t"+gf1+"\t"+gene1+"\t"+ori1+"\t"+start1+"\t"+str_gf+"\t"+str_gene+"\t"+str_ori+"\t"+str_stop+"\n")
 
                   gene_nb=0

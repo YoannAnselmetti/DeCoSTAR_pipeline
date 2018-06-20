@@ -111,7 +111,7 @@ done
 # echo $strSRX
 # echo $strORI
 
-commandLine="module load python2.7; module load libz-1.2.11; module load atlas; $besst -c $REF -f $strSRX -orientation $strORI -m $strMean -s $strSD -o $scaffDIR -plot --print_scores -z 10000 --separate_repeats --min_mapq 0"
+commandLine="module load python2.7; module load libz-1.2.11; module load atlas; $besst -c $REF -f $strSRX -orientation $strORI -m $strMean -s $strSD -o $scaffDIR -plots --print_scores -z 10000 --separate_repeats --min_mapq 0"
 jobName="BESST_$TAG"
 
 

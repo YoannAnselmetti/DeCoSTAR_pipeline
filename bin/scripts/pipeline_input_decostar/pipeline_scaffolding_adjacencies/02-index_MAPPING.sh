@@ -25,8 +25,8 @@ TAG=$4
 job_max=200
 
 mrsFAST="/home/yanselmetti/Software/MAPPING/mrsfast-3.3.9/mrsfast"
-bowtie2_build="/home/yanselmetti/Software/MAPPING/bowtie2-2.2.9/bowtie2-build" # IF CHANGE NAME OF READ, THIS ONE CAN BE MAPPED TO AN OTHER POSITION IF MULTIPLE ALIGNMENT (Firtiea & Alkan, 2016)
-bwa="/home/yanselmetti/Software/MAPPING/bwa-0.7.15/bwa" # NOT RECOMMANDED SINCE BWA HAS BEEN SHOWN TO BE NON-DETERMINISTIC METHODS (Firtiea & Alkan, 2016)
+bowtie2_build="/home/yanselmetti/Software/MAPPING/bowtie2-2.2.9/bowtie2-build" # IF CHANGE NAME OF READ, THIS ONE CAN BE MAPPED TO AN OTHER POSITION IF MULTIPLE ALIGNMENT (Firtina & Alkan, 2016)
+bwa="/home/yanselmetti/Software/MAPPING/bwa-0.7.15/bwa" # NOT RECOMMANDED SINCE BWA HAS BEEN SHOWN TO BE NON-DETERMINISTIC METHODS (Firtina & Alkan, 2016)
 
 headSGE=#\!"/bin/bash\n#$ -V\n#$ -S /bin/bash\n#$ -cwd\n#$ -l h_rt=200000:00:00,mem_free=4G\n#$ -N "
 
@@ -40,7 +40,7 @@ function FASTA_REC {
 ################################################################################
 ### COMMAND TO RECOVER SPECIES NAME => MAKE IT USABLE FOR SEVERAL CASES !!!! ###
 ################################################################################
-         species=$(basename $DirFil | cut -d- -f1)
+         species=$(basename $DirFil | cut -d. -f1)
          # echo $species
          mkdir -p $2/$species
 

@@ -67,52 +67,27 @@ def oriCTG(init_ori,new_ori):
       exit("ERROR, gene orientation is incorrect. Should be \"+\" or \"-\" and not \""+init_ori+" or "+new_ori+"\" !!!")
 
 
-################
-###   MAIN   ###
-################
-if __name__ == '__main__':
-
-   start_time = datetime.now()
-
-   # Recovery of input parameters
-   contig_file=open(argv[1],'r')
-   newAdj_file=open(argv[2],'r')
-   x=argv[3]
-   OUTPUT_file=argv[4]
-
-
-   SIZE=namedtuple("SIZE",["bp","gene"])
-   PAIR=namedtuple("PAIR",["g1","g2"])
-   GENE=namedtuple("GENE",["spe","ctg","gf","gene","ori"])
-   NEWADJ=namedtuple("NEWADJ",["spe","ctg1","ctg2","oriC1","oriC2","gf1","gf2","g1","g2","oriG1","oriG2","score"])
-
-
-######################################
-### STORE CTG INFOS IN dict_ID_ctg ###
-######################################
-   print "1/ Store CTG infos.. ",
-   dict_spe_ctg_size=dict()
-   dict_spe_gene=dict()
-   dict_spe_gene_ctg=dict()
-   dict_spe_ctg_gene=dict()
-   dict_spe_assembly_size_bp=dict()
-   dict_spe_assembly_size_gene=dict()
+def store_CTG(CTG_file):
+   dict_spe_ctg_size,dict_spe_gene,dict_spe_gene_ctg,dict_spe_ctg_gene,dict_spe_assembly_size_bp,dict_spe_assembly_size_gene=dict(),dict(),dict(),dict(),dict(),dict()
+   CTG_format="#species\tctg\tctg_size\tctg_gene_nb\t5'_gene_family\t5'_gene\torientation_5'_gene\tstart_5'_gene\t3'_gene_family\t3'_gene\torientation_3'_gene\tend_3'_gene\n"
+   dict_spe_ctg=dict()
    # When get a contigs pairs (edge scaffolding link) => Get genes that are linked by scaffolding graph with the distance
+   contig_file=open(CTG_file,'r')
    for line in contig_file:
-      r2=search("^([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t\n]*)\n$",line)
-      if r2:
-         spe=r2.group(1)
-         contig=r2.group(2)
-         contig_size=r2.group(3)
-         contig_geneNb=r2.group(4)
-         GF1=r2.group(5)
-         g1=r2.group(6)
-         oriG1=r2.group(7)
-         start_g1=r2.group(8)
-         GF2=r2.group(9)
-         g2=r2.group(10)
-         oriG2=r2.group(11)
-         stop_g2=r2.group(12)
+      r=search("^([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t\n]*)\n$",line)
+      if r:
+         spe=r.group(1)
+         contig=r.group(2)
+         contig_size=r.group(3)
+         contig_geneNb=r.group(4)
+         GF1=r.group(5)
+         g1=r.group(6)
+         oriG1=r.group(7)
+         start_g1=r.group(8)
+         GF2=r.group(9)
+         g2=r.group(10)
+         oriG2=r.group(11)
+         stop_g2=r.group(12)
 
 
          if spe!="#species":
@@ -154,29 +129,58 @@ if __name__ == '__main__':
             dict_spe_gene[spe][g2]=gene2
 
       else:
-         exit("ERROR in line "+line+" of file "+argv[1]+" !!!")
+         exit("ERROR, line "+line+" of file "+CTG_file+" is incorrectly written!!!\nIt should match with the following format:\n"+CTG_format)
 
-         
    contig_file.close()
+   return dict_spe_ctg_size,dict_spe_gene,dict_spe_gene_ctg,dict_spe_ctg_gene,dict_spe_assembly_size_bp,dict_spe_assembly_size_gene
+
+
+
+
+################
+###   MAIN   ###
+################
+if __name__ == '__main__':
+
+   start_time = datetime.now()
+
+   # Recovery of input parameters
+   CTG_file=argv[1]
+   newAdj_file=open(argv[2],'r')
+   sep=argv[3]
+   x=argv[4]
+   OUTPUT_file=argv[5]
+
+
+   SIZE=namedtuple("SIZE",["bp","gene"])
+   PAIR=namedtuple("PAIR",["g1","g2"])
+   GENE=namedtuple("GENE",["spe","ctg","gf","gene","ori"])
+   NEWADJ=namedtuple("NEWADJ",["spe","ctg1","ctg2","oriC1","oriC2","gf1","gf2","g1","g2","oriG1","oriG2","score"])
+
+
+######################################
+### STORE CTG INFOS IN dict_ID_ctg ###
+######################################
+   print "1/ Store CTG infos...",
+   dict_spe_ctg_size,dict_spe_gene,dict_spe_gene_ctg,dict_spe_ctg_gene,dict_spe_assembly_size_bp,dict_spe_assembly_size_gene=dict(),dict(),dict(),dict(),dict(),dict()
+   dict_spe_ctg_size,dict_spe_gene,dict_spe_gene_ctg,dict_spe_ctg_gene,dict_spe_assembly_size_bp,dict_spe_assembly_size_gene=store_CTG(CTG_file)
    print "DONE"
 
-
-   # for spe in sorted(dict_spe_ctg_size):
-   #    print spe
-   #    for ctg in dict_spe_ctg_size[spe]:
-   #       print "\t"+ctg+":\t",
-   #       print dict_spe_ctg_size[spe][ctg]
 
 
 ######################
 ### Analysis of new extant adjacencies predicted by DeCo*
 ######################
-   dict_spe_new_adj_tot=dict()
-   dict_spe_new_adj_scaff=dict()
-   dict_spe_newADJ=dict()
+   dict_spe_new_adj_tot,dict_spe_new_adj_scaff,dict_spe_newADJ=dict(),dict(),dict()
+
+   # dict_spe_ctg_size_MODIF=dict_spe_ctg_size.copy()
+   # dict_spe_ctg_gene_MODIF=dict_spe_ctg_gene.copy()
+   # dict_spe_gene_ctg_MODIF=dict_spe_gene_ctg.copy()
+
    for adj in newAdj_file:
       r=search('^([^ ]*) ([^ ]*) ([^ ]*) ([^ ]*) ([^ ]*) ([^ ]*) ([^ ]*)[ \t]([^ \t\n]*)\n$', adj)
       if r:
+         # print adj
          species=r.group(1)
          gene1=r.group(2)
          gene2=r.group(3)
@@ -187,12 +191,15 @@ if __name__ == '__main__':
          scaff=r.group(8)
 
 
-         species_name=gene1.split("@")[0]
+         species_name=gene1.split(sep)[0]
          if species_name in dict_spe_gene:
-            g1=gene1.split("@")[1]
-            g2=gene2.split("@")[1]
-            # If prior score!=1, then ADJ is a scaffolding one
+            g1=gene1.split(sep)[1]
+            g2=gene2.split(sep)[1]
+            # If (prior_score!=1), then ADJ is a new one
             if float(prior_score)!=1.0:
+               # print species_name
+               print gene1
+
                if not species_name in dict_spe_new_adj_tot:
                   dict_spe_new_adj_tot[species_name]=0
                dict_spe_new_adj_tot[species_name]+=1
@@ -202,9 +209,9 @@ if __name__ == '__main__':
                      dict_spe_new_adj_scaff[species_name]=0
                   dict_spe_new_adj_scaff[species_name]+=1
 
-
                ctg1=dict_spe_gene_ctg[species_name][g1]
                ctg2=dict_spe_gene_ctg[species_name][g2]
+               
                size1=dict_spe_ctg_size[species_name][ctg1].bp
                size2=dict_spe_ctg_size[species_name][ctg2].bp
                geneNb1=dict_spe_ctg_size[species_name][ctg1].gene
@@ -223,8 +230,7 @@ if __name__ == '__main__':
                g2_ctg2=dict_spe_ctg_gene[species_name][ctg2].g2
 
 
-               G1=""
-               G2=""
+               G1,G2="",""
                if g1==g1_ctg1:
                   G1=g2_ctg1
                else:

@@ -37,6 +37,7 @@ k=50          # Nb of multiple alignments consider by Bowtie2
 boolK=true    # IF false: consider all alignments with Bowtie2 if true: consider $k best alignments for Bowtie2 
 
 re='^[0-9]+$'
+# If $7 is empty
 if [ -z $7 ]; then
    echo "Default usage"
    echo $k" multiple alignments will be considered for mapping of reads on reference genome"
@@ -55,31 +56,12 @@ else
 fi
 
 
-file_orientation="/share/nas-isem_i/yanselmetti/DATA_SEQ/orientation_libraries"
-mrsFAST="/home/yanselmetti/Software/MAPPING/mrsfast-3.3.9/mrsfast"
+# mrsFAST="/home/yanselmetti/Software/MAPPING/mrsfast-3.3.9/mrsfast"
+# bwa="/home/yanselmetti/Software/MAPPING/bwa-0.7.15/bwa" # NOT RECOMMANDED SINCE BWA HEVE BEEN SHOWN TO BE NON-DETERMINISTIC METHODS (Firtiea & Alkan, 2016)
 bowtie2="/home/yanselmetti/Software/MAPPING/bowtie2-2.2.9/bowtie2" # IF CHANGE NAME OF READ, THIS ONE CAN BE MAPPED TO AN OTHER POSITION IF MULTIPLE ALIGNMENT (Firtiea & Alkan, 2016)
-bwa="/home/yanselmetti/Software/MAPPING/bwa-0.7.15/bwa" # NOT RECOMMANDED SINCE BWA HEVE BEEN SHOWN TO BE NON-DETERMINISTIC METHODS (Firtiea & Alkan, 2016)
 samtools="/home/yanselmetti/Software/MAPPING/samtools-1.3.1/samtools"
 
 headSGE=#\!"/bin/bash\n#$ -V\n#$ -S /bin/bash\n#$ -cwd\n#$ -l h_rt=200000:00:00,mem_free=8G\n#$ -N "
-
-
-declare -A SRX_ori
-declare -A SRX_insert
-
-while read line; do
-   SRX=$(echo $line | cut -d" " -f2)
-#   echo $SRX
-   ori=$(echo $line | cut -d" " -f3)
-#   echo $ori
-   insert=$(echo $line | cut -d" " -f4)
-#   echo $insert
-   SRX_ori+=([$SRX]=$ori)
-   SRX_insert+=([$SRX]=$insert)
-   # SRX_ori+=([$SRX]=$ori":"$insert)
-done < ${file_orientation}
-
-
 
 function FASTQ_REC {
    DirList=$(ls $1)
@@ -97,8 +79,6 @@ function FASTQ_REC {
          mkdir -p $DIR
 
          SRX=$(echo $1 | awk -F/ '{print $(NF)}')
-         insertSize=${SRX_insert["$SRX"]}
-         echo -e "\tInsert size = "$insertSize
 
          # WAIT until a slot is available
          jobs_nb=$(qstat | grep $USER | wc -l)

@@ -4,7 +4,6 @@ Snakemake pipeline to generate input data of the DeCoSTAR software and
 Pipeline to produce input data for DeCoSTAR software [1] to apply ARt-DeCo, ADseq and DeClone algorithms on a dataset from input files whose format is described in the section **INPUT**.
 
 
-
 # Requirements
 * [Python2](https://www.python.org/.) (≥2.6):
 	* [Biopython](http://biopython.org/) 
