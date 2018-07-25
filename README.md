@@ -10,6 +10,8 @@ Pipeline to produce input data for DeCoSTAR software [1] to apply ARt-DeCo, ADse
 	* [ETE toolkit](http://etetoolkit.org/)
 	* [Matplotlib](https://matplotlib.org/)
 	* [Numpy](http://www.numpy.org/)
+	* [NetworkX](https://networkx.github.io/)
+	* [PyGraphviz](https://pygraphviz.github.io/)
 * [Python3](https://www.python.org/.) (≥3.5):
 	* [Snakemake](http://snakemake.readthedocs.io/en/stable/)
 * C++ (≥c++11):
@@ -60,12 +62,9 @@ For reproduction of input data of DeCoSTAR used in [2], go to [commit 572d5a5](h
 ## Command lines for the different steps of the Snakemake pipeline:
 ```
 snakemake --snakefile preprocessing.snakefile -j <N>
-<!-- snakemake --snakefile pipeline_trees_inference.snakefile -j <N> **(TO DO)** -->
-<!-- snakemake --snakefile pipeline_scaffolding.snakefile -j <N> **(TO DO)** -->
 snakemake --snakefile input_decostar.snakefile -j <N>
-snakemake --snakefile run_decostar.snakefile -j <N> **(TO DO)**
-<!-- snakemake --snakefile linearization_and_stats.snakefile -j <N> **(TO DO)** -->
-<!-- snakemake --snakefile stats_graphs.snakefile -j <N> **(TO DO)** -->
+snakemake --snakefile run_decostar.snakefile -j <N>
+snakemake --snakefile create_adjacencies_graph.snakefile -j <N>
 ```
 
 
@@ -76,9 +75,8 @@ The pipeline to execute DeCoSTAR on a dataset is divided in 5 parts:
 2. Gene trees inference with MUSCLE, GBlocks, RAXML and profileNJ (script **pipeline_trees_inference.snakefile** - TO DO: optional step)
 3. Generate scaffolding adjacencies with BESST (script **pipeline_scaffolding.snakefile** - TO DO: optional step) 
 4. Generation of input files for DeCoSTAR (script **input_decostar.snakefile**)
-5. Execution of DeCoSTAR (script **run_decostar.snakefile** - TO DO)
-<!-- 6. Linearisation and stats generation on DeCoSTAR results -->
-<!-- 7. Stats graphics generation -->
+5. Execution of DeCoSTAR and lineariztion of adjacencies prediction (script **run_decostar.snakefile**)
+6. Generation of adjacencies graph (script **create_adjacencies_graph.snakefile**)
 
 Steps 2 and 3 are optional. If you don't use the step 2 (pipeline for gene trees inference), you need to provide a gene trees file in the Snakemake configuration file (**families: path_to_your_gene_trees_file**) and to remove the line: **gene_trees: path_to_gene_trees_after_inference_pipeline**
 

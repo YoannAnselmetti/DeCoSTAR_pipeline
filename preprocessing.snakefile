@@ -1,5 +1,5 @@
-# configfile: "config_files/snakemake/config_18Anopheles_Xtopo+scaff.yaml"
-configfile: "config_files/snakemake/config_27avian.yaml"
+configfile: "config_files/snakemake/config_18Anopheles_Xtopo.yaml"
+# configfile: "config_files/snakemake/config_27avian.yaml"
 # configfile: "config_files/snakemake/config_9passeriformes.yaml"
 
 
@@ -43,7 +43,7 @@ rule from_GFF_to_GENE:
 	# log:
 	# 	config["outputdir"]+"/logs/GFF_to_GENE_files/from_GFF_to_GENE.log"
 	shell:
-		"bin/scripts/pipeline_input_decostar/from_GFF_to_GENE.py {input.sorted_gff} {output.gene} {output.graph_gff}"
+		"python2 bin/scripts/pipeline_input_decostar/from_GFF_to_GENE.py {input.sorted_gff} {output.gene} {output.graph_gff}"
 
 
 
@@ -68,7 +68,7 @@ rule filter_GENE_with_families:
 	# log:
 	# 	config["outputdir"]+"/logs/GFF_to_GENE_files/filter_GENE_with_families.log"
 	shell:
-		"bin/scripts/pipeline_input_decostar/filter_GENE_with_families.py {input.families} {input.sorted_gene} {output.filtered_gene} "+config["SEP"]
+		"python2 bin/scripts/pipeline_input_decostar/filter_GENE_with_families.py {input.families} {input.sorted_gene} {output.filtered_gene} "+config["SEP"]
 
 
 
@@ -83,7 +83,7 @@ rule detect_includedGenes:
 	# log:
 	# 	config["outputdir"]+"/logs/GFF_to_GENE_files/detect_includedGenes.log"
 	shell:
-		"bin/scripts/pipeline_input_decostar/detect_includedGenes.py {input.gene} {output.overlapDir}"
+		"python2 bin/scripts/pipeline_input_decostar/detect_includedGenes.py {input.gene} {output.overlapDir}"
 
 
 
@@ -96,7 +96,7 @@ rule add_geneFamilyID:
 	# log:
 	# 	config["outputdir"]+"/logs/GFF_to_GENE_files/add_geneFamilyID.log"
 	shell:
-		"bin/scripts/pipeline_input_decostar/add_geneFamilyID.py {input.gene} {input.families} {output.geneWithGF} "+config["SEP"]
+		"python2 bin/scripts/pipeline_input_decostar/add_geneFamilyID.py {input.gene} {input.families} {output.geneWithGF} "+config["SEP"]
 
 
 

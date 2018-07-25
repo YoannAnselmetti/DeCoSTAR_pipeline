@@ -15,12 +15,14 @@ fi
 
 
 ############
-### SOFTWARE WITHOUT GITHUB REPOSITORY
+### SOFTWARE WITH GITHUB REPOSITORY
 ############
+
 
 #######
 ### Installation of DeCoSTAR software (GitHub repository)
 #######
+echo -e "\n\nINSTALL DeCoSTAR:\n"
 cd $softlibDIR
 if [ -d $softlibDIR/DeCoSTAR ]; then
 	rm -rf $softlibDIR/DeCoSTAR
@@ -31,54 +33,67 @@ cd DeCoSTAR
 # sed -i 's/BPP_LIB=$(HOME)\/local\/bpp\/dev\/lib/BPP_INCLUDE=$bppDIR\/lib/g' makefile
 make bin/DeCoSTAR
 
+
 #######
 ### Installation of Treerecs software (GitHub repository)
 #######
+echo -e "\n\nINSTALL Treerecs:\n"
 cd $softlibDIR
 if [ -d $softlibDIR/Treerecs ]; then
 	rm -rf $softlibDIR/Treerecs
 fi
 git clone https://gitlab.inria.fr/Phylophile/Treerecs.git
 cd Treerecs
-cmake -DCMAKE_BUILD_TYPE=MinSizeRel .
-make Treerecs
+cmake -DCMAKE_BUILD_TYPE=Release .
+make
+
 
 #######
 ### Installation of BESST software (GitHub repository)
 #######
+# Requirements: pysam, networkx, numpy and scipy
+echo -e "\n\nINSTALL BESST:\n"
 cd $softlibDIR
 if [ -d $softlibDIR/BESST ]; then
 	rm -rf $softlibDIR/BESST
 fi
 git clone https://github.com/ksahlin/BESST.git
-cd BESST
-./runBESST
+# cd BESST
+# ./runBESST
+
 
 #######
 ### Installation of SRA Toolkit (GitHub repository)
 #######
+# ERRO: ngs-sdk not found
+echo -e "\n\nINSTALL SRA toolkit:\n"
 cd $softlibDIR
 if [ -d $softlibDIR/sra-tools ]; then
 	rm -rf $softlibDIR/sra-tools
 fi
 git clone https://github.com/ncbi/sra-tools.git
 cd sra-tools
-rm Trimmomatic-Src-0.36.zip
+./configure
+
+
 
 #######
 ### Installation of Bowtie2 software (GitHub repository)
 #######
+echo -e "\n\nINSTALL Bowtie2:\n"
 cd $softlibDIR
 if [ -d $softlibDIR/bowtie2 ]; then
 	rm -rf $softlibDIR/bowtie2
 fi
 git clone https://github.com/BenLangmead/bowtie2.git
 cd bowtie2
-make
+make NO_TBB=1
+
 
 #######
 ### Installation of RAxML software (GitHub repository)
 #######
+echo -e "\n\nINSTALL RAxML:\n"
 cd $softlibDIR
 if [ -d $softlibDIR/standard-RAxML ]; then
 	rm -rf $softlibDIR/standard-RAxML
@@ -90,9 +105,11 @@ make -f Makefile.AVX2.gcc
 make -f Makefile.SSE3.gcc
 rm *.o
 
+
 #######
 ### Installation of htslib library and SAMtools software (GitHub repository)
 #######
+echo -e "\n\nINSTALL htslib library:\n"
 cd $softlibDIR
 if [ -d $softlibDIR/htslib ]; then
 	rm -rf $softlibDIR/htslib
@@ -115,13 +132,16 @@ autoconf -Wno-synta
 make
 
 
+
 ############
 ### SOFTWARE WITHOUT GITHUB REPOSITORY
 ############
 
+
 #######
 ### Installation of MUSCLE software (v3.8.1551)
 #######
+echo -e "\n\nINSTALL MUSCLE:\n"
 cd $softlibDIR
 if [ -d $softlibDIR/muscle_src_3.8.1551 ]; then
 	rm -rf $softlibDIR/muscle_src_3.8.1551
@@ -133,9 +153,11 @@ tar -zxvf muscle_src_3.8.1551.tar.gz
 rm muscle_src_3.8.1551.tar.gz
 make
 
+
 #######
 ### Installation of Trimmomatic software (v0.36)
 #######
+echo -e "\n\nINSTALL Trimmomatic:\n"
 cd $softlibDIR
 if [ -d $softlibDIR/Trimmomatic-Src-0.36 ]; then
 	rm -rf $softlibDIR/Trimmomatic-Src-0.36
@@ -144,9 +166,11 @@ wget http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-
 unzip Trimmomatic-Src-0.36.zip
 rm Trimmomatic-Src-0.36.zip
 
+
 #######
 ### Installation of Gblocks software (v0.91b)
 #######
+echo -e "\n\nINSTALL GBlocks:\n"
 cd $softlibDIR
 if [ -d $softlibDIR/Gblocks_0.91b ]; then
 	rm -rf $softlibDIR/Gblocks_0.91b

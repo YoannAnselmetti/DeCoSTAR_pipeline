@@ -14,6 +14,8 @@ bin/software_libraries/
 
 # Igniore 18Anopheles dataset results
 18Anopheles_dataset/results/
+18Anopheles_dataset/data/data_DeCoSTAR/
+18Anopheles_dataset/data/GFF_to_GENE_files
 
 #Ignore .snakemake/
 .snakemake/

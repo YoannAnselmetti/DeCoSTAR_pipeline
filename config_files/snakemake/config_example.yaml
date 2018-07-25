@@ -9,4 +9,6 @@ BESST_dir: data/DATA_SEQ/SCAFFOLDING/BESST-2.2.6/Bowtie2_ALL/TRIMMOMATIC3/ALL/ #
 decostar_gene_trees: DeCoSTAR_Anopheles_Xtopo_gene_trees # prefix of the gene tree files used as input DeCoSTAR (1 gene tree/file)
 SEP: '@' # character used to separate species name from gene ID in gene trees leaves
 config_decostar: config_files/decostar/DeCoSTAR_18Anopheles_Xtopo.param.txt # configuration file used to parameterized DeCoSTAR
-linearization_threshold: 0.1 # threshold value of adjacency support for genome linearization (need to use Boltzmann distribution option with DeCoSTAR) 
+outputdir_decostar: results/decostar/Xtopo/ADseq+scaff_Boltz_kT0.1 # directory where DeCoSTAR output files will be stored (must be equal to parameter "output.dir" in DeCoSTAR parameter file (parameter "config_decostar" of this file))
+prefix_decostar: DeCoSTAR_18Anopheles_Xtopo_ADseq+scaff_Boltz_kT0.1 # prefix of the DeCoSTAR output files
+linearization_threshold: "0.1" # threshold value of adjacency support for genome linearization (need to use Boltzmann distribution option with DeCoSTAR) 

@@ -9,4 +9,6 @@ BESST_dir: data/DATA_SEQ/SCAFFOLDING/BESST-2.2.6/Bowtie2_ALL/TRIMMOMATIC3/ALL
 decostar_gene_trees: DeCoSTAR_Anopheles_Xtopo_gene_trees
 SEP: '@'
 config_decostar: config_files/decostar/DeCoSTAR_18Anopheles_Xtopo.param.txt
-linearization_threshold: 0.1
+outputdir_decostar: results/decostar/Xtopo/ADseq+scaff_Boltz_kT0.1
+prefix_decostar: DeCoSTAR_18Anopheles_Xtopo_ADseq+scaff_Boltz_kT0.1
+linearization_threshold: "0.1"
