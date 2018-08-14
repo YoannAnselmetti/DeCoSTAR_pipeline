@@ -1,9 +1,3 @@
-# Ignore all data from the 9 passeriformesdataset
-9passeriformes_dataset
-config_files/snakemake/config_9passeriformes.yaml
-config_files/decostar/DeCoSTAR_9passeriformes.param.txt
-log_DeCoSTAR_9passeriformes.log
-
 # Ignore all data from the 27 avian dataset
 27avian_dataset
 config_files/snakemake/config_27avian.yaml
@@ -12,7 +6,7 @@ config_files/decostar/DeCoSTAR_27avian.param.txt
 # Ignore software_libraries directory tha can be reproduced from initial git 
 bin/software_libraries/
 
-# Igniore 18Anopheles dataset results
+# Ignore 18Anopheles dataset results
 18Anopheles_dataset/results/
 18Anopheles_dataset/data/data_DeCoSTAR/
 18Anopheles_dataset/data/GFF_to_GENE_files

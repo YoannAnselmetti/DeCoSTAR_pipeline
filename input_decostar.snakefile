@@ -1,6 +1,6 @@
-configfile: "config_files/snakemake/config_18Anopheles_Xtopo.yaml"
 # configfile: "config_files/snakemake/config_27avian.yaml"
-# configfile: "config_files/snakemake/config_9passeriformes.yaml"
+configfile: "config_files/snakemake/config_21Anopheles_Xtopo.yaml"
+# configfile: "config_files/snakemake/config_18Anopheles_Xtopo.yaml"
 
 
 # Create output directory

@@ -1,0 +1,917 @@
+Initial number of contigs: 16162. 
+Time elapsed for reading in contig sequences:143.427675009
+
+
+PASS 1
+
+
+Mean before filtering : 174.538765
+Std_est  before filtering:  20.3936878759
+Mean converged: 174.36955954
+Std_est converged:  15.7205856776
+Skewness of distribution:  -2.00877162257
+mode for chunk size  1  :  177.5
+mode for chunk size  6  :  177.0
+mode for chunk size  11  :  181.5
+mode for chunk size  16  :  184.0
+mode for chunk size  21  :  178.5
+mode for chunk size  26  :  169.0
+mode for chunk size  31  :  170.5
+mode for chunk size  36  :  162.0
+mode for chunk size  41  :  184.5
+mode for chunk size  46  :  161.0
+mode for chunk size  51  :  178.5
+mode for chunk size  56  :  196.0
+mode for chunk size  61  :  152.5
+mode for chunk size  66  :  165.0
+mode for chunk size  71  :  177.5
+mode for chunk size  76  :  190.0
+mode for chunk size  81  :  202.5
+mode for chunk size  86  :  215.0
+mode for chunk size  91  :  136.5
+mode for chunk size  96  :  144.0
+mode for chunk size  101  :  151.5
+Mean of getdistr adjusted distribution:  174.373733857
+Sigma of getdistr adjusted distribution:  15.7163901198
+Skewness of getdistr adjusted distribution:  -2.006940996
+Median of getdistr adjusted distribution:  177
+Mode of getdistr adjusted distribution:  177
+Using mean and stddev of getdistr adjusted distribution from here:  174.373733857 15.7163901198
+Contamine mean before filtering : 382.33153431
+Contamine stddev before filtering:  1972.09790834
+Contamine mean converged: 234.539360873
+Contamine std_est converged:  5.56459460911
+
+LIBRARY STATISTICS
+Mean of library set to: 174.373733857
+Standard deviation of library set to:  15.7163901198
+MP library PE contamination:
+Contamine rate (rev comp oriented) estimated to:  False
+lib contamine mean (avg fragmentation size):  0
+lib contamine stddev:  0
+Number of contamined reads used for this calculation:  1283.0
+-T (library insert size threshold) set to:  268.672074576
+-k set to (Scaffolding with contigs larger than):  237.239294337
+Number of links required to create an edge:  None
+Maximum identical contig-end overlap-length to merge of contigs that are adjacent in a scaffold:  200
+Read length set to:  75.0
+
+Time elapsed for getting libmetrics, iteration 0: 494.434720993
+
+Parsing BAM file...
+L50:  2479 N50:  22320 Initial contig assembly length:  202998806
+Time initializing BESST objects:  0.148205041885
+Total time elapsed for initializing Graph:  0.522058010101
+Reading bam file and creating scaffold graph...
+ELAPSED reading file: 12023.5749331
+NR OF FISHY READ LINKS:  0
+Number of USEFUL READS (reads mapping to different contigs uniquly):  14815110
+Number of non unique reads (at least one read non-unique in read pair) that maps to different contigs (filtered out from scaffolding):  1892153
+Reads with too large insert size from "USEFUL READS" (filtered out):  14646134
+Initial number of edges in G (the graph with large contigs):  33558
+Initial number of edges in G_prime (the full graph of all contigs before removal of repats):  33558
+Number of duplicated reads indicated and removed:  56742
+Mean coverage before filtering out extreme observations =  114.054442626
+Std dev of coverage before filtering out extreme observations=  569.595416461
+Mean coverage after filtering =  38.2286286693
+Std coverage after filtering =  10.2605267667
+Length of longest contig in calc of coverage:  390863
+Length of shortest contig in calc of coverage:  1000
+Detecting repeats..
+Removed a total of:  5  repeats. With coverage larger than  10000
+Number of edges in G (after repeat removal):  33505
+Number of edges in G_prime (after repeat removal):  33505
+Number of BWA buggy edges removed:  0
+Number of edges in G (after filtering for buggy flag stats reporting):  33505
+Number of edges in G_prime  (after filtering for buggy flag stats reporting):  33505
+Nodes: 16157.	 Total edges with over 735 links:1. 	Average density: 6.18926780962e-05
+Nodes: 16157.	 Total edges with over 367 links:2. 	Average density: 0.000123785356192
+Nodes: 16157.	 Total edges with over 212 links:3. 	Average density: 0.000185678034289
+Nodes: 16157.	 Total edges with over 191 links:4. 	Average density: 0.000247570712385
+Nodes: 16157.	 Total edges with over 110 links:5. 	Average density: 0.000309463390481
+Nodes: 16157.	 Total edges with over 99 links:6. 	Average density: 0.000371356068577
+Nodes: 16157.	 Total edges with over 97 links:7. 	Average density: 0.000433248746673
+Nodes: 16157.	 Total edges with over 93 links:8. 	Average density: 0.000495141424769
+Nodes: 16157.	 Total edges with over 87 links:9. 	Average density: 0.000557034102866
+Nodes: 16157.	 Total edges with over 65 links:10. 	Average density: 0.000618926780962
+Nodes: 16157.	 Total edges with over 60 links:11. 	Average density: 0.000680819459058
+Nodes: 16157.	 Total edges with over 58 links:12. 	Average density: 0.000742712137154
+Nodes: 16157.	 Total edges with over 53 links:13. 	Average density: 0.00080460481525
+Nodes: 16157.	 Total edges with over 48 links:14. 	Average density: 0.000866497493347
+Nodes: 16157.	 Total edges with over 47 links:15. 	Average density: 0.000928390171443
+Nodes: 16157.	 Total edges with over 42 links:16. 	Average density: 0.000990282849539
+Nodes: 16157.	 Total edges with over 41 links:17. 	Average density: 0.00105217552764
+Nodes: 16157.	 Total edges with over 38 links:18. 	Average density: 0.00111406820573
+Nodes: 16157.	 Total edges with over 37 links:19. 	Average density: 0.00117596088383
+Nodes: 16157.	 Total edges with over 36 links:20. 	Average density: 0.00123785356192
+Nodes: 16157.	 Total edges with over 35 links:22. 	Average density: 0.00136163891812
+Nodes: 16157.	 Total edges with over 34 links:24. 	Average density: 0.00148542427431
+Nodes: 16157.	 Total edges with over 33 links:29. 	Average density: 0.00179488766479
+Nodes: 16157.	 Total edges with over 32 links:31. 	Average density: 0.00191867302098
+Nodes: 16157.	 Total edges with over 31 links:33. 	Average density: 0.00204245837717
+Nodes: 16157.	 Total edges with over 30 links:34. 	Average density: 0.00210435105527
+Nodes: 16157.	 Total edges with over 29 links:38. 	Average density: 0.00235192176765
+Nodes: 16157.	 Total edges with over 28 links:40. 	Average density: 0.00247570712385
+Nodes: 16157.	 Total edges with over 27 links:45. 	Average density: 0.00278517051433
+Nodes: 16157.	 Total edges with over 26 links:53. 	Average density: 0.0032803119391
+Nodes: 16157.	 Total edges with over 25 links:58. 	Average density: 0.00358977532958
+Nodes: 16157.	 Total edges with over 24 links:73. 	Average density: 0.00451816550102
+Nodes: 16157.	 Total edges with over 23 links:85. 	Average density: 0.00526087763818
+Nodes: 16157.	 Total edges with over 22 links:95. 	Average density: 0.00587980441914
+Nodes: 16157.	 Total edges with over 21 links:128. 	Average density: 0.00792226279631
+Nodes: 16157.	 Total edges with over 20 links:155. 	Average density: 0.00959336510491
+Nodes: 16157.	 Total edges with over 19 links:192. 	Average density: 0.0118833941945
+Nodes: 16157.	 Total edges with over 18 links:214. 	Average density: 0.0132450331126
+Nodes: 16157.	 Total edges with over 17 links:248. 	Average density: 0.0153493841679
+Nodes: 16157.	 Total edges with over 16 links:306. 	Average density: 0.0189391594974
+Nodes: 16157.	 Total edges with over 15 links:367. 	Average density: 0.0227146128613
+Nodes: 16157.	 Total edges with over 14 links:428. 	Average density: 0.0264900662252
+Nodes: 16157.	 Total edges with over 13 links:510. 	Average density: 0.0315652658291
+Nodes: 16157.	 Total edges with over 12 links:627. 	Average density: 0.0388067091663
+Nodes: 16157.	 Total edges with over 11 links:737. 	Average density: 0.0456149037569
+Nodes: 16157.	 Total edges with over 10 links:917. 	Average density: 0.0567555858142
+Nodes: 16157.	 Total edges with over 9 links:1117. 	Average density: 0.0691341214334
+Nodes: 16157.	 Total edges with over 8 links:1390. 	Average density: 0.0860308225537
+Nodes: 16157.	 Total edges with over 7 links:1760. 	Average density: 0.108931113449
+Nodes: 16157.	 Total edges with over 6 links:2311. 	Average density: 0.14303397908
+Nodes: 16157.	 Total edges with over 5 links:3290. 	Average density: 0.203626910936
+Nodes: 16157.	 Total edges with over 4 links:4548. 	Average density: 0.281487899981
+Nodes: 16157.	 Total edges with over 3 links:6611. 	Average density: 0.409172494894
+Nodes: 16157.	 Total edges with over 2 links:10030. 	Average density: 0.620783561305
+Nodes: 16157.	 Total edges with over 1 links:17348. 	Average density: 1.07371417961
+Letting filtering threshold in high complexity regions be 3 for this library.
+Letting -e be 3 for this library.
+Removed 10737 edges from graph G of border contigs.
+Remove edges in high complexity areas.
+Removed total of 8543 edges in high density areas.
+Removed an additional of 2194 edges with low support from full graph G_prime of all contigs.
+Number of significantly spurious edges: 0
+Number of edges in G_prime  (after removing edges under -e threshold (if not specified, default is -e 3):  22768
+
+ -------------------------------------------------------------
+
+Nr of contigs/scaffolds included in this pass: 16157
+Out of which 16157 acts as border contigs.
+Total time for CreateGraph-module, iteration 0: 12042.2176249
+
+6611 link edges created.
+Perform inference on scaffold graph...
+Remove isolated nodes.
+12432 isolated contigs removed from graph.
+Remove edges from node if more than two edges
+SCORES AMBVIVALENT 1.82870271806 1.70852958147
+SCORES AMBVIVALENT 1.66317259513 1.62000236149
+SCORES AMBVIVALENT 1.79459748081 1.71228089251
+SCORES AMBVIVALENT 1.77236668128 1.76636006196
+SCORES AMBVIVALENT 1.66158965333 1.64860330467
+SCORES AMBVIVALENT 1.53285605581 1.50945864796
+SCORES AMBVIVALENT 1.50979561023 1.47243362959
+SCORES AMBVIVALENT 1.53166296585 1.52599647313
+SCORES AMBVIVALENT 1.75722527495 1.71875637856
+SCORES AMBVIVALENT 1.71322583908 1.56116102008
+SCORES AMBVIVALENT 1.74903773569 1.66659643577
+SCORES AMBVIVALENT 1.70941471357 1.70092389424
+SCORES AMBVIVALENT 1.74849782692 1.74621658779
+SCORES AMBVIVALENT 1.74659905529 1.56772818682
+SCORES AMBVIVALENT 1.70579333201 1.69329117532
+SCORES AMBVIVALENT 1.74295299405 1.664640108
+SCORES AMBVIVALENT 1.35651811622 1.27591767753
+SCORES AMBVIVALENT 1.73776505552 1.60868195214
+SCORES AMBVIVALENT 1.67877407945 1.53467858812
+SCORES AMBVIVALENT 1.73568015515 1.67587909471
+SCORES AMBVIVALENT 1.63637063477 1.60557191511
+SCORES AMBVIVALENT 1.72890164148 1.72781941703
+SCORES AMBVIVALENT 1.59201914196 1.52183939179
+SCORES AMBVIVALENT 1.60671172333 1.41108309737
+SCORES AMBVIVALENT 1.72385619095 1.63659295621
+SCORES AMBVIVALENT 1.72345140066 1.59728260144
+SCORES AMBVIVALENT 1.6044320163 1.57885634871
+SCORES AMBVIVALENT 1.72227928048 1.41681317134
+SCORES AMBVIVALENT 1.71791952734 1.5268851761
+SCORES AMBVIVALENT 1.65846554538 1.6218247012
+SCORES AMBVIVALENT 1.71184743485 1.52566570841
+SCORES AMBVIVALENT 1.66454631431 1.62659978516
+SCORES AMBVIVALENT 1.64838880543 1.60357430792
+SCORES AMBVIVALENT 1.66483757471 1.6483111165
+SCORES AMBVIVALENT 1.70612873868 1.69107429973
+SCORES AMBVIVALENT 1.67916165344 1.54937221618
+SCORES AMBVIVALENT 1.63963834654 1.62831672962
+SCORES AMBVIVALENT 1.70433760812 1.58225428478
+SCORES AMBVIVALENT 1.70183168142 1.55990723907
+SCORES AMBVIVALENT 1.51806345474 1.51383360343
+SCORES AMBVIVALENT 1.56353351916 1.45894546838
+SCORES AMBVIVALENT 1.55741983649 1.51015403697
+SCORES AMBVIVALENT 1.69730493143 1.45412729982
+SCORES AMBVIVALENT 1.69662721422 1.62119606527
+SCORES AMBVIVALENT 1.23283041194 1.18639002051
+SCORES AMBVIVALENT 1.56798434034 1.55312286639
+SCORES AMBVIVALENT 1.56742407767 1.55662329064
+SCORES AMBVIVALENT 1.64993314154 1.61690016216
+SCORES AMBVIVALENT 1.68517321358 1.63057905778
+SCORES AMBVIVALENT 1.57290427831 1.53377347592
+SCORES AMBVIVALENT 1.68235644833 1.59439970569
+SCORES AMBVIVALENT 1.55862512629 1.55643232234
+SCORES AMBVIVALENT 1.67934221098 1.3839385117
+SCORES AMBVIVALENT 1.59367236546 1.51883762372
+SCORES AMBVIVALENT 1.64267684148 1.62616874801
+SCORES AMBVIVALENT 1.54725634973 1.48609713537
+SCORES AMBVIVALENT 1.66916656764 1.66433851458
+SCORES AMBVIVALENT 1.665082283 1.61971530074
+SCORES AMBVIVALENT 1.53098659091 1.51245557
+SCORES AMBVIVALENT 1.56775066274 1.5529100624
+SCORES AMBVIVALENT 1.56480218264 1.41552296475
+SCORES AMBVIVALENT 1.62985806907 1.48195121221
+SCORES AMBVIVALENT 1.46306052848 1.45319011144
+SCORES AMBVIVALENT 1.56799214446 1.56773676037
+SCORES AMBVIVALENT 1.66371862673 1.64847862861
+SCORES AMBVIVALENT 1.34794760254 1.3424978117
+SCORES AMBVIVALENT 1.61705875748 1.56403760938
+SCORES AMBVIVALENT 1.66260117941 1.6358171053
+SCORES AMBVIVALENT 1.59717317664 1.40813528075
+SCORES AMBVIVALENT 1.66226059462 1.63966553882
+SCORES AMBVIVALENT 1.49917759946 1.49777256066
+SCORES AMBVIVALENT 1.66182187521 1.65874009007
+SCORES AMBVIVALENT 1.26164829697 1.25860191028
+SCORES AMBVIVALENT 1.66147745109 1.50968302278
+SCORES AMBVIVALENT 1.45716967882 1.45716550603
+SCORES AMBVIVALENT 1.58476041205 1.52895165351
+SCORES AMBVIVALENT 1.6513862687 1.56104770108
+SCORES AMBVIVALENT 1.65053529069 1.34022719087
+SCORES AMBVIVALENT 1.46731209583 1.26023745854
+SCORES AMBVIVALENT 1.46859577645 1.44744824911
+SCORES AMBVIVALENT 1.55068731288 1.50920493755
+SCORES AMBVIVALENT 1.60760998128 1.60669646399
+SCORES AMBVIVALENT 1.64534210208 1.59485009797
+SCORES AMBVIVALENT 1.26266277932 1.17501710043
+SCORES AMBVIVALENT 1.62078603979 1.5416043246
+SCORES AMBVIVALENT 1.55069655897 1.49789854541
+SCORES AMBVIVALENT 1.63737216493 1.60197106142
+SCORES AMBVIVALENT 1.58141220406 1.57895074737
+SCORES AMBVIVALENT 1.2461691847 1.21664860341
+SCORES AMBVIVALENT 1.63626530104 1.42762289994
+SCORES AMBVIVALENT 1.63622351718 1.38582109028
+SCORES AMBVIVALENT 1.47664013306 1.34962736036
+SCORES AMBVIVALENT 1.6337448932 1.5236937229
+SCORES AMBVIVALENT 1.63021907538 1.45941359884
+SCORES AMBVIVALENT 1.51502716923 1.47962731815
+SCORES AMBVIVALENT 1.62863977208 1.53509184916
+SCORES AMBVIVALENT 1.62833054736 1.58925012306
+SCORES AMBVIVALENT 1.20882408591 1.18164701031
+SCORES AMBVIVALENT 1.53836185528 1.34541269814
+SCORES AMBVIVALENT 1.62753308471 1.45945363395
+SCORES AMBVIVALENT 1.50608178097 1.38207997737
+SCORES AMBVIVALENT 1.62686654928 1.52390283667
+SCORES AMBVIVALENT 1.39415675213 1.31918917591
+SCORES AMBVIVALENT 1.54974439077 1.52889476696
+SCORES AMBVIVALENT 1.47592415303 1.43865343425
+SCORES AMBVIVALENT 1.52097532144 1.29308186198
+SCORES AMBVIVALENT 1.62472611381 1.44301840114
+SCORES AMBVIVALENT 1.62256229677 1.34258766116
+SCORES AMBVIVALENT 1.53232381237 1.47357897507
+SCORES AMBVIVALENT 1.57084149613 1.53738967825
+SCORES AMBVIVALENT 1.52275334092 1.47544796736
+SCORES AMBVIVALENT 1.61720962163 1.59555157633
+SCORES AMBVIVALENT 1.2580644848 1.22501435519
+SCORES AMBVIVALENT 1.56901926611 1.46211185029
+SCORES AMBVIVALENT 1.61337048867 1.52275960755
+SCORES AMBVIVALENT 1.48452955901 1.47627203986
+SCORES AMBVIVALENT 1.52187247363 1.30363830132
+SCORES AMBVIVALENT 1.60979741688 1.54875226616
+SCORES AMBVIVALENT 1.60939867609 1.53168856245
+SCORES AMBVIVALENT 1.60227323877 1.35376076491
+SCORES AMBVIVALENT 1.38531287681 1.38435200255
+SCORES AMBVIVALENT 1.57509550211 1.54326072323
+SCORES AMBVIVALENT 1.40891448224 1.40380146826
+SCORES AMBVIVALENT 1.56843603215 1.50096509082
+SCORES AMBVIVALENT 1.55929604005 1.48048231007
+SCORES AMBVIVALENT 1.52591022883 1.46914216799
+SCORES AMBVIVALENT 1.40014132145 1.37563144493
+SCORES AMBVIVALENT 1.35417567493 1.3534203216
+SCORES AMBVIVALENT 1.59806510225 1.46227853416
+SCORES AMBVIVALENT 1.45108954274 1.43924717945
+SCORES AMBVIVALENT 1.475531511 1.43836347614
+SCORES AMBVIVALENT 1.41081813285 1.39365054729
+SCORES AMBVIVALENT 1.53276636856 1.511447121
+SCORES AMBVIVALENT 1.56626556356 1.53284693062
+SCORES AMBVIVALENT 1.32193088388 1.31648826391
+SCORES AMBVIVALENT 1.42954793834 1.42819564895
+SCORES AMBVIVALENT 1.59265704222 1.3615445498
+SCORES AMBVIVALENT 1.38185052775 1.36982610902
+SCORES AMBVIVALENT 1.59091693698 1.44772238817
+SCORES AMBVIVALENT 1.5885128207 1.49278154723
+SCORES AMBVIVALENT 1.590201477 1.58720464094
+SCORES AMBVIVALENT 1.58793081706 1.57339212232
+SCORES AMBVIVALENT 1.23150972014 1.22625290062
+SCORES AMBVIVALENT 1.47224798309 1.39024344638
+SCORES AMBVIVALENT 1.58795685732 1.53815300883
+SCORES AMBVIVALENT 1.58791983918 1.28131190078
+SCORES AMBVIVALENT 1.51725872012 1.47748671001
+SCORES AMBVIVALENT 1.41892887874 1.2656579585
+SCORES AMBVIVALENT 1.25546612951 1.23241241109
+SCORES AMBVIVALENT 1.58323176524 1.52069535141
+SCORES AMBVIVALENT 1.52584420033 1.32416765892
+SCORES AMBVIVALENT 1.58287306783 1.31830881245
+SCORES AMBVIVALENT 1.58148708381 1.35419529148
+SCORES AMBVIVALENT 1.53730711307 1.48410939194
+SCORES AMBVIVALENT 1.30716178047 1.22481600316
+SCORES AMBVIVALENT 1.53731077003 1.48411475942
+SCORES AMBVIVALENT 1.47711479143 1.42545308431
+SCORES AMBVIVALENT 1.55984058924 1.4764049776
+SCORES AMBVIVALENT 1.39282194311 1.34773995283
+SCORES AMBVIVALENT 1.31161449235 1.17663906198
+SCORES AMBVIVALENT 1.57038370776 1.52101913016
+SCORES AMBVIVALENT 1.45112249593 1.4179258393
+SCORES AMBVIVALENT 1.4582108869 1.38439931594
+SCORES AMBVIVALENT 1.47831638194 1.46867013672
+SCORES AMBVIVALENT 1.5687387771 1.41734230884
+SCORES AMBVIVALENT 1.56400864004 1.42832184803
+SCORES AMBVIVALENT 1.35284744793 1.33195988673
+SCORES AMBVIVALENT 1.45174309125 1.42038799959
+SCORES AMBVIVALENT 1.55881191546 1.46937765667
+SCORES AMBVIVALENT 1.53920939485 1.48190858807
+SCORES AMBVIVALENT 1.51117657035 1.49225435488
+SCORES AMBVIVALENT 1.48499514286 1.39062705974
+SCORES AMBVIVALENT 1.52474424603 1.47207928667
+SCORES AMBVIVALENT 1.44302547454 1.33632566742
+SCORES AMBVIVALENT 1.5526595748 1.53994744688
+SCORES AMBVIVALENT 1.40468351967 1.33035124165
+SCORES AMBVIVALENT 1.32403258846 1.3193655876
+SCORES AMBVIVALENT 1.51716686119 1.40789829312
+SCORES AMBVIVALENT 1.54855038964 1.52882999003
+SCORES AMBVIVALENT 1.54850809285 1.54152375255
+SCORES AMBVIVALENT 1.45979389101 1.43126936948
+SCORES AMBVIVALENT 1.54680274217 1.53066523259
+SCORES AMBVIVALENT 1.54651908912 1.34616801577
+SCORES AMBVIVALENT 1.49618699457 1.43382219351
+SCORES AMBVIVALENT 1.26486807915 1.15993113879
+SCORES AMBVIVALENT 1.43030458629 1.27906747758
+SCORES AMBVIVALENT 1.47380927848 1.26697151207
+SCORES AMBVIVALENT 1.54129805863 1.52667807719
+SCORES AMBVIVALENT 1.42701190062 1.39601628471
+SCORES AMBVIVALENT 1.53883699472 1.36405789371
+SCORES AMBVIVALENT 1.53672171373 1.53288281158
+SCORES AMBVIVALENT 1.29661904703 1.11230056418
+SCORES AMBVIVALENT 1.53270119614 1.31783078314
+SCORES AMBVIVALENT 1.52976830802 1.50263546138
+SCORES AMBVIVALENT 1.21984161321 1.1679138875
+SCORES AMBVIVALENT 1.52861692796 1.37753777388
+SCORES AMBVIVALENT 1.49537445458 1.46739775403
+SCORES AMBVIVALENT 1.45037451325 1.22532997943
+SCORES AMBVIVALENT 1.52567935736 1.4763778008
+SCORES AMBVIVALENT 1.52457172458 1.31384978103
+SCORES AMBVIVALENT 1.34095168655 1.30093683552
+SCORES AMBVIVALENT 1.40785473826 1.29513106521
+SCORES AMBVIVALENT 1.51928358852 1.47253969597
+SCORES AMBVIVALENT 1.51814322253 1.49330754772
+SCORES AMBVIVALENT 1.51746101242 1.3896935534
+SCORES AMBVIVALENT 1.51367150215 1.37387655892
+SCORES AMBVIVALENT 1.43914823237 1.42188264876
+SCORES AMBVIVALENT 1.23877089195 1.22306964895
+SCORES AMBVIVALENT 1.48834581796 1.28258975199
+SCORES AMBVIVALENT 1.19103509611 1.17716507295
+SCORES AMBVIVALENT 1.51068147052 1.47316070576
+SCORES AMBVIVALENT 1.28957953629 1.2262580235
+SCORES AMBVIVALENT 1.50232455422 1.30716162935
+SCORES AMBVIVALENT 1.2253359628 1.17147838162
+SCORES AMBVIVALENT 1.50524492608 1.27904978242
+SCORES AMBVIVALENT 1.5051028278 1.45014609048
+SCORES AMBVIVALENT 1.50441393722 1.4657454939
+SCORES AMBVIVALENT 1.45170286727 1.42109404157
+SCORES AMBVIVALENT 1.49755790877 1.45472942331
+SCORES AMBVIVALENT 1.27085314601 1.11226468238
+SCORES AMBVIVALENT 1.49465201668 1.41188822208
+SCORES AMBVIVALENT 1.49140457513 1.42820202262
+SCORES AMBVIVALENT 1.49041592363 1.45224344617
+SCORES AMBVIVALENT 1.48803547 1.24693877792
+SCORES AMBVIVALENT 1.44446777231 1.43284233747
+SCORES AMBVIVALENT 1.48737069232 1.43268982489
+SCORES AMBVIVALENT 1.3497750963 1.33300649619
+SCORES AMBVIVALENT 1.40815858563 1.28157877177
+SCORES AMBVIVALENT 1.27727017066 1.27720069935
+SCORES AMBVIVALENT 1.48078719946 1.27879255801
+SCORES AMBVIVALENT 1.37869451541 1.2814833357
+SCORES AMBVIVALENT 1.42629973305 1.34600954686
+SCORES AMBVIVALENT 1.47206184835 1.45733444557
+SCORES AMBVIVALENT 1.39781727598 1.18544317868
+SCORES AMBVIVALENT 1.47184998207 1.46289847406
+SCORES AMBVIVALENT 1.21894471113 1.12532321941
+SCORES AMBVIVALENT 1.46564951696 1.39185208402
+SCORES AMBVIVALENT 1.45852151148 1.29827975043
+SCORES AMBVIVALENT 1.33977840702 1.21642444013
+SCORES AMBVIVALENT 1.44929371455 1.33576308134
+SCORES AMBVIVALENT 1.4482115039 1.3934577387
+SCORES AMBVIVALENT 1.42530476137 1.24286135782
+SCORES AMBVIVALENT 1.44635556402 1.36383969322
+SCORES AMBVIVALENT 1.44534632356 1.30189270149
+SCORES AMBVIVALENT 1.44301661695 1.19847731616
+SCORES AMBVIVALENT 1.42695921734 1.41085339523
+SCORES AMBVIVALENT 1.44002336387 1.2972230193
+SCORES AMBVIVALENT 1.43958770806 1.35868332761
+SCORES AMBVIVALENT 1.30428789532 1.2892276143
+SCORES AMBVIVALENT 1.43441732975 1.40329132957
+SCORES AMBVIVALENT 1.43419584826 1.25112741173
+SCORES AMBVIVALENT 1.26975881522 1.1718971545
+SCORES AMBVIVALENT 1.43335161182 1.36260081936
+SCORES AMBVIVALENT 1.42760559428 1.41384454479
+SCORES AMBVIVALENT 1.39224172028 1.38697171395
+SCORES AMBVIVALENT 1.42208578753 1.38989119126
+SCORES AMBVIVALENT 1.4100574465 1.26650154609
+SCORES AMBVIVALENT 1.38386633756 1.25455595383
+SCORES AMBVIVALENT 1.40640765267 1.28552377103
+SCORES AMBVIVALENT 1.40572451557 1.3788108334
+SCORES AMBVIVALENT 1.40080349615 1.32357667599
+SCORES AMBVIVALENT 1.39701667751 1.36016243377
+SCORES AMBVIVALENT 1.34900434664 1.19239250583
+SCORES AMBVIVALENT 1.38920947254 1.38640383078
+SCORES AMBVIVALENT 1.36175379744 1.3383705485
+SCORES AMBVIVALENT 1.38364090297 1.21891875828
+SCORES AMBVIVALENT 1.38096290524 1.36445868518
+SCORES AMBVIVALENT 1.37823683482 1.34107070479
+SCORES AMBVIVALENT 1.37524809697 1.22720044531
+SCORES AMBVIVALENT 1.37515915458 1.27114010346
+SCORES AMBVIVALENT 1.36912916823 1.1774660796
+SCORES AMBVIVALENT 1.3682220419 1.28459827144
+SCORES AMBVIVALENT 1.36447299511 1.2894731361
+SCORES AMBVIVALENT 1.36280885527 1.31258733958
+SCORES AMBVIVALENT 1.36232085239 1.3315369713
+SCORES AMBVIVALENT 1.35681903138 1.25516944505
+SCORES AMBVIVALENT 1.34793738267 1.25455150821
+SCORES AMBVIVALENT 1.33219674588 1.19261153874
+SCORES AMBVIVALENT 1.32731959227 1.31628376902
+SCORES AMBVIVALENT 1.31072680946 1.25141321063
+SCORES AMBVIVALENT 1.30505598917 1.18369184659
+SCORES AMBVIVALENT 1.29195337827 1.25544042739
+SCORES AMBVIVALENT 1.27581516947 1.23449244202
+SCORES AMBVIVALENT 1.27473498284 1.19551087028
+SCORES AMBVIVALENT 1.19064221146 1.18309321939
+SCORES AMBVIVALENT 1.26633494886 1.25059908896
+SCORES AMBVIVALENT 1.25998734404 1.25480559397
+SCORES AMBVIVALENT 1.25877371345 1.15556832189
+SCORES AMBVIVALENT 1.2284174993 1.17723703764
+SCORES AMBVIVALENT 1.22610296673 1.16745583392
+SCORES AMBVIVALENT 1.21813699065 1.21351816173
+SCORES AMBVIVALENT 1.17544760139 1.15905059392
+ Number of edges in G before: 10336
+ Number of edges in G after: 4674
+ %-age removed edges: 54.7794117647
+Remove isolated nodes.
+1884 isolated contigs removed from graph.
+Contigs/scaffolds left: 1841
+Remove remaining cycles...
+0 cycles removed from graph.
+Nr of new scaffolds created in this step: 892
+
+
+
+ Searching for paths BETWEEN scaffolds
+
+
+
+Entering ELS.BetweenScaffolds single core
+iterating until maximum of 0 extensions.
+Number of nodes:30416, Number of edges: 15208
+Elapsed time single core pathfinder:  0.325652122498
+0 paths detected are with score greater or equal to 1.5 
+Nr of contigs left:  15208.0 Nr of linking edges left: 0.0
+Number of gaps estimated by GapEst-LP module order_contigs in this step is: 0
+Time elapsed for making scaffolds, iteration 0: 2.12346196175
+
+(super)Contigs after scaffolding: 15208
+
+merging 42 bp here
+merging 35 bp here
+merging 53 bp here
+merging 71 bp here
+merging 43 bp here
+merging 68 bp here
+merging 40 bp here
+merging 61 bp here
+merging 44 bp here
+merging 75 bp here
+merging 26 bp here
+merging 43 bp here
+merging 55 bp here
+merging 40 bp here
+merging 69 bp here
+merging 69 bp here
+merging 63 bp here
+merging 68 bp here
+merging 50 bp here
+merging 50 bp here
+merging 33 bp here
+merging 35 bp here
+merging 74 bp here
+merging 66 bp here
+merging 54 bp here
+merging 56 bp here
+merging 41 bp here
+merging 72 bp here
+merging 66 bp here
+merging 53 bp here
+merging 34 bp here
+merging 59 bp here
+merging 66 bp here
+merging 70 bp here
+merging 68 bp here
+merging 28 bp here
+merging 63 bp here
+merging 41 bp here
+merging 40 bp here
+merging 60 bp here
+merging 28 bp here
+merging 43 bp here
+merging 34 bp here
+merging 62 bp here
+merging 29 bp here
+merging 70 bp here
+merging 50 bp here
+merging 49 bp here
+merging 33 bp here
+merging 91 bp here
+merging 72 bp here
+merging 47 bp here
+merging 54 bp here
+merging 42 bp here
+merging 66 bp here
+merging 33 bp here
+merging 90 bp here
+merging 36 bp here
+merging 45 bp here
+merging 80 bp here
+merging 54 bp here
+merging 52 bp here
+merging 88 bp here
+merging 68 bp here
+merging 37 bp here
+merging 65 bp here
+merging 71 bp here
+merging 66 bp here
+merging 45 bp here
+merging 28 bp here
+merging 48 bp here
+merging 69 bp here
+merging 29 bp here
+merging 59 bp here
+merging 74 bp here
+merging 38 bp here
+merging 62 bp here
+merging 39 bp here
+merging 65 bp here
+merging 53 bp here
+merging 34 bp here
+merging 32 bp here
+merging 71 bp here
+merging 35 bp here
+merging 36 bp here
+merging 50 bp here
+merging 65 bp here
+merging 62 bp here
+merging 67 bp here
+merging 48 bp here
+merging 52 bp here
+merging 45 bp here
+merging 33 bp here
+merging 57 bp here
+merging 66 bp here
+merging 36 bp here
+merging 83 bp here
+merging 66 bp here
+merging 33 bp here
+merging 59 bp here
+merging 37 bp here
+merging 36 bp here
+merging 37 bp here
+merging 37 bp here
+merging 63 bp here
+merging 84 bp here
+merging 27 bp here
+merging 55 bp here
+merging 48 bp here
+merging 83 bp here
+merging 36 bp here
+merging 49 bp here
+merging 25 bp here
+merging 44 bp here
+merging 30 bp here
+merging 44 bp here
+merging 36 bp here
+merging 61 bp here
+merging 28 bp here
+merging 65 bp here
+merging 26 bp here
+merging 48 bp here
+merging 68 bp here
+merging 68 bp here
+merging 41 bp here
+merging 63 bp here
+merging 33 bp here
+merging 37 bp here
+merging 41 bp here
+merging 69 bp here
+merging 52 bp here
+merging 71 bp here
+merging 63 bp here
+merging 71 bp here
+merging 66 bp here
+merging 35 bp here
+merging 60 bp here
+merging 24 bp here
+merging 35 bp here
+merging 38 bp here
+merging 55 bp here
+merging 84 bp here
+merging 34 bp here
+merging 37 bp here
+merging 61 bp here
+merging 80 bp here
+merging 54 bp here
+merging 95 bp here
+merging 64 bp here
+merging 46 bp here
+merging 61 bp here
+merging 47 bp here
+merging 70 bp here
+merging 61 bp here
+merging 20 bp here
+merging 60 bp here
+merging 34 bp here
+merging 72 bp here
+merging 36 bp here
+merging 25 bp here
+merging 59 bp here
+merging 47 bp here
+merging 37 bp here
+merging 45 bp here
+merging 31 bp here
+merging 39 bp here
+merging 34 bp here
+merging 58 bp here
+merging 39 bp here
+merging 46 bp here
+merging 37 bp here
+merging 52 bp here
+merging 46 bp here
+merging 45 bp here
+merging 61 bp here
+merging 39 bp here
+merging 35 bp here
+merging 32 bp here
+merging 44 bp here
+merging 95 bp here
+merging 85 bp here
+merging 34 bp here
+merging 68 bp here
+merging 34 bp here
+merging 84 bp here
+merging 74 bp here
+merging 65 bp here
+merging 80 bp here
+merging 36 bp here
+merging 63 bp here
+merging 59 bp here
+merging 41 bp here
+merging 66 bp here
+merging 47 bp here
+merging 68 bp here
+merging 35 bp here
+merging 44 bp here
+merging 34 bp here
+merging 25 bp here
+merging 30 bp here
+merging 50 bp here
+merging 38 bp here
+merging 29 bp here
+merging 36 bp here
+merging 79 bp here
+merging 48 bp here
+merging 65 bp here
+merging 65 bp here
+merging 35 bp here
+merging 70 bp here
+merging 95 bp here
+merging 34 bp here
+merging 34 bp here
+merging 69 bp here
+merging 34 bp here
+merging 38 bp here
+merging 67 bp here
+merging 77 bp here
+merging 34 bp here
+merging 47 bp here
+merging 28 bp here
+merging 20 bp here
+merging 37 bp here
+merging 72 bp here
+merging 87 bp here
+merging 88 bp here
+merging 28 bp here
+merging 53 bp here
+merging 39 bp here
+merging 43 bp here
+merging 41 bp here
+merging 41 bp here
+merging 69 bp here
+merging 62 bp here
+merging 64 bp here
+merging 65 bp here
+merging 60 bp here
+merging 82 bp here
+merging 45 bp here
+merging 61 bp here
+merging 95 bp here
+merging 43 bp here
+merging 76 bp here
+merging 45 bp here
+merging 70 bp here
+merging 48 bp here
+merging 66 bp here
+merging 40 bp here
+merging 63 bp here
+merging 95 bp here
+merging 68 bp here
+merging 64 bp here
+merging 39 bp here
+merging 48 bp here
+merging 49 bp here
+merging 64 bp here
+merging 80 bp here
+merging 45 bp here
+merging 63 bp here
+merging 42 bp here
+merging 38 bp here
+merging 47 bp here
+merging 67 bp here
+merging 99 bp here
+merging 67 bp here
+merging 37 bp here
+merging 70 bp here
+merging 63 bp here
+merging 60 bp here
+merging 34 bp here
+merging 61 bp here
+merging 78 bp here
+merging 70 bp here
+merging 48 bp here
+merging 68 bp here
+merging 95 bp here
+merging 35 bp here
+merging 69 bp here
+merging 45 bp here
+merging 36 bp here
+merging 35 bp here
+merging 78 bp here
+merging 74 bp here
+merging 44 bp here
+merging 79 bp here
+merging 34 bp here
+merging 95 bp here
+merging 67 bp here
+merging 64 bp here
+merging 44 bp here
+merging 48 bp here
+merging 66 bp here
+merging 54 bp here
+merging 51 bp here
+merging 38 bp here
+merging 43 bp here
+merging 39 bp here
+merging 58 bp here
+merging 47 bp here
+merging 37 bp here
+merging 49 bp here
+merging 68 bp here
+merging 63 bp here
+merging 35 bp here
+merging 39 bp here
+merging 53 bp here
+merging 34 bp here
+merging 63 bp here
+merging 72 bp here
+merging 34 bp here
+merging 35 bp here
+merging 79 bp here
+merging 34 bp here
+merging 31 bp here
+merging 37 bp here
+merging 44 bp here
+merging 80 bp here
+merging 63 bp here
+merging 37 bp here
+merging 61 bp here
+merging 62 bp here
+merging 56 bp here
+merging 50 bp here
+merging 36 bp here
+merging 73 bp here
+merging 73 bp here
+merging 58 bp here
+merging 31 bp here
+merging 61 bp here
+merging 43 bp here
+merging 62 bp here
+merging 46 bp here
+merging 65 bp here
+merging 69 bp here
+merging 58 bp here
+merging 55 bp here
+merging 78 bp here
+merging 59 bp here
+merging 66 bp here
+merging 34 bp here
+merging 30 bp here
+merging 42 bp here
+merging 95 bp here
+merging 61 bp here
+merging 58 bp here
+merging 46 bp here
+merging 64 bp here
+merging 37 bp here
+merging 70 bp here
+merging 31 bp here
+merging 29 bp here
+merging 48 bp here
+merging 74 bp here
+merging 54 bp here
+merging 74 bp here
+merging 32 bp here
+merging 40 bp here
+merging 50 bp here
+merging 60 bp here
+merging 36 bp here
+merging 39 bp here
+merging 44 bp here
+merging 71 bp here
+merging 69 bp here
+merging 39 bp here
+merging 62 bp here
+merging 46 bp here
+merging 66 bp here
+merging 35 bp here
+merging 67 bp here
+merging 83 bp here
+merging 69 bp here
+merging 38 bp here
+merging 69 bp here
+merging 36 bp here
+merging 26 bp here
+merging 55 bp here
+merging 71 bp here
+merging 63 bp here
+merging 26 bp here
+merging 25 bp here
+merging 98 bp here
+merging 43 bp here
+merging 34 bp here
+merging 66 bp here
+param	value
+detect_haplotype	False
+hit_path_threshold	False
+lognormal	False
+orientation	fr
+hapl_threshold	3
+gff_file	None
+lower_cov_cutoff	0
+path_gaps_estimated	0
+skewness	-2.00877162257
+skew_adj	-2.006940996
+expected_links_over_mean_plus_stddev	3
+read_len	75.0
+pass_number	1
+path_threshold	100000
+std_dev_coverage	10.2605267667
+mean_coverage	38.2286286693
+detect_duplicate	True
+FASTER_ILP	False
+development	False
+std_dev_ins_size	15.7163901198
+NO_ILP	False
+current_N50	22320
+print_scores	True
+mean_ins_size	174.373733857
+multiprocess	False
+scaffold_indexer	17055
+hapl_ratio	1.3
+no_score	False
+first_lib	True
+current_L50	2479
+plots	False
+contigfile	None
+cov_cutoff	10000
+contamination_ratio	False
+ins_size_threshold	268.672074576
+edgesupport	3
+extend_paths	True
+tot_assembly_length	202998806
+max_extensions	None
+score_cutoff	1.5
+min_mapq	0
+information_file	<open file '/share/nas-isem_i/yanselmetti/DATA_SEQ/SCAFFOLDING/BESST-2.2.5/Bowtie2_ALL/TRIMMOMATIC3/ALL/Anopheles_culicifacies//SRX272317/BESST_output/Statistics.txt', mode 'w' at 0x2b6a08f055d0>
+contamination_mean	0
+max_contig_overlap	200
+contig_threshold	237.239294337
+contamination_stddev	0
+dfs_traversal	True
+
+L50:  2348 N50:  23687 Initial contig assembly length:  202998806
+Total time for scaffolding: 12816.5092001
+

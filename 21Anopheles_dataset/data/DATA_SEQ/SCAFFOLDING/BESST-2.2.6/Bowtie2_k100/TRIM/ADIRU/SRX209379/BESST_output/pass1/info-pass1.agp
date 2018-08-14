@@ -1,0 +1,111 @@
+#APG file
+#lw-scaffolder output
+scaffold_1	0	126649	1	W	KB673346	1	126650	-
+scaffold_1	126650	127894	2	N	1770	fragment	yes	
+scaffold_1	127895	129164	3	W	KB672604	1	1270	+
+scaffold_2	0	33819	1	W	KB672855	1	33820	+
+scaffold_2	33820	33820	2	N	1681	fragment	yes	
+scaffold_2	33821	35993	3	W	KB673593	1	2173	-
+scaffold_2	35994	37674	4	N	1	fragment	yes	
+scaffold_2	37675	39059	5	W	KB672540	1	1385	+
+scaffold_3	0	17425	1	W	KB672965	1	17426	+
+scaffold_3	17426	17426	2	N	1	fragment	yes	
+scaffold_3	17427	136125	3	W	KB673535	1	118699	+
+scaffold_3	136126	136126	4	N	1	fragment	yes	
+scaffold_3	136127	139602	5	W	KB673389	1	3476	+
+scaffold_3	139603	139603	6	N	1	fragment	yes	
+scaffold_3	139604	141733	7	W	KB673597	1	2130	+
+scaffold_4	0	20141	1	W	KB673062	1	20142	-
+scaffold_4	20142	20142	2	N	1	fragment	yes	
+scaffold_4	20143	22163	3	W	KB673605	1	2021	+
+scaffold_4	22164	22164	4	N	1	fragment	yes	
+scaffold_4	22165	23391	5	W	KB672628	1	1227	-
+scaffold_4	23392	23392	6	N	2644	fragment	yes	
+scaffold_4	23393	26154	7	W	KB673494	1	2762	-
+scaffold_5	0	729614	1	W	KB673035	1	729615	-
+scaffold_5	729615	729615	2	N	1	fragment	yes	
+scaffold_5	729616	731437	3	W	KB673658	1	1822	+
+scaffold_5	731438	731438	4	N	1	fragment	yes	
+scaffold_5	731439	733265	5	W	KB673648	1	1827	-
+scaffold_5	733266	733266	6	N	1	fragment	yes	
+scaffold_5	733267	739331	7	W	KB673166	1	6065	-
+scaffold_5	739332	739332	8	N	1	fragment	yes	
+scaffold_5	739333	744046	9	W	KB673263	1	4714	+
+scaffold_6	0	22284	1	W	KB672830	1	22285	+
+scaffold_6	22285	22285	2	N	1	fragment	yes	
+scaffold_6	22286	31528	3	W	KB672978	1	9243	+
+scaffold_6	31529	31529	4	N	1277	fragment	yes	
+scaffold_6	31530	34758	5	W	KB673465	1	3229	-
+scaffold_6	34759	36035	6	N	4159	fragment	yes	
+scaffold_6	36036	37319	7	W	KB672594	1	1284	-
+scaffold_7	0	13364	1	W	KB673175	1	13365	-
+scaffold_7	13365	14331	2	N	1	fragment	yes	
+scaffold_7	14332	16769	3	W	KB673559	1	2438	-
+scaffold_7	16770	16770	4	N	1	fragment	yes	
+scaffold_7	16771	72400	5	W	KB673523	1	55630	+
+scaffold_8	0	16976	1	W	KB672885	1	16977	+
+scaffold_8	16977	16977	2	N	1	fragment	yes	
+scaffold_8	16978	18254	3	W	KB672561	1	1277	-
+scaffold_8	18255	18255	4	N	23	fragment	yes	
+scaffold_8	18256	21543	5	W	KB673386	1	3288	-
+scaffold_9	0	341331	1	W	KB673235	1	341332	-
+scaffold_10	0	1175899	1	W	KB672991	1	1175900	-
+scaffold_11	0	10791	1	W	KB672961	1	10792	-
+scaffold_11	10792	10792	2	N	1821	fragment	yes	
+scaffold_11	10793	107509	3	W	KB673479	1	96717	+
+scaffold_12	0	8889	1	W	KB673109	1	8890	-
+scaffold_13	0	10393	1	W	KB673236	1	10394	+
+scaffold_13	10394	10394	2	N	1	fragment	yes	
+scaffold_13	10395	22646	3	W	KB673116	1	12252	-
+scaffold_14	0	58249	1	W	KB673668	1	58250	-
+scaffold_15	0	17731	1	W	KB672903	1	17732	+
+scaffold_16	0	1103814	1	W	KB673002	1	1103815	-
+scaffold_17	0	21403	1	W	KB673070	1	21404	+
+scaffold_18	0	36405	1	W	KB672805	1	36406	+
+scaffold_19	0	8655	1	W	KB673234	1	8656	-
+scaffold_20	0	50816	1	W	KB672790	1	50817	-
+scaffold_20	50817	50817	2	N	1	fragment	yes	
+scaffold_20	50818	59868	3	W	KB673217	1	9051	-
+scaffold_20	59869	59869	4	N	750	fragment	yes	
+scaffold_20	59870	70231	5	W	KB672864	1	10362	-
+scaffold_21	0	15946	1	W	KB673100	1	15947	-
+scaffold_22	0	2654351	1	W	KB672891	1	2654352	+
+scaffold_23	0	16571	1	W	KB672893	1	16572	-
+scaffold_24	0	5740866	1	W	KB672791	1	5740867	-
+scaffold_25	0	47571	1	W	KB672825	1	47572	+
+scaffold_26	0	29656	1	W	KB672818	1	29657	+
+scaffold_27	0	19021	1	W	KB672852	1	19022	-
+scaffold_27	19022	19022	2	N	1	fragment	yes	
+scaffold_27	19023	39702	3	W	KB672892	1	20680	-
+scaffold_28	0	13195	1	W	KB672669	1	13196	-
+scaffold_28	13196	13196	2	N	1	fragment	yes	
+scaffold_28	13197	14897	3	W	KB673693	1	1701	-
+scaffold_29	0	13128	1	W	KB673078	1	13129	-
+scaffold_30	0	18241	1	W	KB672897	1	18242	+
+scaffold_31	0	22769	1	W	KB673044	1	22770	+
+scaffold_32	0	9093	1	W	KB673303	1	9094	-
+scaffold_33	0	8362	1	W	KB672976	1	8363	-
+scaffold_33	8363	8363	2	N	1	fragment	yes	
+scaffold_33	8364	214499	3	W	KB673301	1	206136	-
+scaffold_34	0	70409	1	W	KB673679	1	70410	-
+scaffold_35	0	14406	1	W	KB672937	1	14407	+
+scaffold_36	0	21915	1	W	KB672871	1	21916	-
+scaffold_37	0	10480	1	W	KB672926	1	10481	-
+scaffold_38	0	50649	1	W	KB672536	1	50650	-
+scaffold_39	0	10257	1	W	KB672984	1	10258	+
+scaffold_40	0	10685	1	W	KB672972	1	10686	-
+scaffold_41	0	9950	1	W	KB672971	1	9951	-
+scaffold_42	0	20455	1	W	KB672842	1	20456	+
+scaffold_43	0	9336	1	W	KB673026	1	9337	-
+scaffold_44	0	9508	1	W	KB673142	1	9509	+
+scaffold_45	0	18925	1	W	KB673029	1	18926	+
+scaffold_46	0	33477	1	W	KB672798	1	33478	+
+scaffold_47	0	8422	1	W	KB673021	1	8423	+
+scaffold_48	0	21330	1	W	KB672894	1	21331	-
+scaffold_49	0	15382	1	W	KB672959	1	15383	-
+scaffold_49	15383	15383	2	N	1	fragment	yes	
+scaffold_49	15384	23917	3	W	KB673295	1	8534	-
+scaffold_50	0	17635	1	W	KB672881	1	17636	-
+scaffold_51	0	99406	1	W	KB673468	1	99407	-
+scaffold_51	99407	99407	2	N	1	fragment	yes	
+scaffold_51	99408	109563	3	W	KB672939	1	10156	+

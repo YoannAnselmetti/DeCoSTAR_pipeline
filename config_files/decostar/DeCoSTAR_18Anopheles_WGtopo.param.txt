@@ -48,7 +48,7 @@ nb.sample=100
 # output parameters
 write.adjacencies=1
 write.genes=1
-write.adjacency.trees=1
+write.adjacency.trees=0
 write.newick=1
 hide.losses.newick=0
 output.dir=18Anopheles_dataset/results/decostar/ADseq+scaff_Boltz_kT0.1/WGtopo

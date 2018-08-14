@@ -1,0 +1,742 @@
+Species 0 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 10133
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 10133
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 10133
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 10133
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 1 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 10059
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 10058
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 10040
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 10038
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 10 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 15664
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 15648
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 11650
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 11646
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 11 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 8425
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 7474
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 7185
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 7185
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 12 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 14827
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 14822
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 11146
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 11143
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 13 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 9362
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 9352
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 9323
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 9323
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 14 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 15011
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 15001
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 11195
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 11192
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 15 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 9052
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 9040
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 9025
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 9025
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 16 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 10232
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 9627
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 9608
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 9607
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 17 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 11328
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 11324
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 9946
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 9945
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 18 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 10276
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 9495
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 7420
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 7417
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 19 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 13064
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 13056
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 10513
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 10512
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 2 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 13048
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 13031
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 10797
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 10796
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 20 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 24440
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 10240
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 9558
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 9558
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 21 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 9595
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 9502
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 9501
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 9500
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 22 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 12546
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 12537
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 10526
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 10526
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 23 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 12890
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 9567
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 9554
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 9554
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 24 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 13181
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 13175
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 10736
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 10734
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 25 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 14677
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 14668
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 11067
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 11065
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 26 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 16178
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 16165
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 11421
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 11417
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 27 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 9772
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 9488
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 9486
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 9485
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 28 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 10176
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 9811
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 9808
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 9808
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 29 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 12341
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 12335
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 10313
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 10311
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 3 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 11187
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 9954
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 9950
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 9949
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 30 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 15464
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 15450
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 11087
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 11085
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 31 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 10455
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 9753
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 9751
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 9750
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 32 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 9441
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 9440
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 9438
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 9438
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 33 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 9136
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 8165
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 8115
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 8113
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 34 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 10976
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 10969
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 9666
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 9663
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 35 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 12558
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 12547
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 10252
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 10252
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 36 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 13765
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 13738
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 10360
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 10360
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 37 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 8995
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 8895
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 8894
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 8894
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 38 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 7171
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 7171
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 7160
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 7160
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 39 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 9208
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 9207
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 8526
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 8526
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 4 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 13844
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 9841
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 9830
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 9830
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 40 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 8640
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 8635
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 7960
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 7960
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 5 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 11179
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 11170
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 10165
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 10164
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 6 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 14142
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 11646
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 9751
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 9750
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 7 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 13810
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 13794
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 11007
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 11005
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 8 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 18822
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 10210
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 10180
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 10180
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Species 9 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 14911
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 14893
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 11442
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 11440
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Checking consistency of the results---------------------
+  Checking that kept adjacencies are observed in the scaffolds
+  Checking that scaffolds adjacencies are in the kept adjacencies
+  Checking that discarded adjacencies can not be added back

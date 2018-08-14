@@ -15,10 +15,10 @@
 ###      5- Orientation file
 ###         (/share/nas-isem_i/yanselmetti/BIRDS_PROJECT/DATA_SEQ/orientation_libraries)
 ###      6- Multiple alignment used for MAPPING (If not given then all alignments were considered)
-###         (50)
+###         (100)
 ###
 ###   Name: 06-run_BESST_oneRUNperSPECIES.sh   Author: Yoann Anselmetti
-###   Creation date: 2015/08/26                Last modification: 2017/11/13
+###   Creation date: 2015/08/26                Last modification: 2018/08/14
 ###
 
 mapDIR=$1
@@ -92,7 +92,7 @@ for SRX in $listSRX; do
    insertSD=$(echo ${SRX_ori["$SRX"]} | cut -d: -f3)
    echo $insertMean" "$insertSD":"$SRX":"$ori
 done |
-sort -n -k1 |( # Parenthesis very important due to the fact that var strSRX and strORI will be deleted once loop While is over...
+sort -n -k1 |( # Parenthesis very important due to the fact that var strSRX and strORI will be deleted once loop While is over, if parenthesisi is not present!!!
 while read -r elem; do
    # echo $elem
    mean=$(echo $elem | cut -d" " -f1)

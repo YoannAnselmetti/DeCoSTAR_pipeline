@@ -20,9 +20,8 @@
 ###      - Scaffolding adjacencies gene file for all species
 ###
 ###   Name: create_scaff_adj_file.py   Author: Yoann Anselmetti
-###   Creation date: 2015/12/02               Last modification: 2017/07/17
+###   Creation date: 2015/12/02               Last modification: 2018/07/26
 ###
-
 
 from sys import argv, stdout
 from re import search
@@ -33,8 +32,10 @@ from glob import glob
 import errno
 
 
+
 def getDIR(file_path):
    return file_path.rsplit("/",1)[0]
+
 
 
 def mkdir_p(dir_path):
@@ -45,6 +46,8 @@ def mkdir_p(dir_path):
          pass
       else:
          raise
+
+
 
 def rev_ori(ori):
    if ori=="-":
@@ -89,38 +92,28 @@ def store_CTG(CTG_file):
             #    print "\t=> Contig "+contig+" is not present in FASTA file assembly of species "+spe
       else:
          exit("ERROR, line "+line+" of file "+CTG_file+" is incorrectly written!!!\nIt should match with the following format:\n"+CTG_format)
-
    contig_file.close()
+
    return dict_spe_ctg
-   
-
-
-def get_best_adj(dict_scaff,edge):
-   vscore=edge.vscore
-   dscore=edge.dscore
-   link=edge.link
-   # If vscore score of current edge is upper than stored edge, replace stored edge by current edge
-   if dict_scaff.vscore<vscore:
-      dict_scaff=edge
-   # If vscore are equals take the adj with the best dscore
-   elif dict_scaff.vscore==vscore:
-      if dict_scaff.dscore<dscore:
-         dict_scaff=edge
-      # If dscore are equals take the adj with the greater nb of links
-      elif dict_scaff.dscore==dscore:
-         if dict_scaff.link<link:
-            dict_scaff=edge
 
 
 
+def best_adj(stored_edge,current_edge):
+   current_score=(current_edge.vscore+current_edge.dscore)/2.0
+   stored_score=(stored_edge.vscore+stored_edge.dscore)/2.0
+   # If current score > stored score, replace stored edge by current edge
+   if current_score>stored_score:
+      return True
+   # If current score == stored score, keep the edge with the higher number of links 
+   elif current_score==stored_score:
+      if current_edge.link>stored_edge.link:
+         return True
+      else:
+         return False
 
-def store_ADJ(BESST_dir,species,dict_spe_edge_scaff):
-   score_files_nb=len(glob(BESST_dir+"/"+species+"/BESST_output/score_file_pass_*.tsv"))
-   i=1
-   while i<=score_files_nb:
-      ctg_scaff_graph_file=BESST_dir+"/"+species+"/BESST_output/score_file_pass_"+str(i)+".tsv"
-      print "\t"+ctg_scaff_graph_file
-      i+=1
+
+
+def read_and_store_scaff_ADj(ctg_scaff_graph_file,dict_spe_edge_scaff):
       scaff_graph=open(ctg_scaff_graph_file,'r')
       for line in scaff_graph:
          r=search('^([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\n\t]*)\n$',line)
@@ -145,8 +138,8 @@ def store_ADJ(BESST_dir,species,dict_spe_edge_scaff):
                ori2=ori2.split(";",1)[0]
 
                if int(links_nb)>links_min and float(gap)<=gap_max:
-                  score1='{0:.12f}'.format(float(var_score))
-                  score2='{0:.12f}'.format(float(disp_score))
+                  score1=float('{0:.12f}'.format(float(var_score)))
+                  score2=float('{0:.12f}'.format(float(disp_score)))
 
                   adj=ADJ(species,ctg1,ctg2,ori1,ori2)
                   edge=EDGE(species,ctg1,ctg2,ori1,ori2,float(gap),score1,score2,int(links_nb))
@@ -156,19 +149,38 @@ def store_ADJ(BESST_dir,species,dict_spe_edge_scaff):
 
                   # If the current adj is in "dict_spe_edge_scaff"
                   if adj in dict_spe_edge_scaff[species]:
-                     get_best_adj(dict_spe_edge_scaff[species][adj],edge)
+                     if best_adj(dict_spe_edge_scaff[species][adj],edge):
+                        dict_spe_edge_scaff[species][adj]=edge
                   else:
                      # If the current adj is in "dict_spe_edge_scaff" in the reverse order
                      if rev_adj in dict_spe_edge_scaff[species]:
                         if verbose:
                            print "\tAdjacency:\n",edge,"\nis present in forward and reverse orientation"
-                        get_best_adj(dict_spe_edge_scaff[species][rev_adj],rev_edge)
+                        if best_adj(dict_spe_edge_scaff[species][rev_adj],rev_edge):
+                           dict_spe_edge_scaff[species][rev_adj]=rev_edge
                      # If current adj is not present in "dict_spe_edge_scaff", store it in "dict_spe_edge_scaff"
                      else:
                         dict_spe_edge_scaff[species][adj]=edge
          else:
             exit("ERROR, the line:\n\t"+line+"\nis incorrectly written in file "+ctg_scaff_graph_file)
       scaff_graph.close()
+
+
+
+def store_ADJ(BESST_dir,species,dict_spe_edge_scaff):
+   score_files_nb=len(glob(BESST_dir+"/"+species+"/BESST_output/score_file_pass_*.tsv"))
+   if score_files_nb:
+      i=1
+      while i<=score_files_nb:
+         ctg_scaff_graph_file=BESST_dir+"/"+species+"/BESST_output/score_file_pass_"+str(i)+".tsv"
+         print "\t"+ctg_scaff_graph_file
+         read_and_store_scaff_ADj(ctg_scaff_graph_file,dict_spe_edge_scaff)
+         i+=1
+   else:
+      for SRX in listdir(BESST_dir+"/"+species):
+         ctg_scaff_graph_file=BESST_dir+"/"+species+"/"+SRX+"/BESST_output/score_file_pass_1.tsv"
+         print "\t"+ctg_scaff_graph_file
+         read_and_store_scaff_ADj(ctg_scaff_graph_file,dict_spe_edge_scaff)
 
    return dict_spe_edge_scaff
 
@@ -199,6 +211,7 @@ def get_gene_infos(ctg_order,ori,dist,CTG,CTG_file):
       ori_gene=rev_ori(oriG)
 
    return GF_gene,gene,ori_gene,dist
+
 
 
 

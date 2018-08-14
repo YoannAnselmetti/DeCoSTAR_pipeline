@@ -1,0 +1,268 @@
+Initial number of contigs: 2823. 
+Time elapsed for reading in contig sequences:4.1126909256
+
+
+PASS 1
+
+
+Mean before filtering : 154.242084
+Std_est  before filtering:  6836.48225573
+Mean converged: 140.61603186
+Std_est converged:  39.9934643788
+Skewness of distribution:  -0.166399620641
+mode for chunk size  1  :  173.5
+mode for chunk size  6  :  171.0
+mode for chunk size  11  :  170.5
+mode for chunk size  16  :  168.0
+mode for chunk size  21  :  178.5
+mode for chunk size  26  :  169.0
+mode for chunk size  31  :  170.5
+mode for chunk size  36  :  162.0
+mode for chunk size  41  :  184.5
+mode for chunk size  46  :  161.0
+mode for chunk size  51  :  178.5
+mode for chunk size  56  :  196.0
+mode for chunk size  61  :  152.5
+mode for chunk size  66  :  165.0
+mode for chunk size  71  :  177.5
+mode for chunk size  76  :  190.0
+mode for chunk size  81  :  202.5
+mode for chunk size  86  :  129.0
+mode for chunk size  91  :  136.5
+mode for chunk size  96  :  144.0
+mode for chunk size  101  :  151.5
+Mean of getdistr adjusted distribution:  140.62181303
+Sigma of getdistr adjusted distribution:  39.9929634807
+Skewness of getdistr adjusted distribution:  -0.166512760959
+Median of getdistr adjusted distribution:  159
+Mode of getdistr adjusted distribution:  170
+Using mean and stddev of getdistr adjusted distribution from here:  140.62181303 39.9929634807
+Contamine mean before filtering : 9136.43478261
+Contamine stddev before filtering:  99746.2385868
+Contamine mean converged: 399.992537313
+Contamine std_est converged:  364.471921962
+
+LIBRARY STATISTICS
+Mean of library set to: 140.62181303
+Standard deviation of library set to:  39.9929634807
+MP library PE contamination:
+Contamine rate (rev comp oriented) estimated to:  False
+lib contamine mean (avg fragmentation size):  0
+lib contamine stddev:  0
+Number of contamined reads used for this calculation:  134.0
+-T (library insert size threshold) set to:  380.579593914
+-k set to (Scaffolding with contigs larger than):  300.593666953
+Number of links required to create an edge:  None
+Maximum identical contig-end overlap-length to merge of contigs that are adjacent in a scaffold:  200
+Read length set to:  75.0
+
+Time elapsed for getting libmetrics, iteration 0: 29.9564788342
+
+Parsing BAM file...
+L50:  54 N50:  1641272 Initial contig assembly length:  283828998
+Time initializing BESST objects:  0.0226330757141
+Total time elapsed for initializing Graph:  0.0559229850769
+Reading bam file and creating scaffold graph...
+ELAPSED reading file: 7917.14218688
+NR OF FISHY READ LINKS:  0
+Number of USEFUL READS (reads mapping to different contigs uniquly):  66454062
+Number of non unique reads (at least one read non-unique in read pair) that maps to different contigs (filtered out from scaffolding):  4590637
+Reads with too large insert size from "USEFUL READS" (filtered out):  66326118
+Initial number of edges in G (the graph with large contigs):  6051
+Initial number of edges in G_prime (the full graph of all contigs before removal of repats):  6051
+Number of duplicated reads indicated and removed:  73870
+Mean coverage before filtering out extreme observations =  12476.315226
+Std dev of coverage before filtering out extreme observations=  236754.334688
+Mean coverage after filtering =  33.7463156632
+Std coverage after filtering =  15.740095432
+Length of longest contig in calc of coverage:  6438948
+Length of shortest contig in calc of coverage:  1000
+Detecting repeats..
+Removed a total of:  36  repeats. With coverage larger than  10000
+Number of edges in G (after repeat removal):  5611
+Number of edges in G_prime (after repeat removal):  5611
+Number of BWA buggy edges removed:  0
+Number of edges in G (after filtering for buggy flag stats reporting):  5611
+Number of edges in G_prime  (after filtering for buggy flag stats reporting):  5611
+Nodes: 2787.	 Total edges with over 188 links:1. 	Average density: 0.000358808754934
+Nodes: 2787.	 Total edges with over 109 links:2. 	Average density: 0.000717617509867
+Nodes: 2787.	 Total edges with over 91 links:3. 	Average density: 0.0010764262648
+Nodes: 2787.	 Total edges with over 87 links:4. 	Average density: 0.00143523501973
+Nodes: 2787.	 Total edges with over 77 links:5. 	Average density: 0.00179404377467
+Nodes: 2787.	 Total edges with over 75 links:6. 	Average density: 0.0021528525296
+Nodes: 2787.	 Total edges with over 73 links:7. 	Average density: 0.00251166128454
+Nodes: 2787.	 Total edges with over 67 links:8. 	Average density: 0.00287047003947
+Nodes: 2787.	 Total edges with over 66 links:9. 	Average density: 0.0032292787944
+Nodes: 2787.	 Total edges with over 62 links:10. 	Average density: 0.00358808754934
+Nodes: 2787.	 Total edges with over 61 links:11. 	Average density: 0.00394689630427
+Nodes: 2787.	 Total edges with over 59 links:12. 	Average density: 0.0043057050592
+Nodes: 2787.	 Total edges with over 58 links:13. 	Average density: 0.00466451381414
+Nodes: 2787.	 Total edges with over 56 links:14. 	Average density: 0.00502332256907
+Nodes: 2787.	 Total edges with over 55 links:15. 	Average density: 0.005382131324
+Nodes: 2787.	 Total edges with over 54 links:16. 	Average density: 0.00574094007894
+Nodes: 2787.	 Total edges with over 50 links:17. 	Average density: 0.00609974883387
+Nodes: 2787.	 Total edges with over 48 links:19. 	Average density: 0.00681736634374
+Nodes: 2787.	 Total edges with over 47 links:20. 	Average density: 0.00717617509867
+Nodes: 2787.	 Total edges with over 46 links:21. 	Average density: 0.00753498385361
+Nodes: 2787.	 Total edges with over 45 links:23. 	Average density: 0.00825260136347
+Nodes: 2787.	 Total edges with over 43 links:27. 	Average density: 0.00968783638321
+Nodes: 2787.	 Total edges with over 41 links:29. 	Average density: 0.0104054538931
+Nodes: 2787.	 Total edges with over 40 links:32. 	Average density: 0.0114818801579
+Nodes: 2787.	 Total edges with over 39 links:35. 	Average density: 0.0125583064227
+Nodes: 2787.	 Total edges with over 38 links:37. 	Average density: 0.0132759239325
+Nodes: 2787.	 Total edges with over 36 links:40. 	Average density: 0.0143523501973
+Nodes: 2787.	 Total edges with over 35 links:42. 	Average density: 0.0150699677072
+Nodes: 2787.	 Total edges with over 34 links:44. 	Average density: 0.0157875852171
+Nodes: 2787.	 Total edges with over 33 links:46. 	Average density: 0.0165052027269
+Nodes: 2787.	 Total edges with over 32 links:52. 	Average density: 0.0186580552565
+Nodes: 2787.	 Total edges with over 31 links:58. 	Average density: 0.0208109077861
+Nodes: 2787.	 Total edges with over 30 links:64. 	Average density: 0.0229637603158
+Nodes: 2787.	 Total edges with over 29 links:71. 	Average density: 0.0254754216003
+Nodes: 2787.	 Total edges with over 28 links:73. 	Average density: 0.0261930391102
+Nodes: 2787.	 Total edges with over 27 links:78. 	Average density: 0.0279870828848
+Nodes: 2787.	 Total edges with over 26 links:86. 	Average density: 0.0308575529243
+Nodes: 2787.	 Total edges with over 25 links:91. 	Average density: 0.032651596699
+Nodes: 2787.	 Total edges with over 24 links:97. 	Average density: 0.0348044492286
+Nodes: 2787.	 Total edges with over 23 links:112. 	Average density: 0.0401865805526
+Nodes: 2787.	 Total edges with over 22 links:125. 	Average density: 0.0448510943667
+Nodes: 2787.	 Total edges with over 21 links:134. 	Average density: 0.0480803731611
+Nodes: 2787.	 Total edges with over 20 links:142. 	Average density: 0.0509508432006
+Nodes: 2787.	 Total edges with over 19 links:154. 	Average density: 0.0552565482598
+Nodes: 2787.	 Total edges with over 18 links:163. 	Average density: 0.0584858270542
+Nodes: 2787.	 Total edges with over 17 links:181. 	Average density: 0.064944384643
+Nodes: 2787.	 Total edges with over 16 links:197. 	Average density: 0.0706853247219
+Nodes: 2787.	 Total edges with over 15 links:218. 	Average density: 0.0782203085755
+Nodes: 2787.	 Total edges with over 14 links:251. 	Average density: 0.0900609974883
+Nodes: 2787.	 Total edges with over 13 links:277. 	Average density: 0.0993900251166
+Nodes: 2787.	 Total edges with over 12 links:331. 	Average density: 0.118765697883
+Nodes: 2787.	 Total edges with over 11 links:385. 	Average density: 0.138141370649
+Nodes: 2787.	 Total edges with over 10 links:442. 	Average density: 0.158593469681
+Nodes: 2787.	 Total edges with over 9 links:494. 	Average density: 0.177251524937
+Nodes: 2787.	 Total edges with over 8 links:556. 	Average density: 0.199497667743
+Nodes: 2787.	 Total edges with over 7 links:642. 	Average density: 0.230355220667
+Nodes: 2787.	 Total edges with over 6 links:745. 	Average density: 0.267312522426
+Nodes: 2787.	 Total edges with over 5 links:881. 	Average density: 0.316110513097
+Nodes: 2787.	 Total edges with over 4 links:1072. 	Average density: 0.384642985289
+Nodes: 2787.	 Total edges with over 3 links:1334. 	Average density: 0.478650879081
+Nodes: 2787.	 Total edges with over 2 links:1785. 	Average density: 0.640473627557
+Nodes: 2787.	 Total edges with over 1 links:2824. 	Average density: 1.01327592393
+Letting filtering threshold in high complexity regions be 3 for this library.
+Letting -e be 3 for this library.
+Removed 1490 edges from graph G of border contigs.
+Remove edges in high complexity areas.
+Removed total of 573 edges in high density areas.
+Removed an additional of 917 edges with low support from full graph G_prime of all contigs.
+Number of significantly spurious edges: 0
+Number of edges in G_prime  (after removing edges under -e threshold (if not specified, default is -e 3):  4121
+
+ -------------------------------------------------------------
+
+Nr of contigs/scaffolds included in this pass: 2787
+Out of which 2787 acts as border contigs.
+Total time for CreateGraph-module, iteration 0: 7918.95218801
+
+1334 link edges created.
+Perform inference on scaffold graph...
+Remove isolated nodes.
+2046 isolated contigs removed from graph.
+Remove edges from node if more than two edges
+SCORES AMBVIVALENT 1.61599159344 1.4952113909
+SCORES AMBVIVALENT 1.59142418687 1.31741446682
+SCORES AMBVIVALENT 1.59039105253 1.27276419791
+SCORES AMBVIVALENT 1.56790577102 1.46527590509
+SCORES AMBVIVALENT 1.49585276677 1.38005305018
+SCORES AMBVIVALENT 1.48186660878 1.29887097959
+SCORES AMBVIVALENT 1.40567986697 1.2923648398
+SCORES AMBVIVALENT 1.33079605529 1.29264898548
+SCORES AMBVIVALENT 1.38551307499 1.34975131089
+SCORES AMBVIVALENT 1.37307777774 1.27313001478
+SCORES AMBVIVALENT 1.26755441723 1.12119521524
+SCORES AMBVIVALENT 1.34633488728 1.21882025614
+SCORES AMBVIVALENT 1.34280790271 1.27731284318
+SCORES AMBVIVALENT 1.33678411821 1.32814125032
+SCORES AMBVIVALENT 1.31120122392 1.24714109751
+SCORES AMBVIVALENT 1.13552240371 1.06536897146
+SCORES AMBVIVALENT 1.27403524944 1.23911352144
+SCORES AMBVIVALENT 1.16806727711 1.15262903047
+ Number of edges in G before: 2075
+ Number of edges in G after: 778
+ %-age removed edges: 62.5060240964
+Remove isolated nodes.
+667 isolated contigs removed from graph.
+Contigs/scaffolds left: 74
+Remove remaining cycles...
+0 cycles removed from graph.
+Nr of new scaffolds created in this step: 37
+
+
+
+ Searching for paths BETWEEN scaffolds
+
+
+
+Entering ELS.BetweenScaffolds single core
+iterating until maximum of 0 extensions.
+Number of nodes:5500, Number of edges: 2750
+Elapsed time single core pathfinder:  0.0203258991241
+0 paths detected are with score greater or equal to 1.5 
+Nr of contigs left:  2750.0 Nr of linking edges left: 0.0
+Number of gaps estimated by GapEst-LP module order_contigs in this step is: 0
+Time elapsed for making scaffolds, iteration 0: 0.205215930939
+
+(super)Contigs after scaffolding: 2750
+
+merging 41 bp here
+merging 34 bp here
+merging 39 bp here
+param	value
+detect_haplotype	False
+hit_path_threshold	False
+lognormal	False
+orientation	fr
+hapl_threshold	3
+gff_file	None
+lower_cov_cutoff	0
+path_gaps_estimated	0
+skewness	-0.166399620641
+skew_adj	-0.166512760959
+expected_links_over_mean_plus_stddev	3
+read_len	75.0
+pass_number	1
+path_threshold	100000
+std_dev_coverage	15.740095432
+mean_coverage	33.7463156632
+detect_duplicate	True
+FASTER_ILP	False
+development	False
+std_dev_ins_size	39.9929634807
+NO_ILP	False
+current_N50	1641272
+print_scores	True
+mean_ins_size	140.62181303
+multiprocess	False
+scaffold_indexer	2861
+hapl_ratio	1.3
+no_score	False
+first_lib	True
+current_L50	54
+plots	False
+contigfile	None
+cov_cutoff	10000
+contamination_ratio	False
+ins_size_threshold	380.579593914
+edgesupport	3
+extend_paths	True
+tot_assembly_length	283828998
+max_extensions	None
+score_cutoff	1.5
+min_mapq	0
+information_file	<open file '/share/nas-isem_i/yanselmetti/DATA_SEQ/SCAFFOLDING/BESST-2.2.5/Bowtie2_ALL/TRIMMOMATIC3/ALL/Anopheles_quadriannulatus//SRX084277/BESST_output/Statistics.txt', mode 'w' at 0x2ab6f5d34660>
+contamination_mean	0
+max_contig_overlap	200
+contig_threshold	300.593666953
+contamination_stddev	0
+dfs_traversal	True
+
+L50:  54 N50:  1613652 Initial contig assembly length:  283828998
+Total time for scaffolding: 7957.61244416
+

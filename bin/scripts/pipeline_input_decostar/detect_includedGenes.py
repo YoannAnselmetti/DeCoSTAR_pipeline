@@ -777,7 +777,6 @@ if __name__ == '__main__':
    # Open GENE output files in Write
    OUTPUT_GENE=OUTPUT_dir+"/ALL_species_GENE_file"
    output_G=open(OUTPUT_GENE,'w')
-   output_G.write("#species\tctg\tgene\torientation_gene\tstart_gene_old\tend_gene_old\t#exons_old\texons_position_old\t#exons_new\texons_position_new\n")
    # Open OVERLAP output files in Write
    OUTPUT_Overlap=OUTPUT_dir+"/ALL_species_Overlap_file"
    output_Ov=open(OUTPUT_Overlap,'w')
@@ -1477,7 +1476,7 @@ if __name__ == '__main__':
 
    # Sort OUTPUT annotation gene file by species, then contigs and genes.
    out=open("buffer_file","w")
-   out.write("#species\tctg\tgene\torientation_gene\tstart_gene\tend_gene\t#exons\texons_position\n")
+   out.write("#species\tctg\tgene\torientation_gene\tstart_gene_old\tend_gene_old\t#exons_old\texons_position_old\t#exons_new\texons_position_new\n")
    out.close()
    command_line="sort -k1d,1d -k2d,2d -k6n,6n "+OUTPUT_GENE+" >> buffer_file; mv buffer_file "+OUTPUT_GENE
    subprocess.call(command_line,shell=True)

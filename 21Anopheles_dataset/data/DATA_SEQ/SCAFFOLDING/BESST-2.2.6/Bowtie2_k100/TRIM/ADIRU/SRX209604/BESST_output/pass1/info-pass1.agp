@@ -1,0 +1,18 @@
+#APG file
+#lw-scaffolder output
+scaffold_1	0	3758	1	W	KB673266	1	3759	-
+scaffold_2	0	1062	1	W	KB672670	1	1063	+
+scaffold_3	0	6248	1	W	KB673140	1	6249	+
+scaffold_4	0	70744	1	W	KB673557	1	70745	-
+scaffold_5	0	2367	1	W	KB673577	1	2368	-
+scaffold_6	0	520992	1	W	KB673102	1	520993	+
+scaffold_7	0	16485	1	W	KB673083	1	16486	+
+scaffold_8	0	456255	1	W	KB673135	1	456256	+
+scaffold_9	0	1274	1	W	KB672598	1	1275	-
+scaffold_10	0	8422	1	W	KB673021	1	8423	-
+scaffold_11	0	3491	1	W	KB673385	1	3492	+
+scaffold_12	0	44158	1	W	KB672736	1	44159	+
+scaffold_12	44159	44159	2	N	94	fragment	yes	
+scaffold_12	44160	46579	3	W	KB673569	1	2420	-
+scaffold_13	0	9950	1	W	KB672971	1	9951	+
+scaffold_14	0	1466	1	W	KB673727	1	1467	+
