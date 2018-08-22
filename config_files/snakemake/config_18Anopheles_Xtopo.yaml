@@ -12,3 +12,4 @@ config_decostar: config_files/decostar/DeCoSTAR_18Anopheles_Xtopo.param.txt
 outputdir_decostar: results/decostar/Xtopo/ADseq+scaff_Boltz_kT0.1
 prefix_decostar: DeCoSTAR_18Anopheles_Xtopo_ADseq+scaff_Boltz_kT0.1
 linearization_threshold: "0.1"
+AGP_dir: data/INPUT_DATA/chromosome_map

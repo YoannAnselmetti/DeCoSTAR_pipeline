@@ -1,6 +1,6 @@
-# configfile: "config_files/snakemake/config_27avian.yaml"
 configfile: "config_files/snakemake/config_21Anopheles_Xtopo.yaml"
 # configfile: "config_files/snakemake/config_18Anopheles_Xtopo.yaml"
+# configfile: "config_files/snakemake/config_27avian.yaml"
 
 
 # TO IMPROVE => GET "outputdir_decostar" AND "prefix_decostar" FROM DECOSTAR PARAMETER FILE

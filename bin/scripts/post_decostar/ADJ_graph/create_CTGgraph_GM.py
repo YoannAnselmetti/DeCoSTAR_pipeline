@@ -125,6 +125,7 @@ if __name__ == '__main__':
    contig=""
    i=0
    bool_first=True
+   ctg_out=False
    list_CTG_rm=list()
    for line in map_file:
       r_AGP=search("^([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t\n]*)\n$",line)
@@ -139,9 +140,10 @@ if __name__ == '__main__':
          end_CTG=r_AGP.group(8)
          orientation=r_AGP.group(9)
 
-         # Allow to consider CTG with multiple locations (where end is annotated with "_chrX" or "_X" where X is an integer)
-         ctg_short=ctg.split("_")[0]
-
+         # # Allow to consider CTG with multiple locations (where end is annotated with "_chrX" or "_X" where X is an integer)
+         # ctg_short=ctg.split("_")[0]
+         ctg_short=ctg
+         
          if status!="N":
             if ctg in list_CTG:
                if chromosome!=chrom:
@@ -152,15 +154,40 @@ if __name__ == '__main__':
                   bool_first=False
                   graph.add_node(chrom,shape="box",color=color_list[i])
                   graph.add_node(ctg_short,color=color_list[i])
-                  graph.add_edge(chrom,ctg_short,color="black")
+                  if ctg_out:
+                     graph.add_edge(chrom,ctg_short,color="grey")
+                     ctg_out=False
+                  else:
+                     graph.add_edge(chrom,ctg_short,color="black")
                   contig=ctg_short
                   chromosome=chrom
                else:
                   graph.add_node(ctg_short,color=color_list[i])
-                  graph.add_edge(contig,ctg_short,color="black")
+                  if ctg_out:
+                     graph.add_edge(contig,ctg_short,color="grey")
+                     ctg_out=False
+                  else:
+                     graph.add_edge(contig,ctg_short,color="black")
                   contig=ctg_short
-            else:
+            else: # CTG is not considered by DeCoSTAR
                list_CTG_rm.append(ctg)
+               ctg_out=True
+               if chromosome!=chrom:
+                  if not bool_first:
+                     i+=1
+                     if i>color_size-1:
+                        i=0
+                  bool_first=False
+                  graph.add_node(chrom,shape="box",color=color_list[i])
+                  graph.add_node(ctg_short,color="grey")
+                  graph.add_edge(chrom,ctg_short,color="grey")
+                  contig=ctg_short
+                  chromosome=chrom
+               else:
+                  graph.add_node(ctg_short,color="grey")
+                  graph.add_edge(contig,ctg_short,color="grey")
+                  contig=ctg_short
+
       else:
          exit("!!! ERROR, line:\n\t"+line+" of file "+AGP_file+" is incorrectly written !!!")
    map_file.close()
@@ -170,9 +197,9 @@ if __name__ == '__main__':
    command_line="dot -Tsvg "+OUTPUT_dot+" -o "+OUTPUT_svg
    subprocess.call(command_line,shell=True)
 
-   print str(len(list_CTG_rm))+" CTG in AGP file don't contain genes considered by DeCoSTAR:"
-   for ctg in list_CTG_rm:
-      print "\t"+ctg
+   # print str(len(list_CTG_rm))+" CTG in AGP file don't contain genes considered by DeCoSTAR:"
+   # for ctg in list_CTG_rm:
+   #    print "\t"+ctg
 
 
 

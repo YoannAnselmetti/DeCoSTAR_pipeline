@@ -137,6 +137,7 @@ if __name__ == '__main__':
    gene=""
    i=0
    bool_first=True
+   ctg_out=False
    for line in map_file:
       r_AGP=search("^([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t\n]*)\n$",line)
       if r_AGP:
@@ -150,9 +151,11 @@ if __name__ == '__main__':
          end_CTG=r_AGP.group(8)
          orientation=r_AGP.group(9)
 
+         # Allow to consider CTG with multiple locations (where end is annotated with "_chrX" or "_X" where X is an integer)
+         short_ctg=ctg.split("_")[0]
+
          if status!="N":
             if ctg in dict_CTG:
-               short_ctg=ctg.split("_")[0]
                if chromosome!=chrom:
                   if not bool_first:
                      i+=1
@@ -163,29 +166,72 @@ if __name__ == '__main__':
                   graph.add_node(dict_CTG[ctg].g1,color=color_list[i])
                   graph.add_node(dict_CTG[ctg].g2,color=color_list[i])
                   if(orientation=="+"):
-                     graph.add_edge(chrom,dict_CTG[ctg].g1,color="black")
+                     if ctg_out:
+                        graph.add_edge(chrom,dict_CTG[ctg].g1,color="grey")
+                        ctg_out=False
+                     else:
+                        graph.add_edge(chrom,dict_CTG[ctg].g1,color="black")
                      if LINKS:
-                        graph.add_edge(dict_CTG[ctg].g1,dict_CTG[ctg].g2,color="black",label=short_ctg)
+                        if ctg_out:
+                           graph.add_edge(dict_CTG[ctg].g1,dict_CTG[ctg].g2,color="grey",label=short_ctg)
+                           ctg_out=False
+                        else:
+                           graph.add_edge(dict_CTG[ctg].g1,dict_CTG[ctg].g2,color="black",label=short_ctg)
                      gene=dict_CTG[ctg].g2
                   elif(orientation=="-"):
-                     graph.add_edge(chrom,dict_CTG[ctg].g2,color="black")
+                     if ctg_out:
+                        graph.add_edge(chrom,dict_CTG[ctg].g2,color="grey")
+                        ctg_out=False
+                     else:
+                        graph.add_edge(chrom,dict_CTG[ctg].g2,color="black")
                      if LINKS:
-                        graph.add_edge(dict_CTG[ctg].g2,dict_CTG[ctg].g1,color="black",label=short_ctg)
+                        if ctg_out:
+                           graph.add_edge(dict_CTG[ctg].g2,dict_CTG[ctg].g1,color="grey",label=short_ctg)
+                           ctg_out=False
+                        else:
+                           graph.add_edge(dict_CTG[ctg].g2,dict_CTG[ctg].g1,color="black",label=short_ctg)
                      gene=dict_CTG[ctg].g1
                   chromosome=chrom
                else:
                   graph.add_node(dict_CTG[ctg].g1,color=color_list[i])
                   graph.add_node(dict_CTG[ctg].g2,color=color_list[i])
                   if(orientation=="+"):
-                     graph.add_edge(gene,dict_CTG[ctg].g1,color="black")
+                     if ctg_out:
+                        graph.add_edge(gene,dict_CTG[ctg].g1,color="grey")
+                        ctg_out=False
+                     else:
+                        graph.add_edge(gene,dict_CTG[ctg].g1,color="black")
                      if LINKS:
                         graph.add_edge(dict_CTG[ctg].g1,dict_CTG[ctg].g2,color="black",label=short_ctg)
                      gene=dict_CTG[ctg].g2
                   elif(orientation=="-"):
-                     graph.add_edge(gene,dict_CTG[ctg].g2,color="black")
+                     if ctg_out:
+                        graph.add_edge(gene,dict_CTG[ctg].g2,color="grey")
+                        ctg_out=False
+                     else:
+                        graph.add_edge(gene,dict_CTG[ctg].g2,color="black")
                      if LINKS:
                         graph.add_edge(dict_CTG[ctg].g2,dict_CTG[ctg].g1,color="black",label=short_ctg)
                      gene=dict_CTG[ctg].g1
+
+            else: #If CTG is not considered by DeCoSTAR print it in "grey"
+               ctg_out=True
+               if chromosome!=chrom:
+                  if not bool_first:
+                     i+=1
+                     if i>color_size-1:
+                        i=0
+                  bool_first=False
+                  graph.add_node(chrom,shape="box",color=color_list[i])
+                  graph.add_node(short_ctg+" ("+orientation+")",color="grey")
+                  graph.add_edge(chrom,short_ctg+" ("+orientation+")",color="grey")
+                  gene=short_ctg+" ("+orientation+")"
+                  chromosome=chrom
+               else:
+                  graph.add_node(short_ctg+" ("+orientation+")",color="grey")
+                  graph.add_edge(gene,short_ctg+" ("+orientation+")",color="grey")
+                  gene=short_ctg+" ("+orientation+")"
+
       else:
          exit("!!! ERROR, line:\n\t"+line+" of file "+NewADJ_file+" is incorrectly written !!!")
    map_file.close()

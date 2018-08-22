@@ -182,8 +182,10 @@ if __name__ == '__main__':
       graph.node_attr['fontname']="times-bold"
       graph.edge_attr['fontname']="times-bold"
    for adj in list_ADJ:
-      ctg1=adj.ctg1.split("_")[0]
-      ctg2=adj.ctg2.split("_")[0]
+      # ctg1=adj.ctg1.split("_")[0]
+      # ctg2=adj.ctg2.split("_")[0]
+      ctg1=adj.ctg1
+      ctg2=adj.ctg2
       # print adj
       # If the ADJ cooresponds to a CTG
       if adj.sup=="?":
