@@ -2,21 +2,21 @@
 # -*- coding: utf-8 -*-
 ###
 ###   Goal:
-###      Create scaffolds file in FASTA format file
+###      Create new genome assemblies file with adjacencies predicted with DeCOSTAR (in FASTA format file)
 ###
 ###   INPUT:
 ###      1- New adjacencies file
-###         (27avian_dataset/results/decostar/ADseq+scaff_Boltz_kT0.1/DeCoSTAR_9passeriformes_ADseq+scaff_Boltz_kT0.1_Linear_0.1_M1_new_adjacencies)
+###         (27avian_dataset/results/decostar/ADseq+scaff_Boltz_kT0.1/DeCoSTAR_27avian_ADseq+scaff_Boltz_kT0.1_Linear_0.1_M1_new_adjacencies_with_scaff)
 ###      2- Genome assemblies directory
 ###         (27avian_dataset/data/INPUT_DATA/FASTA/SCAFF)
 ###      3- Directory containing FASTA files with 
-###         (27avian_dataset/results/FASTA/SCAFF/ADseq+scaff_Boltz_kT0.1_Lin0.1_M1)
+###         (27avian_dataset/results/FASTA/SCAFF/ADseq+scaff_Boltz_kT0.1_Lin0.1_M1_)
 ###
 ###   OUTPUT:
-###      - Contig file with genes located to extremities
+###      - New genome assemblies FASTA files including new adjacencies predicted by DeCoSTAR
 ###
-###   Name: create_FASTA_from_new_adj.py    Author: Yoann Anselmetti     
-###   Creation date: 2018/06/11             Last modification: 2018/06/22
+###   Name: create_FASTA_from_new_adjacencies.py    Author: Yoann Anselmetti     
+###   Creation date: 2018/06/11                     Last modification: 2018/08/28
 ###
 
 from sys import argv
@@ -61,7 +61,7 @@ def rev_ctg_order(listCTG):
 
 
 def mergeCTG(species,ctg1,ctg2,ori_ctg1,ori_ctg2,dict_newCTG_ID,dict_newCTG):
-   # Get new ID of ctg1 and ctg2 if they heva been previously changed
+   # Get new ID of ctg1 and ctg2 if they have been previously changed
    new_ctg1,new_ctg2="",""
    if species in dict_newCTG_ID:
       if ctg1 in dict_newCTG_ID[species]:
@@ -146,84 +146,127 @@ if __name__ == '__main__':
    INPUT_SCAFF_dir=argv[2]
    OUTPUT_SCAFF=argv[3]
 
-   verbose=True
+   default_gap_size=100
+
+   verbose=1
 
    OUTPUT_DIR=path.dirname(path.realpath(OUTPUT_SCAFF))
    # Create OUTPUT_DIR if not existing
    mkdir_p(OUTPUT_DIR)
 
 
-   dict_spe_SCAFF=dict()
-   FASTA_list=listdir(INPUT_SCAFF_dir)
-   print "1/ Storing SCAFF sequences of species:"
-   # Browse list of Genome assemblies to FASTA file format
-   for FASTA in sorted(FASTA_list):
-      i=0
-      species=""
-      r=search("^([^\.]*)\..*$",FASTA)
-      if r:
-         species=r.group(1)
-         dict_spe_SCAFF[species]=dict()
-      else:
-         exit("!!! ERROR, FASTA file name: "+FASTA+" is incorrectly written !!!")
-
-      print "\t"+species
-
-      # Browse FASTA file of current species to get list of scaffolds 
-      fasta_file=open(INPUT_SCAFF_dir+"/"+FASTA)
-      for sequence in SeqIO.parse(fasta_file,"fasta"):
-         scaff=sequence.id
-         seq=sequence.seq
-         dict_spe_SCAFF[species][scaff]=seq
-      fasta_file.close()
-
-
-   print "2/ Merge scaffolds linked by linearized new adjacencies:"
-   dict_newCTG,dict_newCTG_ID=dict(),dict()
+   print "1/ Merge scaffolds linked by linearized new adjacencies"
+   dict_newCTG,dict_newCTG_ID,dict_distCTG=dict(),dict(),dict()
    input_file=open(newAdj_file,"r")
    for new_adj in input_file:
-      r=search("^([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t\n]*)\n$",new_adj)
+      r=search("^([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t\n]*)\n$",new_adj)
       if r:
          species=r.group(1)
          ctg1=r.group(2)
          ctg2=r.group(3)
          ori_ctg1=r.group(4)
          ori_ctg2=r.group(5)
-         gf1=r.group(6)
-         gf2=r.group(7)
-         g1=r.group(8)
-         g2=r.group(9)
-         ori_g1=r.group(10)
-         ori_g2=r.group(11)
-         support=r.group(12)
+         dist_ctg=r.group(6)
+         gf1=r.group(7)
+         gf2=r.group(8)
+         g1=r.group(9)
+         g2=r.group(10)
+         ori_g1=r.group(11)
+         ori_g2=r.group(12)
+         dist_gene=r.group(13)
+         vscore=r.group(14)
+         dscore=r.group(15)
+         links=r.group(16)
+         support=r.group(17)
 
          if species!="#species":
+            dict_distCTG[(ctg1,ctg2)]=dist_ctg
             mergeCTG(species,ctg1,ctg2,ori_ctg1,ori_ctg2,dict_newCTG_ID,dict_newCTG)
+   input_file.close()
 
 
-   # Print new linked scaffolds / species 
+   # Print the new CTG ID after merging initial contigs/scaffoldsin new scaffolds 
+   if verbose>1:
+      # Print new linked scaffolds / species 
+      for species in sorted(dict_newCTG):
+         print "\n"+species+":"
+         for ctg in dict_newCTG[species]:
+            print "\t"+ctg
+            if verbose>2:
+               for elem in dict_newCTG[species][ctg]:
+                  print "\t\t",
+                  print elem
+
+
+   print "\n2/ Write new FASTA files after scaffolding with linearized new adjacencies predicted by DeCoSTAR"
    for species in sorted(dict_newCTG):
-      print "\n"+species+":"
-      for ctg in dict_newCTG[species]:
-         print "\t"+ctg
-         # for elem in dict_newCTG[species][ctg]:
-         #    print "\t\t",
-         #    print elem
-
-
-   print "\n3/ Write new FASTA files after scaffolding with linearized new adjacencies predicted by DeCoSTAR:"
-   for species in sorted(dict_newCTG):
+      if verbose>0:
+         print "\t"+species
       output_scaff=open(OUTPUT_SCAFF+species+".fasta","w")
+
+      dict_SCAFF=dict()
+      FASTA_FILE=""
+      for FASTA in sorted(listdir(INPUT_SCAFF_dir)):
+         i=0
+         spe=""
+         r=search("^([^\.]*)\..*$",FASTA)
+         if r:
+            spe=r.group(1)
+         else:
+            exit("!!! ERROR, FASTA file name: "+FASTA+" is incorrectly written !!!")
+         if spe==species:
+            FASTA_FILE=INPUT_SCAFF_dir+"/"+FASTA
+            # Browse FASTA file of current species to get list of scaffolds 
+            fasta_file=open(INPUT_SCAFF_dir+"/"+FASTA)
+            for sequence in SeqIO.parse(fasta_file,"fasta"):
+               scaff=sequence.id
+               seq=sequence.seq
+               dict_SCAFF[scaff]=seq
+            fasta_file.close()
+            break
+
       for scaff in dict_newCTG[species]:
          output_scaff.write("> "+scaff+"\n")
          listCTG=dict_newCTG[species][scaff]
          seq=""
+         ID=""
+         nb_N=0
          for ctg in listCTG:
+            # Write "N" gap between the 2 contigs scaffold
             if seq:
-               output_scaff.write("NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN")
+               if (ID,ctg.id) in dict_distCTG:
+                  if dict_distCTG[(ID,ctg.id)]=="?":
+                     nb_N=default_gap_size
+                  else:
+                     nb_N=int(float(dict_distCTG[(ID,ctg.id)]))
+                     # print nb_N
+                     if nb_N<0:
+                        if verbose>1:
+                           print "NEGATIVE distance between contigs "+ID+" and "+ctg.id
+                        nb_N=default_gap_size
+               elif (ctg.id,ID) in dict_distCTG:
+                  if dict_distCTG[(ctg.id,ID)]=="?":
+                     nb_N=default_gap_size
+                  else:
+                     nb_N=int(float(dict_distCTG[(ctg.id,ID)]))
+                     # print nb_N
+                     if nb_N<0:
+                        if verbose>1:
+                           print "NEGATIVE distance between contigs "+ctg.id+" and "+ID
+                        nb_N=default_gap_size
+               else:
+                  exit("ERROR: CTG adjacency ("+ID+"-"+ctg.id+") is not present in DeCoSTAR predicted adjacencies file: "+newAdj_file)
+               i=0
+               while i<nb_N:
+                  output_scaff.write("N")
+                  i+=1
+
+            # Write sequence of current contig
             ID=ctg.id
             ori=ctg.ori
-            seq=dict_spe_SCAFF[species][ID]
+            seq=dict_SCAFF[ID]
+            del dict_SCAFF[ID]
+
             if ori=="+":
                output_scaff.write(str(seq))
             elif ori=="-":
@@ -233,8 +276,12 @@ if __name__ == '__main__':
             else:
                exit("ERROR, CTG orientation should be equal to \"-\" or \"+\" and not "+ori+" !!!")
          output_scaff.write("\n")
+      # Write remaining scaffolds in the FASTA file
+      for scaff in dict_SCAFF:
+         output_scaff.write("> "+scaff+"\n")
+         output_scaff.write(str(dict_SCAFF[scaff])+"\n")
       output_scaff.close()
 
 
    end_time = datetime.now()
-   print('\nDuration: {}'.format(end_time - start_time))
+   print('\nDuration: {}'.format(end_time-start_time))

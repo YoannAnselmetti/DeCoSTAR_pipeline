@@ -12,3 +12,5 @@ config_decostar: config_files/decostar/DeCoSTAR_18Anopheles_Xtopo.param.txt # co
 outputdir_decostar: results/decostar/Xtopo/ADseq+scaff_Boltz_kT0.1 # directory where DeCoSTAR output files will be stored (must be equal to parameter "output.dir" in DeCoSTAR parameter file (parameter "config_decostar" of this file))
 prefix_decostar: DeCoSTAR_18Anopheles_Xtopo_ADseq+scaff_Boltz_kT0.1 # prefix of the DeCoSTAR output files
 linearization_threshold: "0.1" # threshold value of adjacency support for genome linearization (need to use Boltzmann distribution option with DeCoSTAR) 
+linearization_algo: M1 # algorithm used to linearize DeCoSTAR adjacencies predictions. 4 algorithms available: F1, F2, M1 and M2 (See header of script "bin/scripts/post_decostar/linearize_genomes.py" for explanation)  
+AGP_dir: data/INPUT_DATA/chromosome_map # directory containing chromosome map(s) (in AGP file format) taht will be used to combine DeCoSTAR adjacencies predictions with adjacencies present in chromosome map(s)

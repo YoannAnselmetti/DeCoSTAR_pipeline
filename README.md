@@ -6,18 +6,18 @@ This repository contains a pipeline to produce input data for the DeCoSTAR softw
 
 
 # Requirements
-* [Python2](https://www.python.org/.) (≥2.6):
-	* [Biopython](http://biopython.org/) 
-	* [ETE toolkit](http://etetoolkit.org/)
-	* [Matplotlib](https://matplotlib.org/)
-	* [Numpy](http://www.numpy.org/)
-	* [NetworkX](https://networkx.github.io/)
-	* [PyGraphviz](https://pygraphviz.github.io/)
-* [Python3](https://www.python.org/.) (≥3.5):
-	* [Snakemake](http://snakemake.readthedocs.io/en/stable/)
+* [Python2](https://www.python.org/.) (≥v.2.6) -> v.2.7:
+	* [Biopython](http://biopython.org/) -> v.1.70
+	* [ETE toolkit](http://etetoolkit.org/) -> v.3.1.1
+	* [Matplotlib](https://matplotlib.org/) -> v.2.1.1
+	* [Numpy](http://www.numpy.org/) -> v.1.14.0
+	* [NetworkX](https://networkx.github.io/) -> v.1.11
+	* [PyGraphviz](https://pygraphviz.github.io/) -> v.1.3.1
+* [Python3](https://www.python.org/.) (≥v.3.5) -> v.3.5.2:
+	* [Snakemake](http://snakemake.readthedocs.io/en/stable/) -> v.3.5.5
 * C++ (≥c++11):
-	* [Bio++](http://biopp.univ-montp2.fr/) ([installation instructions](http://biopp.univ-montp2.fr/wiki/index.php/Installation))
-	* [Boost](www.boost.org)
+	* [Bio++](http://biopp.univ-montp2.fr/) ([installation instructions](http://biopp.univ-montp2.fr/wiki/index.php/Installation)) -> v.2.4.0
+	* [Boost](www.boost.org) -> v.1.58
 
 
 # Software/Tools

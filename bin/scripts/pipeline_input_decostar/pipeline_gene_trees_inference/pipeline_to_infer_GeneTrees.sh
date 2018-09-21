@@ -5,7 +5,7 @@
 ###      file (Here, gene trees available on WaterHouse website)            
 ###   INPUT:                                                                
 ###      1- DIRECTORY containing scripts                                    
-###         (bin/scripts/pipeline_input_decostar/11-infer_gene_trees) 
+###         (bin/scripts/pipeline_input_decostar/pipeline_gene_trees_inference) 
 ###      2- Gene TREES or FAMILIES file                                     
 ###         (data/GENE_TREES/unrooted_trees-ASTEI+filt.nwk)
 ###      3- DIRECTORY containing CDS FASTA files                            
@@ -28,7 +28,7 @@
 ###          (C)                                      
 ###      11- Bootstrap or SH-like support compute with RAxML boolean        
 ###          (bootstrap)                                          
-###      12- Minimum support allow on gene trees (used in profileNJ step)   
+###      12- Minimum support allow on gene trees (used in Treerecs step)   
 ###          (100)                                                          
 ###      13- Species position compare to the separator with gene ID         
 ###          (prefix)                                            
@@ -44,24 +44,23 @@
 ###         (data/GENE_TREES/trees_DECOSTAR_Xtopo.nwk  /  data/GENE_TREES/trees_DECOSTAR_WGtopo.nwk)
 ###                                                                         
 ###   OUTPUT:                                                               
-###      - DIRECTORY containing gene trees improved with RAxML & profileNJ  
+###      - DIRECTORY containing gene trees improved with RAxML & Treerecs
 ###                                                                         
-###   Name: 11-pipeline_to_infer_GeneTrees.sh	Author: Yoann Anselmetti  
-###   Creation date: 2016/01/11						Last modification: 2017/03/29
+###   Name: pipeline_to_infer_GeneTrees.sh	   Author: Yoann Anselmetti  
+###   Creation date: 2016/01/11						     Last modification: 2018/09/01
 ###                                                                         
 
-MUSCLE=$HOME/Software/MSA/muscle3.8.425/muscle3.8.425_i86linux64
-GBLOCKS=$HOME/Software/TRIMMING_ALIGN/Gblocks_0.91b/Gblocks
-RAXML=$HOME/Software/TREE_INFERENCE/RAxML-8.2.8/raxmlHPC-SSE3 # AVX compilation doesn't work on the cluster => WRONG some nodes have CPUs with AVX or AVX2 compilation available (If want to use them need to give the node during job submission)
-PROFILENJ=$HOME/Software/TREE_INFERENCE/profileNJ/bin/profileNJ
-# NOTUNG=$HOME/Software/TREE_INFERENCE/Notung-2.8.1.7/Notung-2.8.1.7.jar
+MUSCLE=bin/software_libraries/muscle3.8.425/muscle3.8.425_i86linux64
+GBLOCKS=bin/software_libraries/Gblocks_0.91b/Gblocks
+RAXML=bin/software_libraries/RAxML-8.2.8/raxmlHPC-SSE3 # AVX compilation doesn't work on the cluster => WRONG some nodes have CPUs with AVX or AVX2 compilation available (If want to use them need to give the node during job submission)
+TREERECS=bin/software_libraries/Treerecs/bin/Treerecs
 
 boolTopo="X"
 
 #################
 ### PARAMETERS
 #################
-scriptDIR="bin/scripts/pipeline_input_decostar/11-infer_gene_trees"
+scriptDIR="bin/scripts/pipeline_input_decostar/pipeline_gene_trees_inference"
 geneTrees="data/GENE_TREES/unrooted_trees-ASTEI+filt.nwk"
 CDSfasta="data/INPUT_DATA/FASTA/CDS"
 GTfasta="data/FASTA/GF_FASTA/CDS"
@@ -106,8 +105,8 @@ fi
 
 
 TREESdir="$GTout/${boolSupp}_support/$outputTAG"
-procGTdir="$TREESdir/profileNJ/$speciesTreeTopo/PROC_GENE_TREES_$pNJseuil"
-unrootGTdir="$TREESdir/profileNJ/UNROOTED_GENE_TREES"
+procGTdir="$TREESdir/Treerecs/$speciesTreeTopo/PROC_GENE_TREES_$pNJseuil"
+unrootGTdir="$TREESdir/Treerecs/UNROOTED_GENE_TREES"
 
 
 
@@ -128,7 +127,7 @@ if [[ $boolSupp != "bootstrap" && $boolSupp != "SH-like" ]]; then
 fi
 
 if ! [[ $pNJseuil =~ $re ]]; then
-   echo "ERROR: parameter 12 (minimum support for profileNJ) is not a number: $pNJseuil" >&2;
+   echo "ERROR: parameter 12 (minimum support for Treerecs) is not a number: $pNJseuil" >&2;
    exit 1
 else
    if (( "$pNJseuil" > "100" )); then 
@@ -394,7 +393,7 @@ echo "Execution time: "$hours":"$minutes":"$secondes
 
 
 
-# 5- Process gene trees with profileNJ to contract weak branches and resolve multifurcation produced by min(GDup and GLos)
+# 5- Process gene trees with Treerecs to contract weak branches and resolve multifurcation produced by min(GDup and GLos)
 if [ -d $unrootGTdir ]; then
    rm -rf $unrootGTdir/*
 else
@@ -402,15 +401,15 @@ else
 fi
 
 echo ""
-echo "################################################"
-echo "### STEP 5: Refine Gene trees with profileNJ ###"
-echo "################################################"
+echo "###############################################"
+echo "### STEP 5: Refine Gene trees with Treerecs ###"
+echo "###############################################"
    
-# 5a- Compute distance matrix for gene trees give as INPUT of profileNJ
+# 5a- Compute distance matrix for gene trees give as INPUT of Treerecs
 echo ""
-echo -e "\t################################################################################"
-echo -e "\t### STEP 5a: Modify gene trees inferred by RAxML to be readable by profileNJ ###"
-echo -e "\t################################################################################"
+echo -e "\t###############################################################################"
+echo -e "\t### STEP 5a: Modify gene trees inferred by RAxML to be readable by Treerecs ###"
+echo -e "\t###############################################################################"
 echo ""
 
 startTime=`date +%s`
@@ -445,15 +444,15 @@ done
 
 
 
-# 5b- Contract weak branches and resolve multifurcation produced by min(GDup and GLos number) with profileNJ
+# 5b- Contract weak branches and resolve multifurcation produced by min(GDup and GLos number) with Treerecs
 echo ""
-echo -e "\t##################################################################################"
-echo -e "\t### STEP 5b: Refine Gene Trees with profileNJ by contracting weak branches and ###"
-echo -e "\t### resolving multifurcation produced by minimizing Gene Duplication and Loss  ###"
-echo -e "\t##################################################################################"
+echo -e "\t#################################################################################"
+echo -e "\t### STEP 5b: Refine Gene Trees with Treerecs by contracting weak branches and ###"
+echo -e "\t### resolving multifurcation produced by minimizing Gene Duplication and Loss ###"
+echo -e "\t#################################################################################"
 echo ""
 
-# Get list of gene trees in UNROOTED_GENE_TREES repertory to apply profileNJ on them
+# Get list of gene trees in UNROOTED_GENE_TREES repertory to apply Treerecs on them
 list_GF=(`ls $unrootGTdir`)
 nb_tot=$(ls $unrootGTdir | wc -l)
 x=0
@@ -462,8 +461,8 @@ do
    jobs_nb=$(qstat | grep $USER | wc -l)
    if [ $jobs_nb -le $JobMax ];
    then
-      echo "qsub -V -N \"profileNJ_yanselmetti\" -hold_jid \"modifGT_yanselmetti\" -V -cwd -l h_rt=1000:00:00,s_rt=1000:00:00 -b y \"$scriptDIR/05b-profileNJ.sh $PROFILENJ $speciesTree $unrootGTdir/${list_GF[$x]} $procGTdir $pNJseuil $boolGeneID\""
-      qsub -V -N "profileNJ_yanselmetti" -hold_jid "modifGT_yanselmetti" -V -cwd -l h_rt=1000:00:00,s_rt=1000:00:00 -b y "$scriptDIR/05b-profileNJ.sh $PROFILENJ $speciesTree $unrootGTdir/${list_GF[$x]} $procGTdir $pNJseuil $boolGeneID"
+      echo "qsub -V -N \"Treerecs_yanselmetti\" -hold_jid \"modifGT_yanselmetti\" -V -cwd -l h_rt=1000:00:00,s_rt=1000:00:00 -b y \"$scriptDIR/05b-Treerecs.sh $TREERECS $speciesTree $unrootGTdir/${list_GF[$x]} $procGTdir $pNJseuil $boolGeneID $sep\""
+      qsub -V -N "Treerecs_yanselmetti" -hold_jid "modifGT_yanselmetti" -V -cwd -l h_rt=1000:00:00,s_rt=1000:00:00 -b y "$scriptDIR/05b-Treerecs.sh $TREERECS $speciesTree $unrootGTdir/${list_GF[$x]} $procGTdir $pNJseuil $boolGeneID $sep"
       x=$(($x+1))
       sleep 0.2
    else
@@ -473,11 +472,11 @@ do
 done
 
 
-profileNJ_nb=$(qstat | grep $USER | grep "profileNJ_ya" | wc -l)
-while [ ${profileNJ_nb} -ne 0 ];
+Treerecs_nb=$(qstat | grep $USER | grep "Treerecs_ya" | wc -l)
+while [ ${Treerecs_nb} -ne 0 ];
 do
    sleep 10
-   profileNJ_nb=$(qstat | grep $USER | grep "profileNJ_ya" | wc -l)
+   Treerecs_nb=$(qstat | grep $USER | grep "Treerecs_ya" | wc -l)
 done
 
 sleep 10

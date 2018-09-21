@@ -5,42 +5,45 @@
 ###      by minimizing number of GDup and GLos                            
 ###                                                                       
 ###   INPUT:                                                              
-###      1- PATH of profileNJ executive file                              
-###         (Software/TREE_INFERENCE/profileNJ/bin/profileNJ)             
+###      1- PATH of Treerecs executive file                              
+###         (Software/TREE_INFERENCE/Treerecs/tests/Treerecs)             
 ###      2- Species tree file                                             
 ###         (DECOSTAR/DATA_DeCoSTAR/INPUT_DATA/Anopheles_species_tree_X_topology.nwk)
 ###         (DECOSTAR/DATA_DeCoSTAR/INPUT_DATA/Anopheles_species_tree_WG_topology.nwk)
 ###      3- INPUT unrooted gene tree file for current Gene Family ID      
-###         (DECOSTAR/DATA_DeCoSTAR/GENE_TREES/CDS/bootstrap_support/profileNJ/UNROOTED_GENE_TREES/gene_tree_GF0000001.nwk)
+###         (DECOSTAR/DATA_DeCoSTAR/GENE_TREES/CDS/bootstrap_support/profileNJ/UNROOTED_GENE_TREES/GF0000001.nwk)
 ###      4- OUTPUT DIRECTORY to store resulting file of profileNJ         
 ###         (DECOSTAR/DATA_DeCoSTAR/GENE_TREES/CDS/bootstrap_support/profileNJ/X_topo/PROC_GENE_TREES_100/)
 ###         (DECOSTAR/DATA_DeCoSTAR/GENE_TREES/CDS/bootstrap_support/profileNJ/WG_topo/PROC_GENE_TREES_100/)
 ###      5- Support threshold to choose to contract or not a branch tree  
-###         (Ex: 100)                                                     
+###         (Ex: 99)                                                     
 ###      6- Species position compare to the separator with gene ID prefix/postfix)
 ###          (prefix)
 ###      7- Character separator between species name and gene ID
 ###         (@)
 ###                                                                       
 ###   OUTPUT:                                                             
-###      - Contract weaks branches and resolve multifurcation             
-###        by minimizing GDup and GLos                                    
+###      - Contract weaks branches (under or equal to a threshold: $5) and resolve multifurcation by minimizing GDup and GLos                                    
 ###                                                                       
-###   Name: 05b-profileNJ.sh                 Author: Yoann Anselmetti     
-###   Creation date: 2016/01/06              Last modification: 2016/11/15
+###   Name: 05b-Treerecs.sh                Author: Yoann Anselmetti     
+###   Creation date: 2016/01/06            Last modification: 2017/07/11
 ###
 
 startTime=`date +%s`
-
 
 
 if [ ! -d "$4" ]; then
 	mkdir -p $4
 fi
 
-if ! [[ $6 == "prefix" || $6 == "postfix" ]]; then
-    echo "ERROR: prefix/postfix boolean should be equal to \"prefix\" or \"postfix\" and not: $6" >&2;
-    exit 1
+prefix=""
+if [[ $6 == "prefix" ]]; then
+   prefix="y"
+elif [[ $6 == "postfix" ]]; then
+   prefix="n"
+else
+   echo "ERROR: prefix/postfix boolean should be equal to \"prefix\" or \"postfix\" and not: $6" >&2;
+   exit 1
 fi
 
 re='^[0-9]+$'
@@ -54,11 +57,11 @@ else
    fi
 fi
 
-GF_ID=$(echo $3 | awk -F/ '{print $NF}' | sed 's/gene_tree_//g' | sed 's/.nwk//')
+GF_ID=$(echo $3 | awk -F/ '{print $NF}' | sed 's/.nwk//')
 
 echo -e "Processing Gene family $GF_ID:"  
-echo -e "\t$1 -s $2 -g $3 -o $4/${GF_ID}.nwk --spos $6 -r best --sep $7 --firstbest --cost 2 1 --seuil $5"
-$1 -s $2 -g $3 -o $4/${GF_ID}.nwk --spos $6 -r best --sep $7 --firstbest --cost 2 1 --seuil $5
+echo -e "\t$1 -s $2 -g $3 -o $4/${GF_ID}.nwk -p $prefix -c $7 -d 2 -l 1 -t $5"
+$1 -s $2 -g $3 -o $4/${GF_ID}.nwk -p $prefix -c $7 -d 2 -l 1 -t $5
 
 
 
@@ -70,13 +73,13 @@ minutes=""
 hours=$(($runtime/3600))
 modH=$(($runtime%3600))
 if [ $modH == 0 ]; then
-    minutes="00"
-    secondes="00"
+   minutes="00"
+   secondes="00"
 else
 	minutes=$(($modH/60))
 	modM=$(($modH%60))
-    if [ $modM == 0 ]; then
-	    secondes="00"
+   if [ $modM == 0 ]; then
+      secondes="00"
 	else
 		secondes=$modM
 	fi

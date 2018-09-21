@@ -185,7 +185,7 @@ rm Gblocks_Linux64_0.91b.tar
 
 
 ############
-### OTHERS POETENTIAL SOFTWARE
+### OTHERS POTENTIAL SOFTWARE
 ############
 
 ### ALIGNMENT TRIMMING
