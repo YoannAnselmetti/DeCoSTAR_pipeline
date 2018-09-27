@@ -4,12 +4,22 @@ config_files/snakemake/config_27avian.yaml
 config_files/decostar/DeCoSTAR_27avian.param.txt
 
 # Ignore software_libraries directory tha can be reproduced from initial git 
-bin/software_libraries/
+bin/software_libraries
 
 # Ignore 18Anopheles dataset results
-18Anopheles_dataset/results/
-18Anopheles_dataset/data/data_DeCoSTAR/
+18Anopheles_dataset/results
+18Anopheles_dataset/data/data_DeCoSTAR
 18Anopheles_dataset/data/GFF_to_GENE_files
 
+# Ignore 21Anopheles dataset results
+21Anopheles_dataset/results
+21Anopheles_dataset/data/INPUT_DATA/chromosome_map
+21Anopheles_dataset/data/FASTA
+21Anopheles_dataset/data/data_DeCoSTAR
+21Anopheles_dataset/data/GFF_to_GENE_files
+
+# Gambiae complex dataset
+Gambiae_complex_dataset
+
 #Ignore .snakemake/
-.snakemake/
+.snakemake

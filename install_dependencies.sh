@@ -4,6 +4,50 @@ initDIR=`pwd`
 echo $initDIR
 
 
+
+# ################
+# ### INSTALL LIBRARIES: Bio++, Boost, ...
+# ################
+# libDIR=$initDIR/bin/libraries
+# echo $libDIR
+# mkdir -p $libDIR
+
+# #######
+# ### Installation of Bio++ library
+# #######
+# bppDIR=$libDIR/bpp/dev
+# rm -rf $bppDIR
+# mkdir -p $bppDIR/sources
+# cd $bppDIR/sources
+# echo -e "\ngit clone https://github.com/BioPP/bpp-core"
+# git clone https://github.com/BioPP/bpp-core
+# echo -e "\ngit clone https://github.com/BioPP/bpp-seq"
+# git clone https://github.com/BioPP/bpp-seq
+# echo -e "\ngit clone https://github.com/BioPP/bpp-popgen"
+# git clone https://github.com/BioPP/bpp-popgen
+# echo -e "\ngit clone https://github.com/BioPP/bpp-phyl"
+# git clone https://github.com/BioPP/bpp-phyl
+
+# for elem in `ls $bppDIR/sources`; do
+# 	echo -e "\nBuild $elem library:"
+# 	cd $bppDIR/sources/$elem
+# 	mkdir build
+# 	cd build
+# 	cmake -DCMAKE_INSTALL_PREFIX=$bppDIR .. # prepare compilation
+# 	make # compile
+# 	make install # move files to the installation directory
+# done
+
+
+# #######
+# ### Installation of Boost library
+# #######
+# NOT SUPPORTED
+
+
+
+
+
 ################
 ### INSTALL SOFTWARE: DeCoSTAR, Treerecs, ...
 ################
@@ -222,42 +266,5 @@ rm Gblocks_Linux64_0.91b.tar
 
 
 
-################
-### INSTALL LIBRARIES: Bio++, Boost, ...
-################
-# libDIR=$initDIR/bin/libraries
-# echo $libDIR
-# mkdir -p $libDIR
 
-# #######
-# ### Installation of Bio++ library
-# #######
-# bppDIR=$libDIR/bpp/dev
-# rm -rf $bppDIR
-# mkdir -p $bppDIR/sources
-# cd $bppDIR/sources
-# echo -e "\ngit clone https://github.com/BioPP/bpp-core"
-# git clone https://github.com/BioPP/bpp-core
-# echo -e "\ngit clone https://github.com/BioPP/bpp-seq"
-# git clone https://github.com/BioPP/bpp-seq
-# echo -e "\ngit clone https://github.com/BioPP/bpp-popgen"
-# git clone https://github.com/BioPP/bpp-popgen
-# echo -e "\ngit clone https://github.com/BioPP/bpp-phyl"
-# git clone https://github.com/BioPP/bpp-phyl
-
-# for elem in `ls $bppDIR/sources`; do
-# 	echo -e "\nBuild $elem library:"
-# 	cd $bppDIR/sources/$elem
-# 	mkdir build
-# 	cd build
-# 	cmake -DCMAKE_INSTALL_PREFIX=$bppDIR .. # prepare compilation
-# 	make # compile
-# 	make install # move files to the installation directory
-# done
-
-
-#######
-### Installation of Boost library
-#######
-# NOT SUPPORTED
 
