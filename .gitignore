@@ -1,17 +1,24 @@
+# Ignore all data from the 12 Drosophila dataset
+12drosophila_dataset
+
 # Ignore all data from the 27 avian dataset
-27avian_dataset
-config_files/snakemake/config_27avian.yaml
-config_files/decostar/DeCoSTAR_27avian.param.txt
+# 27avian_dataset
+# config_files/snakemake/config_27avian.yaml
+# config_files/decostar/DeCoSTAR_27avian.param.txt
+27avian_dataset/data/INPUT_DATA/FASTA/SCAFF/*
+27avian_dataset/results/with_all_scaff_adj
+27avian_dataset/results/FASTA
+27avian_dataset/data/INPUT_DATA/chromosome_map/Anas_platyrhynchos
 
 # Ignore software_libraries directory tha can be reproduced from initial git 
 bin/software_libraries
 
-# Ignore 18Anopheles dataset results
+# Ignore 18 Anopheles dataset results
 18Anopheles_dataset/results
 18Anopheles_dataset/data/data_DeCoSTAR
 18Anopheles_dataset/data/GFF_to_GENE_files
 
-# Ignore 21Anopheles dataset results
+# Ignore 21 Anopheles dataset results
 21Anopheles_dataset/results
 21Anopheles_dataset/data/INPUT_DATA/chromosome_map
 21Anopheles_dataset/data/FASTA

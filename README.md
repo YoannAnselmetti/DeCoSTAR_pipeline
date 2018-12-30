@@ -60,7 +60,7 @@ For reproduction of input data of DeCoSTAR used in [3], go to [commit 572d5a5](h
 3. Set the correct configuration file path at the top of each "\*.snakefile" files (configfile: "config_files/snakemake/your_config_file.yaml")
 
 
-## Command lines for the different steps of the Snakemake pipeline:
+## Command lines for the different steps of the Snakemake pipeline (<N>: #CPUs):
 ```
 snakemake --snakefile preprocessing.snakefile -j <N>
 snakemake --snakefile input_decostar.snakefile -j <N>

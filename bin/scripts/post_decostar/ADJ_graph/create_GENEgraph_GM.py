@@ -25,7 +25,7 @@
 ###      (annotated black edge corresponds to contig/scaffold with their ID)
 ###
 ###   Name: create_GENEgraph_GM.py                Author: Yoann Anselmetti
-###   Creation date: 2016/03/07                   Last modification: 2016/06/28
+###   Creation date: 2016/03/07                   Last modification: 2018/11/13
 ###
 
 from sys import argv, stdout
@@ -43,7 +43,8 @@ def mkdir_p(dir_path):
    except OSError as exc: # Python >2.5
       if exc.errno == errno.EEXIST and path.isdir(dir_path):
          pass
-      else: raise
+      else:
+         raise
 
 
 ################
@@ -155,7 +156,7 @@ if __name__ == '__main__':
          # short_ctg=ctg.split("_")[0]+" ("+orientation+")"
          short_ctg=ctg+" ("+orientation+")"
 
-         if status!="N":
+         if status not in ["N","U"]:
             # Contig that are considered by DeCoSTAR
             if ctg in dict_CTG:
                if chromosome!=chrom:
@@ -256,7 +257,7 @@ if __name__ == '__main__':
                   gene=short_ctg
 
       else:
-         exit("!!! ERROR, line:\n\t"+line+" of file "+NewADJ_file+" is incorrectly written !!!")
+         exit("!!! ERROR, line:\n\t"+line+" of file "+RHmap_file+" is incorrectly written !!!")
    map_file.close()
 
    graph.write(OUTPUT_dot)

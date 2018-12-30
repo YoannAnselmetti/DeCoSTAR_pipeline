@@ -1,0 +1,3 @@
+python2 bin/scripts/post_decostar/ADJ_graph/create_GENEgraph.py 27avian_dataset/results/ADJ_graph/DOT/GENE/Zosterops_borbonicus/Zosterops_borbonicus_GENEmap.dot 27avian_dataset/data/data_DeCoSTAR/CTG_file 27avian_dataset/results/decostar/ADseq+scaff_Boltz_kT0.1/DeCoSTAR_27avian_ADseq+scaff_Boltz_kT0.1_Lin0.1_M2_new_extant_adjacencies_with_scaff_adj Zosterops_borbonicus 27avian_dataset/results/ADJ_graph/DOT/GENE/Zosterops_borbonicus/Zosterops_borbonicus_DeCoSTAR_27avian_ADseq+scaff_Boltz_kT0.1_Lin0.1_M2_GENEmap.dot 27avian_dataset/results/ADJ_graph/SVG/GENE/Zosterops_borbonicus/Zosterops_borbonicus_DeCoSTAR_27avian_ADseq+scaff_Boltz_kT0.1_Lin0.1_M2_GENEmap.svg 0.0 y
+
+Duration: 0:00:12.508204

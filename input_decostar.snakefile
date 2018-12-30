@@ -1,6 +1,6 @@
 configfile: "config_files/snakemake/config_21Anopheles_Xtopo.yaml"
 # configfile: "config_files/snakemake/config_18Anopheles_Xtopo.yaml"
-# configfile: "config_files/snakemake/config_27avian.yaml"
+configfile: "config_files/snakemake/config_27avian.yaml"
 
 # Create output directory
 snakemake.utils.makedirs(config["outputdir"]+"/data/data_DeCoSTAR/decostar")
@@ -19,7 +19,7 @@ rule filter_GENE_with_geneTrees:
 		output_GENE=config["outputdir"]+"/data/data_DeCoSTAR/GENE_file"
 	shell:
 		"echo -e \"\tscript: python2 bin/scripts/pipeline_input_decostar/filter_GENE_with_geneTrees.py {input.input_GENE} {input.gene_trees} {output.output_GENE} "+config["SEP"]+" no\";\
-		python2 bin/scripts/pipeline_input_decostar/filter_GENE_with_geneTrees.py {input.input_GENE} {input.gene_trees} {output.output_GENE} "+config["SEP"]
+		python2 bin/scripts/pipeline_input_decostar/filter_GENE_with_geneTrees.py {input.input_GENE} {input.gene_trees} {output.output_GENE} "+config["SEP"]+" no"
 
 
 rule create_CTG_file:

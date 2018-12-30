@@ -22,7 +22,7 @@
 ###      - Directory for SAM files containing 1 Directory/Species
 ###
 ###   Name: create_CTGgraph.py                    Author: Yoann Anselmetti
-###   Creation date: 2016/03/07                   Last modification: 2018/06/28
+###   Creation date: 2016/03/07                   Last modification: 2018/11/13
 ###
 
 from sys import argv, stdout
@@ -144,7 +144,7 @@ if __name__ == '__main__':
          # ctg_short=ctg.split("_")[0]
          ctg_short=ctg
          
-         if status!="N":
+         if status not in ["N","U"]:
             if ctg in list_CTG:
                if chromosome!=chrom:
                   if not bool_first:

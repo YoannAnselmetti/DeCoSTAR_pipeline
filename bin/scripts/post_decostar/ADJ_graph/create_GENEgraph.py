@@ -26,7 +26,7 @@
 ###
 ###
 ###   Name: create_GENEgraph.py           Author: Yoann Anselmetti
-###   Creation date: 2016/03/07           Last modification: 2018/06/28
+###   Creation date: 2016/03/07           Last modification: 2018/09/28
 ###
 
 from sys import argv, stdout
@@ -89,9 +89,10 @@ if __name__ == '__main__':
    OUTPUT_DIR2=path.normpath(OUTPUT_DIR2)
 
    ADJ=namedtuple("ADJ",["g1","g2","sup","links"])
+   PAIR=namedtuple("PAIR",["g1","g2"])
 
 ##################################################################
-### BROWSE NEW EXTANT ADJACENCIES FILE PROPOSED BY ARt-DeClone ###
+### BROWSE NEW EXTANT ADJACENCIES FILE PROPOSED BY DeCoSTAR
 ##################################################################
    list_ADJ=list()
    # Browse new extant adjacencies file and store adj of selected species in "list_ADJ"
@@ -165,8 +166,9 @@ if __name__ == '__main__':
 
 
 #####################################################################
-### BROWSE "list_ADJ" LIST TO CREATE GENE GRAPH FILE TO DOT FORMAT ###
+### Get list of contigs that are not present in chromosome map
 #####################################################################
+   # dict_CTG,dict_gene=dict(),dict()
    graph=pgv.AGraph(strict=False)
    if path.exists(INPUT_DOT_file):
       graph=pgv.AGraph(INPUT_DOT_file)
@@ -200,6 +202,9 @@ if __name__ == '__main__':
          if species==INPUT_species:
             short_ctg=ctg.split("_")[0]
             if not graph.has_edge(g1,g2):
+               # dict_CTG[short_ctg]=PAIR(g1,g2)
+               # dict_gene[g1]=short_ctg
+               # dict_gene[g2]=short_ctg
                graph.add_edge(g1,g2,color="black",label=short_ctg)
       else:
          exit("!!! ERROR, line:\n\t"+line+" of CTG file "+CTG_file+" is wrong written !!!")

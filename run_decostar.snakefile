@@ -1,6 +1,6 @@
 configfile: "config_files/snakemake/config_21Anopheles_Xtopo.yaml"
 # configfile: "config_files/snakemake/config_18Anopheles_Xtopo.yaml"
-# configfile: "config_files/snakemake/config_27avian.yaml"
+configfile: "config_files/snakemake/config_27avian.yaml"
 
 # TO IMPROVE => GET "outputdir_decostar" AND "prefix_decostar" FROM DECOSTAR PARAMETER FILE
 # config["outputdir_decostar"]
@@ -13,9 +13,12 @@ rule all:
 	input:
 		config["outputdir"]+"/"+config["outputdir_decostar"]+"/"+config["prefix_decostar"]+".adjacencies.txt",
 		config["outputdir"]+"/"+config["outputdir_decostar"]+"/"+config["prefix_decostar"]+"_Lin"+config["linearization_threshold"]+"_"+config["linearization_algo"]+"_kept",
+		config["outputdir"]+"/"+config["outputdir_decostar"]+"/"+config["prefix_decostar"]+"_Lin"+config["linearization_threshold"]+"_"+config["linearization_algo"]+"_scaffolding_stats",
 		config["outputdir"]+"/"+config["outputdir_decostar"]+"/"+config["prefix_decostar"]+"_Lin"+config["linearization_threshold"]+"_"+config["linearization_algo"]+"_new_extant_adjacencies",
 		config["outputdir"]+"/"+config["outputdir_decostar"]+"/"+config["prefix_decostar"]+"_Lin"+config["linearization_threshold"]+"_"+config["linearization_algo"]+"_new_extant_adjacencies_with_scaff_adj",
-		config["outputdir"]+"/results/FASTA/SCAFF"
+		config["outputdir"]+"/results/AGP",
+		config["outputdir"]+"/results/FASTA/SCAFF",
+		
 
 
 rule run_decostar:
@@ -28,7 +31,7 @@ rule run_decostar:
 		bin/software_libraries/DeCoSTAR/bin/DeCoSTAR parameter.file={input.config_file}"
 
 
-rule run_linearization_assign_scj:
+rule run_linearization:
 	input:
 		adj_file=config["outputdir"]+"/"+config["outputdir_decostar"]+"/"+config["prefix_decostar"]+".adjacencies.txt",
 	output:
@@ -40,13 +43,15 @@ rule run_linearization_assign_scj:
 
 rule create_new_ADJ_file:
 	input:
+		FASTA=config["outputdir"]+"/"+config["ASSEMBLY_dir"],
 		CTG=config["outputdir"]+"/data/data_DeCoSTAR/CTG_file",
 		adj_file=config["outputdir"]+"/"+config["outputdir_decostar"]+"/"+config["prefix_decostar"]+"_Lin"+config["linearization_threshold"]+"_"+config["linearization_algo"]+"_kept",
 	output:
 		new_adj_file=config["outputdir"]+"/"+config["outputdir_decostar"]+"/"+config["prefix_decostar"]+"_Lin"+config["linearization_threshold"]+"_"+config["linearization_algo"]+"_new_extant_adjacencies",
+		scaff_stats=config["outputdir"]+"/"+config["outputdir_decostar"]+"/"+config["prefix_decostar"]+"_Lin"+config["linearization_threshold"]+"_"+config["linearization_algo"]+"_scaffolding_stats",
 	shell:
-		"echo -e \"\tscript: python2 bin/scripts/post_decostar/compute_scaffstats_and_newADJfile.py {input.CTG} {input.adj_file} "+config["SEP"]+" 50 {output.new_adj_file}\";\
-		python2 bin/scripts/post_decostar/compute_scaffstats_and_newADJfile.py {input.CTG} {input.adj_file} "+config["SEP"]+" 50 {output.new_adj_file}"
+		"echo -e \"\tscript: python2 bin/scripts/post_decostar/compute_scaffstats_and_newADJfile.py {input.FASTA} {input.CTG} {input.adj_file} "+config["SEP"]+" {output.new_adj_file} {output.scaff_stats}\";\
+		python2 bin/scripts/post_decostar/compute_scaffstats_and_newADJfile.py {input.FASTA} {input.CTG} {input.adj_file} "+config["SEP"]+" {output.new_adj_file} {output.scaff_stats}"
 
 
 rule add_scaff_adj_infos:
@@ -60,14 +65,23 @@ rule add_scaff_adj_infos:
 		python2 bin/scripts/post_decostar/add_scaffADJ_to_new_extant_ADJ.py {input.new_adj_file} {input.scaff_file} {output.new_adj_file_with_scaff}"
 
 
-rule produce_scaffolding_FASTA_files:
+rule produce_AGP_files:
 	input:
-		new_adj=config["outputdir"]+"/"+config["outputdir_decostar"]+"/"+config["prefix_decostar"]+"_Lin"+config["linearization_threshold"]+"_"+config["linearization_algo"]+"_new_extant_adjacencies_with_scaff_adj",
+		new_adj_file_with_scaff=config["outputdir"]+"/"+config["outputdir_decostar"]+"/"+config["prefix_decostar"]+"_Lin"+config["linearization_threshold"]+"_"+config["linearization_algo"]+"_new_extant_adjacencies_with_scaff_adj",
 		input_SCAFF=config["outputdir"]+"/"+config["ASSEMBLY_dir"]
 	output:
-		config["outputdir"]+"/results/FASTA/SCAFF",
-		output_SCAFF=config["outputdir"]+"/results/FASTA/SCAFF/"+config["prefix_decostar"]+"_Lin"+config["linearization_threshold"]+"_"+config["linearization_algo"]+"_"
+		output_AGP=config["outputdir"]+"/results/AGP"
 	shell:
-		"echo -e \"\tscript: python2 bin/scripts/post_decostar/create_FASTA_from_new_adjacencies.py {input.new_adj} {input.input_SCAFF} {output.output_SCAFF}\";\
-		python2 bin/scripts/post_decostar/create_FASTA_from_new_adjacencies.py {input.new_adj} {input.input_SCAFF} {output.output_SCAFF}"
+		"echo -e \"\tscript: python2 bin/scripts/post_decostar/create_AGP_from_new_adjacencies.py {input.new_adj_file_with_scaff} {input.input_SCAFF} "+config["prefix_decostar"]+"_Lin"+config["linearization_threshold"]+"_"+config["linearization_algo"]+"_ {output.output_AGP}\";\
+		python2 bin/scripts/post_decostar/create_AGP_from_new_adjacencies.py {input.new_adj_file_with_scaff} {input.input_SCAFF} "+config["prefix_decostar"]+"_Lin"+config["linearization_threshold"]+"_"+config["linearization_algo"]+"_ {output.output_AGP}"
 
+
+rule produce_newFASTA_files:
+	input:
+		AGP_dir=config["outputdir"]+"/results/AGP",
+		input_SCAFF=config["outputdir"]+"/"+config["ASSEMBLY_dir"]
+	output:
+		output_SCAFF=config["outputdir"]+"/results/FASTA/SCAFF",
+	shell:
+		"echo -e \"\tscript: python2 bin/scripts/post_decostar/create_newFASTA_from_AGP.py {input.AGP_dir} "+config["prefix_decostar"]+"_Lin"+config["linearization_threshold"]+"_"+config["linearization_algo"]+"_ {input.input_SCAFF} {output.output_SCAFF}\";\
+		python2 bin/scripts/post_decostar/create_newFASTA_from_AGP.py {input.AGP_dir} "+config["prefix_decostar"]+"_Lin"+config["linearization_threshold"]+"_"+config["linearization_algo"]+"_ {input.input_SCAFF} {output.output_SCAFF}"
