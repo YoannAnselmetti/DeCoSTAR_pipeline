@@ -8,6 +8,7 @@ It contains also some command lines necessary to download genome assemblies FAST
 This directory contains all input data files necessary to the execution of DeCoSTAR for scaffolding improvment of 26 avian reference genomes (see list below) and the newly sequenced reference genome of Zosterops borbonicus.  
 
 List of the 26 species names present in this study (in addition to Zosterops borbonicus) with the corresponding RefSeq assembly accesion and assemblies ID used:
+````
 | Species name               | RefSeq assembly ID | Assembly ID                  |
 |----------------------------|--------------------|------------------------------|
 | Acanthisitta_chloris       | GCF_000695815.1    | ASM69581v1                   |
@@ -36,6 +37,7 @@ List of the 26 species names present in this study (in addition to Zosterops bor
 | Taeniopygia_guttata        | GCF_000151805.1    | Taeniopygia_guttata-3.2.4    |
 | Tinamus_guttatus           | GCF_000705375.1    | ASM70537v2                   |
 | Zonotrichia_albicollis     | GCF_000385455.1    | Zonotrichia_albicollis-1.0.1 |
+````
 
 
 ## Directory architecture:
