@@ -1,5 +1,5 @@
 # README content:
-This README contains informations on the content of this directory that corresponds to input data used to produce the results of DeCoSTAR for scaffolding improvment of 27 avian dataset described in Leroy et al., in prep.
+This README contains informations on the content of this directory that corresponds to input data used to produce the results of DeCoSTAR for scaffolding improvment of 27 avian dataset described in [Leroy et al., 2019](https://www.biorxiv.org/content/10.1101/505610v2).
 It contains also some command lines necessary to download genome assemblies FASTA files and preprocess data to the DeCoSTAR input files format to reproduce DeCoSTAR scaffolding of the 27 avian dataset. 
 
 
@@ -7,37 +7,39 @@ It contains also some command lines necessary to download genome assemblies FAST
 # Directory content:
 This directory contains all input data files necessary to the execution of DeCoSTAR for scaffolding improvment of 26 avian reference genomes (see list below) and the newly sequenced reference genome of Zosterops borbonicus.  
 
-List of the 26 species name present in this study (in addition to Zosterops borbonicus) with the corresponding RefSeq assembly accesion and assemblies ID used:
-Acanthisitta_chloris	GCF_000695815.1	ASM69581v1
-Anas_platyrhynchos	GCF_000355885.1	BGI_duck_1.0
-Aptenodytes_forsteri	GCF_000699145.1	ASM69914v1
-Calypte_anna	GCF_000699085.1	ASM69908v1
-Chaetura_pelagica	GCF_000747805.1	ChaPel_1.0
-Charadrius_vociferus	GCF_000708025.1	ASM70802v2
-Columba_livia	GCF_000337935.1	Cliv_1.0
-Corvus_brachyrhynchos	GCF_000691975.1	ASM69197v1
-Corvus_cornix	GCF_000738735.2	ASM73873v2
-Cuculus_canorus	GCF_000709325.1	ASM70932v1
-Egretta_garzetta	GCF_000687185.1	ASM68718v1
-Falco_peregrinus	GCF_000337955.1	F_peregrinus_v1.0
-Ficedula_albicollis	GCF_000247815.1	FicAlb1,5
-Gallus_gallus	GCF_000002315.5	GRCg6a
-Geospiza_fortis	GCF_000277835.1	GeoFor_1.0
-Haliaeetus_leucocephalus	GCF_000737465.1	Haliaeetus_leucocephalus-4.0
-Manacus_vitellinus	GCF_001715985.1	ASM171598v1
-Melopsittacus_undulatus	GCF_000238935.1	Melopsittacus_undulatus_6.3
-Nipponia_nippon	GCF_000708225.1	ASM70822v1
-Opisthocomus_hoazin	GCF_000692075.1	ASM69207v1
-Picoides_pubescens	GCF_000699005.1	ASM69900v1
-Pygoscelis_adeliae	GCF_000699105.1	ASM69910v1
-Struthio_camelus_australis	GCF_000698965.1	ASM69896v1
-Taeniopygia_guttata	GCF_000151805.1	Taeniopygia_guttata-3.2.4
-Tinamus_guttatus	GCF_000705375.1	ASM70537v2
-Zonotrichia_albicollis	GCF_000385455.1	Zonotrichia_albicollis-1.0.1
-
+List of the 26 species names present in this study (in addition to Zosterops borbonicus) with the corresponding RefSeq assembly accesion and assemblies ID used:
+| Species name               | RefSeq assembly ID | Assembly ID                  |
+|----------------------------|--------------------|------------------------------|
+| Acanthisitta_chloris       | GCF_000695815.1    | ASM69581v1                   |
+| Anas_platyrhynchos         | GCF_000355885.1    | BGI_duck_1.0                 |
+| Aptenodytes_forsteri       | GCF_000699145.1    | ASM69914v1                   |
+| Calypte_anna               | GCF_000699085.1    | ASM69908v1                   |
+| Chaetura_pelagica          | GCF_000747805.1    | ChaPel_1.0                   |
+| Charadrius_vociferus       | GCF_000708025.1    | ASM70802v2                   |
+| Columba_livia              | GCF_000337935.1    | Cliv_1.0                     |
+| Corvus_brachyrhynchos      | GCF_000691975.1    | ASM69197v1                   |
+| Corvus_cornix              | GCF_000738735.2    | ASM73873v2                   |
+| Cuculus_canorus            | GCF_000709325.1    | ASM70932v1                   |
+| Egretta_garzetta           | GCF_000687185.1    | ASM68718v1                   |
+| Falco_peregrinus           | GCF_000337955.1    | F_peregrinus_v1.0            |
+| Ficedula_albicollis        | GCF_000247815.1    | FicAlb1,5                    |
+| Gallus_gallus              | GCF_000002315.5    | GRCg6a                       |
+| Geospiza_fortis            | GCF_000277835.1    | GeoFor_1.0                   |
+| Haliaeetus_leucocephalus   | GCF_000737465.1    | Haliaeetus_leucocephalus-4.0 |
+| Manacus_vitellinus         | GCF_001715985.1    | ASM171598v1                  |
+| Melopsittacus_undulatus    | GCF_000238935.1    | Melopsittacus_undulatus_6.3  |
+| Nipponia_nippon            | GCF_000708225.1    | ASM70822v1                   |
+| Opisthocomus_hoazin        | GCF_000692075.1    | ASM69207v1                   |
+| Picoides_pubescens         | GCF_000699005.1    | ASM69900v1                   |
+| Pygoscelis_adeliae         | GCF_000699105.1    | ASM69910v1                   |
+| Struthio_camelus_australis | GCF_000698965.1    | ASM69896v1                   |
+| Taeniopygia_guttata        | GCF_000151805.1    | Taeniopygia_guttata-3.2.4    |
+| Tinamus_guttatus           | GCF_000705375.1    | ASM70537v2                   |
+| Zonotrichia_albicollis     | GCF_000385455.1    | Zonotrichia_albicollis-1.0.1 |
 
 
 ## Directory architecture:
+````
 .
 ├── DATA_SEQ/
 ├── INPUT_DATA/
@@ -48,6 +50,7 @@ Zonotrichia_albicollis	GCF_000385455.1	Zonotrichia_albicollis-1.0.1
 │   ├── FASTA/SCAFF/
 │   └── RAW_GFF/
 └── README.md
+````
 
 
 
@@ -64,7 +67,7 @@ List of species for which NO paired-sequencing data were available:
 
 
 ### "INPUT_DATA/" directory
-This directory contains 4 files and 1 directory:
+This directory contains 4 files and 2 directories:
 1. 27avian_species_tree.nwk	-> species tree file in newick format
 2. 27avian_species.txt		-> association between species name and chromosome number (haplome)
 3. 27avian_trees.nwk		-> gene trees in newick format
@@ -77,7 +80,11 @@ This directory contains 4 files and 1 directory:
 In this directory will stored the reference genome assembly FASTA files for the 27 avian species.
 You first need to download the Zosterops borbonicus genome assembly FASTA file in this directory (Linux):
 ````
-wget LINK_TO_THE_ZOBO_FASTA_FILE FASTA/SCAFF/
+cd INPUT_DATA/FASTA/SCAFF
+wget https://ndownloader.figshare.com/files/13854815?private_link=122efbec2e3632188674 -O extract.zip
+unzip extract.zip
+rm extract.zip Scaffold_neoW.txt Scaffold_neoZ.txt Zosterops_borbonicus_SOAP_SSPACElongread_PE_MP_PacBio.v2.gff3 DeCoSTAR_27avian_ADseq+scaff_Boltz_kT0.1_Lin0.1_M2_Zosterops_borbonicus_ZeFi-ZoBo+DeCoSTAR.agp
+cd ../../..
 ````
 For the 26 additional species you have to run the following command lines (Linux) from the directory where this README file is stored:
 ````

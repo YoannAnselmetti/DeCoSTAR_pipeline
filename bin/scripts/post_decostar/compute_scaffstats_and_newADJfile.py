@@ -11,11 +11,13 @@
 ###         (18Anopheles_dataset/data/data_DeCoSTAR/CTG_file)
 ###      3- File containing the kept adjacencies after linearization 
 ###         (18Anopheles_dataset/results/decostar/Xtopo/DeCoSTAR_Anopheles_Xtopo+scaff_Boltz_0.1_Lin0.1_M1_kept)
-###      4- Separator
+###      4- File containing the discarded adjacencies after linearization 
+###         (18Anopheles_dataset/results/decostar/Xtopo/DeCoSTAR_Anopheles_Xtopo+scaff_Boltz_0.1_Lin0.1_M1_disc)
+###      5- Separator
 ###         (@)
-###      5- OUTPUT new ADJ file
+###      6- OUTPUT new ADJ file
 ###         (18Anopheles_dataset/results/decostar/Xtopo/DeCoSTAR_Anopheles_Xtopo+scaff_Boltz_0.1_Lin0.1_M1_new_extant_adjacencies)
-###      6- OUTPUT scaffolding stats directory
+###      7- OUTPUT scaffolding stats directory
 ###         (18Anopheles_dataset/results/scaffolding_stats/Xtopo/DeCoSTAR_Anopheles_Xtopo+scaff_Boltz_0.1_Lin0.1_M1)
 ###
 ###   OUTPUT:
@@ -23,7 +25,7 @@
 ###      - Produce file and graphics summarizing scaffolding statistics of DeCo*
 ###
 ###   Name: compute_scaffstats_and_newADJfile.py     Author: Yoann Anselmetti
-###   Creation date: 2016/07/18                      Last modification: 2018/11/29
+###   Creation date: 2016/07/18                      Last modification: 2019/01/16
 ###
 
 from sys import argv, stdout
@@ -551,10 +553,11 @@ if __name__ == '__main__':
    # Recovery of input parameters
    FASTA_dir=argv[1]
    CTG_file=argv[2]
-   newAdj_file=open(argv[3],'r')
-   sep=argv[4]
-   OUTPUT_file=argv[5]
-   scaff_stats_DIR=argv[6]
+   kept_newAdj_file=open(argv[3],'r')
+   disc_newAdj_file=open(argv[4],'r')
+   sep=argv[5]
+   OUTPUT_file=argv[6]
+   scaff_stats_DIR=argv[7]
 
    x_list=[50,90]
    verbose=1
@@ -592,12 +595,15 @@ if __name__ == '__main__':
    dict_spe_ctg_size_FIN=deepcopy(dict_spe_ctg_size_INIT)
    scaff_id=0
    # Read new adjacencies file
-   for adj in newAdj_file:
+   for adj in kept_newAdj_file:
       species,gene1,gene2,ori1,ori2,prior_score,post_score,scaff=adj.split()
       species_name=gene1.split(sep)[0]
       if species_name in dict_spe_gene:
          g1=gene1.split(sep)[1]
          g2=gene2.split(sep)[1]
+         ########
+         ### HUGE APPROXIMATION: THESE ADJACENCIES CAN BE OBSERVED ADJACENCIES IF WE DECIDE TO SET THE PRE-SCORE<1.0 !!!
+         ########
          # If (prior_score!=1), then ADJ is a new one
          if float(prior_score)!=1.0:
             # print species_name
@@ -632,7 +638,7 @@ if __name__ == '__main__':
                dict_spe_newADJ[species_name]=list()
             dict_spe_newADJ[species_name].append(new_adj)
 
-   newAdj_file.close()
+   kept_newAdj_file.close()
    dict_newSCAFF_ID.clear()
    dict_newSCAFF.clear()
 
@@ -651,10 +657,22 @@ if __name__ == '__main__':
    dict_spe_newADJ.clear()
 
 
+# ##########
+# ### SPLIT CTG WHERE ADJ HAVE BEEN DISCARDED BY LINEARIZATION
+# ##########
+#    print "\n5/ Split contigs where initial adjacencies have been discarded by linearization:"
+#    # Read discarded adjacencies file
+#    for disc_adj in disc_newAdj_file:
+#       species_ID,gene1,gene2,ori1,ori2,pre_score,post_score,linear_step=disc_adj.split()
+#       if pre_score==post_score=="1.0":
+
+
+
+
 ######################
 ### COMPUTE GENOME SCAFFOLDING STATISTICS
 ######################
-   print "\n5/ Compute genome scaffolding statistics:"
+   print "\n6/ Compute genome scaffolding statistics:"
    print_scaffolding_stats(scaff_stats_DIR,x_list,dict_spe_ctg_size_INIT,dict_spe_ctg_size_FIN,dict_spe_new_adj_tot,dict_spe_new_adj_scaff)
    # for species in dict_spe_ctg_size_INIT:
    #    print "\t\tSpecies",species,":"

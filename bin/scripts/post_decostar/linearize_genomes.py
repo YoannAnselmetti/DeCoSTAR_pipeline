@@ -1,6 +1,6 @@
 __author__="Cedric Chauve"
 __email__="cedric.chauve@sfu.ca"
-__date__="October 2, 2016"
+__date__="January 11, 2019"
 
 import sys
 import os
@@ -207,7 +207,7 @@ def filter_1(adj_list,threshold):
     res_disc_adjs.sort()
     return((res_kept_adjs,res_disc_adjs))
 
-# Filtering stegaes 2 and 3 implemented into a single fucntion
+# Filtering stages 2 and 3 implemented into a single function
 # param 1 = list of adjacencies
 # param 2 = keep observed adjacencies (True/False)
 # param 3 = '2': Filtering out all adjacencies involved in two conflicts
@@ -270,12 +270,12 @@ def compute_scaffolds_circ(adj_list):
             cc_id+=1
     return((cc_id-1,connected_components))
 
-# Linearizing circular scaffolds by removing a min-weight adjacency per circular scaffold
+# Linearizing circular scaffolds by removing a min-weight unobserved adjacency per circular scaffold
 # param 1 = adjacencies list
 # param 2 = array indicating the scaffold/connected component associated to each gene
 # param 3 = number of scaffolds (including gthe ones reduced to a single gene)
 # param 4 = genes copy numbers 
-def filter_4(adj_list,cc,nb_ccs):
+def filter_4(adj_list,cc,nb_ccs,keep_obs):
     res_kept_adjs=[] # Kept adjacencies
     res_disc_adjs=[] # Discarded adjacencies
     # 1. Recording the degree of each gene
@@ -290,17 +290,17 @@ def filter_4(adj_list,cc,nb_ccs):
             nb_ext_ccs[cc[g1]]+=1
         if gene_degrees[g2]==1:
             nb_ext_ccs[cc[g2]]+=1
-    # 3. Checking that each scaffold has indeed value 0 or 4 
+    # 3. Checking that each scaffold has indeed value 0 or 2 
     for c in range(1,nb_ccs+1):
         if nb_ext_ccs[c]!=0 and nb_ext_ccs[c]!=2:
             print("ERROR TYPE 1\n")
-    # 4. Computing the min weight of each scaffolds
+    # 4. Computing the min weight of each scaffolds, among unobserved adjacencies
     min_weights={} # Min weight of adjacencies of each scaffold, indexed by scaffolds ID
     for c in range(1,nb_ccs+1):
         min_weights[c]=MAX_WEIGHT+1
     for adj in adj_list:
         g1=adj_gene1(adj)
-        if adj_weight(adj)<min_weights[cc[g1]]:
+        if ((not keep_obs) or (not adj_observed(adj))) and adj_weight(adj)<min_weights[cc[g1]]:
             min_weights[cc[g1]]=adj_weight(adj)    
     # 4. Filtering
     linearized={} # Status of each scaffold, indexed by scaffolds ID
@@ -312,7 +312,7 @@ def filter_4(adj_list,cc,nb_ccs):
     for adj in adj_list:
         g1=adj_gene1(adj)
         c1=cc[g1]
-        if linearized[c1]==False and adj_weight(adj)==min_weights[c1]:
+        if ((not keep_obs) or (not adj_observed(adj))) and linearized[c1]==False and adj_weight(adj)==min_weights[c1]:
             res_disc_adjs.append(adj)
             linearized[c1]=True
         else:
@@ -452,7 +452,7 @@ def process_genome(SPECIES,ADJ_FILE_STREAM,THRESHOLD,ALGORITHM,OUTPUT_PREFIX):
     print("  Creating scaffolds (including circular ones)")
     (NB_SCFS,SCFS)=compute_scaffolds_circ(ADJ_KEPT_3)
     print("  Filter 4")
-    (ADJ_KEPT_4,ADJ_DISC_4)=filter_4(ADJ_KEPT_3,SCFS,NB_SCFS)
+    (ADJ_KEPT_4,ADJ_DISC_4)=filter_4(ADJ_KEPT_3,SCFS,NB_SCFS,ALGORITHM[1]=='2')
     print("    Number of adjacencies: "+str(len(ADJ_KEPT_4)))
     print("  Ordering genes along scaffolds")
     SCAFFOLDS=order_genes(ADJ_KEPT_4,SCFS,NB_SCFS)
