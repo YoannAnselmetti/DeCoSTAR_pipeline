@@ -198,7 +198,7 @@ chromosome_18	4794449	5709532	.	W	scaffold317b_size953392	535139	1488530	-
 chromosome_18	4312638	4705767	.	W	scaffold418a_size556398	1	556398	-
 chromosome_19	N/A	N/A	.	W	scaffold877_size148858	1	148858	+
 chromosome_19	216330	2311604	.	W	scaffold203_size2468146	1	2468146	+
-chromosome_19	2660213	3564272	.	W	scaffold114_size1012010	1	1012010	+
+chromosome_19	2660213	3564272	.	W	scaffold114_size1012010	1	1012010	-
 chromosome_19	3567732	4038442	.	W	scaffold535_size501475	1	501475	+
 chromosome_19	4055469	4353403	.	W	scaffold603_size351602	1	351602	+
 chromosome_19	4453805	6108268	.	W	scaffold34_size1999705	1	1999705	+
@@ -716,6 +716,7 @@ chromosome_Z	20098009	20629796	.	W	scaffold386_size612654	1	612654	-
 chromosome_Z	20642298	21089542	.	W	scaffold360_size490456	1	490456	-
 chromosome_Z	21095887	21248044	.	W	scaffold671_size252082	1	252082	+
 chromosome_Z	21248035	21452682	.	W	scaffold543a_size244520	1	244520	-
+chromosome_Z	N/A	N/A	.	W	scaffold1193_size106245	1	106245	+
 chromosome_Z	21519996	21673357	.	W	scaffold417a_size188924	1	188924	+
 chromosome_Z	16359272	17186529	.	W	scaffold417b_size914822	188925	1103746	+
 chromosome_Z	14159878	16299789	.	W	scaffold15_size2342102	1	2342102	-
@@ -955,6 +956,7 @@ chromosome_Z	6657956	6705052	.	W	scaffold1101_size59809	1	59809	-
 chromosome_Z	6445074	6653028	.	W	scaffold847_size238172	1	238172	-
 chromosome_Z	6394808	6430781	.	W	scaffold1246_size43855	1	43855	-
 chromosome_Z	6336395	6383441	.	W	scaffold2356_size30446	1	30446	+
+chromosome_Z	N/A	N/A	.	W	scaffold1512_size38555	1	38555	+
 chromosome_Z	6308090	6324370	.	W	scaffold1906_size19873	1	19873	-
 chromosome_Z	6272130	6308122	.	W	scaffold1429_size33364	1	33364	-
 chromosome_Z	6247320	6267907	.	W	scaffold1770_size34890	1	34890	-

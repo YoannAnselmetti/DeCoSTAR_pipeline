@@ -16,7 +16,7 @@
 ###      - AGP file merging DeCoSTAR and Chromosome map adjacencies
 ###
 ###   Name: merge_chrMap_and_DeCoSTAR_AGP_files.py    Author: Yoann Anselmetti     
-###   Creation date: 2018/11/13                       Last modification: 2018/11/19
+###   Creation date: 2018/11/13                       Last modification: 2019/04/05
 ###
 
 from sys import argv
@@ -67,7 +67,7 @@ def parse_DeCoSTAR_AGP_file(AGP_file,dict_newSCAFF,dict_newSCAFF_ID,dict_distCTG
          else:
             stored_gapSize="?"
       else:
-         exit("ERROR, column 5 shpould be equal to ['A','D','F','G','O','P','W','N','U'] and not '"+compoType+"' (cf. AGP file format: https://www.ncbi.nlm.nih.gov/assembly/agp/AGP_Specification/#FORMAT)")
+         exit("ERROR, column 5 should be equal to ['A','D','F','G','O','P','W','N','U'] and not '"+compoType+"' (cf. AGP file format: https://www.ncbi.nlm.nih.gov/assembly/agp/AGP_Specification/#FORMAT)")
 
 
 def parse_chrMAP_AGP_file(AGP_file,dict_newSCAFF,dict_newSCAFF_ID,dict_distCTG):
@@ -83,7 +83,6 @@ def parse_chrMAP_AGP_file(AGP_file,dict_newSCAFF,dict_newSCAFF_ID,dict_distCTG):
             gap_in_progress=False
             if (not (stored_ctg,compoId_gapLength) in dict_distCTG) and (not (compoId_gapLength,stored_ctg) in dict_distCTG):
                dict_distCTG[(stored_ctg,compoId_gapLength)]=stored_gapSize
-               print "hello"
          else:
             if stored_obj==obj:
                if (not (stored_ctg,compoId_gapLength) in dict_distCTG) and (not (compoId_gapLength,stored_ctg) in dict_distCTG):
@@ -106,7 +105,7 @@ def parse_chrMAP_AGP_file(AGP_file,dict_newSCAFF,dict_newSCAFF_ID,dict_distCTG):
          else:
             stored_gapSize="?"
       else:
-         exit("ERROR, column 5 shpould be equal to ['A','D','F','G','O','P','W','N','U'] and not '"+compoType+"' (cf. AGP file format: https://www.ncbi.nlm.nih.gov/assembly/agp/AGP_Specification/#FORMAT)")
+         exit("ERROR, column 5 should be equal to ['A','D','F','G','O','P','W','N','U'] and not '"+compoType+"' (cf. AGP file format: https://www.ncbi.nlm.nih.gov/assembly/agp/AGP_Specification/#FORMAT)")
 
 
 ################
@@ -133,19 +132,21 @@ if __name__ == '__main__':
    # Store the DeCoSTAR AGP file
    dict_newSCAFF,dict_newSCAFF_ID,dict_distCTG,dict_CTG=dict(),dict(),dict(),dict()
    parse_DeCoSTAR_AGP_file(AGP_decostar_file,dict_newSCAFF,dict_newSCAFF_ID,dict_distCTG,dict_CTG)
-   print "\nDeCoSTAR:"
-   print "\tsize(dict_newSCAFF):",len(dict_newSCAFF)
-   print "\tsize(dict_newSCAFF_ID):",len(dict_newSCAFF_ID)
-   print "\tsize(dict_distCTG):",len(dict_distCTG)
-   print "\tsize(dict_CTG):",len(dict_CTG)
+   if verbose>1:
+      print "\nDeCoSTAR:"
+      print "\tsize(dict_newSCAFF):",len(dict_newSCAFF)
+      print "\tsize(dict_newSCAFF_ID):",len(dict_newSCAFF_ID)
+      print "\tsize(dict_distCTG):",len(dict_distCTG)
+      print "\tsize(dict_CTG):",len(dict_CTG)
 
 
    parse_chrMAP_AGP_file(AGP_chrMAP_file,dict_newSCAFF,dict_newSCAFF_ID,dict_distCTG)
-   print "\nDeCoSTAR+Chromosome Map:"
-   print "\tsize(dict_newSCAFF):",len(dict_newSCAFF)
-   print "\tsize(dict_newSCAFF_ID):",len(dict_newSCAFF_ID)
-   print "\tsize(dict_distCTG):",len(dict_distCTG)
-   print "\tsize(dict_CTG):",len(dict_CTG)
+   if verbose>1:
+      print "\nDeCoSTAR+Chromosome Map:"
+      print "\tsize(dict_newSCAFF):",len(dict_newSCAFF)
+      print "\tsize(dict_newSCAFF_ID):",len(dict_newSCAFF_ID)
+      print "\tsize(dict_distCTG):",len(dict_distCTG)
+      print "\tsize(dict_CTG):",len(dict_CTG)
 
 
    output_agp=open(output_AGP_file,"w")

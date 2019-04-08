@@ -5,10 +5,15 @@
 # 27avian_dataset
 # config_files/snakemake/config_27avian.yaml
 # config_files/decostar/DeCoSTAR_27avian.param.txt
+27avian_dataset/data/GENE_TREES
+27avian_dataset/data/GFF_to_GENE_files
+27avian_dataset/data/INPUT_DATA/GFF
+27avian_dataset/data/data_DeCoSTAR
 27avian_dataset/data/INPUT_DATA/FASTA/SCAFF/*
+27avian_dataset/data/INPUT_DATA/chromosome_map/Anas_platyrhynchos
 27avian_dataset/results/with_all_scaff_adj
 27avian_dataset/results/FASTA
-27avian_dataset/data/INPUT_DATA/chromosome_map/Anas_platyrhynchos
+
 
 # Ignore software_libraries directory tha can be reproduced from initial git 
 bin/software_libraries

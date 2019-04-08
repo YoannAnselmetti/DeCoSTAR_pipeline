@@ -91,32 +91,32 @@ cd ../../..
 For the 26 additional species you have to run the following command lines (Linux) from the directory where this README file is stored:
 ````
 cd INPUT_DATA/FASTA/SCAFF
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/695/815/GCF_000695815.1_ASM69581v1/GCF_000695815.1_ASM69581v1_genomic.fna.gz
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/355/885/GCF_000355885.1_BGI_duck_1.0/GCF_000355885.1_BGI_duck_1.0_genomic.fna.gz
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/699/145/GCF_000699145.1_ASM69914v1/GCF_000699145.1_ASM69914v1_genomic.fna.gz
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/699/085/GCF_000699085.1_ASM69908v1/GCF_000699085.1_ASM69908v1_genomic.fna.gz
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/747/805/GCF_000747805.1_ChaPel_1.0/GCF_000747805.1_ChaPel_1.0_genomic.fna.gz
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/708/025/GCF_000708025.1_ASM70802v2/GCF_000708025.1_ASM70802v2_genomic.fna.gz
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/337/935/GCF_000337935.1_Cliv_1.0/GCF_000337935.1_Cliv_1.0_genomic.fna.gz
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/691/975/GCF_000691975.1_ASM69197v1/GCF_000691975.1_ASM69197v1_genomic.fna.gz
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/738/735/GCF_000738735.2_ASM73873v2/GCF_000738735.2_ASM73873v2_genomic.fna.gz
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/709/325/GCF_000709325.1_ASM70932v1/GCF_000709325.1_ASM70932v1_genomic.fna.gz
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/687/185/GCF_000687185.1_ASM68718v1/GCF_000687185.1_ASM68718v1_genomic.fna.gz
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/337/955/GCF_000337955.1_F_peregrinus_v1.0/GCF_000337955.1_F_peregrinus_v1.0_genomic.fna.gz
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/247/815/GCF_000247815.1_FicAlb1.5/GCF_000247815.1_FicAlb1.5_genomic.fna.gz
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/002/315/GCF_000002315.5_GRCg6a/GCF_000002315.5_GRCg6a_genomic.fna.gz
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/277/835/GCF_000277835.1_GeoFor_1.0/GCF_000277835.1_GeoFor_1.0_genomic.fna.gz
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/737/465/GCF_000737465.1_Haliaeetus_leucocephalus-4.0/GCF_000737465.1_Haliaeetus_leucocephalus-4.0_genomic.fna.gz
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/715/985/GCF_001715985.1_ASM171598v1/GCF_001715985.1_ASM171598v1_genomic.fna.gz
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/238/935/GCF_000238935.1_Melopsittacus_undulatus_6.3/GCF_000238935.1_Melopsittacus_undulatus_6.3_genomic.fna.gz
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/708/225/GCF_000708225.1_ASM70822v1/GCF_000708225.1_ASM70822v1_genomic.fna.gz
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/692/075/GCF_000692075.1_ASM69207v1/GCF_000692075.1_ASM69207v1_genomic.fna.gz
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/699/005/GCF_000699005.1_ASM69900v1/GCF_000699005.1_ASM69900v1_genomic.fna.gz
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/699/105/GCF_000699105.1_ASM69910v1/GCF_000699105.1_ASM69910v1_genomic.fna.gz
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/698/965/GCF_000698965.1_ASM69896v1/GCF_000698965.1_ASM69896v1_genomic.fna.gz
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/151/805/GCF_000151805.1_Taeniopygia_guttata-3.2.4/GCF_000151805.1_Taeniopygia_guttata-3.2.4_genomic.fna.gz
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/705/375/GCF_000705375.1_ASM70537v2/GCF_000705375.1_ASM70537v2_genomic.fna.gz
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/385/455/GCF_000385455.1_Zonotrichia_albicollis-1.0.1/GCF_000385455.1_Zonotrichia_albicollis-1.0.1_genomic.fna.gz
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/695/815/GCF_000695815.1_ASM69581v1/GCF_000695815.1_ASM69581v1_genomic.fna.gz -O Acanthisitta_chloris.GCF_000695815.1_ASM69581v1_genomic.fna.gz
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/355/885/GCF_000355885.1_BGI_duck_1.0/GCF_000355885.1_BGI_duck_1.0_genomic.fna.gz -O Anas_platyrhynchos.GCF_000355885.1_BGI_duck_1.0_genomic.fna.gz
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/699/145/GCF_000699145.1_ASM69914v1/GCF_000699145.1_ASM69914v1_genomic.fna.gz -O Aptenodytes_forsteri.GCF_000699145.1_ASM69914v1_genomic.fna.gz
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/699/085/GCF_000699085.1_ASM69908v1/GCF_000699085.1_ASM69908v1_genomic.fna.gz -O Calypte_anna.GCF_000699085.1_ASM69908v1_genomic.fna.gz
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/747/805/GCF_000747805.1_ChaPel_1.0/GCF_000747805.1_ChaPel_1.0_genomic.fna.gz -O Chaetura_pelagica.GCF_000747805.1_ChaPel_1.0_genomic.fna.gz
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/708/025/GCF_000708025.1_ASM70802v2/GCF_000708025.1_ASM70802v2_genomic.fna.gz -O Charadrius_vociferus.GCF_000708025.1_ASM70802v2_genomic.fna.gz
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/337/935/GCF_000337935.1_Cliv_1.0/GCF_000337935.1_Cliv_1.0_genomic.fna.gz -O Columba_livia.GCF_000337935.1_Cliv_1.0_genomic.fna.gz
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/691/975/GCF_000691975.1_ASM69197v1/GCF_000691975.1_ASM69197v1_genomic.fna.gz -O Corvus_brachyrhynchos.GCF_000691975.1_ASM69197v1_genomic.fna.gz
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/738/735/GCF_000738735.2_ASM73873v2/GCF_000738735.2_ASM73873v2_genomic.fna.gz -O Corvus_cornix.GCF_000738735.2_ASM73873v2_genomic.fna.gz
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/709/325/GCF_000709325.1_ASM70932v1/GCF_000709325.1_ASM70932v1_genomic.fna.gz -O Cuculus_canorus.GCF_000709325.1_ASM70932v1_genomic.fna.gz
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/687/185/GCF_000687185.1_ASM68718v1/GCF_000687185.1_ASM68718v1_genomic.fna.gz -O Egretta_garzetta.GCF_000687185.1_ASM68718v1_genomic.fna.gz
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/337/955/GCF_000337955.1_F_peregrinus_v1.0/GCF_000337955.1_F_peregrinus_v1.0_genomic.fna.gz -O Falco_peregrinus.GCF_000337955.1_F_peregrinus_v1.0_genomic.fna.gz
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/247/815/GCF_000247815.1_FicAlb1.5/GCF_000247815.1_FicAlb1.5_genomic.fna.gz -O Ficedula_albicollis.GCF_000247815.1_FicAlb1.5_genomic.fna.gz
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/002/315/GCF_000002315.5_GRCg6a/GCF_000002315.5_GRCg6a_genomic.fna.gz -O Gallus_gallus.GCF_000002315.5_GRCg6a_genomic.fna.gz
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/277/835/GCF_000277835.1_GeoFor_1.0/GCF_000277835.1_GeoFor_1.0_genomic.fna.gz -O Geospiza_fortis.GCF_000277835.1_GeoFor_1.0_genomic.fna.gz
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/737/465/GCF_000737465.1_Haliaeetus_leucocephalus-4.0/GCF_000737465.1_Haliaeetus_leucocephalus-4.0_genomic.fna.gz -O Haliaeetus_leucocephalus.GCF_000737465.1_Haliaeetus_leucocephalus-4.0_genomic.fna.gz
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/715/985/GCF_001715985.1_ASM171598v1/GCF_001715985.1_ASM171598v1_genomic.fna.gz -O Manacus_vitellinus.GCF_001715985.1_ASM171598v1_genomic.fna.gz
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/238/935/GCF_000238935.1_Melopsittacus_undulatus_6.3/GCF_000238935.1_Melopsittacus_undulatus_6.3_genomic.fna.gz -O Melopsittacus_undulatus.GCF_000238935.1_Melopsittacus_undulatus_6.3_genomic.fna.gz
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/708/225/GCF_000708225.1_ASM70822v1/GCF_000708225.1_ASM70822v1_genomic.fna.gz -O Nipponia_nippon.GCF_000708225.1_ASM70822v1_genomic.fna.gz
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/692/075/GCF_000692075.1_ASM69207v1/GCF_000692075.1_ASM69207v1_genomic.fna.gz -O Opisthocomus_hoazin.GCF_000692075.1_ASM69207v1_genomic.fna.gz
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/699/005/GCF_000699005.1_ASM69900v1/GCF_000699005.1_ASM69900v1_genomic.fna.gz -O Picoides_pubescens.GCF_000699005.1_ASM69900v1_genomic.fna.gz
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/699/105/GCF_000699105.1_ASM69910v1/GCF_000699105.1_ASM69910v1_genomic.fna.gz -O Pygoscelis_adeliae.GCF_000699105.1_ASM69910v1_genomic.fna.gz
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/698/965/GCF_000698965.1_ASM69896v1/GCF_000698965.1_ASM69896v1_genomic.fna.gz -O Struthio_camelus_australis.GCF_000698965.1_ASM69896v1_genomic.fna.gz
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/151/805/GCF_000151805.1_Taeniopygia_guttata-3.2.4/GCF_000151805.1_Taeniopygia_guttata-3.2.4_genomic.fna.gz -O Taeniopygia_guttata.GCF_000151805.1_Taeniopygia_guttata-3.2.4_genomic.fna.gz
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/705/375/GCF_000705375.1_ASM70537v2/GCF_000705375.1_ASM70537v2_genomic.fna.gz -O Tinamus_guttatus.GCF_000705375.1_ASM70537v2_genomic.fna.gz
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/385/455/GCF_000385455.1_Zonotrichia_albicollis-1.0.1/GCF_000385455.1_Zonotrichia_albicollis-1.0.1_genomic.fna.gz -O Zonotrichia_albicollis.GCF_000385455.1_Zonotrichia_albicollis-1.0.1_genomic.fna.gz
 gunzip *gz
 cd ../../..
 ````

@@ -1,0 +1,26 @@
+##########
+### Command lines to produce files present in this directory
+##########
+
+
+### Initial file has been manually produced from a consensus between ZeFi-ZoBo LASTZ and DeCoSTAR syntenies (solving syntenic conflicts): Zosterops_borbonicus_ZeFi-ZoBo+DeCoSTAR_final_version.agp
+
+
+# Merge ZeFi-ZoBo LASTZ-DeCoSTAR AGP file with ZoBo DeCoSTAR AGP file 
+./bin/scripts/post_decostar/merge_chrMap_and_DeCoSTAR_AGP_files.py 27avian_dataset/results/AGP/DeCoSTAR_27avian_ADseq+scaff_Boltz_kT0.1_Lin0.1_M2_Zosterops_borbonicus.agp 27avian_dataset/results/AGP/AGP_Zosterops_borbonicus_ZeFi-ZoBo+DeCoSTAR/Zosterops_borbonicus_ZeFi-ZoBo+DeCoSTAR_final_version.agp 27avian_dataset/results/AGP/AGP_Zosterops_borbonicus_ZeFi-ZoBo+DeCoSTAR/DeCoSTAR_27avian_ADseq+scaff_Boltz_kT0.1_Lin0.1_M2_ZeFi-ZoBo+DeCoSTAR_Zosterops_borbonicus.agp
+
+
+### Manually modify the AGP files to put first pseudo-chromosomes before new scaffolds
+
+
+# Limit ZeFi-ZoBo LASTZ+DeCoSTAR AGP file to the initial ZoBo scaffolds that have been scaffolded between them
+grep -vP "^scaffold" 27avian_dataset/results/AGP/AGP_Zosterops_borbonicus_ZeFi-ZoBo+DeCoSTAR/DeCoSTAR_27avian_ADseq+scaff_Boltz_kT0.1_Lin0.1_M2_ZeFi-ZoBo+DeCoSTAR_Zosterops_borbonicus.agp > 27avian_dataset/results/AGP/AGP_Zosterops_borbonicus_ZeFi-ZoBo+DeCoSTAR/DeCoSTAR_27avian_ADseq+scaff_Boltz_kT0.1_Lin0.1_M2_ZeFi-ZoBo+DeCoSTAR_only_scaffolded_contigs_Zosterops_borbonicus.agp
+
+# Limit ZeFi-ZoBo LASTZ+DeCoSTAR AGP file to initial ZoBo scaffolds that have been linked to ZeFi-ZoBo LASTZ pseudo-chromosomes
+grep -vP "^scaffold" 27avian_dataset/results/AGP/AGP_Zosterops_borbonicus_ZeFi-ZoBo+DeCoSTAR/DeCoSTAR_27avian_ADseq+scaff_Boltz_kT0.1_Lin0.1_M2_ZeFi-ZoBo+DeCoSTAR_Zosterops_borbonicus.agp | grep -vP "^SCAFF" > 27avian_dataset/results/AGP/AGP_Zosterops_borbonicus_ZeFi-ZoBo+DeCoSTAR/DeCoSTAR_27avian_ADseq+scaff_Boltz_kT0.1_Lin0.1_M2_ZeFi-ZoBo+DeCoSTAR_onlyCHR_Zosterops_borbonicus.agp
+
+# Draw adjacencies graph of the ZeFi-ZoBo LASTZ+DeCoSTAR AGP file (with initial ZoBo scaffolds linked between them or on the ZeFi-ZoBo LASTZ pseudo-chromosomes)
+./bin/scripts/post_decostar/ADJ_graph/create_GENEgraph_GM.py 27avian_dataset/results/AGP/AGP_Zosterops_borbonicus_ZeFi-ZoBo+DeCoSTAR/DeCoSTAR_27avian_ADseq+scaff_Boltz_kT0.1_Lin0.1_M2_ZeFi-ZoBo+DeCoSTAR_only_scaffolded_contigs_Zosterops_borbonicus.agp 27avian_dataset/data/data_DeCoSTAR/CTG_file Zosterops_borbonicus 27avian_dataset/results/ADJ_graph/DOT/GENE/Zosterops_borbonicus/Zosterops_borbonicus_GENEmap_DeCoSTAR+ZoBo-ZeFi.dot 27avian_dataset/results/ADJ_graph/SVG/GENE/Zosterops_borbonicus/Zosterops_borbonicus_GENEmap_DeCoSTAR+ZoBo-ZeFi.svg y
+
+# Add DeCoSTAR predicted adjacencies to the ZeFi-ZoBo LASTZ+DeCoSTAR adjacencies graph
+./bin/scripts/post_decostar/ADJ_graph/create_GENEgraph.py 27avian_dataset/results/ADJ_graph/DOT/GENE/Zosterops_borbonicus/Zosterops_borbonicus_GENEmap_DeCoSTAR+ZoBo-ZeFi.dot 27avian_dataset/data/data_DeCoSTAR/CTG_file 27avian_dataset/results/decostar/ADseq+scaff_Boltz_kT0.1/DeCoSTAR_27avian_ADseq+scaff_Boltz_kT0.1_Lin0.1_M2_new_extant_adjacencies_with_scaff_adj Zosterops_borbonicus 27avian_dataset/results/ADJ_graph/DOT/GENE/Zosterops_borbonicus/Zosterops_borbonicus_DeCoSTAR_27avian_ADseq+scaff_Boltz_kT0.1_Lin0.1_M2_GENEmap_DeCoSTAR+ZoBo-ZeFi.dot 27avian_dataset/results/ADJ_graph/SVG/GENE/Zosterops_borbonicus/Zosterops_borbonicus_DeCoSTAR_27avian_ADseq+scaff_Boltz_kT0.1_Lin0.1_M2_GENEmap_DeCoSTAR+ZoBo-ZeFi.svg 0.0 y
