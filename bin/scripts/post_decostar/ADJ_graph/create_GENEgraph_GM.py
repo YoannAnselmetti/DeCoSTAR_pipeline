@@ -8,15 +8,15 @@
 ###
 ###   INPUT:
 ###      1- File containing scaffolds assignment to chromosome (AGP file)
-###         (9passeriformes_dataset/data/INPUT_DATA/ADJ_graph/Zbor_scaff_anchored_in_Tgut_chr_050618_filt.agp)
+###         (27avian_dataset/data/INPUT_DATA/chromosome_map/Zosterops_borbonicus/correspondance_syntenicblocks_Zobov2_ZeFi_final_version_assigned.agp)
 ###      2- CTG file
-###         (9passeriformes_dataset/data/data_DeCoSTAR/CTG_file)
+###         (27avian_dataset/data/data_DeCoSTAR/CTG_file)
 ###      3- Species corresponding to the INPUT DOT file contig graph
 ###         (Zosterops_borbonicus)
 ###      4- OUTPUT file where Contig graph will be stored
-###         (9passeriformes_dataset/results/ADJ_graph/DOT/GENE/Zosterops_borbonicus/Zbor_CTG_filt.dot)
+###         (27avian_dataset/results/ADJ_graph/DOT/GENE/Zosterops_borbonicus/Zosterops_borbonicus_GENEmap.dot)
 ###      5- OUTPUT SVG file where Contig graph will be stored
-###         (9passeriformes_dataset/results/ADJ_graph/SVG/GENE/Zosterops_borbonicus/Zbor_CTG_filt.svg)
+###         (27avian_dataset/results/ADJ_graph/SVG/GENE/Zosterops_borbonicus/Zosterops_borbonicus_GENEmap.svg)
 ###      6- Boolean to know if we want CTG links
 ###         (Y/y: Yes  |  N/n: No)
 ###
@@ -25,7 +25,7 @@
 ###      (annotated black edge corresponds to contig/scaffold with their ID)
 ###
 ###   Name: create_GENEgraph_GM.py                Author: Yoann Anselmetti
-###   Creation date: 2016/03/07                   Last modification: 2018/11/13
+###   Creation date: 2016/03/07                   Last modification: 2019/07/17
 ###
 
 from sys import argv, stdout
@@ -152,9 +152,7 @@ if __name__ == '__main__':
          end_CTG=r_AGP.group(8)
          orientation=r_AGP.group(9)
 
-         # Allow to consider CTG with multiple locations (where end is annotated with "_chrX" or "_X" where X is an integer)
-         # short_ctg=ctg.split("_")[0]+" ("+orientation+")"
-         short_ctg=ctg+" ("+orientation+")"
+         ctg_label=ctg+" ("+orientation+")"
 
          if status not in ["N","U"]:
             # Contig that are considered by DeCoSTAR
@@ -176,10 +174,10 @@ if __name__ == '__main__':
                         graph.add_edge(chrom,dict_CTG[ctg].g1,color="black")
                      if LINKS:
                         if ctg_out:
-                           graph.add_edge(dict_CTG[ctg].g1,dict_CTG[ctg].g2,color="grey",label=short_ctg)
+                           graph.add_edge(dict_CTG[ctg].g1,dict_CTG[ctg].g2,color="grey",label=ctg_label)
                            ctg_out=False
                         else:
-                           graph.add_edge(dict_CTG[ctg].g1,dict_CTG[ctg].g2,color="black",label=short_ctg)
+                           graph.add_edge(dict_CTG[ctg].g1,dict_CTG[ctg].g2,color="black",label=ctg_label)
                      gene=dict_CTG[ctg].g2
                   elif(orientation=="-"):
                      graph.add_node(dict_CTG[ctg].g1,color=color_list[i])
@@ -191,19 +189,19 @@ if __name__ == '__main__':
                         graph.add_edge(chrom,dict_CTG[ctg].g2,color="black")
                      if LINKS:
                         if ctg_out:
-                           graph.add_edge(dict_CTG[ctg].g2,dict_CTG[ctg].g1,color="grey",label=short_ctg)
+                           graph.add_edge(dict_CTG[ctg].g2,dict_CTG[ctg].g1,color="grey",label=ctg_label)
                            ctg_out=False
                         else:
-                           graph.add_edge(dict_CTG[ctg].g2,dict_CTG[ctg].g1,color="black",label=short_ctg)
+                           graph.add_edge(dict_CTG[ctg].g2,dict_CTG[ctg].g1,color="black",label=ctg_label)
                      gene=dict_CTG[ctg].g1
                   elif(orientation=="?" or orientation=="0" or orientation=="na"):
-                     graph.add_node(short_ctg,color=color_list[i])
+                     graph.add_node(ctg_label,color=color_list[i])
                      if ctg_out:
-                        graph.add_edge(chrom,short_ctg,color="grey")
+                        graph.add_edge(chrom,ctg_label,color="grey")
                         ctg_out=False
                      else:
-                        graph.add_edge(chrom,short_ctg ,color="black")
-                     gene=short_ctg
+                        graph.add_edge(chrom,ctg_label ,color="black")
+                     gene=ctg_label
                   chromosome=chrom
                else:
                   
@@ -216,7 +214,7 @@ if __name__ == '__main__':
                      else:
                         graph.add_edge(gene,dict_CTG[ctg].g1,color="black")
                      if LINKS:
-                        graph.add_edge(dict_CTG[ctg].g1,dict_CTG[ctg].g2,color="black",label=short_ctg)
+                        graph.add_edge(dict_CTG[ctg].g1,dict_CTG[ctg].g2,color="black",label=ctg_label)
                      gene=dict_CTG[ctg].g2
                   elif(orientation=="-"):
                      graph.add_node(dict_CTG[ctg].g1,color=color_list[i])
@@ -227,16 +225,16 @@ if __name__ == '__main__':
                      else:
                         graph.add_edge(gene,dict_CTG[ctg].g2,color="black")
                      if LINKS:
-                        graph.add_edge(dict_CTG[ctg].g2,dict_CTG[ctg].g1,color="black",label=short_ctg)
+                        graph.add_edge(dict_CTG[ctg].g2,dict_CTG[ctg].g1,color="black",label=ctg_label)
                      gene=dict_CTG[ctg].g1
                   elif(orientation=="?" or orientation=="0" or orientation=="na"):
-                     graph.add_node(short_ctg,color=color_list[i])
+                     graph.add_node(ctg_label,color=color_list[i])
                      if ctg_out:
-                        graph.add_edge(gene,short_ctg,color="grey")
+                        graph.add_edge(gene,ctg_label,color="grey")
                         ctg_out=False
                      else:
-                        graph.add_edge(gene,short_ctg ,color="black")
-                     gene=short_ctg
+                        graph.add_edge(gene,ctg_label ,color="black")
+                     gene=ctg_label
 
             else: #If CTG is not considered by DeCoSTAR print it in "grey"
                ctg_out=True
@@ -247,14 +245,14 @@ if __name__ == '__main__':
                         i=0
                   bool_first=False
                   graph.add_node(chrom,shape="box",color=color_list[i])
-                  graph.add_node(short_ctg,color="grey")
-                  graph.add_edge(chrom,short_ctg,color="grey")
-                  gene=short_ctg
+                  graph.add_node(ctg_label,color="grey")
+                  graph.add_edge(chrom,ctg_label,color="grey")
+                  gene=ctg_label
                   chromosome=chrom
                else:
-                  graph.add_node(short_ctg,color="grey")
-                  graph.add_edge(gene,short_ctg,color="grey")
-                  gene=short_ctg
+                  graph.add_node(ctg_label,color="grey")
+                  graph.add_edge(gene,ctg_label,color="grey")
+                  gene=ctg_label
 
       else:
          exit("!!! ERROR, line:\n\t"+line+" of file "+RHmap_file+" is incorrectly written !!!")

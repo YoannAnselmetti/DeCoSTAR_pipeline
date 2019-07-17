@@ -6,15 +6,15 @@
 ###
 ###   INPUT:
 ###      1- INPUT dot file for contig graph (with Genetic Map)
-###         (9passeriformes_dataset/results/ADJ_graph/DOT/CTG/Zosterops_borbonicus/Zbor_CTG_filt.dot)
+###         (27avian_dataset/results/ADJ_graph/DOT/CTG/Zosterops_borbonicus/Zosterops_borbonicus_CTGmap.dot)
 ###      2- New EXTANT adjacencies proposed by DeCo*
-###         (9passeriformes_dataset/results/decostar/ADseq+scaff_Boltz_kT0.1/DeCoSTAR_9passeriformes_ADseq+scaff_Boltz_kT0.1_Lin0.1_M1_new_extant_adjacencies_with_scaff)
+###         (27avian_dataset/results/decostar/ADseq+scaff_Boltz_kT0.1/DeCoSTAR_27avian_ADseq+scaff_Boltz_kT0.1_Lin0.1_M2_new_extant_adjacencies_with_scaff)
 ###      3- Species corresponding to the INPUT DOT file contig graph
 ###         (Zosterops_borbonicus)
 ###      4- OUTPUT file where contig graph will be stored
-###         (9passeriformes_dataset/results/ADJ_graph/DOT/CTG/Zosterops_borbonicus/Zbor+DeCoSTAR_9passeriformes_ADseq+scaff_Boltz_kT0.1_Lin0.1_M1_CTG_filt.dot)
+###         (27avian_dataset/results/ADJ_graph/DOT/CTG/Zosterops_borbonicus/Zosterops_borbonicus_DeCoSTAR_27avian_ADseq+scaff_Boltz_kT0.1_Lin0.1_M2_CTGmap.dot)
 ###      5- OUTPUT SVG file where Contig graph will be stored
-###         (9passeriformes_dataset/results/ADJ_graph/SVG/CTG/Zosterops_borbonicus/Zbor+DeCoSTAR_9passeriformes_ADseq+scaff_Boltz_kT0.1_Lin0.1_M1_CTG_filt.svg)
+###         (27avian_dataset/results/ADJ_graph/SVG/CTG/Zosterops_borbonicus/Zosterops_borbonicus_DeCoSTAR_27avian_ADseq+scaff_Boltz_kT0.1_Lin0.1_M2_CTGmap.svg)
 ###      6- Minimum support
 ###         (Ex: 0.0)
 ###      7- Keep scaffolding adjacencies (same if DeClone support < Min support)
@@ -25,7 +25,7 @@
 ###      - Combination of chromosome map with DeCoSTAR prediction (could be improved to take several methods: GOS-ASM for example)
 ###
 ###   Name: create_CTGgraph.py                    Author: Yoann Anselmetti
-###   Creation date: 2016/03/07                   Last modification: 2018/06/27
+###   Creation date: 2016/03/07                   Last modification: 2019/07/17
 ###
 
 from sys import argv, stdout

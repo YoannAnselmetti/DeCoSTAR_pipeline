@@ -18,7 +18,7 @@
 ###      - AGP files summarizing scaffolding results of DeCoSTAR
 ###
 ###   Name: create_AGP_from_new_adjacencies.py    Author: Yoann Anselmetti     
-###   Creation date: 2018/06/11                   Last modification: 2018/11/12
+###   Creation date: 2018/06/11                   Last modification: 2019/05/11
 ###
 
 from sys import argv
@@ -244,11 +244,11 @@ if __name__ == '__main__':
                   print "\t\t",
                   print elem
 
-   # # Print distance between CTG pairs linked by DeCoSTAR
-   # if verbose>2:
-   #    print "\n\t1ter/ Print distance between CTG pairs linked by DeCoSTAR:"
-   #    for distCTG in sorted(dict_distCTG):
-   #       print distCTG,"\t",dict_distCTG[distCTG]
+   # Print distance between CTG pairs linked by DeCoSTAR
+   if verbose>2:
+      print "\n\t1ter/ Print distance between CTG pairs linked by DeCoSTAR:"
+      for distCTG in sorted(dict_distCTG):
+         print distCTG,"\t",dict_distCTG[distCTG]
 
 
    print "\n2/ Write AGP files after scaffolding with linearized new adjacencies predicted by DeCoSTAR"
@@ -285,49 +285,53 @@ if __name__ == '__main__':
          posSTART=1
          posEND=0
          bool_default=False
+         stored_CTG="" 
          for ctg in listCTG:
-            ctg_size=dict_CTG[ctg.id]
-            del dict_CTG[ctg.id]
-            # Get size of the gap between the 2 scaffolded contigs (ID and ctg.id)
-            if ID:
-               if (ID,ctg.id) in dict_distCTG:
-                  if dict_distCTG[(ID,ctg.id)]=="?":
-                     bool_default=True
-                     gap_size=default_gap_size
+            ### Allow to discard duplicate CTG (corresponding to a circularizing adjacency predicted by DeCoSTAR)
+            if ctg.id!=stored_CTG:
+               stored_CTG=ctg.id
+               ctg_size=dict_CTG[ctg.id]
+               del dict_CTG[ctg.id]
+               # Get size of the gap between the 2 scaffolded contigs (ID and ctg.id)
+               if ID:
+                  if (ID,ctg.id) in dict_distCTG:
+                     if dict_distCTG[(ID,ctg.id)]=="?":
+                        bool_default=True
+                        gap_size=default_gap_size
+                     else:
+                        gap_size=int(float(dict_distCTG[(ID,ctg.id)]))
+                        # print gap_size
+                        if gap_size<0:
+                           if verbose>1:
+                              print "\t!!!WARNING!!! => NEGATIVE distance between contigs "+ID+" and "+ctg.id
+                  elif (ctg.id,ID) in dict_distCTG:
+                     if dict_distCTG[(ctg.id,ID)]=="?":
+                        bool_default=True
+                        gap_size=default_gap_size
+                     else:
+                        gap_size=int(float(dict_distCTG[(ctg.id,ID)]))
+                        # print gap_size
+                        if gap_size<0:
+                           if verbose>1:
+                              print "\t!!!WARNING!!! => NEGATIVE distance between contigs "+ctg.id+" and "+ID
                   else:
-                     gap_size=int(float(dict_distCTG[(ID,ctg.id)]))
-                     # print gap_size
-                     if gap_size<0:
-                        if verbose>1:
-                           print "\t!!!WARNING!!! => NEGATIVE distance between contigs "+ID+" and "+ctg.id
-               elif (ctg.id,ID) in dict_distCTG:
-                  if dict_distCTG[(ctg.id,ID)]=="?":
-                     bool_default=True
-                     gap_size=default_gap_size
-                  else:
-                     gap_size=int(float(dict_distCTG[(ctg.id,ID)]))
-                     # print gap_size
-                     if gap_size<0:
-                        if verbose>1:
-                           print "\t!!!WARNING!!! => NEGATIVE distance between contigs "+ctg.id+" and "+ID
-               else:
-                  exit("ERROR: CTG adjacency ("+ID+"-"+ctg.id+") is not present in DeCoSTAR predicted adjacencies file: "+newAdj_file)
+                     exit("ERROR: CTG adjacency ("+ID+"-"+ctg.id+") is not present in DeCoSTAR predicted adjacencies file: "+newAdj_file)
 
-               # Write gap in AGP file
-               posEND+=gap_size
-               if bool_default:
-                  output_agp.write(scaff+"\t"+str(posSTART)+"\t"+str(posEND)+"\t.\tU\t"+str(gap_size)+"\tscaffold\tno\tna\n")
-               else:
-                  output_agp.write(scaff+"\t"+str(posSTART)+"\t"+str(posEND)+"\t.\tN\t"+str(gap_size)+"\tscaffold\tyes\tpaired-ends\n")
-               bool_default=False
+                  # Write gap in AGP file
+                  posEND+=gap_size
+                  if bool_default:
+                     output_agp.write(scaff+"\t"+str(posSTART)+"\t"+str(posEND)+"\t.\tU\t"+str(gap_size)+"\tscaffold\tno\tna\n")
+                  else:
+                     output_agp.write(scaff+"\t"+str(posSTART)+"\t"+str(posEND)+"\t.\tN\t"+str(gap_size)+"\tscaffold\tyes\tpaired-ends\n")
+                  bool_default=False
+                  posSTART=posEND+1
+               posEND+=ctg_size
+
+               # Write current contig in the AGP file
+               ID=ctg.id
+               ori=ctg.ori
+               output_agp.write(scaff+"\t"+str(posSTART)+"\t"+str(posEND)+"\t.\tW\t"+ID+"\t1\t"+str(ctg_size)+"\t"+ori+"\n")
                posSTART=posEND+1
-            posEND+=ctg_size
-
-            # Write current contig in the AGP file
-            ID=ctg.id
-            ori=ctg.ori
-            output_agp.write(scaff+"\t"+str(posSTART)+"\t"+str(posEND)+"\t.\tW\t"+ID+"\t1\t"+str(ctg_size)+"\t"+ori+"\n")
-            posSTART=posEND+1
 
       # Write remaining contigs (not scaffolded) in the AGP file
       if write_unscaffolded_ctg:

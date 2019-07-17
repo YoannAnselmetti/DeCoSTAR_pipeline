@@ -11,10 +11,10 @@ This repository contains a pipeline to produce input data for the DeCoSTAR softw
 	* [ETE toolkit](http://etetoolkit.org/) -> v.3.1.1
 	* [Matplotlib](https://matplotlib.org/) -> v.2.1.1
 	* [Numpy](http://www.numpy.org/) -> v.1.14.0
-	* [NetworkX](https://networkx.github.io/) -> v.1.11
+	* [NetworkX](https://networkx.github.io/) -> v.1.11 (Use of version >2.0 introduced a bug in the linearization step.)
 	* [PyGraphviz](https://pygraphviz.github.io/) -> v.1.3.1
 * [Python3](https://www.python.org/.) (≥v.3.5) -> v.3.5.2:
-	* [Snakemake](http://snakemake.readthedocs.io/en/stable/) -> v.3.5.5
+	* [Snakemake](http://snakemake.readthedocs.io/en/stable/) -> v.3.5.5 (Newer versions introduced bugs in the pipeline due to modification in input/output management of rules)
 * C++ (≥c++11):
 	* [Bio++](http://biopp.univ-montp2.fr/) ([installation instructions](http://biopp.univ-montp2.fr/wiki/index.php/Installation)) -> v.2.4.0
 	* [Boost](www.boost.org) -> v.1.58
@@ -42,7 +42,7 @@ After downloading the Snakemake pipeline with the command line:
 git clone https://github.com/YoannAnselmetti/DeCoSTAR_pipeline.git
 cd DeCoSTAR_pipeline
 ```
-First, step will consist to install all software necessary to execute the different steps of the pipeline:
+First, step will consist to install all softwares anb bio++ library necessary to execute the different steps of the pipeline (for others libraries you need to install it manually):
 ```
 ./install_dependencies.sh
 ```
@@ -60,12 +60,12 @@ For reproduction of input data of DeCoSTAR used in [3], go to [commit 572d5a5](h
 3. Set the correct configuration file path at the top of each "\*.snakefile" files (configfile: "config_files/snakemake/your_config_file.yaml")
 
 
-## Command lines for the different steps of the Snakemake pipeline (<N>: #CPUs):
+## Command lines for the different steps of the Snakemake pipeline (N: #CPUs):
 ```
-snakemake --snakefile preprocessing.snakefile -j <N>
-snakemake --snakefile input_decostar.snakefile -j <N>
-snakemake --snakefile run_decostar.snakefile -j <N>
-snakemake --snakefile create_adjacencies_graph.snakefile -j <N>
+snakemake --snakefile preprocessing.snakefile -j N
+snakemake --snakefile input_decostar.snakefile -j N
+snakemake --snakefile run_decostar.snakefile -j N
+snakemake --snakefile create_adjacencies_graph.snakefile -j N
 ```
 
 
@@ -85,16 +85,16 @@ Steps 2 and 3 are optional. If you don't use the step 2 (pipeline for gene trees
 
 # INPUT
 The pipeline required 6 input:
-* A pecies tree file in newick format
+* A species tree file in newick format
 * A tab-separated file composed of 2 columns (chromosome file):
 	1. Species name
 	2. Expected chromosome number
-* A gene trees file in newick or NHX format || A gene families tab-separated file composed of 2 columns (required to use step 2 - script in progress):
+* A gene trees file in newick or NHX format OR a gene families tab-separated file composed of 2 columns (required to use step 2 - script in progress):
 	1. Gene family ID
 	2. Gene ID
 * GFF files containing exons positions on reference genome assembly of all species present in species tree (see [GFF file format](https://www.ensembl.org/info/website/upload/gff.html))  
 => Column 9 ('attribute' in GFF file format) corresponds to gene ID (must match with gene ID present in gene trees/families)
-* The eference genome assemblies of extant species in FASTA file format (name file format: $(species_name)\.\*)
+* The reference genome assemblies of extant species in FASTA file format (name file format: $(species_name)\.\*)
 * If scaffolding data are available (used in step 3: optional), user has to provide directory with SRA architecture, ex:
 ```
 FASTQ/RAW/Anopheles_albimanus/
@@ -112,7 +112,8 @@ FASTQ/RAW/Anopheles_albimanus/
 ```
 
 It is important that in gene trees/families and gene sequences FASTA file the gene ID is present in the format: $(species_name)$separator$(gene_ID). By default we use '@' as separator character between the species name and the gene ID. The choice of the separator character used is given in the Snakemake configuration file (line: **separator: '@'**).
-Species name should not contain space and is commonly represented with the format: $genus_$species.
+Here, is an example of gene ID: **Anopheles_albimanus@AALB003958** where **Anopheles_albimanus** is the species name and **AALB003958** is the ID of the gene.
+Species name should not contain space and is commonly represented with the format: $genus_$species (In this case, '\_' can't be used as the separator character!!!)
 
 
 

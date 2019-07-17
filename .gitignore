@@ -1,5 +1,7 @@
 # Ignore all data from the 12 Drosophila dataset
-12drosophila_dataset
+config_files/decostar/DeCoSTAR_12Drosophila.param.txt
+config_files/snakemake/config_12Drosophila.yaml
+12Drosophila_dataset
 
 # Ignore all data from the 27 avian dataset
 # 27avian_dataset
@@ -13,6 +15,7 @@
 27avian_dataset/data/INPUT_DATA/chromosome_map/Anas_platyrhynchos
 27avian_dataset/results/with_all_scaff_adj
 27avian_dataset/results/FASTA
+27avian_dataset/BIRDS_PROJECT/
 
 
 # Ignore software_libraries directory tha can be reproduced from initial git 
@@ -21,6 +24,7 @@ bin/software_libraries
 # Ignore 18 Anopheles dataset results
 18Anopheles_dataset/results
 18Anopheles_dataset/data/data_DeCoSTAR
+18Anopheles_dataset/data/INPUT_DATA/FASTA/SCAFF/*
 18Anopheles_dataset/data/GFF_to_GENE_files
 
 # Ignore 21 Anopheles dataset results
@@ -28,7 +32,10 @@ bin/software_libraries
 21Anopheles_dataset/data/INPUT_DATA/chromosome_map
 21Anopheles_dataset/data/FASTA
 21Anopheles_dataset/data/data_DeCoSTAR
+21Anopheles_dataset/data/INPUT_DATA/FASTA/SCAFF/*
 21Anopheles_dataset/data/GFF_to_GENE_files
+21Anopheles_dataset/data/GENE_TREES/PROT/gblocks/
+21Anopheles_dataset/article_superscaffolding_21_AnophelesPan-Genome/
 
 # Gambiae complex dataset
 Gambiae_complex_dataset

@@ -1,28 +1,20 @@
 #! /usr/bin/env python2
 # -*- coding: utf-8 -*-
-###                                                                            
-###   Goal:                                                                    
-###      parse and filter GENE file with gene trees file (and rewrite GENE family ID) to obtain a file with gene info for ADseq instance creation                                                     
-###                                                                            
-###   INPUT:                                                                   
-###      1- INPUT GENE file => OUTPUT file of GFF->GENE pipeline               
-###         (data/GFF_to_GENE_files/CDS/with_filter/ALL_species_GENE_file_with_GF)
-###      2- Gene trees file                                                    
-###         (data/GENE_TREES/trees_DeCoSTAR_Xtopo.nwk)
-###         (data/GENE_TREES/trees_DeCoSTAR_WGtopo.nwk)
-###      3- OUTPUT annotation gene file                                        
-###         (data/data_DeCoSTAR/GENE_file)                           
-###      4- separator used in gene trees between species name and gene ID       
-###         (@)                                                                
-###      5- Boolean to know if we have to write gene that are not in gene trees 
-###         (Y/y/Yes/yes: if want to write gene not present in gene trees)     
-###         (N/n/No/no: if DON'T want to write gene not present in gene trees) 
-###                                                                            
+###
+###   Goal:
+###      Remove genes from gene trees taht don't corresponds to species present in species tree
+###
+###   INPUT:
+###      1- Species tree file
+###      2- INPUT Gene trees file
+###      3- OUTPUT Gene trees file
+###      4- separator used in gene ID between species name and gene ID
+###
 ###   OUTPUT:                                                                  
-###      - Create annotation gene file for ARt-DeCo_seq instance creation      
-###                                                                            
-###   Name: filter_GENE_with_geneTrees.py      Author: Yoann Anselmetti     
-###   Creation date: 2015/11/11                   Last modification: 2017/11/07
+###      - New gene trees file limited to species present in species tree
+###
+###   Name: filter_geneTrees_with_speciesTrees.py      Author: Yoann Anselmetti     
+###   Creation date: 2015/11/11                        Last modification: 2019/07/17
 ###                                                                            
 
 from sys import argv

@@ -82,6 +82,7 @@ This directory contains 4 files and 2 directories:
 In this directory will stored the reference genome assembly FASTA files for the 27 avian species.
 You first need to download the Zosterops borbonicus genome assembly FASTA file in this directory (Linux):
 ````
+mkdir -p INPUT_DATA/FASTA/SCAFF
 cd INPUT_DATA/FASTA/SCAFF
 wget https://ndownloader.figshare.com/files/13854815?private_link=122efbec2e3632188674 -O extract.zip
 unzip extract.zip
@@ -149,14 +150,10 @@ rm buffer1 buffer2
 ````
 
 Now you can go to the head of this GitHub repository.
-Check that the 4 snakefiles upload the 27avian dataset snakemake configuration file, by uncommenting line:
-````
-configfile: "config_files/snakemake/config_27avian.yaml"
-````
 Then execute the 4 snakefile scripts:
 ```
-snakemake --snakefile preprocessing.snakefile
-snakemake --snakefile input_decostar.snakefile
-snakemake --snakefile run_decostar.snakefile
-snakemake --snakefile create_adjacencies_graph.snakefile
+snakemake --configfile config_files/snakemake/config_27avian.yaml --snakefile preprocessing.snakefile
+snakemake --configfile config_files/snakemake/config_27avian.yaml --snakefile input_decostar.snakefile
+snakemake --configfile config_files/snakemake/config_27avian.yaml --snakefile run_decostar.snakefile
+snakemake --configfile config_files/snakemake/config_27avian.yaml --snakefile create_adjacencies_graph.snakefile
 ```

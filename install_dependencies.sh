@@ -3,40 +3,38 @@
 initDIR=`pwd`
 echo $initDIR
 
+softlibDIR=$initDIR/bin/software_libraries
+echo $softlibDIR
+if [ ! -d $softlibDIR/$softlibDIR ]; then
+	mkdir -p $softlibDIR
+fi
 
 
-# ################
-# ### INSTALL LIBRARIES: Bio++, Boost, ...
-# ################
-# libDIR=$initDIR/bin/libraries
-# echo $libDIR
-# mkdir -p $libDIR
+################
+### INSTALL LIBRARIES: Bio++, Boost, ...
+################
 
-# #######
-# ### Installation of Bio++ library
-# #######
-# bppDIR=$libDIR/bpp/dev
-# rm -rf $bppDIR
-# mkdir -p $bppDIR/sources
-# cd $bppDIR/sources
-# echo -e "\ngit clone https://github.com/BioPP/bpp-core"
-# git clone https://github.com/BioPP/bpp-core
-# echo -e "\ngit clone https://github.com/BioPP/bpp-seq"
-# git clone https://github.com/BioPP/bpp-seq
-# echo -e "\ngit clone https://github.com/BioPP/bpp-popgen"
-# git clone https://github.com/BioPP/bpp-popgen
-# echo -e "\ngit clone https://github.com/BioPP/bpp-phyl"
-# git clone https://github.com/BioPP/bpp-phyl
+#######
+### Installation of Bio++ libraries
+#######
+bppDIR=$softlibDIR/bpp/dev
+rm -rf $bppDIR
+mkdir -p $bppDIR/sources
 
-# for elem in `ls $bppDIR/sources`; do
-# 	echo -e "\nBuild $elem library:"
-# 	cd $bppDIR/sources/$elem
-# 	mkdir build
-# 	cd build
-# 	cmake -DCMAKE_INSTALL_PREFIX=$bppDIR .. # prepare compilation
-# 	make # compile
-# 	make install # move files to the installation directory
-# done
+listBpp="bpp-core bpp-seq bpp-phyl"
+for libBpp in $listBpp; do
+	cd $bppDIR/sources
+	echo -e "\n##########\n### git clone https://github.com/BioPP/$libBpp\n##########"
+	git clone https://github.com/BioPP/$libBpp
+
+	echo -e "\n##########\n### Build $libBpp library\n##########"
+	cd $bppDIR/sources/$libBpp
+	mkdir build
+	cd build
+	cmake -DCMAKE_INSTALL_PREFIX=$bppDIR .. # prepare compilation
+	make # compile
+	make install # move files to the installation directory
+done
 
 
 # #######
@@ -51,17 +49,11 @@ echo $initDIR
 ################
 ### INSTALL SOFTWARE: DeCoSTAR, Treerecs, ...
 ################
-softlibDIR=$initDIR/bin/software_libraries
-echo $softlibDIR
-if [ ! -d $softlibDIR/$softlibDIR ]; then
-	mkdir -p $softlibDIR
-fi
 
 
 ############
 ### SOFTWARE WITH GITHUB REPOSITORY
 ############
-
 
 #######
 ### Installation of DeCoSTAR software (GitHub repository)
@@ -73,8 +65,9 @@ if [ -d $softlibDIR/DeCoSTAR ]; then
 fi
 git clone https://github.com/WandrilleD/DeCoSTAR.git
 cd DeCoSTAR
-# sed -i 's/BPP_INCLUDE=$(HOME)\/local\/bpp\/dev\/include/BPP_INCLUDE=$bppDIR\/include/g' makefile
-# sed -i 's/BPP_LIB=$(HOME)\/local\/bpp\/dev\/lib/BPP_INCLUDE=$bppDIR\/lib/g' makefile
+### Command to change default Bpp directory path to $bppDIR path
+sed -i 's,BPP_INCLUDE=$(HOME)/local/bpp/dev/include,BPP_INCLUDE='"$bppDIR"'/include,g' makefile
+sed -i 's,BPP_LIB=$(HOME)/local/bpp/dev/lib,BPP_LIB='"$bppDIR"'/lib,g' makefile
 make bin/DeCoSTAR
 
 
@@ -118,7 +111,6 @@ fi
 git clone https://github.com/ncbi/sra-tools.git
 cd sra-tools
 ./configure
-
 
 
 #######
@@ -180,7 +172,6 @@ make
 ############
 ### SOFTWARE WITHOUT GITHUB REPOSITORY
 ############
-
 
 #######
 ### Installation of MUSCLE software (v3.8.1551)

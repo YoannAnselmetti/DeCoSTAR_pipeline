@@ -6,27 +6,28 @@
 ###
 ###   INPUT:
 ###      1- INPUT dot file for contig graph (with Genetic Map)
-###         (9passeriformes_dataset/results/ADJ_graph/DOT/CTG/Zosterops_borbonicus/Zbor_CTG_filt.dot)
+###         (27avian_dataset/results/ADJ_graph/DOT/GENE/Zosterops_borbonicus/Zbor_GENEmap.dot)
 ###      2- CTG file to get genes to CTG ends
-###         (9passeriformes_dataset/data/data_DeCoSTAR/CTG_file)
+###         (27avian_dataset/data/data_DeCoSTAR/CTG_file)
 ###      3- New EXTANT adjacencies proposed by DeCo*
-###         (9passeriformes_dataset/results/decostar/ADseq+scaff_Boltz_kT0.1/DeCoSTAR_9passeriformes_ADseq+scaff_Boltz_kT0.1_Lin0.1_M1_new_extant_adjacencies_with_scaff)
+###         (27avian_dataset/results/decostar/ADseq+scaff_Boltz_kT0.1/DeCoSTAR_27avian_ADseq+scaff_Boltz_kT0.1_Lin0.1_M2_new_extant_adjacencies_with_scaff)
 ###      4- Species corresponding to the INPUT DOT file contig graph
 ###         (Zosterops_borbonicus)
 ###      5- OUTPUT file where contig graph will be stored
-###         (9passeriformes_dataset/results/ADJ_graph/DOT/GENE/Zosterops_borbonicus/Zbor+DeCoSTAR_9passeriformes_ADseq+scaff_Boltz_kT0.1_Lin0.1_M1_CTG_filt.dot)
+###         (27avian_dataset/results/ADJ_graph/DOT/GENE/Zosterops_borbonicus/Zosterops_borbonicus_DeCoSTAR_27avian_ADseq+scaff_Boltz_kT0.1_Lin0.1_M2_GENEmap.dot)
 ###      6- OUTPUT SVG file where Contig graph will be stored
-###         (9passeriformes_dataset/results/ADJ_graph/SVG/GENE/Zosterops_borbonicus/Zbor+DeCoSTAR_9passeriformes_ADseq+scaff_Boltz_kT0.1_Lin0.1_M1_CTG_filt.svg)
+###         (27avian_dataset/results/ADJ_graph/SVG/GENE/Zosterops_borbonicus/Zosterops_borbonicus_DeCoSTAR_27avian_ADseq+scaff_Boltz_kT0.1_Lin0.1_M2_GENEmap.svg)
 ###      7- Minimum support
 ###         (Ex: 0.0)
 ###      8- Keep scaffolding adjacencies (same if DeClone support < Min support)
 ###         (y/Y: YES | n/N: NO)
 ###
 ###   OUTPUT:
-###
+###      Adjacencies graph file where node corresponds to gene ID
+###      (annotated black edge corresponds to contig/scaffold with their ID)
 ###
 ###   Name: create_GENEgraph.py           Author: Yoann Anselmetti
-###   Creation date: 2016/03/07           Last modification: 2018/09/28
+###   Creation date: 2016/03/07           Last modification: 2019/07/17
 ###
 
 from sys import argv, stdout
@@ -200,12 +201,9 @@ if __name__ == '__main__':
          end_g2=r_line.group(12)
  
          if species==INPUT_species:
-            short_ctg=ctg.split("_")[0]
+            print ctg
             if not graph.has_edge(g1,g2):
-               # dict_CTG[short_ctg]=PAIR(g1,g2)
-               # dict_gene[g1]=short_ctg
-               # dict_gene[g2]=short_ctg
-               graph.add_edge(g1,g2,color="black",label=short_ctg)
+               graph.add_edge(g1,g2,color="black",label=ctg)
       else:
          exit("!!! ERROR, line:\n\t"+line+" of CTG file "+CTG_file+" is wrong written !!!")
    ctg_file.close()

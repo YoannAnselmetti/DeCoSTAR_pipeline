@@ -25,7 +25,7 @@
 ###      - Produce file and graphics summarizing scaffolding statistics of DeCo*
 ###
 ###   Name: compute_scaffstats_and_newADJfile.py     Author: Yoann Anselmetti
-###   Creation date: 2016/07/18                      Last modification: 2019/01/16
+###   Creation date: 2016/07/18                      Last modification: 2019/05/10
 ###
 
 from sys import argv, stdout
@@ -126,34 +126,33 @@ def store_CTG(CTG_file,dict_CTGsize):
 
          if species!="#species":
             if contig_size=="?":
-               print "!!! WARNING: Size of contig/scaffold "+contig+" is unknown !!! -> Size set to \"10,000 bp\""
-               contig_size="10000"
+               print "!!! WARNING: Size of contig/scaffold "+contig+" is unknown !!! -> contig/scaffold discarded from analysis."
+            else:
+               # Test if CTGsize(FASTA file)==CTGsize(CTG file)
+               if int(contig_size)!=dict_CTGsize[species][contig]:
+                  exit("!!! ERROR, size of contig \""+contig+"\" is different between FASTA file ("+contig_size+") and CTG file ("+dict_CTGsize[species][contig]+") !!!")
 
-            # Test if CTGsize(FASTA file)==CTGsize(CTG file)
-            if int(contig_size)!=dict_CTGsize[species][contig]:
-               exit("!!! ERROR, size of contig \""+contig+"\" is different between FASTA file ("+contig_size+") and CTG file ("+dict_CTGsize[species][contig]+") !!!")
+               # Store CTG size (bp and #gene) for each species
+               if not species in dict_spe_ctg_size:
+                  dict_spe_ctg_size[species]=dict()
+               dict_spe_ctg_size[species][contig]=SIZE(int(contig_size),int(contig_geneNb))
 
-            # Store CTG size (bp and #gene) for each species
-            if not species in dict_spe_ctg_size:
-               dict_spe_ctg_size[species]=dict()
-            dict_spe_ctg_size[species][contig]=SIZE(int(contig_size),int(contig_geneNb))
+               # # Association CTG and gene localised to extremities for each species
+               # if not species in dict_spe_ctg_gene:
+               #    dict_spe_ctg_gene[species]=dict()
+               # dict_spe_ctg_gene[species][contig]=PAIR(g1,g2)
 
-            # # Association CTG and gene localised to extremities for each species
-            # if not species in dict_spe_ctg_gene:
-            #    dict_spe_ctg_gene[species]=dict()
-            # dict_spe_ctg_gene[species][contig]=PAIR(g1,g2)
+               # Store gene infos by species 
+               if not species in dict_spe_gene:
+                  dict_spe_gene[species]=dict()
+               gene1=GENE(species,contig,GF1,g1,oriG1)
+               gene2=GENE(species,contig,GF2,g2,oriG2)
+               dict_spe_gene[species][g1]=gene1
+               dict_spe_gene[species][g2]=gene2
 
-            # Store gene infos by species 
-            if not species in dict_spe_gene:
-               dict_spe_gene[species]=dict()
-            gene1=GENE(species,contig,GF1,g1,oriG1)
-            gene2=GENE(species,contig,GF2,g2,oriG2)
-            dict_spe_gene[species][g1]=gene1
-            dict_spe_gene[species][g2]=gene2
-
-            # Remove current CTG from the dict_CTGsize
-            if contig in dict_CTGsize[species]:
-               dict_CTGsize[species].pop(contig,None)
+               # Remove current CTG from the dict_CTGsize
+               if contig in dict_CTGsize[species]:
+                  dict_CTGsize[species].pop(contig,None)
       else:
          exit("!!! ERROR, line "+line+" of file "+CTG_file+" is incorrectly written!!!\nIt should match with the following format:\n"+CTG_format+" !!!")
    contig_file.close()
@@ -580,7 +579,8 @@ if __name__ == '__main__':
 ######################
 ### STORE CTG INFOS
 ######################
-   print "\n2/ Store CTG infos...",
+   print "\n2/ Store CTG infos:"
+   stdout.flush()
    # dict_spe_ctg_size_INIT,dict_spe_gene=dict(),dict()
    dict_spe_ctg_size_INIT,dict_spe_gene=store_CTG(CTG_file,dict_CTGsize)
    dict_CTGsize.clear()

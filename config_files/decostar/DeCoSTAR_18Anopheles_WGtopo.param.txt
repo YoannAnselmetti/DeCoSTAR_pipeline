@@ -51,5 +51,5 @@ write.genes=1
 write.adjacency.trees=0
 write.newick=1
 hide.losses.newick=0
-output.dir=18Anopheles_dataset/results/decostar/ADseq+scaff_Boltz_kT0.1/WGtopo
+output.dir=18Anopheles_dataset/results/decostar/WGtopo/ADseq+scaff_Boltz_kT0.1
 output.prefix=DeCoSTAR_18Anopheles_WGtopo_ADseq+scaff_Boltz_kT0.1

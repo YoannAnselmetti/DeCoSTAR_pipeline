@@ -8,21 +8,21 @@
 ###
 ###   INPUT:
 ###      1- File containing scaffolds assignment to chromosome (AGP file)
-###         (9passeriformes_dataset/data/INPUT_DATA/ADJ_graph/Zbor_scaff_anchored_in_Tgut_chr_050618_filt.agp)
+###         (27avian_dataset/data/INPUT_DATA/chromosome_map/Zosterops_borbonicus/correspondance_syntenicblocks_Zobov2_ZeFi_final_version_assigned.agp)
 ###      2- CTG file
-###         (9passeriformes_dataset/data/data_DeCoSTAR/CTG_file)
+###         (27avian_dataset/data/data_DeCoSTAR/CTG_file)
 ###      3- Species corresponding to the INPUT DOT file contig graph
 ###         (Zosterops_borbonicus)
 ###      4- OUTPUT file where Contig graph will be stored
-###         (9passeriformes_dataset/results/ADJ_graph/DOT/CTG/Zosterops_borbonicus/Zbor_CTG_filt.dot)
+###         (27avian_dataset/results/ADJ_graph/DOT/CTG/Zosterops_borbonicus/Zosterops_borbonicus_CTGmap.dot)
 ###      5- OUTPUT SVG file where Contig graph will be stored
-###         (9passeriformes_dataset/results/ADJ_graph/SVG/CTG/Zosterops_borbonicus/Zbor_CTG_filt.svg)
+###         (27avian_dataset/results/ADJ_graph/SVG/CTG/Zosterops_borbonicus/Zosterops_borbonicus_CTGmap.svg)
 ###
 ###   OUTPUT:
-###      - Directory for SAM files containing 1 Directory/Species
+###      - 
 ###
-###   Name: create_CTGgraph.py                    Author: Yoann Anselmetti
-###   Creation date: 2016/03/07                   Last modification: 2018/11/13
+###   Name: create_CTGgraph_GM.py                 Author: Yoann Anselmetti
+###   Creation date: 2016/03/07                   Last modification: 2019/07/17
 ###
 
 from sys import argv, stdout

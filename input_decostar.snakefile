@@ -1,6 +1,9 @@
-configfile: "config_files/snakemake/config_21Anopheles_Xtopo.yaml"
-# configfile: "config_files/snakemake/config_18Anopheles_Xtopo.yaml"
-configfile: "config_files/snakemake/config_27avian.yaml"
+configfile: "config_files/snakemake/config_18Anopheles_Xtopo.yaml"
+# configfile: "config_files/snakemake/config_18Anopheles_WGtopo.yaml"
+# configfile: "config_files/snakemake/config_21Anopheles_Xtopo.yaml"
+# configfile: "config_files/snakemake/config_27avian.yaml"
+# configfile: "config_files/snakemake/config_12Drosophila.yaml"
+
 
 # Create output directory
 snakemake.utils.makedirs(config["outputdir"]+"/data/data_DeCoSTAR/decostar")
