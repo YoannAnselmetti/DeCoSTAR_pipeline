@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 ###
 ###   Goal:
@@ -27,7 +27,7 @@
 ###      (annotated black edge corresponds to contig/scaffold with their ID)
 ###
 ###   Name: create_GENEgraph.py           Author: Yoann Anselmetti
-###   Creation date: 2016/03/07           Last modification: 2019/07/17
+###   Creation date: 2016/03/07           Last modification: 2020/11/06
 ###
 
 from sys import argv, stdout
@@ -201,7 +201,7 @@ if __name__ == '__main__':
          end_g2=r_line.group(12)
  
          if species==INPUT_species:
-            print ctg
+            print(ctg)
             if not graph.has_edge(g1,g2):
                graph.add_edge(g1,g2,color="black",label=ctg)
       else:
@@ -214,7 +214,7 @@ if __name__ == '__main__':
 ### BROWSE "list_ADJ" LIST TO CREATE GENE GRAPH FILE TO DOT FORMAT ###
 ######################################################################
    for adj in list_ADJ:
-      # print adj
+      # print(adj)
       # If the ADJ cooresponds to a CTG
       if adj.sup=="?":
          if adj.links=="N/A":
@@ -257,4 +257,4 @@ if __name__ == '__main__':
    subprocess.call(command_line,shell=True)
 
    end_time = datetime.now()
-   print('\nDuration: {}'.format(end_time - start_time))
+   print('\nDuration: {}'.format(end_time-start_time))

@@ -1,4 +1,4 @@
-#! /usr/bin/env python2
+#! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 ###
 ###   Goal:
@@ -18,7 +18,7 @@
 ###      - AGP files summarizing scaffolding results of DeCoSTAR
 ###
 ###   Name: create_AGP_from_new_adjacencies.py    Author: Yoann Anselmetti     
-###   Creation date: 2018/06/11                   Last modification: 2019/05/11
+###   Creation date: 2018/06/11                   Last modification: 2020/11/04
 ###
 
 from sys import argv
@@ -192,7 +192,7 @@ if __name__ == '__main__':
    mkdir_p(OUTPUT_AGP)
 
 
-   print "1/ Merge scaffolds linked by linearized new adjacencies"
+   print("1/ Merge scaffolds linked by linearized new adjacencies")
    dict_newSCAFF,dict_newSCAFF_ID,dict_distCTG=dict(),dict(),dict()
    input_file=open(newAdj_file,"r")
    scaff_id=0
@@ -231,30 +231,30 @@ if __name__ == '__main__':
    # Print the new CTG ID after merging initial contigs/scaffoldsin new scaffolds 
    if verbose>1:
       if verbose>2:
-         print "\n1bis/ Print association between new scaffolds ID and old scaffolds/contigs ID / species:"
+         print("\n1bis/ Print association between new scaffolds ID and old scaffolds/contigs ID / species:")
       else:
-         print "\n1bis/ Print new scaffolds ID / species:"
+         print("\n1bis/ Print new scaffolds ID / species:")
       # Print new linked scaffolds / species 
       for species in sorted(dict_newSCAFF):
-         print "\n"+species+":"
+         print("\n"+species+":")
          for ctg in dict_newSCAFF[species]:
-            print "\t"+ctg
+            print("\t"+ctg)
             if verbose>2:
                for elem in dict_newSCAFF[species][ctg]:
-                  print "\t\t",
-                  print elem
+                  print("\t\t", end=' ')
+                  print(elem)
 
    # Print distance between CTG pairs linked by DeCoSTAR
    if verbose>2:
-      print "\n\t1ter/ Print distance between CTG pairs linked by DeCoSTAR:"
+      print("\n\t1ter/ Print distance between CTG pairs linked by DeCoSTAR:")
       for distCTG in sorted(dict_distCTG):
-         print distCTG,"\t",dict_distCTG[distCTG]
+         print(distCTG,"\t",dict_distCTG[distCTG])
 
 
-   print "\n2/ Write AGP files after scaffolding with linearized new adjacencies predicted by DeCoSTAR"
+   print("\n2/ Write AGP files after scaffolding with linearized new adjacencies predicted by DeCoSTAR")
    for species in sorted(dict_newSCAFF):
       if verbose>0:
-         print "\t"+species
+         print("\t"+species)
       output_agp=open(OUTPUT_AGP+"/"+file_prefix+species+".agp","w")
 
       dict_CTG=dict()
@@ -303,7 +303,7 @@ if __name__ == '__main__':
                         # print gap_size
                         if gap_size<0:
                            if verbose>1:
-                              print "\t!!!WARNING!!! => NEGATIVE distance between contigs "+ID+" and "+ctg.id
+                              print("\t!!!WARNING!!! => NEGATIVE distance between contigs "+ID+" and "+ctg.id)
                   elif (ctg.id,ID) in dict_distCTG:
                      if dict_distCTG[(ctg.id,ID)]=="?":
                         bool_default=True
@@ -313,7 +313,7 @@ if __name__ == '__main__':
                         # print gap_size
                         if gap_size<0:
                            if verbose>1:
-                              print "\t!!!WARNING!!! => NEGATIVE distance between contigs "+ctg.id+" and "+ID
+                              print("\t!!!WARNING!!! => NEGATIVE distance between contigs "+ctg.id+" and "+ID)
                   else:
                      exit("ERROR: CTG adjacency ("+ID+"-"+ctg.id+") is not present in DeCoSTAR predicted adjacencies file: "+newAdj_file)
 

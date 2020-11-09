@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 ###
 ###   Goal:
@@ -17,7 +17,7 @@
 ###      2/ OUTPUT directory containing 1 directory/species containing stats graphics on exon
 ###
 ###   Name: from_GFF_to_GENE.py       Author: Yoann Anselmetti
-###   Creation date: 2015/07/20       Last modification: 2017/10/18
+###   Creation date: 2015/07/20       Last modification: 2020/11/05
 ###
 
 
@@ -99,16 +99,16 @@ def hist_nbExon_per_gene(list_to_plot,OUTPUT,species):
 
 
 def graph_Exon_size(dict_to_plot,OUTPUT,species):
-   N=len(dict_to_plot.keys())
+   N=len(list(dict_to_plot.keys()))
    index = np.arange(N)
    width = .75
    list_mean=list()
    list_SD=list()
 
-   list_keys=dict_to_plot.keys()
+   list_keys=list(dict_to_plot.keys())
    list_keys.sort()
    for spe in list_keys:
-#      print str(dict_to_plot[species][0])+" "+str(dict_to_plot[species][1])
+#      print(str(dict_to_plot[species][0])+" "+str(dict_to_plot[species][1]))
       list_mean.append(dict_to_plot[spe][0])
       list_SD.append(dict_to_plot[spe][1])
    plt.bar(index, list_mean, width, color="green", yerr=list_SD)
@@ -124,13 +124,13 @@ def graph_Exon_size(dict_to_plot,OUTPUT,species):
    plt.cla()
 
 def graph_Intron_size(dict_to_plot,OUTPUT,species):
-   N=len(dict_to_plot.keys())
+   N=len(list(dict_to_plot.keys()))
    index = np.arange(N)
    width = .75
    list_mean=list()
    list_SD=list()
 
-   list_keys=dict_to_plot.keys()
+   list_keys=list(dict_to_plot.keys())
    list_keys.sort()
    for spe in list_keys:
       list_mean.append(dict_to_plot[spe][0])
@@ -148,13 +148,13 @@ def graph_Intron_size(dict_to_plot,OUTPUT,species):
    plt.cla()
 
 def graph_Intron_size_zoom(dict_to_plot,OUTPUT,species):
-   N=len(dict_to_plot.keys())
+   N=len(list(dict_to_plot.keys()))
    index = np.arange(N)
    width = .75
    list_mean=list()
    list_SD=list()
 
-   list_keys=dict_to_plot.keys()
+   list_keys=list(dict_to_plot.keys())
    list_keys.sort()
    for spe in list_keys:
       list_mean.append(dict_to_plot[spe][0])
@@ -172,13 +172,13 @@ def graph_Intron_size_zoom(dict_to_plot,OUTPUT,species):
    plt.cla()
 
 def graph_nbExon_per_gene(dict_to_plot,OUTPUT,species):
-   N=len(dict_to_plot.keys())
+   N=len(list(dict_to_plot.keys()))
    index = np.arange(N)
    width = .75
    list_mean=list()
    list_SD=list()
 
-   list_keys=dict_to_plot.keys()
+   list_keys=list(dict_to_plot.keys())
    list_keys.sort()
    for spe in list_keys:
       list_mean.append(dict_to_plot[spe][0])
@@ -266,7 +266,7 @@ if __name__ == '__main__':
       r_spe=search('^(.*)_sorted\.gff3$', gff_file)
       if r_spe:
          species=r_spe.group(1)
-         print "\nFor species "+species+":"
+         print("\nFor species "+species+":")
          contig_name=""
          start_pos=0
          end_pos=0
@@ -394,14 +394,14 @@ if __name__ == '__main__':
          hist_nbExon_per_gene(list_nbExon_per_gene_spe,OUTPUT_dir_GRAPH_Spe,species)
 
          # Print summary available on current species
-         print "\t- Gene number:"+str(nb_gene_tot_spe)
-         print "\t- Exon number:"+str(nb_exon_tot_spe)
-         print "\t- Average Exon size:"+str(mean(list_exon_size_spe))
-         print "\t- SD Exon size:"+str(SD(list_exon_size_spe))
-         print "\t- Average interExon size:"+str(mean(list_intron_size_spe))
-         print "\t- SD interExon size:"+str(SD(list_intron_size_spe))
-         print "\t- Average Exon number per Gene:"+str(mean(list_nbExon_per_gene_spe))
-         print "\t- SD Exon number per Gene:"+str(SD(list_nbExon_per_gene_spe))
+         print("\t- Gene number:"+str(nb_gene_tot_spe))
+         print("\t- Exon number:"+str(nb_exon_tot_spe))
+         print("\t- Average Exon size:"+str(mean(list_exon_size_spe)))
+         print("\t- SD Exon size:"+str(SD(list_exon_size_spe)))
+         print("\t- Average interExon size:"+str(mean(list_intron_size_spe)))
+         print("\t- SD interExon size:"+str(SD(list_intron_size_spe)))
+         print("\t- Average Exon number per Gene:"+str(mean(list_nbExon_per_gene_spe)))
+         print("\t- SD Exon number per Gene:"+str(SD(list_nbExon_per_gene_spe)))
 
       else:
          exit('Name of file '+gff_file+' is bad written!!!')
@@ -420,15 +420,15 @@ if __name__ == '__main__':
    graph_nbExon_per_gene(dict_spe_nbExon_per_gene,OUTPUT_dir_GRAPH_Spe,"ALL_species")
 
    # Print summary available on ALL species
-   print "\nFor ALL species:"
-   print "\t- Gene number:"+str(nb_gene_tot)
-   print "\t- Exon number:"+str(nb_exon_tot)
-   print "\t- Average Exon size:"+str(mean(list_exon_size))
-   print "\t- SD Exon size:"+str(SD(list_exon_size))
-   print "\t- Average interExon size:"+str(mean(list_intron_size))
-   print "\t- SD interExon size:"+str(SD(list_intron_size))
-   print "\t- Average Exon number per Gene:"+str(mean(list_nbExon_per_gene))
-   print "\t- SD Exon number per Gene:"+str(SD(list_nbExon_per_gene))
+   print("\nFor ALL species:")
+   print("\t- Gene number:"+str(nb_gene_tot))
+   print("\t- Exon number:"+str(nb_exon_tot))
+   print("\t- Average Exon size:"+str(mean(list_exon_size)))
+   print("\t- SD Exon size:"+str(SD(list_exon_size)))
+   print("\t- Average interExon size:"+str(mean(list_intron_size)))
+   print("\t- SD interExon size:"+str(SD(list_intron_size)))
+   print("\t- Average Exon number per Gene:"+str(mean(list_nbExon_per_gene)))
+   print("\t- SD Exon number per Gene:"+str(SD(list_nbExon_per_gene)))
 
    end_time = datetime.now()
-   print('\nDuration: {}'.format(end_time - start_time))
+   print('\nDuration: {}'.format(end_time-start_time))

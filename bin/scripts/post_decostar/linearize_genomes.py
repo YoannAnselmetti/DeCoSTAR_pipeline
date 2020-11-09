@@ -400,12 +400,11 @@ def MWM_filter(G,adj_list):
         ADJ_INFO[g1ext1,g2ext2]=adj
         ADJ_INFO[g2ext2,g1ext1]=adj
     # Maximum Weight Matching algorithm
-    M=nx.max_weight_matching(G)
+    M=nx.max_weight_matching(G) # Since networkx 2.1 -> output of nx.max_weight_matching is a set() and no more a dict()
     # Translating the matching as returned by the MWM fucntion
-    M_LIST=sorted(list(M.keys()))
-    for m1 in M_LIST:
-        m2=M[m1]
-        ADJ_KEPT_MWM[ADJ_INFO[(m1,m2)]]=True
+    M_LIST=sorted(list(M))
+    for m in M_LIST:
+        ADJ_KEPT_MWM[ADJ_INFO[(m[0],m[1])]]=True
     # Creating the output
     for adj in adj_list:
         if ADJ_KEPT_MWM[adj]==True:
@@ -420,11 +419,11 @@ def MWM_filter(G,adj_list):
 # Function processing a single genome
 
 def process_genome(SPECIES,ADJ_FILE_STREAM,THRESHOLD,ALGORITHM,OUTPUT_PREFIX):
-    print("Species "+SPECIES+" --------------------------")
+    print(("Species "+SPECIES+" --------------------------"))
     # Reading adjacencies
     print("  Reading adjacencies")
     ADJ_LIST=read_adjacencies(ADJ_FILE_STREAM,SPECIES)
-    print("  Number of adjacencies: "+str(len(ADJ_LIST)))
+    print(("  Number of adjacencies: "+str(len(ADJ_LIST))))
 
     # Observed adjacencies
     print("  Observed adjacencies")
@@ -435,25 +434,25 @@ def process_genome(SPECIES,ADJ_FILE_STREAM,THRESHOLD,ALGORITHM,OUTPUT_PREFIX):
     # Filtering adjacencies
     print("  Filter 1")
     (ADJ_KEPT_1,ADJ_DISC_1)=filter_1(ADJ_LIST,THRESHOLD)
-    print("    Number of adjacencies: "+str(len(ADJ_KEPT_1)))
+    print(("    Number of adjacencies: "+str(len(ADJ_KEPT_1))))
     if ALGORITHM[0]=='F':
         print("  Filter 2")
         (ADJ_KEPT_2,ADJ_DISC_2)=filter_23(ADJ_KEPT_1,ALGORITHM[1]=='2',2)
-        print("    Number of adjacencies: "+str(len(ADJ_KEPT_2)))
+        print(("    Number of adjacencies: "+str(len(ADJ_KEPT_2))))
         print("  Filter 3")
         (ADJ_KEPT_3,ADJ_DISC_3)=filter_23(ADJ_KEPT_2,ALGORITHM[1]=='2',3)
-        print("    Number of adjacencies: "+str(len(ADJ_KEPT_3)))
+        print(("    Number of adjacencies: "+str(len(ADJ_KEPT_3))))
     elif ALGORITHM[0]=='M':
         print("  Creating graph")
         G=MWM_create_graph(ADJ_KEPT_1,ALGORITHM[1]=='2')
         print("  Maximum Weight Matching")
         (ADJ_KEPT_3,ADJ_DISC_3)=MWM_filter(G,ADJ_KEPT_1)
-        print("    Number of adjacencies: "+str(len(ADJ_KEPT_3)))
+        print(("    Number of adjacencies: "+str(len(ADJ_KEPT_3))))
     print("  Creating scaffolds (including circular ones)")
     (NB_SCFS,SCFS)=compute_scaffolds_circ(ADJ_KEPT_3)
     print("  Filter 4")
     (ADJ_KEPT_4,ADJ_DISC_4)=filter_4(ADJ_KEPT_3,SCFS,NB_SCFS,ALGORITHM[1]=='2')
-    print("    Number of adjacencies: "+str(len(ADJ_KEPT_4)))
+    print(("    Number of adjacencies: "+str(len(ADJ_KEPT_4))))
     print("  Ordering genes along scaffolds")
     SCAFFOLDS=order_genes(ADJ_KEPT_4,SCFS,NB_SCFS)
 
@@ -519,7 +518,7 @@ def check_results(kept_adjacencies_file, discarded_adjacencies_file, scaffolds_f
             test2=(genes_info[gene1][2]==genes_info[gene2][2]-1 and genes_info[gene1][3]==sign1 and genes_info[gene2][3]==sign2) # Same adjacency
             test3=(genes_info[gene1][2]==genes_info[gene2][2]+1 and genes_info[gene1][3]==complement_sign(sign1) and genes_info[gene2][3]==complement_sign(sign2)) # Reversed adjacency
             if not (test1 and (test2 or test3)):
-                print("ERROR: unobserved adjacency in the scaffolds\t"+adj)
+                print(("ERROR: unobserved adjacency in the scaffolds\t"+adj))
             else:
                 if genes_info[gene1][2]==genes_info[gene2][2]-1:
                     (sp1,scfid1,pos1,sign1,last1,seen1)=genes_info[gene1]
@@ -534,7 +533,7 @@ def check_results(kept_adjacencies_file, discarded_adjacencies_file, scaffolds_f
     for g in genes:
         g_info=genes_info[g]
         if g_info[4]==False and g_info[5]==False:
-            print("ERROR: scaffold adjacency unobserved in the kept adjacencies\t"+g_info[0]+"."+g_info[1]+"."+g)
+            print(("ERROR: scaffold adjacency unobserved in the kept adjacencies\t"+g_info[0]+"."+g_info[1]+"."+g))
 
     # Reading the discarded adjacency to check that none could join two scaffolds
     print("  Checking that discarded adjacencies can not be added back")
@@ -549,7 +548,7 @@ def check_results(kept_adjacencies_file, discarded_adjacencies_file, scaffolds_f
             test4=(genes_info[gene1][3]==1 and genes_info[gene2][4]==True and genes_info[gene1][3]==complement_sign(sign1) and genes_info[gene2][3]==complement_sign(sign2))
             test5=(genes_info[gene1][3]==1 and genes_info[gene2][3]==1 and genes_info[gene1][3]==complement_sign(sign1) and genes_info[gene2][3]==sign2)
             if test1 and (test2 or test3 or test4 or test5):
-                print("ERROR: observable discarded adjacency linking scaffolds "+genes_info[gene1][0]+"."+genes_info[gene1][1]+"-"+genes_info[gene2][1]+"\t"+adj)
+                print(("ERROR: observable discarded adjacency linking scaffolds "+genes_info[gene1][0]+"."+genes_info[gene1][1]+"-"+genes_info[gene2][1]+"\t"+adj))
 
 # --------------------------------------------------------------------------------------------
 # Main function

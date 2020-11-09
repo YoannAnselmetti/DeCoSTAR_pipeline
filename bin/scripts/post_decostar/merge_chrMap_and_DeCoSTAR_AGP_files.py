@@ -1,4 +1,4 @@
-#! /usr/bin/env python2
+#! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 ###
 ###   Goal:
@@ -16,7 +16,7 @@
 ###      - AGP file merging DeCoSTAR and Chromosome map adjacencies
 ###
 ###   Name: merge_chrMap_and_DeCoSTAR_AGP_files.py    Author: Yoann Anselmetti     
-###   Creation date: 2018/11/13                       Last modification: 2019/04/05
+###   Creation date: 2018/11/13                       Last modification: 2020/11/04
 ###
 
 from sys import argv
@@ -133,20 +133,20 @@ if __name__ == '__main__':
    dict_newSCAFF,dict_newSCAFF_ID,dict_distCTG,dict_CTG=dict(),dict(),dict(),dict()
    parse_DeCoSTAR_AGP_file(AGP_decostar_file,dict_newSCAFF,dict_newSCAFF_ID,dict_distCTG,dict_CTG)
    if verbose>1:
-      print "\nDeCoSTAR:"
-      print "\tsize(dict_newSCAFF):",len(dict_newSCAFF)
-      print "\tsize(dict_newSCAFF_ID):",len(dict_newSCAFF_ID)
-      print "\tsize(dict_distCTG):",len(dict_distCTG)
-      print "\tsize(dict_CTG):",len(dict_CTG)
+      print("\nDeCoSTAR:")
+      print("\tsize(dict_newSCAFF):",len(dict_newSCAFF))
+      print("\tsize(dict_newSCAFF_ID):",len(dict_newSCAFF_ID))
+      print("\tsize(dict_distCTG):",len(dict_distCTG))
+      print("\tsize(dict_CTG):",len(dict_CTG))
 
 
    parse_chrMAP_AGP_file(AGP_chrMAP_file,dict_newSCAFF,dict_newSCAFF_ID,dict_distCTG)
    if verbose>1:
-      print "\nDeCoSTAR+Chromosome Map:"
-      print "\tsize(dict_newSCAFF):",len(dict_newSCAFF)
-      print "\tsize(dict_newSCAFF_ID):",len(dict_newSCAFF_ID)
-      print "\tsize(dict_distCTG):",len(dict_distCTG)
-      print "\tsize(dict_CTG):",len(dict_CTG)
+      print("\nDeCoSTAR+Chromosome Map:")
+      print("\tsize(dict_newSCAFF):",len(dict_newSCAFF))
+      print("\tsize(dict_newSCAFF_ID):",len(dict_newSCAFF_ID))
+      print("\tsize(dict_distCTG):",len(dict_distCTG))
+      print("\tsize(dict_CTG):",len(dict_CTG))
 
 
    output_agp=open(output_AGP_file,"w")
@@ -171,7 +171,7 @@ if __name__ == '__main__':
                   # print gap_size
                   if gap_size<0:
                      if verbose>1:
-                        print "\t!!!WARNING!!! => NEGATIVE distance between contigs "+ID+" and "+ctg.id
+                        print("\t!!!WARNING!!! => NEGATIVE distance between contigs "+ID+" and "+ctg.id)
             elif (ctg.id,ID) in dict_distCTG:
                if dict_distCTG[(ctg.id,ID)]=="?":
                   bool_default=True
@@ -181,7 +181,7 @@ if __name__ == '__main__':
                   # print gap_size
                   if gap_size<0:
                      if verbose>1:
-                        print "\t!!!WARNING!!! => NEGATIVE distance between contigs "+ctg.id+" and "+ID
+                        print("\t!!!WARNING!!! => NEGATIVE distance between contigs "+ctg.id+" and "+ID)
             else:
                exit("ERROR: CTG adjacency ("+ID+"-"+ctg.id+") is not present in DeCoSTAR predicted adjacencies file: "+AGP_decostar_file)
 

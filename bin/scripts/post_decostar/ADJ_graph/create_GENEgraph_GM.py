@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 ###
 ###   Goal
@@ -25,7 +25,7 @@
 ###      (annotated black edge corresponds to contig/scaffold with their ID)
 ###
 ###   Name: create_GENEgraph_GM.py                Author: Yoann Anselmetti
-###   Creation date: 2016/03/07                   Last modification: 2019/07/17
+###   Creation date: 2016/03/07                   Last modification: 2020/11/09
 ###
 
 from sys import argv, stdout
@@ -89,7 +89,17 @@ if __name__ == '__main__':
 
    CTG=namedtuple("CTG",["g1","g2"])
 
-   color_list=("blue","red","green","purple","gold","orangered","chocolate","blueviolet","indigo","fuchsia","crimson","darkgreen","chartreuse4","darkblue","salmon","darkturquoise","cyan","tomato","teal","orchid","maroon","lime","deeppink","darkorange","dodgerblue","coral","sienna","olive","goldenrod","darkcyan","mediumvioletred","darkred","darkgrey","brown","darkgoldenrod","darkolivegreen","darkseagreen","darkslategrey","darkviolet","darkslateblue","orange","yellow","olivedrab")
+   # Add automatic color setting: color='{h:} 1 1'.format(h=i/n)
+   # n=(#chrom)-1
+   # i=chr ID number (0->n)
+   color_list=("blue","red","green","purple","gold","orangered","chocolate",
+               "blueviolet","indigo","fuchsia","crimson","darkgreen",
+               "chartreuse4","darkblue","salmon","darkturquoise","cyan",
+               "tomato","teal","orchid","maroon","lime","deeppink",
+               "darkorange","dodgerblue","coral","sienna","olive","goldenrod",
+               "darkcyan","mediumvioletred","darkred","darkgrey","brown",
+               "darkgoldenrod","darkolivegreen","darkseagreen","darkslategrey",
+               "darkviolet","darkslateblue","orange","yellow","olivedrab")
    color_size=len(color_list)
 
 #####################################################
@@ -264,4 +274,4 @@ if __name__ == '__main__':
    subprocess.call(command_line,shell=True)
 
    end_time = datetime.now()
-   print('\nDuration: {}'.format(end_time - start_time))
+   print('\nDuration: {}'.format(end_time-start_time))

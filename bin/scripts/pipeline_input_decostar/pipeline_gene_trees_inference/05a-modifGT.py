@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 ###                                                                       
 ###   Goal:                                                               
@@ -22,7 +22,7 @@
 ###        in gene trees file use as INPUT                                
 ###                                                                       
 ###   Name: 05a-modifGT.py                   Author: Yoann Anselmetti
-###   Creation date: 2015/09/21              Last modification: 2017/03/29
+###   Creation date: 2015/09/21              Last modification: 2020/11/05
 ###
 
 
@@ -56,7 +56,7 @@ def replaceStringInFile(filePath,old_pattern,new_pattern):
    tempName = filePath+'~~~'
    inputFile = open(filePath)
    outputFile = open(tempName,'w')
-   fContent = unicode(inputFile.read(), "utf-8")
+   fContent = str(inputFile.read(), "utf-8")
 
    outText = sub(old_pattern, new_pattern, fContent)
    outputFile.write((outText.encode("utf-8")))
@@ -119,9 +119,9 @@ if __name__ == '__main__':
 
    # TEST if a Best ML tree have been computed for the current Gene family ID
    if not BestML_tree in listdir(DIR_RAxML):
-      print "NO BestML Tree file for Gene Family: "+GF_ID
+      print("NO BestML Tree file for Gene Family: "+GF_ID)
    else:
-      print "Processing Gene Family "+GF_ID+":"
+      print("Processing Gene Family "+GF_ID+":")
       # Path for OUTPUT gene tree & matrix distance files
       # OUTPUT_DIST=DIR_dist_matrix+"/dist_matrix_"+GF_ID+".dist"
       OUTPUT_tree=DIR_gene_trees+"/gene_tree_"+GF_ID+".nwk"
@@ -153,7 +153,7 @@ if __name__ == '__main__':
 
       # Browse list_genes to create FASTA file of the current gene tree
       for gene in list_genes:
-         print "\t"+gene
+         print("\t"+gene)
          gene_present=False
          species=""
          for geneID in dict_geneID_speciesName:

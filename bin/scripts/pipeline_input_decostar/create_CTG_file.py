@@ -1,4 +1,4 @@
-#! /usr/bin/env python2
+#! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 ###                                                                         
 ###   Goal:                                                                 
@@ -15,8 +15,8 @@
 ###   OUTPUT:                                                               
 ###      - Contig file with genes located to extremities                    
 ###                                                                         
-###   Name: create_SCAFF_file.py              Author: Yoann Anselmetti     
-###   Creation date: 2016/02/15             Last modification: 2018/04/24
+###   Name: create_SCAFF_file.py            Author: Yoann Anselmetti     
+###   Creation date: 2016/02/15             Last modification: 2020/11/03
 ###                                                                         
 
 from sys import argv
@@ -64,7 +64,7 @@ if __name__ == '__main__':
 #################################################################
    dict_spe_SCAFF=dict()
    FASTA_list=listdir(SCAFF_dir)
-   print "1/ Storing SCAFF size of species:"
+   print("1/ Storing SCAFF size of species:")
    # Browse list of Genome assemblies to FASTA file format
    for FASTA in sorted(FASTA_list):
       i=0
@@ -76,7 +76,7 @@ if __name__ == '__main__':
       else:
          exit("!!! ERROR, FASTA file name: "+FASTA+" is incorrectly written !!!")
 
-      print "\t"+species
+      print("\t"+species)
 
       # Browse FASTA file of current species to get list of scaffolds 
       fasta_file=open(SCAFF_dir+"/"+FASTA)
@@ -95,7 +95,7 @@ if __name__ == '__main__':
          exit("ERROR, there is no scaff for this species "+species+"!!! => Check if the genome assemblies are uncompressed.")
 
 
-   print "\n2/ Write CTG file \""+SCAFF_file+"\":"
+   print("\n2/ Write CTG file \""+SCAFF_file+"\":")
 ####################################################################
 ### BROWSE ANNOTATION GENE FILE TO WRITE GENE TO SCAFF EXTREMITIES ###
 ####################################################################
@@ -128,7 +128,7 @@ if __name__ == '__main__':
 
          if cur_spe!="#species":
             if str_spe=="":
-               # print cur_spe
+               # print(cur_spe)
                gf1=cur_gf
                gene1=cur_gene
                ori1=cur_ori
@@ -141,7 +141,7 @@ if __name__ == '__main__':
                   # For scaff that are not present in SCAFF directory (Genome assemblies)
                   else:
                      if verbose:
-                        print "\tContig "+str_ctg+" is not present in FASTA file assembly of species "+str_spe
+                        print("\tContig "+str_ctg+" is not present in FASTA file assembly of species "+str_spe)
                      output_file.write(str_spe+"\t"+str_ctg+"\t?\t"+str(gene_nb)+"\t"+gf1+"\t"+gene1+"\t"+ori1+"\t"+start1+"\t"+str_gf+"\t"+str_gene+"\t"+str_ori+"\t"+str_stop+"\n")
 
                   gene_nb=0

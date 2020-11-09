@@ -1,5 +1,9 @@
 #/bin/bash
 
+### Last modification: 2020/11/05
+
+### Run the current script ("install_dependencies.sh") from the directory to which it belongs
+
 initDIR=`pwd`
 echo $initDIR
 
@@ -11,7 +15,7 @@ fi
 
 
 ################
-### INSTALL LIBRARIES: Bio++, Boost, ...
+### INSTALL LIBRARIES: Bio++
 ################
 
 #######
@@ -36,11 +40,15 @@ for libBpp in $listBpp; do
 	make install # move files to the installation directory
 done
 
+### Add Bio++ libraries path to the LD_LIBRARY_PATH
+echo -e '\nexport LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'$bppDIR'/lib/\n' >> ~/.bashrc
+source ~/.bashrc
+
 
 # #######
 # ### Installation of Boost library
 # #######
-# NOT SUPPORTED
+# NOT SUPPORTED -> Use your favorite package installer
 
 
 
@@ -66,8 +74,9 @@ fi
 git clone https://github.com/WandrilleD/DeCoSTAR.git
 cd DeCoSTAR
 ### Command to change default Bpp directory path to $bppDIR path
-sed -i 's,BPP_INCLUDE=$(HOME)/local/bpp/dev/include,BPP_INCLUDE='"$bppDIR"'/include,g' makefile
-sed -i 's,BPP_LIB=$(HOME)/local/bpp/dev/lib,BPP_LIB='"$bppDIR"'/lib,g' makefile
+echo -e "\nBio++ library repertory: "$bppDIR"\n"
+sed -i 's,BPP_INCLUDE=/include,BPP_INCLUDE='$bppDIR'/include,g' makefile
+sed -i 's,BPP_LIB=/lib,BPP_LIB='$bppDIR'/lib,g' makefile
 make bin/DeCoSTAR
 
 

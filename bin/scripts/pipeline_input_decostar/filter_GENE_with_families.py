@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 ###                                                                       
 ###   Goal:                                                               
@@ -19,7 +19,7 @@
 ###      - OUTPUT directory containing sorted and filtered genes file for each species                                               
 ###                                                                       
 ###   Name: filter_GENE_with_families.py     Author: Yoann Anselmetti
-###   Creation date: 2016/09/09              Last modification: 2018/04/24
+###   Creation date: 2016/09/09              Last modification: 2020/11/05
 ###                                                                       
 
 from sys import argv, exit
@@ -49,10 +49,10 @@ def get_list_genes_in_GF(dict_species_geneList,input_file,sep):
          r=search("^\(",line)
          if r:
             bool_GT=True
-            print "\t=> File containing gene cluster is a gene TREES file"
+            print("\t=> File containing gene cluster is a gene TREES file")
          else:
             bool_GT=False
-            print "\t=> File containing gene cluster is a gene FAMILIES file"
+            print("\t=> File containing gene cluster is a gene FAMILIES file")
 
       # If file is a newick, NHX or tree file 
       if bool_GT:
@@ -62,7 +62,7 @@ def get_list_genes_in_GF(dict_species_geneList,input_file,sep):
 
          # For each leaf in current tree: extract species name and Gene_ID
          for gene in tree.get_leaf_names(): 
-            # print gene           
+            # print(gene)           
             species=gene.split(sep)[0]
             gene_ID=gene.split(sep)[1]
 
@@ -106,7 +106,7 @@ if __name__ == '__main__':
    #######
    ### STORE GENES PRESENT IN GENE TREES/FAMILIES / SPECIES NAME
    #######
-   print "1/ STORE gene present in gene families/trees:"
+   print("1/ STORE gene present in gene families/trees:")
    dict_species_geneList=dict()
    input_file=open(GF_file,"r")
    get_list_genes_in_GF(dict_species_geneList,input_file,sep)
@@ -119,15 +119,15 @@ if __name__ == '__main__':
    # Get list of GENE files present in INPUT directory
    list_files=listdir(INPUT_dir)
 
-   print "2/ Filter genes that are present not present in gene families/trees considered:" 
+   print("2/ Filter genes that are present not present in gene families/trees considered:") 
    dict_species_geneFilt=dict()
    # Browse GENE files contained in INPUT directory
    for gene_file in sorted(list_files):
-      # print gene_file
+      # print(gene_file)
       r_spe=search('^(.*)_sorted.txt$', gene_file)
       if r_spe:
          name_spe=r_spe.group(1)
-         print "\t"+name_spe
+         print("\t"+name_spe)
 
          output_file=open(OUTPUT_dir+"/"+name_spe+"_filtered.txt","w")
          input_file=open(INPUT_dir+"/"+gene_file)
@@ -136,7 +136,7 @@ if __name__ == '__main__':
          for line in input_file:
             r=search('^([^\t ]*)[\t ]*([^\t ]*)[\t ]*([^\t ]*)[\t ]*([+-])[\t ]*([0-9]*)[\t ]*([0-9]*)[\t ]*([0-9]*)[\t ]*([:0-9-]*)\n$', line)
             if r:
-               # print line
+               # print(line)
                species=r.group(1)
                contig=r.group(2)
                gene=r.group(3)
@@ -147,7 +147,7 @@ if __name__ == '__main__':
                exon_pos=r.group(8)
 
                if species!="#species":
-                  # print species,gene
+                  # print(species+" "+gene)
                   if gene in dict_species_geneList[species]:
                      output_file.write(line)
                      dict_species_geneList[species].remove(gene)
@@ -156,13 +156,13 @@ if __name__ == '__main__':
                         dict_species_geneFilt[species]=list()
                      dict_species_geneFilt[species].append(gene)
 
-   print "\nNumber of genes filtered for each species:"
+   print("\nNumber of genes filtered for each species:")
    for species in sorted(dict_species_geneFilt):
-      print "\t- "+species+":\t"+str(len(dict_species_geneFilt[species]))+" genes filtered"
+      print("\t- "+species+":\t"+str(len(dict_species_geneFilt[species]))+" genes filtered")
 
-   print "\nNumber of genes present in gene trees/families but not in GFF for each species (should be equal to 0):"
+   print("\nNumber of genes present in gene trees/families but not in GFF for each species (should be equal to 0):")
    for species in sorted(dict_species_geneList):
-      print "\t- "+species+":\t"+str(len(dict_species_geneList[species]))+" genes in gene trees/families but not in GFF"
+      print("\t- "+species+":\t"+str(len(dict_species_geneList[species]))+" genes in gene trees/families but not in GFF")
 
 
    end_time = datetime.now()

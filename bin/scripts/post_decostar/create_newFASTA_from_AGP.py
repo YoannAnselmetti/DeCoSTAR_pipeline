@@ -1,4 +1,4 @@
-#! /usr/bin/env python2
+#! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 ###
 ###   Goal:
@@ -18,7 +18,7 @@
 ###      - New genome assembly FASTA files including new adjacencies predicted by DeCoSTAR
 ###
 ###   Name: create_newFASTA_from_AGP.py    Author: Yoann Anselmetti
-###   Creation date: 2018/06/11            Last modification: 2018/11/13
+###   Creation date: 2018/06/11            Last modification: 2020/11/04
 ###
 
 from sys import argv
@@ -95,9 +95,9 @@ if __name__ == '__main__':
    for AGP_file in sorted(listdir(AGP_dir)):
       if ".agp" in AGP_file:
          species=AGP_file.split(file_prefix)[1].split(".agp")[0]
-         print "\nFor species "+species+":"
+         print("\nFor species "+species+":")
 
-      print "\t1/ Parse AGP file to get CTG order and gaps sizes"
+      print("\t1/ Parse AGP file to get CTG order and gaps sizes")
       dict_newSCAFF,dict_distCTG=dict(),dict()
       parse_AGP_file(AGP_dir+"/"+AGP_file,species)
 
@@ -105,25 +105,25 @@ if __name__ == '__main__':
       # Print the new CTG ID after merging initial contigs/scaffolds in new scaffolds 
       if verbose>1:
          if verbose>2:
-            print "\n\t1bis/ Print association between new scaffolds ID and old scaffolds/contigs ID:"
+            print("\n\t1bis/ Print association between new scaffolds ID and old scaffolds/contigs ID:")
          else:
-            print "\n\t1bis/ Print new scaffolds ID:"
+            print("\n\t1bis/ Print new scaffolds ID:")
          # Print new linked scaffolds
          for scaff in sorted(dict_newSCAFF):
-            print "\t\t"+ctg
+            print("\t\t"+ctg)
             if verbose>2:
                for elem in dict_newSCAFF[scaff]:
-                  print "\t\t\t",
-                  print elem
+                  print("\t\t\t", end=' ')
+                  print(elem)
 
       # Print distance between CTG pairs linked by DeCoSTAR
       if verbose>2:
-         print "\n\t1ter/ Print distance between CTG pairs linked by DeCoSTAR:"
+         print("\n\t1ter/ Print distance between CTG pairs linked by DeCoSTAR:")
          for distCTG in sorted(dict_distCTG):
-            print distCTG,"\t",dict_distCTG[distCTG]
+            print(distCTG,"\t",dict_distCTG[distCTG])
 
 
-      print "\n\t2/ Write new FASTA files after scaffolding with linearized new adjacencies predicted by DeCoSTAR"
+      print("\n\t2/ Write new FASTA files after scaffolding with linearized new adjacencies predicted by DeCoSTAR")
       output_scaff=open(OUTPUT_SCAFF+"/"+file_prefix+species+".fasta","w")
       dict_SCAFF=dict()
       FASTA_FILE=""
@@ -137,7 +137,7 @@ if __name__ == '__main__':
             exit("!!! ERROR, FASTA file name: "+FASTA+" is incorrectly written (Must be: ${species_name}.fa) !!!")
          if spe==species:
             FASTA_FILE=INPUT_SCAFF_dir+"/"+FASTA
-            print "\t\tStore contigs/scaffolds of FASTA file \""+FASTA_FILE+"\""
+            print("\t\tStore contigs/scaffolds of FASTA file \""+FASTA_FILE+"\"")
             # Browse FASTA file of current species to get list of scaffolds 
             fasta_file=open(INPUT_SCAFF_dir+"/"+FASTA)
             for sequence in SeqIO.parse(fasta_file,"fasta"):
@@ -168,7 +168,7 @@ if __name__ == '__main__':
                      # print gap_size
                      if gap_size<0:
                         if verbose>1:
-                           print "\t\tNEGATIVE distance between contigs "+ID+" and "+ctg.id
+                           print("\t\tNEGATIVE distance between contigs "+ID+" and "+ctg.id)
                elif (ctg.id,ID) in dict_distCTG:
                   if dict_distCTG[(ctg.id,ID)]=="?":
                      bool_default=True
@@ -178,7 +178,7 @@ if __name__ == '__main__':
                      # print gap_size
                      if gap_size<0:
                         if verbose>1:
-                           print "\t\tNEGATIVE distance between contigs "+ctg.id+" and "+ID
+                           print("\t\tNEGATIVE distance between contigs "+ctg.id+" and "+ID)
                else:
                   exit("ERROR: CTG adjacency ("+ID+"-"+ctg.id+") is not present in DeCoSTAR predicted adjacencies file: "+AGP_dir+"/"+AGP_file)
 

@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 ###                                                                       
 ###   Goal:                                                               
@@ -18,7 +18,7 @@
 ###      - GENE file with gene family ID               
 ###                                                                       
 ###   Name: add_geneFamilyID.py           Author: Yoann Anselmetti    
-###   Creation date: 2016/09/09           Last modification: 2018/05/16
+###   Creation date: 2016/09/09           Last modification: 2020/11/05
 ###                                                                       
 
 from sys import argv
@@ -105,10 +105,10 @@ if __name__ == '__main__':
             r=search("^\(.*\);\n$",line)
             if r:
                bool_file="GT"
-               print "File containing gene cluster is a gene TREES file"
+               print("File containing gene cluster is a gene TREES file")
             else:
                bool_file="GF"
-               print "File containing gene cluster is a gene FAMILIES file"
+               print("File containing gene cluster is a gene FAMILIES file")
 
          if bool_file=="GF":
             r=search("^([^\t]*)\t([^\t\n]*)\n$",line)
@@ -122,7 +122,7 @@ if __name__ == '__main__':
 
          elif bool_file=="GT":
             tree_str=line.replace("\n","")
-            # print tree_str
+            # print(tree_str)
             tree=Tree(tree_str)
             i,gfID=get_GF_ID(i)
             for gene in tree.get_leaf_names():
@@ -139,7 +139,7 @@ if __name__ == '__main__':
    for line in INPUT_gene_file:
       r=search('^([^\t]*)[\t]*([^\t]*)[\t]*([^\t]*)[\t]*([^\t]*)[\t]*([^\t]*)[\t]*([^\t]*)[\t]*([^\t]*)[\t]*([^\t]*)[\t]*([^\t]*)[\t]*([^\t]*)[\t]*([^\t]*)[\t]*([^\t\n]*)\n$', line)
       if r:
-         # print line
+         # print(line)
          species=r.group(1)
          contig=r.group(2)
          gene=r.group(3)
@@ -160,11 +160,11 @@ if __name__ == '__main__':
             if geneID in dict_geneID_gfID:
                gfID=dict_geneID_gfID[geneID]
             else:
-               print "WARNING: gene "+gene+" is not present in gene families/trees!!!"
+               print("WARNING: gene "+gene+" is not present in gene families/trees!!!")
                gfID="NA"
 
             # if start_old!=start_new or stop_old!=stop_new:
-            #    print line
+            #    print(line)
 
             output_file.write(species+"\t"+contig+"\t"+gfID+"\t"+gene+"\t"+orientation+"\t"+start_new+"\t"+stop_new+"\t"+nb_exon_new+"\t"+exon_pos_new+"\n")
 

@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 ###
 ###   Goal:
@@ -24,7 +24,7 @@
 ###            (OUTPUT overlap gene file)
 ###
 ###   Name: detect_includedGenes.py     Author: Yoann Anselmetti
-###   Creation date: 2015/07/20         Last modification: 2017/10/18
+###   Creation date: 2015/07/20         Last modification: 2020/11/05
 ###
 
 from sys import argv, exit
@@ -262,12 +262,12 @@ def hist_nbInclusion_gene(list_to_plot,OUTPUT,species):
 
 
 def graph_ctgNb(dict_to_plot,OUTPUT,species):
-   N=len(dict_to_plot.keys())
+   N=len(list(dict_to_plot.keys()))
    index = np.arange(N)
    width = .75
    list_ctgNb=list()
 
-   list_keys=dict_to_plot.keys()
+   list_keys=list(dict_to_plot.keys())
    list_keys.sort()
    for spe in list_keys:
       list_ctgNb.append(dict_to_plot[spe])
@@ -286,16 +286,16 @@ def graph_ctgNb(dict_to_plot,OUTPUT,species):
 
 
 def graph_nbGene_contig(dict_to_plot,OUTPUT,species):
-   N=len(dict_to_plot.keys())
+   N=len(list(dict_to_plot.keys()))
    index = np.arange(N)
    width = .75
    list_mean=list()
    list_SD=list()
 
-   list_keys=dict_to_plot.keys()
+   list_keys=list(dict_to_plot.keys())
    list_keys.sort()
    for spe in list_keys:
-#      print str(dict_to_plot[species][0])+" "+str(dict_to_plot[species][1])
+#      print(str(dict_to_plot[species][0])+" "+str(dict_to_plot[species][1]))
       list_mean.append(dict_to_plot[spe][0])
       list_SD.append(dict_to_plot[spe][1])
    plt.bar(index, list_mean, width, color="green", yerr=list_SD)
@@ -311,16 +311,16 @@ def graph_nbGene_contig(dict_to_plot,OUTPUT,species):
    plt.cla()
 
 def graph_nbGene_contig_zoom(dict_to_plot,OUTPUT,species):
-   N=len(dict_to_plot.keys())
+   N=len(list(dict_to_plot.keys()))
    index = np.arange(N)
    width = .75
    list_mean=list()
    list_SD=list()
 
-   list_keys=dict_to_plot.keys()
+   list_keys=list(dict_to_plot.keys())
    list_keys.sort()
    for spe in list_keys:
-#      print str(dict_to_plot[species][0])+" "+str(dict_to_plot[species][1])
+#      print(str(dict_to_plot[species][0])+" "+str(dict_to_plot[species][1]))
       list_mean.append(dict_to_plot[spe][0])
       list_SD.append(dict_to_plot[spe][1])
    plt.bar(index, list_mean, width, color="green", yerr=list_SD)
@@ -336,16 +336,16 @@ def graph_nbGene_contig_zoom(dict_to_plot,OUTPUT,species):
    plt.cla()
 
 def graph_nbGene_contig_zoom_zoom(dict_to_plot,OUTPUT,species):
-   N=len(dict_to_plot.keys())
+   N=len(list(dict_to_plot.keys()))
    index = np.arange(N)
    width = .75
    list_mean=list()
    list_SD=list()
 
-   list_keys=dict_to_plot.keys()
+   list_keys=list(dict_to_plot.keys())
    list_keys.sort()
    for spe in list_keys:
-#      print str(dict_to_plot[species][0])+" "+str(dict_to_plot[species][1])
+#      print(str(dict_to_plot[species][0])+" "+str(dict_to_plot[species][1]))
       list_mean.append(dict_to_plot[spe][0])
       list_SD.append(dict_to_plot[spe][1])
    plt.bar(index, list_mean, width, color="green", yerr=list_SD)
@@ -361,16 +361,16 @@ def graph_nbGene_contig_zoom_zoom(dict_to_plot,OUTPUT,species):
    plt.cla()
 
 def graph_Gene_size(dict_to_plot,OUTPUT,species):
-   N=len(dict_to_plot.keys())
+   N=len(list(dict_to_plot.keys()))
    index = np.arange(N)
    width = .75
    list_mean=list()
    list_SD=list()
 
-   list_keys=dict_to_plot.keys()
+   list_keys=list(dict_to_plot.keys())
    list_keys.sort()
    for spe in list_keys:
-#      print str(dict_to_plot[species][0])+" "+str(dict_to_plot[species][1])
+#      print(str(dict_to_plot[species][0])+" "+str(dict_to_plot[species][1]))
       list_mean.append(dict_to_plot[spe][0])
       list_SD.append(dict_to_plot[spe][1])
    plt.bar(index, list_mean, width, color="green", yerr=list_SD)
@@ -386,16 +386,16 @@ def graph_Gene_size(dict_to_plot,OUTPUT,species):
    plt.cla()
 
 def graph_Gene_size_zoom(dict_to_plot,OUTPUT,species):
-   N=len(dict_to_plot.keys())
+   N=len(list(dict_to_plot.keys()))
    index = np.arange(N)
    width = .75
    list_mean=list()
    list_SD=list()
 
-   list_keys=dict_to_plot.keys()
+   list_keys=list(dict_to_plot.keys())
    list_keys.sort()
    for spe in list_keys:
-#      print str(dict_to_plot[species][0])+" "+str(dict_to_plot[species][1])
+#      print(str(dict_to_plot[species][0])+" "+str(dict_to_plot[species][1]))
       list_mean.append(dict_to_plot[spe][0])
       list_SD.append(dict_to_plot[spe][1])
    plt.bar(index, list_mean, width, color="green", yerr=list_SD)
@@ -411,16 +411,16 @@ def graph_Gene_size_zoom(dict_to_plot,OUTPUT,species):
    plt.cla()
 
 def graph_Gene_size_zoom_zoom(dict_to_plot,OUTPUT,species):
-   N=len(dict_to_plot.keys())
+   N=len(list(dict_to_plot.keys()))
    index = np.arange(N)
    width = .75
    list_mean=list()
    list_SD=list()
 
-   list_keys=dict_to_plot.keys()
+   list_keys=list(dict_to_plot.keys())
    list_keys.sort()
    for spe in list_keys:
-#      print str(dict_to_plot[species][0])+" "+str(dict_to_plot[species][1])
+#      print(str(dict_to_plot[species][0])+" "+str(dict_to_plot[species][1]))
       list_mean.append(dict_to_plot[spe][0])
       list_SD.append(dict_to_plot[spe][1])
    plt.bar(index, list_mean, width, color="green", yerr=list_SD)
@@ -436,16 +436,16 @@ def graph_Gene_size_zoom_zoom(dict_to_plot,OUTPUT,species):
    plt.cla()
 
 def graph_Gene_size_Exon(dict_to_plot,OUTPUT,species):
-   N=len(dict_to_plot.keys())
+   N=len(list(dict_to_plot.keys()))
    index = np.arange(N)
    width = .75
    list_mean=list()
    list_SD=list()
 
-   list_keys=dict_to_plot.keys()
+   list_keys=list(dict_to_plot.keys())
    list_keys.sort()
    for spe in list_keys:
-#      print str(dict_to_plot[species][0])+" "+str(dict_to_plot[species][1])
+#      print(str(dict_to_plot[species][0])+" "+str(dict_to_plot[species][1]))
       list_mean.append(dict_to_plot[spe][0])
       list_SD.append(dict_to_plot[spe][1])
    plt.bar(index, list_mean, width, color="green", yerr=list_SD)
@@ -461,16 +461,16 @@ def graph_Gene_size_Exon(dict_to_plot,OUTPUT,species):
    plt.cla()
 
 def graph_interGene_size(dict_to_plot,OUTPUT,species):
-   N=len(dict_to_plot.keys())
+   N=len(list(dict_to_plot.keys()))
    index = np.arange(N)
    width = .75
    list_mean=list()
    list_SD=list()
 
-   list_keys=dict_to_plot.keys()
+   list_keys=list(dict_to_plot.keys())
    list_keys.sort()
    for spe in list_keys:
-#      print str(dict_to_plot[species][0])+" "+str(dict_to_plot[species][1])
+#      print(str(dict_to_plot[species][0])+" "+str(dict_to_plot[species][1]))
       list_mean.append(dict_to_plot[spe][0])
       list_SD.append(dict_to_plot[spe][1])
    plt.bar(index, list_mean, width, color="green", yerr=list_SD)
@@ -486,16 +486,16 @@ def graph_interGene_size(dict_to_plot,OUTPUT,species):
    plt.cla()
 
 def graph_interGene_size_zoom(dict_to_plot,OUTPUT,species):
-   N=len(dict_to_plot.keys())
+   N=len(list(dict_to_plot.keys()))
    index = np.arange(N)
    width = .75
    list_mean=list()
    list_SD=list()
 
-   list_keys=dict_to_plot.keys()
+   list_keys=list(dict_to_plot.keys())
    list_keys.sort()
    for spe in list_keys:
-#      print str(dict_to_plot[species][0])+" "+str(dict_to_plot[species][1])
+#      print(str(dict_to_plot[species][0])+" "+str(dict_to_plot[species][1]))
       list_mean.append(dict_to_plot[spe][0])
       list_SD.append(dict_to_plot[spe][1])
    plt.bar(index, list_mean, width, color="green", yerr=list_SD)
@@ -511,16 +511,16 @@ def graph_interGene_size_zoom(dict_to_plot,OUTPUT,species):
    plt.cla()
 
 def graph_overlap_size(dict_to_plot,OUTPUT,species):
-   N=len(dict_to_plot.keys())
+   N=len(list(dict_to_plot.keys()))
    index = np.arange(N)
    width = .75
    list_mean=list()
    list_SD=list()
 
-   list_keys=dict_to_plot.keys()
+   list_keys=list(dict_to_plot.keys())
    list_keys.sort()
    for spe in list_keys:
-#      print str(dict_to_plot[species][0])+" "+str(dict_to_plot[species][1])
+#      print(str(dict_to_plot[species][0])+" "+str(dict_to_plot[species][1]))
       list_mean.append(dict_to_plot[spe][0])
       list_SD.append(dict_to_plot[spe][1])
    plt.bar(index, list_mean, width, color="green", yerr=list_SD)
@@ -536,16 +536,16 @@ def graph_overlap_size(dict_to_plot,OUTPUT,species):
    plt.cla()
 
 def graph_Exon_minRatio_Overlap(dict_to_plot,OUTPUT,species):
-   N=len(dict_to_plot.keys())
+   N=len(list(dict_to_plot.keys()))
    index = np.arange(N)
    width = .75
    list_mean=list()
    list_SD=list()
 
-   list_keys=dict_to_plot.keys()
+   list_keys=list(dict_to_plot.keys())
    list_keys.sort()
    for spe in list_keys:
-#      print str(dict_to_plot[species][0])+" "+str(dict_to_plot[species][1])
+#      print(str(dict_to_plot[species][0])+" "+str(dict_to_plot[species][1]))
       list_mean.append(dict_to_plot[spe][0])
       list_SD.append(dict_to_plot[spe][1])
    plt.bar(index, list_mean, width, color="green", yerr=list_SD)
@@ -561,16 +561,16 @@ def graph_Exon_minRatio_Overlap(dict_to_plot,OUTPUT,species):
    plt.cla()
 
 def graph_Exon_maxRatio_Overlap(dict_to_plot,OUTPUT,species):
-   N=len(dict_to_plot.keys())
+   N=len(list(dict_to_plot.keys()))
    index = np.arange(N)
    width = .75
    list_mean=list()
    list_SD=list()
 
-   list_keys=dict_to_plot.keys()
+   list_keys=list(dict_to_plot.keys())
    list_keys.sort()
    for spe in list_keys:
-#      print str(dict_to_plot[species][0])+" "+str(dict_to_plot[species][1])
+#      print(str(dict_to_plot[species][0])+" "+str(dict_to_plot[species][1]))
       list_mean.append(dict_to_plot[spe][0])
       list_SD.append(dict_to_plot[spe][1])
    plt.bar(index, list_mean, width, color="green", yerr=list_SD)
@@ -586,16 +586,16 @@ def graph_Exon_maxRatio_Overlap(dict_to_plot,OUTPUT,species):
    plt.cla()
 
 def graph_Exon_Ratio_Overlap(dict_to_plot,OUTPUT,species):
-   N=len(dict_to_plot.keys())
+   N=len(list(dict_to_plot.keys()))
    index = np.arange(N)
    width = .75
    list_mean=list()
    list_SD=list()
 
-   list_keys=dict_to_plot.keys()
+   list_keys=list(dict_to_plot.keys())
    list_keys.sort()
    for spe in list_keys:
-#      print str(dict_to_plot[species][0])+" "+str(dict_to_plot[species][1])
+#      print(str(dict_to_plot[species][0])+" "+str(dict_to_plot[species][1]))
       list_mean.append(dict_to_plot[spe][0])
       list_SD.append(dict_to_plot[spe][1])
    plt.bar(index, list_mean, width, color="green", yerr=list_SD)
@@ -611,16 +611,16 @@ def graph_Exon_Ratio_Overlap(dict_to_plot,OUTPUT,species):
    plt.cla()
 
 def graph_inclusion_size(dict_to_plot,OUTPUT,species):
-   N=len(dict_to_plot.keys())
+   N=len(list(dict_to_plot.keys()))
    index = np.arange(N)
    width = .75
    list_mean=list()
    list_SD=list()
 
-   list_keys=dict_to_plot.keys()
+   list_keys=list(dict_to_plot.keys())
    list_keys.sort()
    for spe in list_keys:
-#      print str(dict_to_plot[species][0])+" "+str(dict_to_plot[species][1])
+#      print(str(dict_to_plot[species][0])+" "+str(dict_to_plot[species][1]))
       list_mean.append(dict_to_plot[spe][0])
       list_SD.append(dict_to_plot[spe][1])
    plt.bar(index, list_mean, width, color="green", yerr=list_SD)
@@ -636,16 +636,16 @@ def graph_inclusion_size(dict_to_plot,OUTPUT,species):
    plt.cla()
 
 def graph_nbOverlap_gene(dict_to_plot,OUTPUT,species):
-   N=len(dict_to_plot.keys())
+   N=len(list(dict_to_plot.keys()))
    index = np.arange(N)
    width = .75
    list_mean=list()
    list_SD=list()
 
-   list_keys=dict_to_plot.keys()
+   list_keys=list(dict_to_plot.keys())
    list_keys.sort()
    for spe in list_keys:
-#      print str(dict_to_plot[species][0])+" "+str(dict_to_plot[species][1])
+#      print(str(dict_to_plot[species][0])+" "+str(dict_to_plot[species][1]))
       list_mean.append(dict_to_plot[spe][0])
       list_SD.append(dict_to_plot[spe][1])
    plt.bar(index, list_mean, width, color="green", yerr=list_SD)
@@ -661,16 +661,16 @@ def graph_nbOverlap_gene(dict_to_plot,OUTPUT,species):
    plt.cla()
 
 def graph_nbInclusion_gene(dict_to_plot,OUTPUT,species):
-   N=len(dict_to_plot.keys())
+   N=len(list(dict_to_plot.keys()))
    index = np.arange(N)
    width = .75
    list_mean=list()
    list_SD=list()
 
-   list_keys=dict_to_plot.keys()
+   list_keys=list(dict_to_plot.keys())
    list_keys.sort()
    for spe in list_keys:
-#      print str(dict_to_plot[species][0])+" "+str(dict_to_plot[species][1])
+#      print(str(dict_to_plot[species][0])+" "+str(dict_to_plot[species][1]))
       list_mean.append(dict_to_plot[spe][0])
       list_SD.append(dict_to_plot[spe][1])
    plt.bar(index, list_mean, width, color="green", yerr=list_SD)
@@ -690,7 +690,7 @@ def uniq(seq):
    keys = {}
    for e in seq:
        keys[e] = 1
-   return keys.keys()
+   return list(keys.keys())
 
 def mkdir_p(dir_path):
    try:
@@ -848,7 +848,7 @@ if __name__ == '__main__':
          for line in input_file:
             r=search('^([^\t ]*)[\t ]*([^\t ]*)[\t ]*([^\t ]*)[\t ]*([^\t ]*)[\t ]*([^\t ]*)[\t ]*([^\t ]*)[\t ]*([^\t ]*)[\t ]*([^\t ]*)\n$', line)
             if r:
-#               print line
+#               print(line)
                species=r.group(1)
                contig=r.group(2)
                gene=r.group(3)
@@ -858,7 +858,7 @@ if __name__ == '__main__':
                nb_exon=r.group(7)
                exon_pos=r.group(8)
 
-#               print exon_pos
+#               print(exon_pos)
 
                if species!="#species":
 #################################
@@ -876,18 +876,18 @@ if __name__ == '__main__':
 
                   # Get position of exons
                   list_Exon_pos_CUR_gene=exon_pos.split(":")
-                  # print list_Exon_pos_CUR_gene
+                  # print(list_Exon_pos_CUR_gene)
 
                   # Get cumulative size of exons present in current gene
                   CUR_gene_size_exon=0
                   for exon in list_Exon_pos_CUR_gene:
-   #                  print exon
+   #                  print(exon)
                      r_exon=search('^([0-9]*)-([0-9]*)$',exon)
                      if r_exon:
                         start_exon=r_exon.group(1)
                         stop_exon=r_exon.group(2)
                         CUR_gene_size_exon+=int(stop_exon)-int(start_exon)+1
-   #                     print CUR_gene_size_exon
+   #                     print(CUR_gene_size_exon)
                      else:
                         exit("Error exon position "+exon+" is bad written!!!")
                   # Store gene size (Sum of all exons size)
@@ -908,7 +908,7 @@ if __name__ == '__main__':
                         dic_gene_ENDpos.clear()
 
                         # Print new position of gene in dic_gene_after_clean in GENE file output
-                        for gene_ID in dic_gene_after_clean.keys():
+                        for gene_ID in list(dic_gene_after_clean.keys()):
                            # Case or all exon from a gene are overlap by gene overlaping this gene
                            if dic_gene_after_clean[gene_ID]=="":
                               output_G.write(dic_gene_before_clean[gene_ID]+"\t"+dic_gene_pos[gene_ID]+"\t0\t\n")
@@ -931,9 +931,9 @@ if __name__ == '__main__':
 ####################################
                      else:
    #                     if len(dic_gene_ENDpos)>2:
-   #                        print "Number of gene stored in dic_gene_ENDpos = "+str(len(dic_gene_ENDpos))
+   #                        print("Number of gene stored in dic_gene_ENDpos = "+str(len(dic_gene_ENDpos)))
                         # Browse list of genes to see if we have reach the end of the gene (if not there is an ovelap or an inclusion)
-                        for gene_ID in dic_gene_ENDpos.keys():
+                        for gene_ID in list(dic_gene_ENDpos.keys()):
                            # Get STOP position of Gene stored in dic_gene_ENDpos
                            stop_gene=""
                            r_stop=search('^.*-([0-9]*)$',dic_gene_ENDpos[gene_ID])
@@ -941,7 +941,7 @@ if __name__ == '__main__':
                               stop_gene=r_stop.group(1)
                               if int(stop_gene)<int(start):
                                  del dic_gene_ENDpos[gene_ID]
-                                 if gene_ID in dic_gene_after_clean.keys():
+                                 if gene_ID in list(dic_gene_after_clean.keys()):
                                     # Print new position of gene_ID in GENE file output
                                     # Case or all exon from a gene are overlap by gene overlaping this gene
                                     if dic_gene_after_clean[gene_ID]=="":
@@ -979,7 +979,7 @@ if __name__ == '__main__':
                                     # Size inclusion = size of gene included
                                     inclusion_size=int(stop)-int(start)+1
                                     list_inclusion_size_spe.append(inclusion_size)
-   #                                 print "Gene "+gene+" is included in gene "+gene_ID
+   #                                 print("Gene "+gene+" is included in gene "+gene_ID)
                                     # Write gene in OUTPUT file containg gene involved in Inclusion (Format: Inclusor_Gene_ID Included_Gene_ID) 
                                     output_Inc.write(gene_ID+"\t"+gene+"\n")
                                     nb_inclusion+=1
@@ -1025,7 +1025,7 @@ if __name__ == '__main__':
                                           exit("Error exon position "+exon+" is bad written!!!")
 
                                     # If not then the overlapping gene was also an included gene so he has to be removed
-                                    if gene_ID in dic_gene_after_clean.keys():
+                                    if gene_ID in list(dic_gene_after_clean.keys()):
                                        # Get position of exons in Gene stored in dic_gene_ENDpos
                                        list_Exon_pos_STORE_gene=dic_gene_after_clean[gene_ID].split(":")
    #                                    print list_Exon_pos_STORE_gene
@@ -1155,9 +1155,9 @@ if __name__ == '__main__':
 
 
                   if not bool_inclusion:
-                     if not gene in dic_gene_after_clean.keys():
+                     if not gene in list(dic_gene_after_clean.keys()):
                         dic_gene_after_clean[gene]=exon_pos
-                     if not gene in dic_gene_pos.keys():
+                     if not gene in list(dic_gene_pos.keys()):
                         dic_gene_pos[gene]=start+"\t"+stop
 
                   # Update variables with data from the line
@@ -1170,7 +1170,7 @@ if __name__ == '__main__':
          dic_gene_ENDpos.clear()
 
          # Print new position of gene in dic_gene_after_clean in GENE file output
-         for gene_ID in dic_gene_after_clean.keys():
+         for gene_ID in list(dic_gene_after_clean.keys()):
             # Case or all exon from a gene are overlap by gene overlaping this gene
             if dic_gene_after_clean[gene_ID]=="":
                output_G.write(dic_gene_before_clean[gene_ID]+"\t"+dic_gene_pos[gene_ID]+"\t0\t\n")
@@ -1194,52 +1194,52 @@ if __name__ == '__main__':
 #######################################
 
       # Fill dictionary for the CURRENT species
-      for overlap in dic_gene_nbOverlap_spe.keys():
+      for overlap in list(dic_gene_nbOverlap_spe.keys()):
          list_nbOverlap_per_gene_spe.append(dic_gene_nbOverlap_spe[overlap])
-      for inclusion in dic_gene_nbInclusion_spe.keys():
+      for inclusion in list(dic_gene_nbInclusion_spe.keys()):
          list_nbInclusion_per_gene_spe.append(dic_gene_nbInclusion_spe[inclusion])
 
       nb_gene_overlap_spe=len(list_nbOverlap_per_gene_spe)
       nb_gene_inclusion_spe=len(list_nbInclusion_per_gene_spe)
-      nb_gene_overlap_AND_OR_inclusion_spe=len(uniq(dic_gene_nbOverlap_spe.keys()+dic_gene_nbInclusion_spe.keys()))
-      list_gene_overlap_AND_inclusion=list(set(dic_gene_nbOverlap_spe.keys()).intersection(dic_gene_nbInclusion_spe.keys()))
+      nb_gene_overlap_AND_OR_inclusion_spe=len(uniq(list(dic_gene_nbOverlap_spe.keys())+list(dic_gene_nbInclusion_spe.keys())))
+      list_gene_overlap_AND_inclusion=list(set(dic_gene_nbOverlap_spe.keys()).intersection(list(dic_gene_nbInclusion_spe.keys())))
       nb_gene_overlap_AND_inclusion_spe=len(list_gene_overlap_AND_inclusion)
 
       dict_spe_ctgNb[name_spe]=nb_contig
 
 
       # Statistics SUMMARY on the CURRENT species
-      print ""
-      print "##############################"
-      print "### "+name_spe
-      print "##############################"
-      print "\t- Contig number:"+str(nb_contig)
-      print "\t- Gene number:"+str(nb_gene_tot_spe)
-      print "\t- Exon number:"+str(nb_exon_tot_spe)
-      print "\t- Average Gene number per contig:"+str(mean(list_nbG_per_contig_spe))
-      print "\t- SD Gene number per contig:"+str(SD(list_nbG_per_contig_spe))
-      print "\t- Average Gene size:"+str(mean(list_gene_size_spe))
-      print "\t- SD Gene size:"+str(SD(list_gene_size_spe))
-      print "\t- Average Gene size (Exon only):"+str(mean(list_gene_size_Exon_spe))
-      print "\t- SD Gene size (Exon only):"+str(SD(list_gene_size_Exon_spe))
-      print "\t- Average interGene size:"+str(mean(list_interGene_size_spe))
-      print "\t- SD interGene size:"+str(SD(list_interGene_size_spe))
+      print("")
+      print("##############################")
+      print("### "+name_spe)
+      print("##############################")
+      print("\t- Contig number:"+str(nb_contig))
+      print("\t- Gene number:"+str(nb_gene_tot_spe))
+      print("\t- Exon number:"+str(nb_exon_tot_spe))
+      print("\t- Average Gene number per contig:"+str(mean(list_nbG_per_contig_spe)))
+      print("\t- SD Gene number per contig:"+str(SD(list_nbG_per_contig_spe)))
+      print("\t- Average Gene size:"+str(mean(list_gene_size_spe)))
+      print("\t- SD Gene size:"+str(SD(list_gene_size_spe)))
+      print("\t- Average Gene size (Exon only):"+str(mean(list_gene_size_Exon_spe)))
+      print("\t- SD Gene size (Exon only):"+str(SD(list_gene_size_Exon_spe)))
+      print("\t- Average interGene size:"+str(mean(list_interGene_size_spe)))
+      print("\t- SD interGene size:"+str(SD(list_interGene_size_spe)))
       if len(list_overlap_size_spe)>0:
-         print "\t- Overlap number:"+str(nb_overlap)
-         print "\t- Gene number involved in Overlap:"+str(nb_gene_overlap_spe)
-         print "\t- Average Overlap size:"+str(mean(list_overlap_size_spe))
-         print "\t- SD Overlap size:"+str(SD(list_overlap_size_spe))
+         print("\t- Overlap number:"+str(nb_overlap))
+         print("\t- Gene number involved in Overlap:"+str(nb_gene_overlap_spe))
+         print("\t- Average Overlap size:"+str(mean(list_overlap_size_spe)))
+         print("\t- SD Overlap size:"+str(SD(list_overlap_size_spe)))
       else:
-         print "\t- NO Gene overlap for this species"
+         print("\t- NO Gene overlap for this species")
       if len(list_inclusion_size_spe)>0:
-         print "\t- Inclusion number:"+str(nb_inclusion)
-         print "\t- Gene number involved in Inclusion:"+str(nb_gene_inclusion_spe)
-         print "\t- Average Inclusion size:"+str(mean(list_inclusion_size_spe))
-         print "\t- SD Inclusion size:"+str(SD(list_inclusion_size_spe))
+         print("\t- Inclusion number:"+str(nb_inclusion))
+         print("\t- Gene number involved in Inclusion:"+str(nb_gene_inclusion_spe))
+         print("\t- Average Inclusion size:"+str(mean(list_inclusion_size_spe)))
+         print("\t- SD Inclusion size:"+str(SD(list_inclusion_size_spe)))
       else:
-         print "\t- NO Gene inclusion for this species"
-      print "\t- Gene number involved in Overlap AND/OR Inclusion:"+str(nb_gene_overlap_AND_OR_inclusion_spe)
-      print "\t- Gene number involved in Overlap AND Inclusion:"+str(nb_gene_overlap_AND_inclusion_spe)
+         print("\t- NO Gene inclusion for this species")
+      print("\t- Gene number involved in Overlap AND/OR Inclusion:"+str(nb_gene_overlap_AND_OR_inclusion_spe))
+      print("\t- Gene number involved in Overlap AND Inclusion:"+str(nb_gene_overlap_AND_inclusion_spe))
 
 
       # Print DATA on OVERLAP and INCLUSION
@@ -1247,7 +1247,7 @@ if __name__ == '__main__':
 #      for g in list_gene_overlap_AND_inclusion:
 #         print "\t"+g
 
-      print "\nOVERLAP:"
+      print("\nOVERLAP:")
       if bool(dic_gene_nbOverlap_spe):
 #         for ov in dic_gene_nbOverlap_spe.keys():
 #            if dic_gene_nbOverlap_spe[ov]>2:
@@ -1261,12 +1261,12 @@ if __name__ == '__main__':
             else:
                dist_nbOv_gene_spe[elem]=1
          for elem in dist_nbOv_gene_spe:
-            print "\t"+str(dist_nbOv_gene_spe[elem])+" gene(s) have "+str(elem)+" overlap(s)"
+            print("\t"+str(dist_nbOv_gene_spe[elem])+" gene(s) have "+str(elem)+" overlap(s)")
          dist_nbOv_gene_spe.clear()
       else:
-         print "\tNO gene overlap in this species"
+         print("\tNO gene overlap in this species")
 
-      print "\nINCLUSION:"
+      print("\nINCLUSION:")
       if bool(dic_gene_nbInclusion_spe):
 #         for inc in dic_gene_nbInclusion_spe.keys():
 #            if dic_gene_nbInclusion_spe[inc]>3:
@@ -1280,10 +1280,10 @@ if __name__ == '__main__':
             else:
                dist_nbInc_gene_spe[elem]=1
          for elem in dist_nbInc_gene_spe:
-            print "\t"+str(dist_nbInc_gene_spe[elem])+" gene(s) have "+str(elem)+" inclusion(s)"
+            print("\t"+str(dist_nbInc_gene_spe[elem])+" gene(s) have "+str(elem)+" inclusion(s)")
          dist_nbInc_gene_spe.clear()
       else:
-         print "\tNO gene inclusion in this species"
+         print("\tNO gene inclusion in this species")
 
 
       # Draw histogram for different statistics on Genome Structure
@@ -1383,36 +1383,36 @@ if __name__ == '__main__':
 
 
    # Print summary available on ALL species
-   print "\n###########\nALL_SPECIES\n###########"
-   print "\t- Contig number:"+str(nb_contig_tot)
-   print "\t- Gene number:"+str(nb_gene_tot)
-   print "\t- Exon number:"+str(nb_exon_tot)
-   print "\t- Average Contig number per species:"+str(mean(list_nbContig_per_spe))
-   print "\t- SD Contig number per species:"+str(SD(list_nbContig_per_spe))
-   print "\t- Average Gene number per contig:"+str(mean(list_nbG_per_contig))
-   print "\t- SD Gene number per contig:"+str(SD(list_nbG_per_contig))
-   print "\t- Average Gene size:"+str(mean(list_gene_size))
-   print "\t- SD Gene size:"+str(SD(list_gene_size_spe))
-   print "\t- Average Gene size (Exon only):"+str(mean(list_gene_size_Exon))
-   print "\t- SD Gene size (Exon only):"+str(SD(list_gene_size_Exon))
-   print "\t- Average interGene size:"+str(mean(list_interGene_size))
-   print "\t- SD interGene size:"+str(SD(list_interGene_size))
+   print("\n###########\nALL_SPECIES\n###########")
+   print("\t- Contig number:"+str(nb_contig_tot))
+   print("\t- Gene number:"+str(nb_gene_tot))
+   print("\t- Exon number:"+str(nb_exon_tot))
+   print("\t- Average Contig number per species:"+str(mean(list_nbContig_per_spe)))
+   print("\t- SD Contig number per species:"+str(SD(list_nbContig_per_spe)))
+   print("\t- Average Gene number per contig:"+str(mean(list_nbG_per_contig)))
+   print("\t- SD Gene number per contig:"+str(SD(list_nbG_per_contig)))
+   print("\t- Average Gene size:"+str(mean(list_gene_size)))
+   print("\t- SD Gene size:"+str(SD(list_gene_size_spe)))
+   print("\t- Average Gene size (Exon only):"+str(mean(list_gene_size_Exon)))
+   print("\t- SD Gene size (Exon only):"+str(SD(list_gene_size_Exon)))
+   print("\t- Average interGene size:"+str(mean(list_interGene_size)))
+   print("\t- SD interGene size:"+str(SD(list_interGene_size)))
    if len(list_overlap_size)>0:
-      print "\t- Overlap number:"+str(nb_overlap_tot)
-      print "\t- Gene number involved in Overlap:"+str(nb_gene_overlap_tot)
-      print "\t- Average Overlap size:"+str(mean(list_overlap_size))
-      print "\t- SD Overlap size:"+str(SD(list_overlap_size))
+      print("\t- Overlap number:"+str(nb_overlap_tot))
+      print("\t- Gene number involved in Overlap:"+str(nb_gene_overlap_tot))
+      print("\t- Average Overlap size:"+str(mean(list_overlap_size)))
+      print("\t- SD Overlap size:"+str(SD(list_overlap_size)))
    else:
-      print "\t- NO Gene overlap for this species"
+      print("\t- NO Gene overlap for this species")
    if len(list_inclusion_size)>0:
-      print "\t- Inclusion number:"+str(nb_inclusion_tot)
-      print "\t- Gene number involved in Inclusion:"+str(nb_gene_inclusion_tot)
-      print "\t- Average Inclusion size:"+str(mean(list_inclusion_size))
-      print "\t- SD Inclusion size:"+str(SD(list_inclusion_size))
+      print("\t- Inclusion number:"+str(nb_inclusion_tot))
+      print("\t- Gene number involved in Inclusion:"+str(nb_gene_inclusion_tot))
+      print("\t- Average Inclusion size:"+str(mean(list_inclusion_size)))
+      print("\t- SD Inclusion size:"+str(SD(list_inclusion_size)))
    else:
-      print "\t- NO Gene inclusion for this species"
-   print "\t- Gene number involved in Overlap AND/OR Inclusion:"+str(nb_gene_overlap_AND_OR_inclusion)
-   print "\t- Gene number involved in Overlap AND Inclusion:"+str(nb_gene_overlap_AND_inclusion)
+      print("\t- NO Gene inclusion for this species")
+   print("\t- Gene number involved in Overlap AND/OR Inclusion:"+str(nb_gene_overlap_AND_OR_inclusion))
+   print("\t- Gene number involved in Overlap AND Inclusion:"+str(nb_gene_overlap_AND_inclusion))
 
 
    # Draw histogram for different statistics on Genome Structure

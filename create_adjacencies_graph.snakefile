@@ -1,11 +1,12 @@
-configfile: "config_files/snakemake/config_18Anopheles_Xtopo.yaml"
-configfile: "config_files/snakemake/config_18Anopheles_WGtopo.yaml"
+# configfile: "config_files/snakemake/config_18Anopheles_Xtopo.yaml"
+# configfile: "config_files/snakemake/config_18Anopheles_WGtopo.yaml"
 # configfile: "config_files/snakemake/config_21Anopheles_Xtopo.yaml"
-# configfile: "config_files/snakemake/config_27avian.yaml"
+configfile: "config_files/snakemake/config_27avian.yaml"
 # configfile: "config_files/snakemake/config_12Drosophila.yaml"
 
 
-# TO IMPROVE => GET "outputdir_decostar" AND "prefix_decostar" FROM DECOSTAR PARAMETER FILE
+# TO IMPROVE => GET "outputdir_decostar" 
+# AND "prefix_decostar" FROM DECOSTAR PARAMETER FILE
 # config["outputdir_decostar"]
 # config["prefix_decostar"]
 
@@ -28,13 +29,13 @@ rule create_adj_CTGgraph_chrMAP:
 		"echo -e \"\tscript:\n\";\
 		for species in $(ls {input.AGPdir}); do \
 			for AGPfile in $(ls {input.AGPdir}/$species); do \
-				echo python2 bin/scripts/post_decostar/ADJ_graph/create_CTGgraph_GM.py \
+				echo ./bin/scripts/post_decostar/ADJ_graph/create_CTGgraph_GM.py \
 					{input.AGPdir}/$species/$AGPfile \
 					{input.CTG} \
 					$species \
 					{output.dot}/$species/$species\_CTGmap.dot \
 					{output.svg}/$species/$species\_CTGmap.svg; \
-				python2 bin/scripts/post_decostar/ADJ_graph/create_CTGgraph_GM.py \
+				./bin/scripts/post_decostar/ADJ_graph/create_CTGgraph_GM.py \
 					{input.AGPdir}/$species/$AGPfile \
 					{input.CTG} \
 					$species \
@@ -47,26 +48,37 @@ rule add_newADJ_to_adj_CTGgraph:
 	input:
 		dot=config["outputdir"]+"/results/ADJ_graph/DOT/CTG",
 		svg=config["outputdir"]+"/results/ADJ_graph/SVG/CTG",
-		new_adj_file_with_scaff=config["outputdir"]+"/"+config["outputdir_decostar"]+"/"+config["prefix_decostar"]+"_Lin"+config["linearization_threshold"]+"_"+config["linearization_algo"]+"_new_extant_adjacencies_with_scaff_adj",
+		new_adj_file_with_scaff=config["outputdir"]+"/"+
+			config["outputdir_decostar"]+"/"+config["prefix_decostar"]+"_Lin"+
+			config["linearization_threshold"]+"_"+config["linearization_algo"]+
+			"_new_extant_adjacencies_with_scaff_adj",
 	output:
 		log=config["outputdir"]+"/results/ADJ_graph/log_CTGmap.log",
 	shell:
 		"echo -e \"\tscript:\n\";\
 		for species in $(ls {input.dot}); do \
-			echo python2 bin/scripts/post_decostar/ADJ_graph/create_CTGgraph.py \
+			echo ./bin/scripts/post_decostar/ADJ_graph/create_CTGgraph.py \
 				{input.dot}/$species/$species\_CTGmap.dot \
 				{input.new_adj_file_with_scaff} \
 				$species \
-				{input.dot}/$species/$species\_"+config["prefix_decostar"]+"_Lin"+config["linearization_threshold"]+"_"+config["linearization_algo"]+"_CTGmap.dot \
-				{input.svg}/$species/$species\_"+config["prefix_decostar"]+"_Lin"+config["linearization_threshold"]+"_"+config["linearization_algo"]+"_CTGmap.svg \
+				{input.dot}/$species/$species\_"+config["prefix_decostar"]+
+				"_Lin"+config["linearization_threshold"]+"_"+
+				config["linearization_algo"]+"_CTGmap.dot \
+				{input.svg}/$species/$species\_"+config["prefix_decostar"]+
+				"_Lin"+config["linearization_threshold"]+"_"+
+				config["linearization_algo"]+"_CTGmap.svg \
 				0.0 \
 				y; \
-			python2 bin/scripts/post_decostar/ADJ_graph/create_CTGgraph.py \
+			./bin/scripts/post_decostar/ADJ_graph/create_CTGgraph.py \
 				{input.dot}/$species/$species\_CTGmap.dot \
 				{input.new_adj_file_with_scaff} \
 				$species \
-				{input.dot}/$species/$species\_"+config["prefix_decostar"]+"_Lin"+config["linearization_threshold"]+"_"+config["linearization_algo"]+"_CTGmap.dot \
-				{input.svg}/$species/$species\_"+config["prefix_decostar"]+"_Lin"+config["linearization_threshold"]+"_"+config["linearization_algo"]+"_CTGmap.svg \
+				{input.dot}/$species/$species\_"+config["prefix_decostar"]+
+				"_Lin"+config["linearization_threshold"]+"_"+
+				config["linearization_algo"]+"_CTGmap.dot \
+				{input.svg}/$species/$species\_"+config["prefix_decostar"]+
+				"_Lin"+config["linearization_threshold"]+"_"+
+				config["linearization_algo"]+"_CTGmap.svg \
 				0.0 \
 				y; \
 		done > {output.log}"
@@ -87,14 +99,14 @@ rule create_adj_GENEgraph_chrMAP:
 		"echo -e \"\tscript:\n\";\
 		for species in $(ls {input.AGPdir}); do \
 			for AGPfile in $(ls {input.AGPdir}/$species); do \
-				echo python2 bin/scripts/post_decostar/ADJ_graph/create_GENEgraph_GM.py \
+				echo ./bin/scripts/post_decostar/ADJ_graph/create_GENEgraph_GM.py \
 					{input.AGPdir}/$species/$AGPfile \
 					{input.CTG} \
 					$species \
 					{output.dot}/$species/$species\_GENEmap.dot \
 					{output.svg}/$species/$species\_GENEmap.svg \
 					y; \
-				python2 bin/scripts/post_decostar/ADJ_graph/create_GENEgraph_GM.py \
+				./bin/scripts/post_decostar/ADJ_graph/create_GENEgraph_GM.py \
 					{input.AGPdir}/$species/$AGPfile \
 					{input.CTG} \
 					$species \
@@ -109,28 +121,39 @@ rule add_newADJ_to_adj_GENEgraph:
 		dot=config["outputdir"]+"/results/ADJ_graph/DOT/GENE",
 		svg=config["outputdir"]+"/results/ADJ_graph/SVG/GENE",
 		CTG=config["outputdir"]+"/data/data_DeCoSTAR/CTG_file",
-		new_adj_file_with_scaff=config["outputdir"]+"/"+config["outputdir_decostar"]+"/"+config["prefix_decostar"]+"_Lin"+config["linearization_threshold"]+"_"+config["linearization_algo"]+"_new_extant_adjacencies_with_scaff_adj",
+		new_adj_file_with_scaff=config["outputdir"]+"/"+
+			config["outputdir_decostar"]+"/"+config["prefix_decostar"]+"_Lin"+
+			config["linearization_threshold"]+"_"+config["linearization_algo"]+
+			"_new_extant_adjacencies_with_scaff_adj",
 	output:
 		log=config["outputdir"]+"/results/ADJ_graph/log_GENEmap.log",
 	shell:
 		"echo -e \"\tscript:\n\";\
 		for species in $(ls {input.dot}); do \
-			echo python2 bin/scripts/post_decostar/ADJ_graph/create_GENEgraph.py \
+			echo ./bin/scripts/post_decostar/ADJ_graph/create_GENEgraph.py \
 				{input.dot}/$species/$species\_GENEmap.dot \
 				{input.CTG} \
 				{input.new_adj_file_with_scaff} \
 				$species \
-				{input.dot}/$species/$species\_"+config["prefix_decostar"]+"_Lin"+config["linearization_threshold"]+"_"+config["linearization_algo"]+"_GENEmap.dot \
-				{input.svg}/$species/$species\_"+config["prefix_decostar"]+"_Lin"+config["linearization_threshold"]+"_"+config["linearization_algo"]+"_GENEmap.svg \
+				{input.dot}/$species/$species\_"+config["prefix_decostar"]+
+				"_Lin"+config["linearization_threshold"]+"_"+
+				config["linearization_algo"]+"_GENEmap.dot \
+				{input.svg}/$species/$species\_"+config["prefix_decostar"]+
+				"_Lin"+config["linearization_threshold"]+"_"+
+				config["linearization_algo"]+"_GENEmap.svg \
 				0.0 \
 				y; \
-			python2 bin/scripts/post_decostar/ADJ_graph/create_GENEgraph.py \
+			./bin/scripts/post_decostar/ADJ_graph/create_GENEgraph.py \
 				{input.dot}/$species/$species\_GENEmap.dot \
 				{input.CTG} \
 				{input.new_adj_file_with_scaff} \
 				$species \
-				{input.dot}/$species/$species\_"+config["prefix_decostar"]+"_Lin"+config["linearization_threshold"]+"_"+config["linearization_algo"]+"_GENEmap.dot \
-				{input.svg}/$species/$species\_"+config["prefix_decostar"]+"_Lin"+config["linearization_threshold"]+"_"+config["linearization_algo"]+"_GENEmap.svg \
+				{input.dot}/$species/$species\_"+config["prefix_decostar"]+
+				"_Lin"+config["linearization_threshold"]+"_"+
+				config["linearization_algo"]+"_GENEmap.dot \
+				{input.svg}/$species/$species\_"+config["prefix_decostar"]+
+				"_Lin"+config["linearization_threshold"]+"_"+
+				config["linearization_algo"]+"_GENEmap.svg \
 				0.0 \
 				y; \
 		done > {output.log}"

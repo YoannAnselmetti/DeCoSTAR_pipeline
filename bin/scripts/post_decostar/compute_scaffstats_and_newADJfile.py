@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 ###
 ###   Goal:
@@ -25,7 +25,7 @@
 ###      - Produce file and graphics summarizing scaffolding statistics of DeCo*
 ###
 ###   Name: compute_scaffstats_and_newADJfile.py     Author: Yoann Anselmetti
-###   Creation date: 2016/07/18                      Last modification: 2019/05/10
+###   Creation date: 2016/07/18                      Last modification: 2020/11/04
 ###
 
 from sys import argv, stdout
@@ -90,7 +90,7 @@ def get_CTGsize(FASTA_dir):
          exit("!!! ERROR, FASTA file name: "+FASTA+" is incorrectly written (Must be: ${species_name}.fa) !!!")
       FASTA_FILE=FASTA_dir+"/"+FASTA
       if verbose>0:
-         print "\tStore sequences size of FASTA file \""+FASTA_FILE+"\""
+         print("\tStore sequences size of FASTA file \""+FASTA_FILE+"\"")
       # Browse FASTA file of current species to get list of scaffolds 
       fasta_file=open(FASTA_dir+"/"+FASTA)
       for sequence in SeqIO.parse(fasta_file,"fasta"):
@@ -126,7 +126,7 @@ def store_CTG(CTG_file,dict_CTGsize):
 
          if species!="#species":
             if contig_size=="?":
-               print "!!! WARNING: Size of contig/scaffold "+contig+" is unknown !!! -> contig/scaffold discarded from analysis."
+               print("!!! WARNING: Size of contig/scaffold "+contig+" is unknown !!! -> contig/scaffold discarded from analysis.")
             else:
                # Test if CTGsize(FASTA file)==CTGsize(CTG file)
                if int(contig_size)!=dict_CTGsize[species][contig]:
@@ -283,7 +283,7 @@ def print_scaffolding_stats(scaff_stats_DIR,x_list,dict_spe_ctg_size_INIT,dict_s
       ##########
       list_size_bp_INIT,list_size_geneNb_INIT=list(),list()
       minSCAFF_INIT,maxSCAFF_INIT=100000000000000000000000,0
-      for size in dict_spe_ctg_size_INIT[spe].values():
+      for size in list(dict_spe_ctg_size_INIT[spe].values()):
          # print size
          # Get value of the longest scaffold
          if size.bp>maxSCAFF_allspe_INIT:
@@ -307,7 +307,7 @@ def print_scaffolding_stats(scaff_stats_DIR,x_list,dict_spe_ctg_size_INIT,dict_s
          assembly_size_gene+=size.gene
       assembly_size_bp_allspe+=assembly_size_bp
       assembly_size_gene_allspe+=assembly_size_gene
-      scaffolds_nb_INIT=len(dict_spe_ctg_size_INIT[spe].keys())
+      scaffolds_nb_INIT=len(list(dict_spe_ctg_size_INIT[spe].keys()))
       nb_scaff_tot_INIT+=scaffolds_nb_INIT
 
       ##########
@@ -315,7 +315,7 @@ def print_scaffolding_stats(scaff_stats_DIR,x_list,dict_spe_ctg_size_INIT,dict_s
       ##########
       list_size_bp,list_size_geneNb=list(),list()
       minSCAFF,maxSCAFF=100000000000000000000000,0
-      for size in dict_spe_ctg_size_FIN[spe].values():
+      for size in list(dict_spe_ctg_size_FIN[spe].values()):
          # print size
          # Get value of the longest scaffold
          if size.bp>maxSCAFF_allspe:
@@ -335,7 +335,7 @@ def print_scaffolding_stats(scaff_stats_DIR,x_list,dict_spe_ctg_size_INIT,dict_s
          list_size_geneNb.append(size.gene)
          list_size_geneNb_allspe.append(size.gene)
 
-      scaffolds_nb=len(dict_spe_ctg_size_FIN[spe].keys())
+      scaffolds_nb=len(list(dict_spe_ctg_size_FIN[spe].keys()))
       nb_scaff_tot+=scaffolds_nb
 
       new_adj=0
@@ -348,96 +348,96 @@ def print_scaffolding_stats(scaff_stats_DIR,x_list,dict_spe_ctg_size_INIT,dict_s
       new_adj_allspe+=new_adj
       new_scaff_adj_allspe+=new_scaff_adj
 
-      print "\nFor species "+spe+":"
-      print "\t- Assembly size (bp): "+str(assembly_size_bp)
-      print "\t- Assembly size (#gene): "+str(assembly_size_gene)
-      print ""
-      print "\tBEFORE DeCoSTAR:"
-      print "\t\t- #scaffolds: "+str(scaffolds_nb_INIT)
-      print "\t\t- min(size): "+str(minSCAFF_INIT),"bp"
-      print "\t\t- max(size): "+str(maxSCAFF_INIT),"bp"
-      print "\tAFTER DeCoSTAR:"
-      print "\t\t- #scaffolds: "+str(scaffolds_nb)
-      print "\t\t- min(size): "+str(minSCAFF),"bp"
-      print "\t\t- max(size): "+str(maxSCAFF),"bp"
-      print "\t\t- #new adjacencies: "+str(new_adj)+" ("+str(new_scaff_adj)+" are scaff. adj.)"
-      print ""
+      print("\nFor species "+spe+":")
+      print("\t- Assembly size (bp): "+str(assembly_size_bp))
+      print("\t- Assembly size (#gene): "+str(assembly_size_gene))
+      print("")
+      print("\tBEFORE DeCoSTAR:")
+      print("\t\t- #scaffolds: "+str(scaffolds_nb_INIT))
+      print("\t\t- min(size): "+str(minSCAFF_INIT),"bp")
+      print("\t\t- max(size): "+str(maxSCAFF_INIT),"bp")
+      print("\tAFTER DeCoSTAR:")
+      print("\t\t- #scaffolds: "+str(scaffolds_nb))
+      print("\t\t- min(size): "+str(minSCAFF),"bp")
+      print("\t\t- max(size): "+str(maxSCAFF),"bp")
+      print("\t\t- #new adjacencies: "+str(new_adj)+" ("+str(new_scaff_adj)+" are scaff. adj.)")
+      print("")
       output_stats.write(spe+"\t"+str(assembly_size_bp)+"\t"+str(assembly_size_gene)+"\t"+str(new_adj)+"("+str(new_scaff_adj)+")\t"+str(scaffolds_nb_INIT)+"\t"+str(scaffolds_nb)+"\t"+str(minSCAFF_INIT)+"\t"+str(minSCAFF)+"\t"+str(maxSCAFF_INIT)+"\t"+str(maxSCAFF))
 
       # Loop on x for Nx and Lx stats
       dict_scaffolding_stats[spe]=dict()
       for x in x_list:
-         print "\tN"+str(x)+"/L"+str(x)+" statistics:"
+         print("\tN"+str(x)+"/L"+str(x)+" statistics:")
          Nx_bp_INIT,Lx_bp_INIT=Nx_Lx(x,list_size_bp_INIT,assembly_size_bp)
          Nx_gene_INIT,Lx_gene_INIT=Nx_Lx(x,list_size_geneNb_INIT,assembly_size_gene)
-         print "\t\tBEFORE DeCoSTAR:"
-         print "\t\t\t- N"+str(x)+" (bp): "+str(Nx_bp_INIT)
-         print "\t\t\t- L"+str(x)+" (bp): "+str(Lx_bp_INIT)
-         print "\t\t\t- N"+str(x)+" (#gene): "+str(Nx_gene_INIT)
-         print "\t\t\t- L"+str(x)+" (#gene): "+str(Lx_gene_INIT)
-         print ""
+         print("\t\tBEFORE DeCoSTAR:")
+         print("\t\t\t- N"+str(x)+" (bp): "+str(Nx_bp_INIT))
+         print("\t\t\t- L"+str(x)+" (bp): "+str(Lx_bp_INIT))
+         print("\t\t\t- N"+str(x)+" (#gene): "+str(Nx_gene_INIT))
+         print("\t\t\t- L"+str(x)+" (#gene): "+str(Lx_gene_INIT))
+         print("")
          Nx_bp_FIN,Lx_bp_FIN=Nx_Lx(x,list_size_bp,assembly_size_bp)
          Nx_gene_FIN,Lx_gene_FIN=Nx_Lx(x,list_size_geneNb,assembly_size_gene)
          Nx_bp_fold=round(float(Nx_bp_FIN)/float(Nx_bp_INIT),2)
          Lx_bp_fold=round(float(Lx_bp_INIT)/float(Lx_bp_FIN),2)
          Nx_gene_fold=round(float(Nx_gene_FIN)/float(Nx_gene_INIT),2)
          Lx_gene_fold=round(float(Lx_gene_INIT)/float(Lx_gene_FIN),2)
-         print "\t\tAFTER DeCoSTAR:"
-         print "\t\t\t- N"+str(x)+" (bp): "+str(Nx_bp_FIN)
-         print "\t\t\t\t+ fold improvment: "+str(Nx_bp_fold)
-         print "\t\t\t- L"+str(x)+" (bp): "+str(Lx_bp_FIN)
-         print "\t\t\t\t+ fold improvment: "+str(Lx_bp_fold)
-         print "\t\t\t- N"+str(x)+" (#gene): "+str(Nx_gene_FIN)
-         print "\t\t\t\t+ fold improvment: "+str(Nx_gene_fold)
-         print "\t\t\t- L"+str(x)+" (#gene): "+str(Lx_gene_FIN)
-         print "\t\t\t\t+ fold improvment: "+str(Lx_gene_fold)
-         print ""
+         print("\t\tAFTER DeCoSTAR:")
+         print("\t\t\t- N"+str(x)+" (bp): "+str(Nx_bp_FIN))
+         print("\t\t\t\t+ fold improvment: "+str(Nx_bp_fold))
+         print("\t\t\t- L"+str(x)+" (bp): "+str(Lx_bp_FIN))
+         print("\t\t\t\t+ fold improvment: "+str(Lx_bp_fold))
+         print("\t\t\t- N"+str(x)+" (#gene): "+str(Nx_gene_FIN))
+         print("\t\t\t\t+ fold improvment: "+str(Nx_gene_fold))
+         print("\t\t\t- L"+str(x)+" (#gene): "+str(Lx_gene_FIN))
+         print("\t\t\t\t+ fold improvment: "+str(Lx_gene_fold))
+         print("")
          output_stats.write("\t"+str(Nx_bp_INIT)+"\t"+str(Nx_bp_FIN)+"\t"+str(Nx_bp_fold)+"\t"+str(Lx_bp_INIT)+"\t"+str(Lx_bp_FIN)+"\t"+str(Lx_bp_fold)+"\t"+str(Nx_gene_INIT)+"\t"+str(Nx_gene_FIN)+"\t"+str(Nx_gene_fold)+"\t"+str(Lx_gene_INIT)+"\t"+str(Lx_gene_FIN)+"\t"+str(Lx_gene_fold))
          dict_scaffolding_stats[spe][x]=SCAFFOLDING_STATS(scaffolds_nb_INIT,scaffolds_nb,Nx_bp_INIT,Nx_gene_INIT,Lx_bp_INIT,Lx_gene_INIT,Nx_bp_FIN,Nx_gene_FIN,Lx_bp_FIN,Lx_gene_FIN)
       output_stats.write("\n")
 
-   print "\nFor ALL species:"
-   print "\t- Assembly size (bp): "+str(assembly_size_bp_allspe)
-   print "\t- Assembly size (#gene): "+str(assembly_size_gene_allspe)
-   print ""
-   print "\tBEFORE DeCoSTAR:"
-   print "\t\t- #scaffolds: "+str(nb_scaff_tot_INIT)
-   print "\t\t- min(size): "+str(minSCAFF_allspe_INIT),"bp"
-   print "\t\t- max(size: "+str(maxSCAFF_allspe_INIT),"bp"
-   print "\tAFTER DeCoSTAR:"
-   print "\t\t- #scaffolds: "+str(nb_scaff_tot)
-   print "\t\t- min(size): "+str(minSCAFF_allspe),"bp"
-   print "\t\t- max(size): "+str(maxSCAFF_allspe),"bp"
-   print "\t\t- #new adjacencies: "+str(new_adj_allspe)+ "("+str(new_scaff_adj_allspe)+" are scaff. adj.)"
-   print ""
+   print("\nFor ALL species:")
+   print("\t- Assembly size (bp): "+str(assembly_size_bp_allspe))
+   print("\t- Assembly size (#gene): "+str(assembly_size_gene_allspe))
+   print("")
+   print("\tBEFORE DeCoSTAR:")
+   print("\t\t- #scaffolds: "+str(nb_scaff_tot_INIT))
+   print("\t\t- min(size): "+str(minSCAFF_allspe_INIT),"bp")
+   print("\t\t- max(size: "+str(maxSCAFF_allspe_INIT),"bp")
+   print("\tAFTER DeCoSTAR:")
+   print("\t\t- #scaffolds: "+str(nb_scaff_tot))
+   print("\t\t- min(size): "+str(minSCAFF_allspe),"bp")
+   print("\t\t- max(size): "+str(maxSCAFF_allspe),"bp")
+   print("\t\t- #new adjacencies: "+str(new_adj_allspe)+ "("+str(new_scaff_adj_allspe)+" are scaff. adj.)")
+   print("")
    output_stats.write("All species\t"+str(assembly_size_bp_allspe)+"\t"+str(assembly_size_gene_allspe)+"\t"+str(new_adj_allspe)+"("+str(new_scaff_adj_allspe)+")\t"+str(nb_scaff_tot_INIT)+"\t"+str(nb_scaff_tot)+"\t"+str(minSCAFF_allspe_INIT)+"\t"+str(minSCAFF_allspe)+"\t"+str(maxSCAFF_allspe_INIT)+"\t"+str(maxSCAFF_allspe))
    # Loop on x for Nx and Lx stats
    # dict_scaffolding_stats["ALL species"]=dict()
    for x in x_list:
-      print "\tN"+str(x)+"/L"+str(x)+" statistics:"
+      print("\tN"+str(x)+"/L"+str(x)+" statistics:")
       Nx_bp_allspe_INIT,Lx_bp_allspe_INIT=Nx_Lx(x,list_size_bp_allspe_INIT,assembly_size_bp_allspe)
       Nx_gene_allspe_INIT,Lx_gene_allspe_INIT=Nx_Lx(x,list_size_geneNb_allspe_INIT,assembly_size_gene_allspe)
-      print "\t\tBEFORE DeCoSTAR:"
-      print "\t\t\t- N"+str(x)+" (bp): "+str(Nx_bp_allspe_INIT)
-      print "\t\t\t- L"+str(x)+" (bp): "+str(Lx_bp_allspe_INIT)
-      print "\t\t\t- N"+str(x)+" (#gene): "+str(Nx_gene_allspe_INIT)
-      print "\t\t\t- L"+str(x)+" (#gene): "+str(Lx_gene_allspe_INIT)
-      print ""
+      print("\t\tBEFORE DeCoSTAR:")
+      print("\t\t\t- N"+str(x)+" (bp): "+str(Nx_bp_allspe_INIT))
+      print("\t\t\t- L"+str(x)+" (bp): "+str(Lx_bp_allspe_INIT))
+      print("\t\t\t- N"+str(x)+" (#gene): "+str(Nx_gene_allspe_INIT))
+      print("\t\t\t- L"+str(x)+" (#gene): "+str(Lx_gene_allspe_INIT))
+      print("")
       Nx_bp_allspe_FIN,Lx_bp_allspe_FIN=Nx_Lx(x,list_size_bp_allspe,assembly_size_bp_allspe)
       Nx_gene_allspe_FIN,Lx_gene_allspe_FIN=Nx_Lx(x,list_size_geneNb_allspe,assembly_size_gene_allspe)
       Nx_bp_allspe_fold=round(float(Nx_bp_allspe_FIN)/float(Nx_bp_allspe_INIT),2)
       Lx_bp_allspe_fold=round(float(Lx_bp_allspe_INIT)/float(Lx_bp_allspe_FIN),2)
       Nx_gene_allspe_fold=round(float(Nx_gene_allspe_FIN)/float(Nx_gene_allspe_INIT),2)
       Lx_gene_allspe_fold=round(float(Lx_gene_allspe_INIT)/float(Lx_gene_allspe_FIN),2)
-      print "\t\tAFTER DeCoSTAR:"
-      print "\t\t\t- N"+str(x)+" (bp): "+str(Nx_bp_allspe_FIN)
-      print "\t\t\t\t+ fold improvment: "+str(Nx_bp_allspe_fold)
-      print "\t\t\t- L"+str(x)+" (bp): "+str(Lx_bp_allspe_FIN)
-      print "\t\t\t\t+ fold improvment: "+str(Lx_bp_allspe_fold)
-      print "\t\t\t- N"+str(x)+" (#gene): "+str(Nx_gene_allspe_FIN)
-      print "\t\t\t\t+ fold improvment: "+str(Nx_gene_allspe_fold)
-      print "\t\t\t- L"+str(x)+" (#gene): "+str(Lx_gene_allspe_FIN)
-      print "\t\t\t\t+ fold improvment: "+str(Lx_gene_allspe_fold)
+      print("\t\tAFTER DeCoSTAR:")
+      print("\t\t\t- N"+str(x)+" (bp): "+str(Nx_bp_allspe_FIN))
+      print("\t\t\t\t+ fold improvment: "+str(Nx_bp_allspe_fold))
+      print("\t\t\t- L"+str(x)+" (bp): "+str(Lx_bp_allspe_FIN))
+      print("\t\t\t\t+ fold improvment: "+str(Lx_bp_allspe_fold))
+      print("\t\t\t- N"+str(x)+" (#gene): "+str(Nx_gene_allspe_FIN))
+      print("\t\t\t\t+ fold improvment: "+str(Nx_gene_allspe_fold))
+      print("\t\t\t- L"+str(x)+" (#gene): "+str(Lx_gene_allspe_FIN))
+      print("\t\t\t\t+ fold improvment: "+str(Lx_gene_allspe_fold))
       output_stats.write("\t"+str(Nx_bp_allspe_INIT)+"\t"+str(Nx_bp_allspe_FIN)+"\t"+str(Nx_bp_allspe_fold)+"\t"+str(Lx_bp_allspe_INIT)+"\t"+str(Lx_bp_allspe_FIN)+"\t"+str(Lx_bp_allspe_fold)+"\t"+str(Nx_gene_allspe_INIT)+"\t"+str(Nx_gene_allspe_FIN)+"\t"+str(Nx_gene_allspe_fold)+"\t"+str(Lx_gene_allspe_INIT)+"\t"+str(Lx_gene_allspe_FIN)+"\t"+str(Lx_gene_allspe_fold))
       # dict_scaffolding_stats["ALL species"][x]=SCAFFOLDING_STATS(Nx_bp_allspe_INIT,Nx_gene_allspe_INIT,Lx_bp_allspe_INIT,Lx_gene_allspe_INIT,Nx_bp_allspe,Nx_gene_allspe,Lx_bp_allspe,Lx_gene_allspe)
    output_stats.write("\n")
@@ -572,25 +572,25 @@ if __name__ == '__main__':
 ######################
 ### STORE SEQUENCES SIZE FROM FASTA FILES
 ######################
-   print "\n1/ Store sequences size of initial genome assemblies:"
+   print("\n1/ Store sequences size of initial genome assemblies:")
    dict_CTGsize=get_CTGsize(FASTA_dir)
 
 
 ######################
 ### STORE CTG INFOS
 ######################
-   print "\n2/ Store CTG infos:"
+   print("\n2/ Store CTG infos:")
    stdout.flush()
    # dict_spe_ctg_size_INIT,dict_spe_gene=dict(),dict()
    dict_spe_ctg_size_INIT,dict_spe_gene=store_CTG(CTG_file,dict_CTGsize)
    dict_CTGsize.clear()
-   print "DONE"
+   print("DONE")
 
 
 ######################
 ### MERGE CTG/SCAFF LINKED WITH NEW ADJACENCIES PREDICTED BY DECOSTAR
 ######################
-   print "\n3/ Merge sequences with new adjacencies predicted by DeCo*:"
+   print("\n3/ Merge sequences with new adjacencies predicted by DeCo*:")
    dict_spe_new_adj_tot,dict_spe_new_adj_scaff,dict_spe_newADJ,dict_newSCAFF_ID,dict_newSCAFF=dict(),dict(),dict(),dict(),dict()
    dict_spe_ctg_size_FIN=deepcopy(dict_spe_ctg_size_INIT)
    scaff_id=0
@@ -646,7 +646,7 @@ if __name__ == '__main__':
 ######################
 ### WRITE NEW ADJACENCIES FILE
 ######################
-   print "\n4/ Write new adjacencies file \""+OUTPUT_file+"\":"
+   print("\n4/ Write new adjacencies file \""+OUTPUT_file+"\":")
    # Write new adjacencies file
    output_file=open(OUTPUT_file,'w')
    output_file.write("#species\tcontig1\tcontig2\torientation_contig1\torientation_contig2\tgene_family1\tgene_family2\tgene1\tgene2\torientation_gene1\torientation_gene2\tposterior_score\n")
@@ -672,7 +672,7 @@ if __name__ == '__main__':
 ######################
 ### COMPUTE GENOME SCAFFOLDING STATISTICS
 ######################
-   print "\n6/ Compute genome scaffolding statistics:"
+   print("\n6/ Compute genome scaffolding statistics:")
    print_scaffolding_stats(scaff_stats_DIR,x_list,dict_spe_ctg_size_INIT,dict_spe_ctg_size_FIN,dict_spe_new_adj_tot,dict_spe_new_adj_scaff)
    # for species in dict_spe_ctg_size_INIT:
    #    print "\t\tSpecies",species,":"

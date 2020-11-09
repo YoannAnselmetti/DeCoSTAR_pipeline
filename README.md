@@ -6,18 +6,17 @@ This repository contains a pipeline to produce input data for the DeCoSTAR softw
 
 
 # Requirements
-* [Python2](https://www.python.org/.) (≥v.2.6) -> v.2.7:
+* [Python3](https://www.python.org/.) (≥v.3.5) -> v.3.6.9:
+	* [Snakemake](http://snakemake.readthedocs.io/en/stable/) -> v.4.3.1
 	* [Biopython](http://biopython.org/) -> v.1.70
 	* [ETE toolkit](http://etetoolkit.org/) -> v.3.1.1
-	* [Matplotlib](https://matplotlib.org/) -> v.2.1.1
-	* [Numpy](http://www.numpy.org/) -> v.1.14.0
-	* [NetworkX](https://networkx.github.io/) -> v.1.11 (Use of version >2.0 introduced a bug in the linearization step.)
-	* [PyGraphviz](https://pygraphviz.github.io/) -> v.1.3.1
-* [Python3](https://www.python.org/.) (≥v.3.5) -> v.3.5.2:
-	* [Snakemake](http://snakemake.readthedocs.io/en/stable/) -> v.3.5.5 (Newer versions introduced bugs in the pipeline due to modification in input/output management of rules)
+	* [Matplotlib](https://matplotlib.org/) -> v.3.2.1
+	* [Numpy](http://www.numpy.org/) -> v.1.18.1
+	* [NetworkX](https://networkx.github.io/) -> v.2.4 (version >=2.1 -> output of max_weight_matching(): set() (-> dict() before))
+	* [PyGraphviz](https://pygraphviz.github.io/) -> v.1.4rc1	
 * C++ (≥c++11):
-	* [Bio++](http://biopp.univ-montp2.fr/) ([installation instructions](http://biopp.univ-montp2.fr/wiki/index.php/Installation)) -> v.2.4.0
-	* [Boost](www.boost.org) -> v.1.58
+	* [Bio++](http://biopp.univ-montp2.fr/) ([installation instructions](http://biopp.univ-montp2.fr/wiki/index.php/Installation)) -> v.2.4.1
+	* [Boost](www.boost.org) -> v.1.65.1
 
 
 # Software/Tools

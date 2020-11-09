@@ -1,4 +1,4 @@
-#! /usr/bin/env python2
+#! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 ###                                                                            
 ###   Goal:                                                                    
@@ -12,7 +12,7 @@
 ###      - Compute general statitics on a gene trees file     
 ###                                                                            
 ###   Name: trees_stats.py          Author: Yoann Anselmetti     
-###   Creation date: 2018/05/28     Last modification: 2019/05/28
+###   Creation date: 2018/05/28     Last modification: 2020/11/05
 ###                                                                            
 
 from sys import argv
@@ -49,7 +49,7 @@ if __name__ == '__main__':
    input_file=open(gene_trees_file,"r")
    for tree_line in input_file:
       tree_str=tree_line.replace("\n","")
-      # print tree_str
+      # print(tree_str)
       tree=Tree(tree_str)
 
       leaves_nb=0
@@ -61,9 +61,9 @@ if __name__ == '__main__':
 
    input_file.close()
 
-   print sorted(uniq_list_leaves_nb)
+   print(sorted(uniq_list_leaves_nb))
 
 
    # Get and print execution time of the script
    end_time = datetime.now()
-   print('Duration: {}'.format(end_time - start_time))
+   print('\nDuration: {}'.format(end_time-start_time))

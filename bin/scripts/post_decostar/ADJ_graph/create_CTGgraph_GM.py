@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 ###
 ###   Goal:
@@ -22,7 +22,7 @@
 ###      - 
 ###
 ###   Name: create_CTGgraph_GM.py                 Author: Yoann Anselmetti
-###   Creation date: 2016/03/07                   Last modification: 2019/07/17
+###   Creation date: 2016/03/07                   Last modification: 2020/11/09
 ###
 
 from sys import argv, stdout
@@ -77,7 +77,17 @@ if __name__ == '__main__':
 
    ADJ=namedtuple("ADJ",["ctg1","ctg2","sup","links"])
 
-   color_list=("blue","red","green","purple","gold","orangered","chocolate","blueviolet","indigo","fuchsia","crimson","darkgreen","chartreuse4","darkblue","salmon","darkturquoise","cyan","tomato","teal","orchid","maroon","lime","deeppink","darkorange","dodgerblue","coral","sienna","olive","goldenrod","darkcyan","mediumvioletred","darkred","darkgrey","brown","darkgoldenrod","darkolivegreen","darkseagreen","darkslategrey","darkviolet","darkslateblue","orange","yellow","olivedrab")
+   # Add automatic color setting: color='{h:} 1 1'.format(h=i/n)
+   # n=(#chrom)-1
+   # i=chr ID number (0->n)
+   color_list=("blue","red","green","purple","gold","orangered","chocolate",
+               "blueviolet","indigo","fuchsia","crimson","darkgreen",
+               "chartreuse4","darkblue","salmon","darkturquoise","cyan",
+               "tomato","teal","orchid","maroon","lime","deeppink",
+               "darkorange","dodgerblue","coral","sienna","olive","goldenrod",
+               "darkcyan","mediumvioletred","darkred","darkgrey","brown",
+               "darkgoldenrod","darkolivegreen","darkseagreen","darkslategrey",
+               "darkviolet","darkslateblue","orange","yellow","olivedrab")
    color_size=len(color_list)
 
 #####################################################
@@ -103,7 +113,7 @@ if __name__ == '__main__':
          stop_g2=r.group(12)
 
          if species==INPUT_species:
-            # print line
+            # print(line)
             list_CTG.append(ctg)
 
 
@@ -197,11 +207,11 @@ if __name__ == '__main__':
    command_line="dot -Tsvg "+OUTPUT_dot+" -o "+OUTPUT_svg
    subprocess.call(command_line,shell=True)
 
-   # print str(len(list_CTG_rm))+" CTG in AGP file don't contain genes considered by DeCoSTAR:"
+   # print(str(len(list_CTG_rm))+" CTG in AGP file don't contain genes considered by DeCoSTAR:")
    # for ctg in list_CTG_rm:
-   #    print "\t"+ctg
+   #    print("\t"+ctg)
 
 
 
    end_time = datetime.now()
-   print('\nDuration: {}'.format(end_time - start_time))
+   print('\nDuration: {}'.format(end_time-start_time))

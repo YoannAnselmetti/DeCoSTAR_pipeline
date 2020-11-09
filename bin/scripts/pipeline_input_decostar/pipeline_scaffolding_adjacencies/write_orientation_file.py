@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 ###
@@ -17,7 +17,7 @@
 ###      - Sequencing library orientation file with informatins on species given as input
 ###
 ###   Name: write_orientation_file.py             Author: Yoann Anselmetti
-###   Creation date: 2017/11/09               Last modification: 2017/11/13
+###   Creation date: 2017/11/09               Last modification: 2020/11/05
 ###
 
 from sys import argv
@@ -40,7 +40,7 @@ def read_BAM_stats_file(BAMstats_file):
     for line in stats_file:
         r=search("^([^\t ]*)[\t ]+([^\t ]*)[\t ]+([^\t ]*)[\t ]+([^\t ]*)[\t ]+([^\t ]*)[\t ]+([^\t ]*)[\t ]+([^\t ]*)[\t ]+([^\t ]*)[\t ]+([^\t ]*)[\t ]+([^\t ]*)[\t ]+([^\t ]*)[\t ]+([^\t ]*)[\t ]+([^\t ]*)[\t ]+([^\t ]*)[\t ]+([^\t ]*)[\t ]+([^\t ]*)[\t ]+([^\t ]*)[\t ]+([^\t ]*)[\t ]+([^\t ]*)[\t ]+([^\t ]*)[\t ]+([^\t\n ]*)\n$",line)
         if r:
-            print line
+            print(line)
             median_size=r.group(1)
             median_abs_dev=r.group(2)
             mean=r.group(5)

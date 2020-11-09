@@ -1,4 +1,4 @@
-#! /usr/bin/env python2
+#! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 ###
 ###   Goal:
@@ -20,7 +20,7 @@
 ###      - Scaffolding adjacencies gene file for all species
 ###
 ###   Name: create_scaff_adj_file.py   Author: Yoann Anselmetti
-###   Creation date: 2015/12/02               Last modification: 2018/07/26
+###   Creation date: 2015/12/02               Last modification: 2020/11/05
 ###
 
 from sys import argv, stdout
@@ -89,7 +89,7 @@ def store_CTG(CTG_file):
                   dict_spe_ctg[spe]=dict()
                dict_spe_ctg[spe][contig]=ctg
             # else:
-            #    print "\t=> Contig "+contig+" is not present in FASTA file assembly of species "+spe
+            #    print("\t=> Contig "+contig+" is not present in FASTA file assembly of species "+spe)
       else:
          exit("ERROR, line "+line+" of file "+CTG_file+" is incorrectly written!!!\nIt should match with the following format:\n"+CTG_format)
    contig_file.close()
@@ -127,7 +127,7 @@ def read_and_store_scaff_ADj(ctg_scaff_graph_file,dict_spe_edge_scaff):
             disp_score=r.group(7)
             links_nb=r.group(8)
 
-            # print line
+            # print(line)
 
             if ctg1!="scf1/ctg1":
                # Parse ctg1, ori1, ctg2 and ori2 if they are composed of several contigs
@@ -155,7 +155,7 @@ def read_and_store_scaff_ADj(ctg_scaff_graph_file,dict_spe_edge_scaff):
                      # If the current adj is in "dict_spe_edge_scaff" in the reverse order
                      if rev_adj in dict_spe_edge_scaff[species]:
                         if verbose:
-                           print "\tAdjacency:\n",edge,"\nis present in forward and reverse orientation"
+                           print("\tAdjacency:\n",edge,"\nis present in forward and reverse orientation")
                         if best_adj(dict_spe_edge_scaff[species][rev_adj],rev_edge):
                            dict_spe_edge_scaff[species][rev_adj]=rev_edge
                      # If current adj is not present in "dict_spe_edge_scaff", store it in "dict_spe_edge_scaff"
@@ -173,13 +173,13 @@ def store_ADJ(BESST_dir,species,dict_spe_edge_scaff):
       i=1
       while i<=score_files_nb:
          ctg_scaff_graph_file=BESST_dir+"/"+species+"/BESST_output/score_file_pass_"+str(i)+".tsv"
-         print "\t"+ctg_scaff_graph_file
+         print("\t"+ctg_scaff_graph_file)
          read_and_store_scaff_ADj(ctg_scaff_graph_file,dict_spe_edge_scaff)
          i+=1
    else:
       for SRX in listdir(BESST_dir+"/"+species):
          ctg_scaff_graph_file=BESST_dir+"/"+species+"/"+SRX+"/BESST_output/score_file_pass_1.tsv"
-         print "\t"+ctg_scaff_graph_file
+         print("\t"+ctg_scaff_graph_file)
          read_and_store_scaff_ADj(ctg_scaff_graph_file,dict_spe_edge_scaff)
 
    return dict_spe_edge_scaff
@@ -246,39 +246,39 @@ if __name__ == '__main__':
 ###########
 ### STORE CTG INFOS OF "CTG_file" IN "dict_spe_ctg"
 ###########
-   print "1/ Store infos contained in CTG file \""+CTG_file+"\"...",
+   print("1/ Store infos contained in CTG file \""+CTG_file+"\"...", end=' ')
    stdout.flush()
    dict_spe_ctg=store_CTG(CTG_file)
-   print "DONE"
+   print("DONE")
 
    # for spe in dict_spe_ctg:
    #    for ctg in dict_spe_ctg[spe]:
-   #       print ctg+":",dict_spe_ctg[spe][ctg]
+   #       print(ctg+":",dict_spe_ctg[spe][ctg])
 
 
 
 ###########
 ### BROWSE "BESST_dir" TO GET SCAFFOLDING ADJACENCIES PROPOSED BY BESST AND STORE IT IN "dict_edge_scaff"
 ###########
-   print "2/ Get, filter and store scaffolding adjacencies predicted by BESST present in directory \""+BESST_dir+"\":"
+   print("2/ Get, filter and store scaffolding adjacencies predicted by BESST present in directory \""+BESST_dir+"\":")
    Nb_scaff_edge_tot=0
    Nb_scaff_edge_kept=0
    dict_spe_edge_scaff=dict()
    for species in sorted(listdir(BESST_dir)):
-      print species+":"
+      print(species+":")
       dict_spe_edge_scaff[species]=dict()
       dict_spe_edge_scaff=store_ADJ(BESST_dir,species,dict_spe_edge_scaff)
 
    # for spe in dict_spe_edge_scaff:
    #    for adj in dict_spe_edge_scaff[spe]:
-   #       print adj,"=>",dict_spe_edge_scaff[spe][adj]
+   #       print(adj,"=>",dict_spe_edge_scaff[spe][adj])
 
 
 
 ###########
 ### ADD CTG/GENE INFOS ON SCAFFOLDING ADJACENCIES AND WRITE THEM IN "OUTPUT_file"
 ###########
-   print "3/ Add gene/contig infos to scaffolding adjacencies and write them in OUTPUT file \""+OUTPUT_file+"\"... ",
+   print("3/ Add gene/contig infos to scaffolding adjacencies and write them in OUTPUT file \""+OUTPUT_file+"\"... ", end=' ')
    stdout.flush()
    scaff_gene_file=open(OUTPUT_file,"w")
    scaff_gene_file.write("#species\tctg1\tctg2\torientation_ctg1\torientation_ctg2\tctg1-ctg2_dist\tgene1_family\tgene2_family\tgene1\tgene2\torientation_gene1\torientation_gene2\tgene1-gene2_dist\tvscore\tdscore\t#links\n")
@@ -318,7 +318,7 @@ if __name__ == '__main__':
             scaff_gene_file.write(species+"\t"+ctg1+"\t"+ctg2+"\t"+oriC1+"\t"+oriC2+"\t"+str(gap)+"\t"+gf1+"\t"+gf2+"\t"+g1+"\t"+g2+"\t"+oriG1+"\t"+oriG2+"\t"+str(dist)+"\t"+str(vscore)+"\t"+str(dscore)+"\t"+str(link)+"\n")
 
    scaff_gene_file.close() 
-   print "DONE"
+   print("DONE")
 
 
 

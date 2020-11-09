@@ -1,4 +1,4 @@
-#! /usr/bin/env python2
+#! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 ###                                                                            
 ###   Goal:                                                                    
@@ -22,7 +22,7 @@
 ###      - Create annotation gene file for ARt-DeCo_seq instance creation      
 ###                                                                            
 ###   Name: filter_GENE_with_geneTrees.py      Author: Yoann Anselmetti     
-###   Creation date: 2015/11/11                   Last modification: 2017/11/07
+###   Creation date: 2015/11/11                Last modification: 2020/11/05
 ###                                                                            
 
 from sys import argv
@@ -79,7 +79,7 @@ if __name__ == '__main__':
 ############################################
 ### INDEXATION OF GENES INFOS BY GENE ID ###
 ############################################
-   print "INDEX of gene info by gene ID ...",
+   print("INDEX of gene info by gene ID ...", end=' ')
    dict_ID_gene=dict()
    with open(GENE_file,'r') as ortho_file:
       for line in ortho_file:
@@ -103,14 +103,14 @@ if __name__ == '__main__':
          else:
             exit("\n!!! ERROR, in line:\n\t"+line+" of file "+GENE_file+" is not to the expected format\n!!!")
    ortho_file.close()
-   print "DONE"
+   print("DONE")
 
 
 
    ########################
    ### with ETE3 module ###
    ########################
-   print "Browse gene trees file "+GT_file+" to filter gene annotation file:"
+   print("Browse gene trees file "+GT_file+" to filter gene annotation file:")
    i=0
    output_annot=open(OUTPUT_annot_file,"w")
    input_file=open(GT_file,"r")
@@ -119,7 +119,7 @@ if __name__ == '__main__':
    for tree_line in input_file:
       list_genes=list()
       tree_str=tree_line.replace("\n","")
-      # print tree_str
+      # print(tree_str)
       tree=Tree(tree_str)
       # Get list of extant genes in current gene tree
       for spe_gene in tree.get_leaf_names():
@@ -132,9 +132,9 @@ if __name__ == '__main__':
                output_annot.write(dict_ID_gene[gene].spe+"\t"+dict_ID_gene[gene].ctg+"\t"+dict_ID_gene[gene].gf+"\t"+dict_ID_gene[gene].id+"\t"+dict_ID_gene[gene].ori+"\t"+dict_ID_gene[gene].start+"\t"+dict_ID_gene[gene].end+"\t"+dict_ID_gene[gene].exon_nb+"\t"+dict_ID_gene[gene].exon_pos+"\n")
                dict_ID_gene.pop(gene,None)
             else:
-               print "\tGene "+gene+" is not present in GENE file "+GENE_file+" !!!"
+               print("\tGene "+gene+" is not present in GENE file "+GENE_file+" !!!")
 
-   print "\n\t=> There are "+str(len(dict_ID_gene))+" genes present in GENE file "+GENE_file+" but not present in gene trees file "+GT_file+" !!!\n"
+   print("\n\t=> There are "+str(len(dict_ID_gene))+" genes present in GENE file "+GENE_file+" but not present in gene trees file "+GT_file+" !!!\n")
    if bool_GENE:
       for gene in dict_ID_gene:
          output_annot.write(dict_ID_gene[gene].spe+"\t"+dict_ID_gene[gene].ctg+"\tNA\t"+dict_ID_gene[gene].id+"\t"+dict_ID_gene[gene].ori+"\t"+dict_ID_gene[gene].start+"\t"+dict_ID_gene[gene].end+"\t"+dict_ID_gene[gene].exon_nb+"\t"+dict_ID_gene[gene].exon_pos+"\n")
@@ -150,4 +150,4 @@ if __name__ == '__main__':
 
    # Get and print execution time of the script
    end_time = datetime.now()
-   print('Duration: {}'.format(end_time - start_time))
+   print('\nDuration: {}'.format(end_time-start_time))

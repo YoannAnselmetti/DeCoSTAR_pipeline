@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 ###
 ###   Goal:
@@ -32,7 +32,7 @@
 ###      - OUTPUT directory containing 1 FASTA file/Gene family            
 ###                                                                        
 ###   Name: 01-orthologs_FASTA_file.py        Author: Yoann Anselmetti     
-###   Creation date: 2016/03/09               Last modification: 2016/11/28
+###   Creation date: 2016/03/09               Last modification: 2020/11/05
 ###
 
 
@@ -58,7 +58,7 @@ def replaceStringInFile(filePath,old_pattern,new_pattern):
    tempName = filePath+'~~~'
    inputFile = open(filePath)
    outputFile = open(tempName,'w')
-   fContent = unicode(inputFile.read(), "utf-8")
+   fContent = str(inputFile.read(), "utf-8")
 
    outText = sub(old_pattern, new_pattern, fContent)
    outputFile.write((outText.encode("utf-8")))
@@ -71,7 +71,7 @@ def replaceStringInFile(filePath,old_pattern,new_pattern):
 # def root_gene_tree(tree_file,notung_path,species_tree):
 #    output_dir=path.dirname(path.abspath(tree_file))
 #    command_line="java -jar "+notung_path+" --speciestag nhx -g "+tree_file+" -s "+species_tree+" --root --costdup 2 --costloss 1 --nolosses --maxtrees 5 --allopt --treeoutput newick --outputdir "+output_dir+"; mv "+tree_file+".rooting.0 "+tree_file
-#    print "\t"+command_line
+#    print("\t"+command_line)
 #    process = subprocess.Popen(command_line.split(), stdout=subprocess.PIPE)
 #    output, error = process.communicate()
 
@@ -82,7 +82,7 @@ def add_species_name_to_geneID(gene,dict_geneID_speciesName,order_bool):
    # Find species corresponding to the gene
    for geneID in dict_geneID_speciesName:
       if geneID in gene:
-         print "\t"+gene
+         print("\t"+gene)
          species=dict_geneID_speciesName[geneID]
          break
    # Add species name to gene ID with separator
@@ -102,11 +102,11 @@ def write_output(list_genes,OUTPUT_dir_MSA,GF_ID,OUTPUT_dir_GT,dict_geneID_speci
    if len(list_genes)>3:
       # Open FASTA file for the current gene tree
       output_file=open(OUTPUT_dir_MSA+"/"+GF_ID,'w')   
-      # print "(GFsize>3):"
+      # print("(GFsize>3):")
       # Browse list_genes to create FASTA file of the current gene tree
       for gene in list_genes:
          if gene in dict_ID_seq:
-            # print "\t"+gene
+            # print("\t"+gene)
             output_file.write(dict_ID_seq[gene]+"\n")
       output_file.close()
 
@@ -114,28 +114,28 @@ def write_output(list_genes,OUTPUT_dir_MSA,GF_ID,OUTPUT_dir_GT,dict_geneID_speci
    elif (len(list_genes)==2 or len(list_genes)==3):
       tree_str=""
       if len(list_genes)==2:
-         # print "(GFsize==2):"
+         # print("(GFsize==2):")
          gene1=add_species_name_to_geneID(list_genes[0],dict_geneID_speciesName,order_bool)
          gene2=add_species_name_to_geneID(list_genes[1],dict_geneID_speciesName,order_bool)
          tree_str="("+gene1+","+gene2+");"
       else:
-         # print "(GFsize==3):"
+         # print("(GFsize==3):")
          gene1=add_species_name_to_geneID(list_genes[0],dict_geneID_speciesName,order_bool)
          gene2=add_species_name_to_geneID(list_genes[1],dict_geneID_speciesName,order_bool)
          gene3=add_species_name_to_geneID(list_genes[2],dict_geneID_speciesName,order_bool)
          tree_str="("+gene1+","+gene2+","+gene3+");"
 
       # Load current gene family in Tree object "tree" and write it in OUTPUT_tree file
-      # print tree_str
+      # print(tree_str)
       tree=Tree(tree_str)
-      # print tree
+      # print(tree)
       OUTPUT_tree=OUTPUT_dir_GT+"/"+GF_ID+".nwk"
       tree.write(format=9,outfile=OUTPUT_tree)
 
 
    else:
       gf_size_one.append(GF_ID)
-      print "Gene family "+GF_ID+" is empty or has a size of 1 gene!!!"
+      print("Gene family "+GF_ID+" is empty or has a size of 1 gene!!!")
 
 
 if __name__ == '__main__':
@@ -213,7 +213,7 @@ if __name__ == '__main__':
 ##########################################################################
 ### GET ALL CDS SEQUENCE AND STORE IT BY GENE_ID, THEN BY SPECIES NAME ###
 ##########################################################################
-   print "Indexation of gene_ID and associated CDS sequence by species name:"
+   print("Indexation of gene_ID and associated CDS sequence by species name:")
    dict_ID_seq={}
    for CDS in sorted(listdir(INPUT_dir_CDS)):
       species=""
@@ -224,13 +224,13 @@ if __name__ == '__main__':
          genus=r_cds.group(1)
          spe=r_cds.group(2)
          species=genus+"_"+spe
-         print "\t"+species
+         print("\t"+species)
       elif r_cds2:
          species=r_cds2.group(1)
-         print "\t"+species
+         print("\t"+species)
       elif r_pep:
          species=r_pep.group(1)
-         print "\t"+species
+         print("\t"+species)
       else:
          exit("ERROR, name of file "+INPUT_dir_CDS+"/"+CDS+" is bad written!!!")
 
@@ -268,7 +268,7 @@ if __name__ == '__main__':
 ##################################################################################################################################################
 ### READING GENE FAMILIES/TREES FILE(S) STORE THEM AND WRITE GENE FAMILIES FASTA FILES (SIZE>=3 GENES) OR WIRTE GENE TREE (SIZE==2 OR 3 GENES) ###
 ##################################################################################################################################################
-   print "Reading gene families file, store them and write them."
+   print("Reading gene families file, store them and write them.")
    bool_file=""
    input_file=open(GF_file,"r")
    list_check_genes=list()
@@ -282,10 +282,10 @@ if __name__ == '__main__':
          r=search("^\(",line)
          if r:
             bool_file="GT"
-            print "File containing gene cluster is a gene TREES file"
+            print("File containing gene cluster is a gene TREES file")
          else:
             bool_file="GF"
-            print "File containing gene cluster is a gene FAMILIES file"
+            print("File containing gene cluster is a gene FAMILIES file")
 
       if bool_file=="GF":
          r=search("^([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t([^\t\n]*)\n$",line)
@@ -318,7 +318,7 @@ if __name__ == '__main__':
                         list_check_genes.append(Gene_ID)
                      else:
                         list_genes_multi.append(Gene_ID)
-                        print "!!! "+Gene_ID+" is present in several gene families !!!"
+                        print("!!! "+Gene_ID+" is present in several gene families !!!")
 
                   if not ODBMOZ2_OG_ID in dict_gfID_geneslist:
                      dict_gfID_geneslist[ODBMOZ2_OG_ID]=list()
@@ -327,7 +327,7 @@ if __name__ == '__main__':
       elif bool_file=="GT":
          list_genes=list()
          tree_str=line.replace("\n","")
-         # print tree_str
+         # print(tree_str)
          tree=Tree(tree_str)
          # Get list of extant genes in current gene tree
          for gene in tree.get_leaf_names():
@@ -337,7 +337,7 @@ if __name__ == '__main__':
                   list_check_genes.append(gene)
                else:
                   list_genes_multi.append(gene)
-                  print "!!! "+gene+" is present in several gene families !!!"
+                  print("!!! "+gene+" is present in several gene families !!!")
 
             gene_present=False
             # Check if species of the gene is present in "speciesName_geneID_file". Else we have to prune current gene tree to filter this gene
@@ -358,18 +358,18 @@ if __name__ == '__main__':
    if bool_file=="GF":
       for gfID in dict_gfID_geneslist:
          list_genes=dict_gfID_geneslist[gfID]
-         print 
+         print("")
          write_output(list_genes,OUTPUT_dir_MSA,gfID,OUTPUT_dir_GT,dict_geneID_speciesName,order_bool,sep,species_tree,GF_size_one)
 
    if check_gene_in_multi_GF:
-      print "There are "+str(len(list_genes_multi))+" genes that are present in several gene families/trees:"
+      print("There are "+str(len(list_genes_multi))+" genes that are present in several gene families/trees:")
       for gene in list_genes_multi:
-         print "\t"+gene
+         print("\t"+gene)
 
-   print "There are "+str(len(GF_size_one))+" gene families of size <=1 gene !!!:"
+   print("There are "+str(len(GF_size_one))+" gene families of size <=1 gene !!!:")
    for gf in GF_size_one:
-      print "\t"+gf
+      print("\t"+gf)
 
 
    end_time = datetime.now()
-   print('Duration: {}'.format(end_time - start_time))
+   print('\nDuration: {}'.format(end_time - start_time))

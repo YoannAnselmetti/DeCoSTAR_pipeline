@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 ###
 ###   Goal:
@@ -25,7 +25,7 @@
 ###      - Combination of chromosome map with DeCoSTAR prediction (could be improved to take several methods: GOS-ASM for example)
 ###
 ###   Name: create_CTGgraph.py                    Author: Yoann Anselmetti
-###   Creation date: 2016/03/07                   Last modification: 2019/07/17
+###   Creation date: 2016/03/07                   Last modification: 2020/11/09
 ###
 
 from sys import argv, stdout
@@ -186,7 +186,7 @@ if __name__ == '__main__':
       # ctg2=adj.ctg2.split("_")[0]
       ctg1=adj.ctg1
       ctg2=adj.ctg2
-      # print adj
+      # print(adj)
       # If the ADJ cooresponds to a CTG
       if adj.sup=="?":
          # If ARt-DeCo results (adj without DeClone support)
@@ -240,4 +240,4 @@ if __name__ == '__main__':
    subprocess.call(command_line,shell=True)
 
    end_time = datetime.now()
-   print('\nDuration: {}'.format(end_time - start_time))
+   print('\nDuration: {}'.format(end_time-start_time))

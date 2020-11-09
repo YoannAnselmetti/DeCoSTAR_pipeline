@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 ###
 ###   Goal:
@@ -20,7 +20,7 @@
 ###      - File with new adjacencies predicted by DeCoSTAR not present in chromosome map 
 ###
 ###   Name: get_newADJ_not_in_chrMAP.py           Author: Yoann Anselmetti
-###   Creation date: 2016/06/13                   Last modification: 2018/06/28
+###   Creation date: 2016/06/13                   Last modification: 2020/11/06
 ###
 
 from sys import argv, stdout
@@ -197,7 +197,7 @@ if __name__ == '__main__':
 
             else:
                list_CTH_chrMAP_noGENE.append(ctg)
-               print "!!!WARNING!!! => The scaffold "+ctg+" is not present in CTG_file "+CTG_file
+               print("!!!WARNING!!! => The scaffold "+ctg+" is not present in CTG_file "+CTG_file)
       else:
          exit("!!! ERROR, line:\n\t"+line+" of file "+NewADJ_file+" is incorrectly written !!!")
    map_file.close()
@@ -324,9 +324,9 @@ if __name__ == '__main__':
                   # print newADJ
                   list_outADJ.append(newADJ)
                   if gene==newADJ.g1:
-                     find_newadj_path(newADJ.g2,dict_newADJ,dict_gmADJ.keys(),dict_geneCTG,list_outADJ)
+                     find_newadj_path(newADJ.g2,dict_newADJ,list(dict_gmADJ.keys()),dict_geneCTG,list_outADJ)
                   elif gene==newADJ.g2:
-                     find_newadj_path(newADJ.g1,dict_newADJ,dict_gmADJ.keys(),dict_geneCTG,list_outADJ)
+                     find_newadj_path(newADJ.g1,dict_newADJ,list(dict_gmADJ.keys()),dict_geneCTG,list_outADJ)
 
    #####################################################################################
    ### Print new adjacencies connected to Genetic map but not present in Genetic Map ###
@@ -338,18 +338,18 @@ if __name__ == '__main__':
       output.write(adj.ctg1+"\t"+adj.ctg2+"\t"+adj.oriC1+"\t"+adj.oriC2+"\t"+adj.distC+"\t"+adj.gf1+"\t"+adj.gf2+"\t"+adj.g1+"\t"+adj.g2+"\t"+adj.oriG1+"\t"+adj.oriG2+"\t"+adj.distG+"\t"+adj.vscore+"\t"+adj.dscore+"\t"+adj.links+"\t"+adj.supp+"\n")
    output.close()
 
-   print "List of CTG that are linked to the chromosome MAP by DeCoSTAR:"
+   print("List of CTG that are linked to the chromosome MAP by DeCoSTAR:")
    for ctg in list_newCTG:
-      print ctg
+      print(ctg)
 
-   print "\nList of CTG WITH gene in INPUT chromosome MAP:"
+   print("\nList of CTG WITH gene in INPUT chromosome MAP:")
    for ctg in listCTG_chrMAP:
-      print ctg
+      print(ctg)
 
-   print "\nList of CTG WITHOUT gene in INPUT chromosome MAP:"
+   print("\nList of CTG WITHOUT gene in INPUT chromosome MAP:")
    for ctg in list_CTH_chrMAP_noGENE:
-      print ctg
+      print(ctg)
 
 
    end_time = datetime.now()
-   print('\nDuration: {}'.format(end_time - start_time))
+   print('\nDuration: {}'.format(end_time-start_time))

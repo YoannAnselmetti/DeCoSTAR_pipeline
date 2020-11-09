@@ -1,4 +1,4 @@
-#! /usr/bin/env python2
+#! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 ###
 ###   Goal:                                                                    
@@ -21,7 +21,7 @@
 ###      - INPUT files for ARt-DeCo_seq (Gene & Adjacency files)               
 ###                                                                            
 ###   Name: create_ADJfile_for_DeCoSTAR.py     Author: Yoann Anselmetti     
-###   Creation date: 2016/04/01                Last modification: 2017/11/09
+###   Creation date: 2016/04/01                Last modification: 2020/11/03
 ###
 
 from sys import argv, stdout

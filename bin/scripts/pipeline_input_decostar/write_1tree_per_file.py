@@ -1,4 +1,4 @@
-#! /usr/bin/env python2
+#! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 ###
 ###   Goal:
@@ -21,7 +21,7 @@
 ###      - Gene trees files used as INPUT by DeCoST
 ###
 ###   Name: write_1tree_per_file.py    Author: Yoann Anselmetti
-###   Creation date: 2016/09/02        Last modification: 2017/11/07
+###   Creation date: 2016/09/02        Last modification: 2020/11/05
 ###
 
 
@@ -93,18 +93,18 @@ if __name__ == '__main__':
       tree=Tree(tree_line)
       # Get list of extant genes in current gene tree
       for leaf in tree.get_leaf_names():
-         # print leaf
+         # print(leaf)
          gene=""
          if separator in leaf:
             gene=leaf.split(separator)[1]
          else:
             gene=leaf
          
-         # print gene
+         # print(gene)
 
          if gene in dict_geneID_gfID:
             gfID=dict_geneID_gfID[gene]
-            # print gfID
+            # print(gfID)
             i+=1
             file_name=gfID+".nwk"
             output_treefile=open(output_dir+"/"+file_name,"w")
@@ -112,9 +112,12 @@ if __name__ == '__main__':
             output_treefile.close()
             output_trees.write(path_written+"/"+gfID+".nwk\n")
          # else:
-         #    print "Gene family of gene "+gene+" is no more present after gene trees inference pipeline"
+         #    print("Gene family of gene "+gene+" is no more present after gene trees inference pipeline")
          break
 
    input_file.close()
    output_trees.close()
-   print "There are "+str(i)+" gene families in OUTPUT directory "+output_dir
+   print("There are "+str(i)+" gene families in OUTPUT directory "+output_dir)
+
+   end_time = datetime.now()
+   print('\nDuration: {}'.format(end_time-start_time))

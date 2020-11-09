@@ -1,4 +1,4 @@
-#! /usr/bin/env python2
+#! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 ###
 ###   Goal:
@@ -14,7 +14,7 @@
 ###      - New gene trees file limited to species present in species tree
 ###
 ###   Name: filter_geneTrees_with_speciesTrees.py      Author: Yoann Anselmetti     
-###   Creation date: 2015/11/11                        Last modification: 2019/07/17
+###   Creation date: 2015/11/11                        Last modification: 2020/11/05
 ###                                                                            
 
 from sys import argv
@@ -53,13 +53,13 @@ if __name__ == '__main__':
    species_tree=Tree(species_file)
    list_species=species_tree.get_leaf_names()
 
-   print list_species
+   print(list_species)
 
    input_file=open(GT_infile,"r")
    output_file=open(GT_outfile,"w")
    for tree_line in input_file:
       tree_str=tree_line.replace("\n","")
-      # print tree_str
+      # print(tree_str)
       tree=Tree(tree_str)
       list_genes=list()
       for spe_gene in tree.get_leaf_names():

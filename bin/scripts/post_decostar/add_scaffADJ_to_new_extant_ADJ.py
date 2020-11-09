@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 ###
 ###   Goal:
@@ -16,7 +16,7 @@
 ###      - New extant adjacencies file predicted by DeCoSTAR with CTG/SCAFF infos
 ###
 ###   Name: 05-add_scaffADJ_to_new_extant_ADJ.py  Author: Yoann Anselmetti
-###   Creation date: 2016/03/07                   Last modification: 2018/06/26
+###   Creation date: 2016/03/07                   Last modification: 2020/11/04
 ###
 
 from sys import argv, stdout
@@ -72,7 +72,7 @@ if __name__ == '__main__':
 ##################
 ### BROWSE NEW EXTANT ADJACENCIES FILE PROPOSED BY DeCoSTAR
 ##################
-   print "1/ Store new extant adjacencies predicted by DeCoSTAR... ",
+   print("1/ Store new extant adjacencies predicted by DeCoSTAR... ", end=' ')
    dict_ADJ=dict()
    adj_in_DeCoSTAR=0
    # Browse new extant adjacencies file and store adj of selected species in "list_ADJ"
@@ -100,14 +100,14 @@ if __name__ == '__main__':
                dict_ADJ[species]=list()
             dict_ADJ[species].append(adj)
    newadj_file.close()
-   print "DONE\n"
+   print("DONE\n")
 
 
 
 ##################
 ### BROWSE NEW ADJ FILE PROPOSED BY DeCoSTAR
 ##################
-   print "2/ Write new adjacencies predicted by DeCoSTAR with SCAFF infos in file "+OUTPUT_file+"... ",
+   print("2/ Write new adjacencies predicted by DeCoSTAR with SCAFF infos in file "+OUTPUT_file+"... ", end=' ')
    stdout.flush()
    dict_spe_newAdj={}
    scaff_adj_nb=0
@@ -161,12 +161,12 @@ if __name__ == '__main__':
       for adj in dict_ADJ[species]:
          output_file.write(adj.spe+"\t"+adj.ctg1+"\t"+adj.ctg2+"\t"+adj.oriC1+"\t"+adj.oriC2+"\t?\t"+adj.gf1+"\t"+adj.gf2+"\t"+adj.g1+"\t"+adj.g2+"\t"+adj.oriG1+"\t"+adj.oriG2+"\t?\tN/A\tN/A\tN/A\t"+adj.sup+"\n")
    output_file.close()
-   print "DONE\n"
+   print("DONE\n")
 
-   print "3/ Statictis on common adjacencies between BESST and DeCoSTAR:\n"
-   print "\tThere are "+str(common_adj)+" scaffolding ADJ proposed by BESST AND DeCoSTAR"
-   print "\tThere are "+str(len(list_scaff_not_in_DeCoSTAR))+"/"+str(scaff_adj_nb)+" scaffolding ADJ proposed by BESST that are not predicted by DeCoSTAR"
-   print "\tThere are "+str(DeCoSTAR_not_in_SCAFF)+"/"+str(adj_in_DeCoSTAR)+" ADJ predicted by DeCoSTAR that are not proposed by BESST"
+   print("3/ Statictis on common adjacencies between BESST and DeCoSTAR:\n")
+   print("\tThere are "+str(common_adj)+" scaffolding ADJ proposed by BESST AND DeCoSTAR")
+   print("\tThere are "+str(len(list_scaff_not_in_DeCoSTAR))+"/"+str(scaff_adj_nb)+" scaffolding ADJ proposed by BESST that are not predicted by DeCoSTAR")
+   print("\tThere are "+str(DeCoSTAR_not_in_SCAFF)+"/"+str(adj_in_DeCoSTAR)+" ADJ predicted by DeCoSTAR that are not proposed by BESST")
 
 ##################
 ### Sort OUTPUT new adjacencies file

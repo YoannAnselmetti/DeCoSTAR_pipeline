@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 ###
 ###   Goal:
@@ -13,7 +13,7 @@
 ###      - Stats file on gap size
 ###
 ###   Name: BESST_stats.py                      Author: Yoann Anselmetti
-###   Creation date: 2015/10/21                 Last modification: 2017/07/19
+###   Creation date: 2015/10/21                 Last modification: 2020/11/05
 ###
 
 
@@ -144,7 +144,7 @@ if not path.exists(OUTPUT_DIR):
    mkdir_p(OUTPUT_DIR)
 
 
-print "\nBrowse BESST score file analyze statistics on link number per contigs pairs AND on gap size"
+print("\nBrowse BESST score file analyze statistics on link number per contigs pairs AND on gap size")
 # Creation of dictionary "dict_link" to link pair of link contigs with list of PE/MP reads linking them
 list_link_nb=list()
 list_gap_size=list()
@@ -227,16 +227,16 @@ for nb_link in list_link_nb:
       OUT3.write(" "+str(nb_link))
 OUT3.close()
 
-print "\nStatistics on gap size:"
-print "   - There are "+str(len(list_gap_size))+" pairs of contigs linked:"
-print "      + Min gap size: "+str(gap_size_min)
-print "      + Max gap size: "+str(gap_size_max)
-print "      + Mean gap size: "+str(mean(list_gap_size))
-print "      + SD gap size: "+str(SD(list_gap_size))
+print("\nStatistics on gap size:")
+print("   - There are "+str(len(list_gap_size))+" pairs of contigs linked:")
+print("      + Min gap size: "+str(gap_size_min))
+print("      + Max gap size: "+str(gap_size_max))
+print("      + Mean gap size: "+str(mean(list_gap_size)))
+print("      + SD gap size: "+str(SD(list_gap_size)))
 
-print "\nStatistics on linked contigs:"
-print "   - There are "+str(len(list_link_nb))+" pairs of contigs linked by "+str(tot_link_nb)+" paired reads:"
-print "      + Min number of links per contigs pair: "+str(link_nb_min)
-print "      + Max number of links per contigs pair: "+str(link_nb_max)
-print "      + Mean number of links per contigs pair: "+str(mean(list_link_nb))
-print "      + SD number of links per contigs pair: "+str(SD(list_link_nb))
+print("\nStatistics on linked contigs:")
+print("   - There are "+str(len(list_link_nb))+" pairs of contigs linked by "+str(tot_link_nb)+" paired reads:")
+print("      + Min number of links per contigs pair: "+str(link_nb_min))
+print("      + Max number of links per contigs pair: "+str(link_nb_max))
+print("      + Mean number of links per contigs pair: "+str(mean(list_link_nb)))
+print("      + SD number of links per contigs pair: "+str(SD(list_link_nb)))
